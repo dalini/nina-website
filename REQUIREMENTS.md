@@ -87,7 +87,7 @@
 ### Legal pages and consent
 
 - **FR-9.1** Every page MUST link to the Impressum and the Datenschutzerklärung.
-- **FR-9.2** Until a visitor has chosen, every page MUST show a consent banner for visitor statistics (`SECURITY.md` SEC-PRIV-5) with Accept and Decline buttons of equal prominence. The choice MUST be stored in the visitor's browser and MUST NOT be asked again until it is withdrawn; the footer of every page MUST offer a link that reopens the banner so the choice can be changed or withdrawn. Pages MUST remain fully usable while the banner is shown and after Decline.
+- **FR-9.2** Until a visitor has chosen, every page MUST show a consent banner for visitor statistics (`SECURITY.md` SEC-PRIV-5) with Accept and Decline buttons of equal prominence. The choice MUST be stored in the visitor's browser and MUST NOT be asked again until it is withdrawn; the footer of every page MUST offer a link that reopens the banner so the choice can be changed or withdrawn. Pages MUST remain fully usable while the banner is shown and after Decline, and pages and the banner MUST also work when the Google tag cannot load (blocked by the browser or an extension, or Google unreachable). (Threat: `SECURITY.md` T-84; open: SQ-23, whether the banner asks again when its text or purposes change.)
 
 ### Content editing
 
@@ -117,4 +117,4 @@
 
 ## Open Questions
 
-None. OQ-1 to OQ-10 were resolved in step 10; PQ-35 to PQ-53 were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`).
+OQ-1 to OQ-10 were resolved in step 10; PQ-35 to PQ-53 were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`). Open since the step 8 re-run (threat model v3): `SECURITY.md` SQ-23, whether the consent banner (FR-9.2) records its version and asks again when it changes.
