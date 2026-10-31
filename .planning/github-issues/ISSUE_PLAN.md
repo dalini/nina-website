@@ -800,3 +800,18 @@ gh issue create --title "[REQ-MIGRATION-040] Import each legacy work's materials
 gh issue create --title "[REQ-MIGRATION-020] Import legacy works without a year as unpublished, publish the rest, and feature the newest work" --body-file ".planning/github-issues/121-REQ-MIGRATION-020.md"  # parent: REQ-MIGRATION-000
 gh issue create --title "[REQ-MIGRATION-030] Give every migrated image interim alt text made of the work title and the view number" --body-file ".planning/github-issues/122-REQ-MIGRATION-030.md"  # parent: REQ-MIGRATION-000
 ```
+
+## CREATE Run Log
+
+### 2026-10-31: CREATE attempt stopped at pre-flight
+
+Step 9 with `Execution mode: CREATE`, run against the fourth-run drafts above. The specs have not changed since those drafts (the last spec commit is step 10 a third time, before the drafts), so they were to be created as they are.
+
+| Pre-flight check | Result |
+|---|---|
+| 1. `gh auth status` | **FAILED**: "You are not logged into any GitHub hosts." |
+| 2. Target repository | `origin` is `https://github.com/dalini/nina-website.git` (matches) |
+| 3. `--body-file` and `--parent` | Both supported by `gh` 2.103.3 |
+| 4. Existing issues reusing planning IDs | Not checked: needs an authenticated `gh` |
+
+Nothing was created, changed or deleted on GitHub: 0 created, 0 reused, 0 failed. The `{{ISSUE_URL:<ID>}}` placeholders stay as they are. To continue, run `gh auth login` (or set `GH_TOKEN`) with an account that can create issues in `dalini/nina-website`, then run step 9 again with `Execution mode: CREATE`.
