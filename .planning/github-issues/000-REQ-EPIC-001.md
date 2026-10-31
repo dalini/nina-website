@@ -15,7 +15,7 @@
 
 - **Statement**: The system MUST implement every requirement in REQUIREMENTS.md and every rule in SECURITY.md through the components and dependency rules of ARCHITECTURE.md and the design language of DESIGN.md; this epic is done when every sub-issue is closed and every row of the coverage table in `.planning/github-issues/ISSUE_PLAN.md` is COVERED or OUT OF SCOPE.
 - **Rationale**: nina-laaf.de presents Nina Laaf's work to curators, galleries, collectors, press and the public and makes it easy to contact her (REQUIREMENTS.md Required Requirement Inputs).
-- **Assumptions**: None. Step 10 (`.planning/OPEN_QUESTIONS.md`) replaced the earlier ASSUMPTIONs: the Content Store is `dalini/nina-content` without large-file storage; builds run on a 5-minute poll and nightly; the maintainer is Ives.
+- **Assumptions**: None. Step 10 (`.planning/OPEN_QUESTIONS.md`) replaced the earlier ASSUMPTIONs: the Content Store is `dalini/nina-content` without large-file storage; builds are started by a content check on the VPS when content changed, and nightly; the maintainer is Ives.
 - **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4: none); analytics scripts (SEC-PRIV-5 allows only statistics from server logs). Scope unblocked by step 10 gets sub-issues in the step 9 re-run.
 - **Design Traceability**: DESIGN.md (all sections); `style-guide.html`; `logo.svg`
 - **Architecture Traceability**: All components (Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration); DR-1 to DR-9

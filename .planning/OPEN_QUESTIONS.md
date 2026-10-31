@@ -12,7 +12,6 @@ Status: `ANSWERED` or `DEFERRED` (by Ives). Every question is answered; rows Q-2
 ## Follow-ups for implementation (from the answers, not open questions)
 
 - Session timeouts (Q-9): verify what Sveltia CMS and GitHub OAuth tokens can enforce; raise any gap as a new question (`SECURITY.md` SEC-AUTHN-3).
-- 5-minute polling (Q-2b): on a private repository GitHub Actions bills each run as at least one minute; check against the GitHub plan (`ARCHITECTURE.md` Site Build).
 - @ninalaaf must be an Instagram Business or Creator account for the Instagram API with Instagram Login (Q-26).
 - Re-run the threat model (step 8) against the decided architecture before the first release (`SECURITY.md` Threat model status).
 
@@ -98,7 +97,7 @@ Status: `ANSWERED` or `DEFERRED` (by Ives). Every question is answered; rows Q-2
 | Q-56 | Legacy featured flag | Q-53, FR-2.1 | ANSWERED | The legacy featured flag is ignored; the newest migrated work is featured at launch until Nina changes it. |
 | Q-57 | Exhibition types → CV sections | Q-19, FR-5.2 | ANSWERED | solo and two-person → Solo exhibitions; group and fair → Group exhibitions. |
 | Q-58 | Which derived entries appear in the CV | Q-19, FR-5.2 | ANSWERED | Past and current Exhibition entries appear in the CV; upcoming ones appear once they open. |
-| Q-2b | Publish trigger | PQ-1, SEC-CICD-4, T-22 | ANSWERED | A workflow in dalini/nina-site polls every 5 minutes and builds only when nina-content main has changed; no trigger secret exists that editors could reach. |
+| Q-2b | Publish trigger | PQ-1, SEC-CICD-4, T-22 | ANSWERED | Changed by Ives after step 10 to avoid Actions cost (a 5-minute Actions poll would use about 8,600 of the 2,000 free minutes per month): a cron job on the VPS checks nina-content main every minute with git ls-remote and starts the nina-site build via workflow_dispatch, using a token limited to Actions: write on nina-site, root-only on the VPS. Builds run only on change, plus nightly. |
 | Q-2c | Publish status shown to Nina | PQ-1, FR-10.8, DF-9 | ANSWERED | Each build writes a small status JSON (content version, success or failure, failing item and field) on the server; the self-hosted CMS page shows it as a banner. |
 | Q-2d | CMS hostname | DR-9 | ANSWERED | CMS and GitHub OAuth helper on edit.nina-laaf.de; previews on preview.nina-laaf.de. |
 | Q-10b | How owners manage editors | SEC-AUTHZ-2, SEC-AUDIT-1, Q-10 | ANSWERED | Only Ives is GitHub admin of dalini/nina-content: Nina stays an owner by decision, Ives makes editor changes on GitHub; only Ives can bypass branch protection. |

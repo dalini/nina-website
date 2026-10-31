@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Step 10 answered PQ-1 (5-minute poll, no trigger secret: SEC-CICD-4) and PQ-4 (two repositories, maintainer Ives: SEC-AUTHZ-3); that scope is decomposed in the step 9 re-run. Platform: GitHub Actions and the VPS (ARCHITECTURE.md).
+- **Open Decisions**: None. Step 10 answered PQ-1 (VPS content check starts builds via `workflow_dispatch`: SEC-CICD-4) and PQ-4 (two repositories, maintainer Ives: SEC-AUTHZ-3); that scope is decomposed in the step 9 re-run. Platform: GitHub Actions and the VPS (ARCHITECTURE.md).
 
 ## Sub-issues
 
