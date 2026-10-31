@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-INPUT-4; REQUIREMENTS.md FR-10.1, FR-11.2; ARCHITECTURE.md Site Build (Production and preview); parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-4; REQUIREMENTS.md FR-10.1, FR-11.2; ARCHITECTURE.md Site Build (Production and preview); parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}})
-- **Downstream Requirements**: REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}}), REQ-CV-020 ({{ISSUE_URL:REQ-CV-020}}), REQ-TEXTS-010 ({{ISSUE_URL:REQ-TEXTS-010}}), REQ-DOWNLOADS-010 ({{ISSUE_URL:REQ-DOWNLOADS-010}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-MIGRATION-020 ({{ISSUE_URL:REQ-MIGRATION-020}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20)
+- **Downstream Requirements**: REQ-WORKS-010 (https://github.com/dalini/nina-website/issues/39), REQ-EXHIBITIONS-020 (https://github.com/dalini/nina-website/issues/49), REQ-CV-020 (https://github.com/dalini/nina-website/issues/53), REQ-TEXTS-010 (https://github.com/dalini/nina-website/issues/55), REQ-DOWNLOADS-010 (https://github.com/dalini/nina-website/issues/56), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-MIGRATION-020 (https://github.com/dalini/nina-website/issues/123)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

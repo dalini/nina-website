@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: SECURITY.md SEC-OUT-1, SEC-OUT-2, SEC-OUT-7, SEC-INPUT-6; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-OUT-1, SEC-OUT-2, SEC-OUT-7, SEC-INPUT-6; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-020 ({{ISSUE_URL:REQ-OUTPUT-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-OUTPUT-040 ({{ISSUE_URL:REQ-OUTPUT-040}})
+- **Downstream Requirements**: REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27), REQ-OUTPUT-020 (https://github.com/dalini/nina-website/issues/28), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-OUTPUT-040 (https://github.com/dalini/nina-website/issues/30)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,7 +100,7 @@
 
 ## Sub-issues
 
-- [ ] REQ-OUTPUT-010 {{ISSUE_URL:REQ-OUTPUT-010}}
-- [ ] REQ-OUTPUT-020 {{ISSUE_URL:REQ-OUTPUT-020}}
-- [ ] REQ-OUTPUT-030 {{ISSUE_URL:REQ-OUTPUT-030}}
-- [ ] REQ-OUTPUT-040 {{ISSUE_URL:REQ-OUTPUT-040}}
+- [ ] REQ-OUTPUT-010 https://github.com/dalini/nina-website/issues/27
+- [ ] REQ-OUTPUT-020 https://github.com/dalini/nina-website/issues/28
+- [ ] REQ-OUTPUT-030 https://github.com/dalini/nina-website/issues/29
+- [ ] REQ-OUTPUT-040 https://github.com/dalini/nina-website/issues/30

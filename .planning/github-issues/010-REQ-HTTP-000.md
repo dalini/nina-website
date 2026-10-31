@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HTTP-1 to SEC-HTTP-5, T-31; ARCHITECTURE.md Static Hosting, DR-9; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-HTTP-1 to SEC-HTTP-5, T-31; ARCHITECTURE.md Static Hosting, DR-9; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-HTTP-010 ({{ISSUE_URL:REQ-HTTP-010}}), REQ-HTTP-020 ({{ISSUE_URL:REQ-HTTP-020}}), REQ-HTTP-030 ({{ISSUE_URL:REQ-HTTP-030}}), REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}}), REQ-HTTP-060 ({{ISSUE_URL:REQ-HTTP-060}}), REQ-HTTP-070 ({{ISSUE_URL:REQ-HTTP-070}}), REQ-HTTP-050 ({{ISSUE_URL:REQ-HTTP-050}})
+- **Downstream Requirements**: REQ-HTTP-010 (https://github.com/dalini/nina-website/issues/68), REQ-HTTP-020 (https://github.com/dalini/nina-website/issues/69), REQ-HTTP-030 (https://github.com/dalini/nina-website/issues/75), REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76), REQ-HTTP-060 (https://github.com/dalini/nina-website/issues/77), REQ-HTTP-070 (https://github.com/dalini/nina-website/issues/78), REQ-HTTP-050 (https://github.com/dalini/nina-website/issues/111)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,10 +100,10 @@
 
 ## Sub-issues
 
-- [ ] REQ-HTTP-010 {{ISSUE_URL:REQ-HTTP-010}}
-- [ ] REQ-HTTP-020 {{ISSUE_URL:REQ-HTTP-020}}
-- [ ] REQ-HTTP-030 {{ISSUE_URL:REQ-HTTP-030}}
-- [ ] REQ-HTTP-040 {{ISSUE_URL:REQ-HTTP-040}}
-- [ ] REQ-HTTP-060 {{ISSUE_URL:REQ-HTTP-060}}
-- [ ] REQ-HTTP-070 {{ISSUE_URL:REQ-HTTP-070}}
-- [ ] REQ-HTTP-050 {{ISSUE_URL:REQ-HTTP-050}}
+- [ ] REQ-HTTP-010 https://github.com/dalini/nina-website/issues/68
+- [ ] REQ-HTTP-020 https://github.com/dalini/nina-website/issues/69
+- [ ] REQ-HTTP-030 https://github.com/dalini/nina-website/issues/75
+- [ ] REQ-HTTP-040 https://github.com/dalini/nina-website/issues/76
+- [ ] REQ-HTTP-060 https://github.com/dalini/nina-website/issues/77
+- [ ] REQ-HTTP-070 https://github.com/dalini/nina-website/issues/78
+- [ ] REQ-HTTP-050 https://github.com/dalini/nina-website/issues/111

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-2 (Editing Interface files on the VPS, installed by hand by Ives; step 10 a third time, SQ-22 / PQ-54), SEC-AUTHN-4 (helper installed from a tagged release), SEC-CICD-1 (the deploy account writes nothing on `edit.nina-laaf.de` except the publish status file); REQUIREMENTS.md FR-10.1; ARCHITECTURE.md Editing Interface (Installation); T-82, DF-16; parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-2 (Editing Interface files on the VPS, installed by hand by Ives; step 10 a third time, SQ-22 / PQ-54), SEC-AUTHN-4 (helper installed from a tagged release), SEC-CICD-1 (the deploy account writes nothing on `edit.nina-laaf.de` except the publish status file); REQUIREMENTS.md FR-10.1; ARCHITECTURE.md Editing Interface (Installation); T-82, DF-16; parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -85,7 +85,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-AUTHN-030 ({{ISSUE_URL:REQ-AUTHN-030}})
+- **Upstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-AUTHN-030 (https://github.com/dalini/nina-website/issues/107)
 - **Downstream Requirements**: None
 - **External Dependencies**: Sveltia CMS releases and their published checksums; the Deno module sources in the helper's lockfile
 - **Dependency Assumptions**: Sveltia CMS publishes a checksum or the bundle is locked in the lockfile (SEC-CICD-2)

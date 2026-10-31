@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-5 (cookies for the host `nina-laaf.de` only), `REF-GTAG-COOKIES`; T-79; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-5 (cookies for the host `nina-laaf.de` only), `REF-GTAG-COOKIES`; T-79; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Upstream Requirements**: REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **Downstream Requirements**: None
 - **External Dependencies**: Google tag (gtag.js)
 - **Dependency Assumptions**: The tag's `cookie_domain` setting controls the `Domain` attribute it writes (`REF-GTAG-COOKIES`); whether a value of `nina-laaf.de` or `none` yields a host-only cookie is verified at implementation (PQ-61, step 10 a third time)

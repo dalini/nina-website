@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-INPUT-7, SEC-CICD-6, `REF-HUGO-ADV`; ARCHITECTURE.md Site Build (Stages); parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-7, SEC-CICD-6, `REF-HUGO-ADV`; ARCHITECTURE.md Site Build (Stages); parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}})
+- **Upstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

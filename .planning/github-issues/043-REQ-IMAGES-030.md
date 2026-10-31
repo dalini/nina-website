@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-4 (PDFs cleaned automatically, step 10 again), T-25; REQUIREMENTS.md FR-6.1; ARCHITECTURE.md Site Build (metadata stripping); parent {{ISSUE_URL:REQ-IMAGES-000}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-4 (PDFs cleaned automatically, step 10 again), T-25; REQUIREMENTS.md FR-6.1; ARCHITECTURE.md Site Build (metadata stripping); parent https://github.com/dalini/nina-website/issues/7
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}})
-- **Downstream Requirements**: REQ-DOWNLOADS-010 ({{ISSUE_URL:REQ-DOWNLOADS-010}})
+- **Upstream Requirements**: REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-IMAGES-050 (https://github.com/dalini/nina-website/issues/44)
+- **Downstream Requirements**: REQ-DOWNLOADS-010 (https://github.com/dalini/nina-website/issues/56)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

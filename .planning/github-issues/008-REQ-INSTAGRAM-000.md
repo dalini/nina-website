@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-2.4, FR-8.1 to FR-8.7; ARCHITECTURE.md Instagram Feed Integration, DR-5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-1, SEC-SECRET-3; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-2.4, FR-8.1 to FR-8.7; ARCHITECTURE.md Instagram Feed Integration, DR-5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-1, SEC-SECRET-3; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-INSTAGRAM-010 ({{ISSUE_URL:REQ-INSTAGRAM-010}}), REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-INSTAGRAM-050 ({{ISSUE_URL:REQ-INSTAGRAM-050}}), REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}}), REQ-INSTAGRAM-040 ({{ISSUE_URL:REQ-INSTAGRAM-040}})
+- **Downstream Requirements**: REQ-INSTAGRAM-010 (https://github.com/dalini/nina-website/issues/59), REQ-INSTAGRAM-020 (https://github.com/dalini/nina-website/issues/60), REQ-INSTAGRAM-050 (https://github.com/dalini/nina-website/issues/97), REQ-INSTAGRAM-030 (https://github.com/dalini/nina-website/issues/98), REQ-INSTAGRAM-040 (https://github.com/dalini/nina-website/issues/99)
 - **External Dependencies**: Instagram API with Instagram Login
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,8 +100,8 @@
 
 ## Sub-issues
 
-- [ ] REQ-INSTAGRAM-010 {{ISSUE_URL:REQ-INSTAGRAM-010}}
-- [ ] REQ-INSTAGRAM-020 {{ISSUE_URL:REQ-INSTAGRAM-020}}
-- [ ] REQ-INSTAGRAM-050 {{ISSUE_URL:REQ-INSTAGRAM-050}}
-- [ ] REQ-INSTAGRAM-030 {{ISSUE_URL:REQ-INSTAGRAM-030}}
-- [ ] REQ-INSTAGRAM-040 {{ISSUE_URL:REQ-INSTAGRAM-040}}
+- [ ] REQ-INSTAGRAM-010 https://github.com/dalini/nina-website/issues/59
+- [ ] REQ-INSTAGRAM-020 https://github.com/dalini/nina-website/issues/60
+- [ ] REQ-INSTAGRAM-050 https://github.com/dalini/nina-website/issues/97
+- [ ] REQ-INSTAGRAM-030 https://github.com/dalini/nina-website/issues/98
+- [ ] REQ-INSTAGRAM-040 https://github.com/dalini/nina-website/issues/99

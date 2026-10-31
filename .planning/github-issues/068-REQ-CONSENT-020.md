@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-5 (Consent Mode v2 advanced, tag inserted only by the consent script, only the property's measurement ID, ad consent types always denied), SEC-HTTP-2 (`script-src` limited to `https://www.googletagmanager.com`, step 10 a third time), SEC-PRIV-7 (no Tag Manager), `REF-GTAG-CONSENT`, `REF-GTAG-CSP`; REQUIREMENTS.md FR-9.2, NFR-3; T-69, T-71, T-72, T-76; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-5 (Consent Mode v2 advanced, tag inserted only by the consent script, only the property's measurement ID, ad consent types always denied), SEC-HTTP-2 (`script-src` limited to `https://www.googletagmanager.com`, step 10 a third time), SEC-PRIV-7 (no Tag Manager), `REF-GTAG-CONSENT`, `REF-GTAG-CSP`; REQUIREMENTS.md FR-9.2, NFR-3; T-69, T-71, T-72, T-76; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONSENT-010 ({{ISSUE_URL:REQ-CONSENT-010}}), REQ-PRIV-030 ({{ISSUE_URL:REQ-PRIV-030}}), REQ-HTTP-020 ({{ISSUE_URL:REQ-HTTP-020}}), REQ-OUTPUT-040 ({{ISSUE_URL:REQ-OUTPUT-040}})
-- **Downstream Requirements**: REQ-CONSENT-050 ({{ISSUE_URL:REQ-CONSENT-050}}), REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}}), REQ-PRIV-010 ({{ISSUE_URL:REQ-PRIV-010}}), REQ-CONSENT-030 ({{ISSUE_URL:REQ-CONSENT-030}}), REQ-CONSENT-040 ({{ISSUE_URL:REQ-CONSENT-040}})
+- **Upstream Requirements**: REQ-CONSENT-010 (https://github.com/dalini/nina-website/issues/61), REQ-PRIV-030 (https://github.com/dalini/nina-website/issues/62), REQ-HTTP-020 (https://github.com/dalini/nina-website/issues/69), REQ-OUTPUT-040 (https://github.com/dalini/nina-website/issues/30)
+- **Downstream Requirements**: REQ-CONSENT-050 (https://github.com/dalini/nina-website/issues/71), REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72), REQ-PRIV-010 (https://github.com/dalini/nina-website/issues/73), REQ-CONSENT-030 (https://github.com/dalini/nina-website/issues/74), REQ-CONSENT-040 (https://github.com/dalini/nina-website/issues/104)
 - **External Dependencies**: Google tag (gtag.js) and Google Analytics 4, served live by Google
 - **Dependency Assumptions**: Google honours Consent Mode as documented (`REF-GTAG-CONSENT`); ASSUMPTION (SECURITY.md T-71): a tag started without defaults may treat consent as granted
 - **Failure Impact**: Google unreachable: no statistics; a changed Google script can affect every page (accepted risk T-69)

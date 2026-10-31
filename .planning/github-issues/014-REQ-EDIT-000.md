@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-8.6, FR-10.1 to FR-10.3, FR-10.6 to FR-10.8; REQUIREMENTS.md FR-4.7 (slug); SECURITY.md SEC-CICD-2, SEC-INPUT-6, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.6, FR-10.1 to FR-10.3, FR-10.6 to FR-10.8; REQUIREMENTS.md FR-4.7 (slug); SECURITY.md SEC-CICD-2, SEC-INPUT-6, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4; ARCHITECTURE.md Editing Interface, DR-9; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-EDIT-100 ({{ISSUE_URL:REQ-EDIT-100}}), REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}}), REQ-EDIT-110 ({{ISSUE_URL:REQ-EDIT-110}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}}), REQ-EDIT-050 ({{ISSUE_URL:REQ-EDIT-050}}), REQ-EDIT-060 ({{ISSUE_URL:REQ-EDIT-060}}), REQ-EDIT-070 ({{ISSUE_URL:REQ-EDIT-070}}), REQ-EDIT-080 ({{ISSUE_URL:REQ-EDIT-080}}), REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
+- **Downstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-EDIT-100 (https://github.com/dalini/nina-website/issues/108), REQ-EDIT-020 (https://github.com/dalini/nina-website/issues/112), REQ-EDIT-030 (https://github.com/dalini/nina-website/issues/113), REQ-EDIT-110 (https://github.com/dalini/nina-website/issues/114), REQ-EDIT-040 (https://github.com/dalini/nina-website/issues/115), REQ-EDIT-050 (https://github.com/dalini/nina-website/issues/116), REQ-EDIT-060 (https://github.com/dalini/nina-website/issues/117), REQ-EDIT-070 (https://github.com/dalini/nina-website/issues/118), REQ-EDIT-080 (https://github.com/dalini/nina-website/issues/119), REQ-EDIT-090 (https://github.com/dalini/nina-website/issues/120)
 - **External Dependencies**: Sveltia CMS; GitHub API
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,14 +100,14 @@
 
 ## Sub-issues
 
-- [ ] REQ-EDIT-010 {{ISSUE_URL:REQ-EDIT-010}}
-- [ ] REQ-EDIT-100 {{ISSUE_URL:REQ-EDIT-100}}
-- [ ] REQ-EDIT-020 {{ISSUE_URL:REQ-EDIT-020}}
-- [ ] REQ-EDIT-030 {{ISSUE_URL:REQ-EDIT-030}}
-- [ ] REQ-EDIT-110 {{ISSUE_URL:REQ-EDIT-110}}
-- [ ] REQ-EDIT-040 {{ISSUE_URL:REQ-EDIT-040}}
-- [ ] REQ-EDIT-050 {{ISSUE_URL:REQ-EDIT-050}}
-- [ ] REQ-EDIT-060 {{ISSUE_URL:REQ-EDIT-060}}
-- [ ] REQ-EDIT-070 {{ISSUE_URL:REQ-EDIT-070}}
-- [ ] REQ-EDIT-080 {{ISSUE_URL:REQ-EDIT-080}}
-- [ ] REQ-EDIT-090 {{ISSUE_URL:REQ-EDIT-090}}
+- [ ] REQ-EDIT-010 https://github.com/dalini/nina-website/issues/103
+- [ ] REQ-EDIT-100 https://github.com/dalini/nina-website/issues/108
+- [ ] REQ-EDIT-020 https://github.com/dalini/nina-website/issues/112
+- [ ] REQ-EDIT-030 https://github.com/dalini/nina-website/issues/113
+- [ ] REQ-EDIT-110 https://github.com/dalini/nina-website/issues/114
+- [ ] REQ-EDIT-040 https://github.com/dalini/nina-website/issues/115
+- [ ] REQ-EDIT-050 https://github.com/dalini/nina-website/issues/116
+- [ ] REQ-EDIT-060 https://github.com/dalini/nina-website/issues/117
+- [ ] REQ-EDIT-070 https://github.com/dalini/nina-website/issues/118
+- [ ] REQ-EDIT-080 https://github.com/dalini/nina-website/issues/119
+- [ ] REQ-EDIT-090 https://github.com/dalini/nina-website/issues/120

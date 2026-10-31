@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-SECRET-1 (Instagram token in a file of the deploy account), SEC-SECRET-3 (monthly refresh under the deploy account), SEC-CICD-1 (outbound HTTPS to Instagram), SEC-HOST-2; ARCHITECTURE.md Instagram Feed Integration, Static Hosting; parent {{ISSUE_URL:REQ-INSTAGRAM-000}}
+- **Source / Parent**: SECURITY.md SEC-SECRET-1 (Instagram token in a file of the deploy account), SEC-SECRET-3 (monthly refresh under the deploy account), SEC-CICD-1 (outbound HTTPS to Instagram), SEC-HOST-2; ARCHITECTURE.md Instagram Feed Integration, Static Hosting; parent https://github.com/dalini/nina-website/issues/10
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}}), REQ-HOST-040 ({{ISSUE_URL:REQ-HOST-040}})
-- **Downstream Requirements**: REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}})
+- **Upstream Requirements**: REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65), REQ-HOST-040 (https://github.com/dalini/nina-website/issues/66)
+- **Downstream Requirements**: REQ-INSTAGRAM-030 (https://github.com/dalini/nina-website/issues/98)
 - **External Dependencies**: Instagram API with Instagram Login (token refresh)
 - **Dependency Assumptions**: A long-lived token can be refreshed before its 60 days run out (ARCHITECTURE.md)
 - **Failure Impact**: If refreshes keep failing the token expires; the build then reuses the last good posts (FR-8.5)

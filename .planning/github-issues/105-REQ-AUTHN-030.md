@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-4 (own unprivileged account, pinned Deno and dependencies, minimal permissions), SEC-HOST-2, SEC-CICD-2 (helper code pinned), DEP-1 to DEP-8, `REF-DENO-PERM`; ARCHITECTURE.md Editing Interface; T-80, T-61, T-46; parent {{ISSUE_URL:REQ-AUTHN-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-4 (own unprivileged account, pinned Deno and dependencies, minimal permissions), SEC-HOST-2, SEC-CICD-2 (helper code pinned), DEP-1 to DEP-8, `REF-DENO-PERM`; ARCHITECTURE.md Editing Interface; T-80, T-61, T-46; parent https://github.com/dalini/nina-website/issues/15
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}}), REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}})
-- **Downstream Requirements**: REQ-EDIT-100 ({{ISSUE_URL:REQ-EDIT-100}})
+- **Upstream Requirements**: REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105), REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65)
+- **Downstream Requirements**: REQ-EDIT-100 (https://github.com/dalini/nina-website/issues/108)
 - **External Dependencies**: Deno (pinned version); the helper's dependencies (lockfile)
 - **Dependency Assumptions**: Deno enforces its permission flags as documented (`REF-DENO-PERM`)
 - **Failure Impact**: Too wide permissions let one flaw reach the VPS; too narrow ones stop sign-ins (visible)

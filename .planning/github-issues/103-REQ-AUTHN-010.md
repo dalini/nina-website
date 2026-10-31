@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-1 (Editing Interface), SEC-AUTHN-4 (allowed domains, full origin, scopes, no `workflow`, client secret), SEC-AUTHZ-3, SEC-SECRET-1, `REF-SVELTIA-AUTH`; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Editing Interface, DR-9; T-43, T-80, T-11, T-44; parent {{ISSUE_URL:REQ-AUTHN-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-1 (Editing Interface), SEC-AUTHN-4 (allowed domains, full origin, scopes, no `workflow`, client secret), SEC-AUTHZ-3, SEC-SECRET-1, `REF-SVELTIA-AUTH`; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Editing Interface, DR-9; T-43, T-80, T-11, T-44; parent https://github.com/dalini/nina-website/issues/15
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}})
-- **Downstream Requirements**: REQ-AUTHN-020 ({{ISSUE_URL:REQ-AUTHN-020}}), REQ-AUTHN-030 ({{ISSUE_URL:REQ-AUTHN-030}}), REQ-AUTHN-050 ({{ISSUE_URL:REQ-AUTHN-050}})
+- **Upstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76)
+- **Downstream Requirements**: REQ-AUTHN-020 (https://github.com/dalini/nina-website/issues/106), REQ-AUTHN-030 (https://github.com/dalini/nina-website/issues/107), REQ-AUTHN-050 (https://github.com/dalini/nina-website/issues/110)
 - **External Dependencies**: GitHub OAuth (OAuth App)
 - **Dependency Assumptions**: GitHub validates the redirect URI registered for the OAuth App
 - **Failure Impact**: Editors cannot sign in while GitHub or the helper is down; the public site stays online

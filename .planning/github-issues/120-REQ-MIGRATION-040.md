@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-11.1 (materials and dimensions from the legacy `materials` and `dimensions` fields, else from a first caption of the form "materials | dimensions | year", else empty; migration report; step 10 a third time, PQ-58), FR-3.3, FR-1.7; ARCHITECTURE.md Content Store (the import writes a migration report); parent {{ISSUE_URL:REQ-MIGRATION-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-11.1 (materials and dimensions from the legacy `materials` and `dimensions` fields, else from a first caption of the form "materials | dimensions | year", else empty; migration report; step 10 a third time, PQ-58), FR-3.3, FR-1.7; ARCHITECTURE.md Content Store (the import writes a migration report); parent https://github.com/dalini/nina-website/issues/17
 
 ## Requirement
 
@@ -86,7 +86,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}})
+- **Upstream Requirements**: REQ-MIGRATION-010 (https://github.com/dalini/nina-website/issues/121)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

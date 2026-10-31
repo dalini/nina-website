@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Operational
-- **Source / Parent**: SECURITY.md SEC-HOST-1, SEC-CICD-8, `REF-ASVS-5`, `REF-SSDF`; ARCHITECTURE.md Static Hosting; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-HOST-1, SEC-CICD-8, `REF-ASVS-5`, `REF-SSDF`; ARCHITECTURE.md Static Hosting; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 

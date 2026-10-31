@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-9, SEC-CICD-1, `REF-SECRETS`; REQUIREMENTS.md FR-10.8; ARCHITECTURE.md Site Build (Outputs), DR-1; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-9, SEC-CICD-1, `REF-SECRETS`; REQUIREMENTS.md FR-10.8; ARCHITECTURE.md Site Build (Outputs), DR-1; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}})
-- **Downstream Requirements**: REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22)
+- **Downstream Requirements**: REQ-EDIT-090 (https://github.com/dalini/nina-website/issues/120)
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured
 - **Failure Impact**: A pipeline failure delays publishing; the previous site stays online

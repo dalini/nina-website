@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HTTP-4, SEC-HTTP-1, SEC-HTTP-3; ARCHITECTURE.md DR-9; parent {{ISSUE_URL:REQ-HTTP-000}}
+- **Source / Parent**: SECURITY.md SEC-HTTP-4, SEC-HTTP-1, SEC-HTTP-3; ARCHITECTURE.md DR-9; parent https://github.com/dalini/nina-website/issues/12
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-010 ({{ISSUE_URL:REQ-HTTP-010}}), REQ-HTTP-020 ({{ISSUE_URL:REQ-HTTP-020}}), REQ-HTTP-030 ({{ISSUE_URL:REQ-HTTP-030}})
-- **Downstream Requirements**: REQ-HTTP-060 ({{ISSUE_URL:REQ-HTTP-060}}), REQ-HTTP-070 ({{ISSUE_URL:REQ-HTTP-070}}), REQ-PREVIEW-010 ({{ISSUE_URL:REQ-PREVIEW-010}}), REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-CONSENT-040 ({{ISSUE_URL:REQ-CONSENT-040}}), REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}}), REQ-HTTP-050 ({{ISSUE_URL:REQ-HTTP-050}})
+- **Upstream Requirements**: REQ-HTTP-010 (https://github.com/dalini/nina-website/issues/68), REQ-HTTP-020 (https://github.com/dalini/nina-website/issues/69), REQ-HTTP-030 (https://github.com/dalini/nina-website/issues/75)
+- **Downstream Requirements**: REQ-HTTP-060 (https://github.com/dalini/nina-website/issues/77), REQ-HTTP-070 (https://github.com/dalini/nina-website/issues/78), REQ-PREVIEW-010 (https://github.com/dalini/nina-website/issues/91), REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-CONSENT-040 (https://github.com/dalini/nina-website/issues/104), REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105), REQ-HTTP-050 (https://github.com/dalini/nina-website/issues/111)
 - **External Dependencies**: VPS provider in Germany
 - **Dependency Assumptions**: The VPS is reachable and administered by Ives (SEC-HOST-1)
 - **Failure Impact**: If the VPS is down the site is unavailable (accepted, T-31)

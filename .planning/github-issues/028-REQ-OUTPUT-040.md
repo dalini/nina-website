@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-OUT-7, SEC-INPUT-3, SEC-PRIV-5 (tag inserted only at runtime); ARCHITECTURE.md DR-3; parent {{ISSUE_URL:REQ-OUTPUT-000}}
+- **Source / Parent**: SECURITY.md SEC-OUT-7, SEC-INPUT-3, SEC-PRIV-5 (tag inserted only at runtime); ARCHITECTURE.md DR-3; parent https://github.com/dalini/nina-website/issues/4
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}})
-- **Downstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Upstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27)
+- **Downstream Requirements**: REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

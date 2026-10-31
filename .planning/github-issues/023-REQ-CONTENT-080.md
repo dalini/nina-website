@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-INPUT-6 (content formats, front-matter fields, `security.allowContent`, slug characters), SEC-INPUT-3, `REF-HUGO-SEC`; REQUIREMENTS.md FR-4.7 (URL segment); ARCHITECTURE.md DR-3, DR-4; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-6 (content formats, front-matter fields, `security.allowContent`, slug characters), SEC-INPUT-3, `REF-HUGO-SEC`; REQUIREMENTS.md FR-4.7 (URL segment); ARCHITECTURE.md DR-3, DR-4; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}})
-- **Downstream Requirements**: REQ-CONTENT-090 ({{ISSUE_URL:REQ-CONTENT-090}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}})
+- **Upstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20)
+- **Downstream Requirements**: REQ-CONTENT-090 (https://github.com/dalini/nina-website/issues/26), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

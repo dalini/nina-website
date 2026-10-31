@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-INPUT-1, SEC-INPUT-2, `REF-INPUT`, `REF-XSS`; ARCHITECTURE.md DR-3; parent {{ISSUE_URL:REQ-IMAGES-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-1, SEC-INPUT-2, `REF-INPUT`, `REF-XSS`; ARCHITECTURE.md DR-3; parent https://github.com/dalini/nina-website/issues/7
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}})
-- **Downstream Requirements**: REQ-IMAGES-030 ({{ISSUE_URL:REQ-IMAGES-030}}), REQ-DOWNLOADS-010 ({{ISSUE_URL:REQ-DOWNLOADS-010}})
+- **Upstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22)
+- **Downstream Requirements**: REQ-IMAGES-030 (https://github.com/dalini/nina-website/issues/45), REQ-DOWNLOADS-010 (https://github.com/dalini/nina-website/issues/56)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

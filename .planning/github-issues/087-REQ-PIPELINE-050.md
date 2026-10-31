@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-SECRET-1 (GitHub storage), SEC-SECRET-2 (only the production build of `main`; paid plan), `REF-GH-PLANS`; T-20, T-52; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-SECRET-1 (GitHub storage), SEC-SECRET-2 (only the production build of `main`; paid plan), `REF-GH-PLANS`; T-20, T-52; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}})
-- **Downstream Requirements**: REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-PIPELINE-090 ({{ISSUE_URL:REQ-PIPELINE-090}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85)
+- **Downstream Requirements**: REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-PIPELINE-090 (https://github.com/dalini/nina-website/issues/95)
 - **External Dependencies**: GitHub Actions environments
 - **Dependency Assumptions**: GitHub enforces deployment branch policies for private repositories on the paid plan
 - **Failure Impact**: Without the limit, any branch run can read the keys

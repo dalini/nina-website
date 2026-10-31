@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-4 (`state` verified, `__Host-` cookies, more than one state cookie rejected), SEC-AUTHN-3 (forgery protection), `REF-COOKIE-PREFIX`, `REF-SVELTIA-AUTH`; T-43, T-78, T-3; parent {{ISSUE_URL:REQ-AUTHN-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-4 (`state` verified, `__Host-` cookies, more than one state cookie rejected), SEC-AUTHN-3 (forgery protection), `REF-COOKIE-PREFIX`, `REF-SVELTIA-AUTH`; T-43, T-78, T-3; parent https://github.com/dalini/nina-website/issues/15
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}})
-- **Downstream Requirements**: REQ-AUTHN-040 ({{ISSUE_URL:REQ-AUTHN-040}})
+- **Upstream Requirements**: REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105)
+- **Downstream Requirements**: REQ-AUTHN-040 (https://github.com/dalini/nina-website/issues/109)
 - **External Dependencies**: GitHub OAuth
 - **Dependency Assumptions**: Browsers enforce the `__Host-` prefix rules (`REF-COOKIE-PREFIX`)
 - **Failure Impact**: A broken check either blocks sign-ins (visible) or accepts forged ones (silent)

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Compliance
-- **Source / Parent**: SECURITY.md SEC-AUDIT-1 (exception: purge on a documented legal request, record without names), SEC-SECRET-1 (`docs/ops/`), SEC-AVAIL-1; T-14, T-83; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: SECURITY.md SEC-AUDIT-1 (exception: purge on a documented legal request, record without names), SEC-SECRET-1 (`docs/ops/`), SEC-AVAIL-1; T-14, T-83; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-STORE-040 ({{ISSUE_URL:REQ-STORE-040}}), REQ-STORE-050 ({{ISSUE_URL:REQ-STORE-050}})
+- **Upstream Requirements**: REQ-STORE-040 (https://github.com/dalini/nina-website/issues/82), REQ-STORE-050 (https://github.com/dalini/nina-website/issues/83)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub
 - **Dependency Assumptions**: GitHub lets the admin rewrite a protected branch with the bypass

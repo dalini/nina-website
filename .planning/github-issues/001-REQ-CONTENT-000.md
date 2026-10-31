@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; REQUIREMENTS.md FR-1.4, FR-1.5, FR-3, FR-4, FR-5, FR-6, FR-7.1, FR-7.2, FR-8.6, FR-10.3, FR-10.6, FR-11.2; SECURITY.md SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; REQUIREMENTS.md FR-1.4, FR-1.5, FR-3, FR-4, FR-5, FR-6, FR-7.1, FR-7.2, FR-8.6, FR-10.3, FR-10.6, FR-11.2; SECURITY.md SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}}), REQ-CONTENT-090 ({{ISSUE_URL:REQ-CONTENT-090}})
+- **Downstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20), REQ-CONTENT-060 (https://github.com/dalini/nina-website/issues/21), REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-CONTENT-070 (https://github.com/dalini/nina-website/issues/24), REQ-CONTENT-080 (https://github.com/dalini/nina-website/issues/25), REQ-CONTENT-090 (https://github.com/dalini/nina-website/issues/26)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,12 +100,12 @@
 
 ## Sub-issues
 
-- [ ] REQ-CONTENT-010 {{ISSUE_URL:REQ-CONTENT-010}}
-- [ ] REQ-CONTENT-020 {{ISSUE_URL:REQ-CONTENT-020}}
-- [ ] REQ-CONTENT-050 {{ISSUE_URL:REQ-CONTENT-050}}
-- [ ] REQ-CONTENT-060 {{ISSUE_URL:REQ-CONTENT-060}}
-- [ ] REQ-CONTENT-030 {{ISSUE_URL:REQ-CONTENT-030}}
-- [ ] REQ-CONTENT-040 {{ISSUE_URL:REQ-CONTENT-040}}
-- [ ] REQ-CONTENT-070 {{ISSUE_URL:REQ-CONTENT-070}}
-- [ ] REQ-CONTENT-080 {{ISSUE_URL:REQ-CONTENT-080}}
-- [ ] REQ-CONTENT-090 {{ISSUE_URL:REQ-CONTENT-090}}
+- [ ] REQ-CONTENT-010 https://github.com/dalini/nina-website/issues/18
+- [ ] REQ-CONTENT-020 https://github.com/dalini/nina-website/issues/19
+- [ ] REQ-CONTENT-050 https://github.com/dalini/nina-website/issues/20
+- [ ] REQ-CONTENT-060 https://github.com/dalini/nina-website/issues/21
+- [ ] REQ-CONTENT-030 https://github.com/dalini/nina-website/issues/22
+- [ ] REQ-CONTENT-040 https://github.com/dalini/nina-website/issues/23
+- [ ] REQ-CONTENT-070 https://github.com/dalini/nina-website/issues/24
+- [ ] REQ-CONTENT-080 https://github.com/dalini/nina-website/issues/25
+- [ ] REQ-CONTENT-090 https://github.com/dalini/nina-website/issues/26

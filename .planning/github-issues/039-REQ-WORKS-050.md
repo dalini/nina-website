@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.6, FR-3.11, FR-3.7; DESIGN.md Components (Image viewer, Buttons, Focus state), Accessibility; SECURITY.md SEC-OUT-5; ARCHITECTURE.md Client framework; parent {{ISSUE_URL:REQ-WORKS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.6, FR-3.11, FR-3.7; DESIGN.md Components (Image viewer, Buttons, Focus state), Accessibility; SECURITY.md SEC-OUT-5; ARCHITECTURE.md Client framework; parent https://github.com/dalini/nina-website/issues/6
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}})
-- **Downstream Requirements**: REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}})
+- **Upstream Requirements**: REQ-WORKS-030 (https://github.com/dalini/nina-website/issues/40), REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37)
+- **Downstream Requirements**: REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

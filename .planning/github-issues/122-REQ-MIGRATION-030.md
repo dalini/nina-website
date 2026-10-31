@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-11.3, FR-3.7, FR-10.6; `.planning/OPEN_QUESTIONS.md` Q-22c; parent {{ISSUE_URL:REQ-MIGRATION-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-11.3, FR-3.7, FR-10.6; `.planning/OPEN_QUESTIONS.md` Q-22c; parent https://github.com/dalini/nina-website/issues/17
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}})
+- **Upstream Requirements**: REQ-MIGRATION-010 (https://github.com/dalini/nina-website/issues/121)
 - **Downstream Requirements**: None
 - **External Dependencies**: Git LFS of `dalini/nina-laaf-site` (legacy images)
 - **Dependency Assumptions**: The legacy images are still available in that repository's Git LFS (README.md)

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HTTP-4, SEC-CICD-2, `REF-XSS`; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-HTTP-000}}
+- **Source / Parent**: SECURITY.md SEC-HTTP-4, SEC-CICD-2, `REF-XSS`; ARCHITECTURE.md Editing Interface, DR-9; parent https://github.com/dalini/nina-website/issues/12
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}}), REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}})
-- **Downstream Requirements**: REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
+- **Upstream Requirements**: REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76), REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103)
+- **Downstream Requirements**: REQ-EDIT-090 (https://github.com/dalini/nina-website/issues/120)
 - **External Dependencies**: VPS provider in Germany
 - **Dependency Assumptions**: The VPS is reachable and administered by Ives (SEC-HOST-1)
 - **Failure Impact**: If the VPS is down the site is unavailable (accepted, T-31)

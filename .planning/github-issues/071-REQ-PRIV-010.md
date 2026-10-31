@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-1, SEC-PRIV-5 (no other analytics or tracking); REQUIREMENTS.md NFR-3, FR-8.3; DESIGN.md Typography (system fonts); parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-1, SEC-PRIV-5 (no other analytics or tracking); REQUIREMENTS.md NFR-3, FR-8.3; DESIGN.md Typography (system fonts); parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-LAYOUT-010 ({{ISSUE_URL:REQ-LAYOUT-010}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Upstream Requirements**: REQ-LAYOUT-010 (https://github.com/dalini/nina-website/issues/31), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

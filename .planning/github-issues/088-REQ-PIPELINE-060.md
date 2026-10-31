@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-3, SEC-SECRET-2, SEC-INPUT-4; REQUIREMENTS.md FR-10.9; ARCHITECTURE.md Site Build (Production and preview); parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-3, SEC-SECRET-2, SEC-INPUT-4; REQUIREMENTS.md FR-10.9; ARCHITECTURE.md Site Build (Production and preview); parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-PIPELINE-050 ({{ISSUE_URL:REQ-PIPELINE-050}})
-- **Downstream Requirements**: REQ-PREVIEW-010 ({{ISSUE_URL:REQ-PREVIEW-010}}), REQ-PIPELINE-140 ({{ISSUE_URL:REQ-PIPELINE-140}}), REQ-CONSENT-040 ({{ISSUE_URL:REQ-CONSENT-040}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-PIPELINE-050 (https://github.com/dalini/nina-website/issues/89)
+- **Downstream Requirements**: REQ-PREVIEW-010 (https://github.com/dalini/nina-website/issues/91), REQ-PIPELINE-140 (https://github.com/dalini/nina-website/issues/96), REQ-CONSENT-040 (https://github.com/dalini/nina-website/issues/104)
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured
 - **Failure Impact**: A pipeline failure delays publishing; the previous site stays online

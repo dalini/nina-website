@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.10, NFR-1; SECURITY.md SEC-PRIV-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.10, NFR-1; SECURITY.md SEC-PRIV-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-IMAGES-020 ({{ISSUE_URL:REQ-IMAGES-020}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}}), REQ-IMAGES-030 ({{ISSUE_URL:REQ-IMAGES-030}})
+- **Downstream Requirements**: REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37), REQ-IMAGES-020 (https://github.com/dalini/nina-website/issues/42), REQ-IMAGES-040 (https://github.com/dalini/nina-website/issues/43), REQ-IMAGES-050 (https://github.com/dalini/nina-website/issues/44), REQ-IMAGES-030 (https://github.com/dalini/nina-website/issues/45)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,8 +100,8 @@
 
 ## Sub-issues
 
-- [ ] REQ-IMAGES-010 {{ISSUE_URL:REQ-IMAGES-010}}
-- [ ] REQ-IMAGES-020 {{ISSUE_URL:REQ-IMAGES-020}}
-- [ ] REQ-IMAGES-040 {{ISSUE_URL:REQ-IMAGES-040}}
-- [ ] REQ-IMAGES-050 {{ISSUE_URL:REQ-IMAGES-050}}
-- [ ] REQ-IMAGES-030 {{ISSUE_URL:REQ-IMAGES-030}}
+- [ ] REQ-IMAGES-010 https://github.com/dalini/nina-website/issues/37
+- [ ] REQ-IMAGES-020 https://github.com/dalini/nina-website/issues/42
+- [ ] REQ-IMAGES-040 https://github.com/dalini/nina-website/issues/43
+- [ ] REQ-IMAGES-050 https://github.com/dalini/nina-website/issues/44
+- [ ] REQ-IMAGES-030 https://github.com/dalini/nina-website/issues/45

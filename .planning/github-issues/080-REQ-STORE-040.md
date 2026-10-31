@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUDIT-1 (attribution from the sign-in, history not rewritable, verified commits checked at implementation, paid plan), `REF-GH-PLANS`; REQUIREMENTS.md FR-10.7; T-9, T-15, T-52, T-53; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: SECURITY.md SEC-AUDIT-1 (attribution from the sign-in, history not rewritable, verified commits checked at implementation, paid plan), `REF-GH-PLANS`; REQUIREMENTS.md FR-10.7; T-9, T-15, T-52, T-53; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-STORE-010 ({{ISSUE_URL:REQ-STORE-010}})
-- **Downstream Requirements**: REQ-STORE-060 ({{ISSUE_URL:REQ-STORE-060}})
+- **Upstream Requirements**: REQ-STORE-010 (https://github.com/dalini/nina-website/issues/79)
+- **Downstream Requirements**: REQ-STORE-060 (https://github.com/dalini/nina-website/issues/84)
 - **External Dependencies**: GitHub (branch protection, commit verification)
 - **Dependency Assumptions**: GitHub enforces the protection for every credential except the configured bypass
 - **Failure Impact**: Without protection, history can be rewritten and attribution lost

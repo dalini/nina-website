@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HTTP-3, `REF-ASVS-5`; parent {{ISSUE_URL:REQ-HTTP-000}}
+- **Source / Parent**: SECURITY.md SEC-HTTP-3, `REF-ASVS-5`; parent https://github.com/dalini/nina-website/issues/12
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-010 ({{ISSUE_URL:REQ-HTTP-010}})
-- **Downstream Requirements**: REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}})
+- **Upstream Requirements**: REQ-HTTP-010 (https://github.com/dalini/nina-website/issues/68)
+- **Downstream Requirements**: REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76)
 - **External Dependencies**: VPS provider in Germany
 - **Dependency Assumptions**: The VPS is reachable and administered by Ives (SEC-HOST-1)
 - **Failure Impact**: If the VPS is down the site is unavailable (accepted, T-31)

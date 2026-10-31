@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-6, SEC-SECRET-2, `REF-CICD`, `REF-SECRETS`; ARCHITECTURE.md Site Build (Stages); parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-6, SEC-SECRET-2, `REF-CICD`, `REF-SECRETS`; ARCHITECTURE.md Site Build (Stages); parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-PIPELINE-050 ({{ISSUE_URL:REQ-PIPELINE-050}})
-- **Downstream Requirements**: REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-PIPELINE-050 (https://github.com/dalini/nina-website/issues/89)
+- **Downstream Requirements**: REQ-INSTAGRAM-030 (https://github.com/dalini/nina-website/issues/98)
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured
 - **Failure Impact**: A pipeline failure delays publishing; the previous site stays online

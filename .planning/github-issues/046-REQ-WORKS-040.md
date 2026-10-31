@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.9, FR-4.7, FR-4.5; parent {{ISSUE_URL:REQ-WORKS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.9, FR-4.7, FR-4.5; parent https://github.com/dalini/nina-website/issues/6
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}})
+- **Upstream Requirements**: REQ-WORKS-020 (https://github.com/dalini/nina-website/issues/36), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

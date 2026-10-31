@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.2, FR-4.3, FR-1.8; DESIGN.md Components (Interface labels); parent {{ISSUE_URL:REQ-EXHIBITIONS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.2, FR-4.3, FR-1.8; DESIGN.md Components (Interface labels); parent https://github.com/dalini/nina-website/issues/8
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-NAV-040 ({{ISSUE_URL:REQ-NAV-040}})
-- **Downstream Requirements**: REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}})
+- **Upstream Requirements**: REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-NAV-040 (https://github.com/dalini/nina-website/issues/33)
+- **Downstream Requirements**: REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47), REQ-EXHIBITIONS-020 (https://github.com/dalini/nina-website/issues/49)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

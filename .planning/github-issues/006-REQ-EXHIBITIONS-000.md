@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.7; DESIGN.md Components (Exhibition entry page, Interface labels); parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.7; DESIGN.md Components (Exhibition entry page, Interface labels); parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}})
+- **Downstream Requirements**: REQ-EXHIBITIONS-010 (https://github.com/dalini/nina-website/issues/46), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47), REQ-EXHIBITIONS-020 (https://github.com/dalini/nina-website/issues/49), REQ-NEWS-010 (https://github.com/dalini/nina-website/issues/51)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,7 +100,7 @@
 
 ## Sub-issues
 
-- [ ] REQ-EXHIBITIONS-010 {{ISSUE_URL:REQ-EXHIBITIONS-010}}
-- [ ] REQ-EXHIBITIONS-030 {{ISSUE_URL:REQ-EXHIBITIONS-030}}
-- [ ] REQ-EXHIBITIONS-020 {{ISSUE_URL:REQ-EXHIBITIONS-020}}
-- [ ] REQ-NEWS-010 {{ISSUE_URL:REQ-NEWS-010}}
+- [ ] REQ-EXHIBITIONS-010 https://github.com/dalini/nina-website/issues/46
+- [ ] REQ-EXHIBITIONS-030 https://github.com/dalini/nina-website/issues/47
+- [ ] REQ-EXHIBITIONS-020 https://github.com/dalini/nina-website/issues/49
+- [ ] REQ-NEWS-010 https://github.com/dalini/nina-website/issues/51

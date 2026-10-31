@@ -815,3 +815,150 @@ Step 9 with `Execution mode: CREATE`, run against the fourth-run drafts above. T
 | 4. Existing issues reusing planning IDs | Not checked: needs an authenticated `gh` |
 
 Nothing was created, changed or deleted on GitHub: 0 created, 0 reused, 0 failed. The `{{ISSUE_URL:<ID>}}` placeholders stay as they are. To continue, run `gh auth login` (or set `GH_TOKEN`) with an account that can create issues in `dalini/nina-website`, then run step 9 again with `Execution mode: CREATE`.
+
+### 2026-10-31: CREATE run completed
+
+After `gh auth login` as `dalini`, every pre-flight check passed:
+
+| Pre-flight check | Result |
+|---|---|
+| 1. `gh auth status` | Logged in to github.com as `dalini` |
+| 2. Target repository | `dalini/nina-website`; `viewerPermission` ADMIN, issues enabled |
+| 3. `--body-file` and `--parent` | Both supported by `gh` 2.103.3 |
+| 4. Existing issues reusing planning IDs | None: the repository had no issues (#1 is a pull request) |
+
+The specs had not changed since the fourth-run drafts, so the issues were created from those bodies as they are:
+
+1. Created 123 issues (1 epic, 15 workstreams, 107 leaves) in the Topological Creation Order, each with `--parent` set to its parent's number. Verified: every parent link matches this plan, and the epic has 29 direct sub-issues (15 workstreams, 14 leaves).
+2. Replaced every `{{ISSUE_URL:<ID>}}` placeholder with the captured URL in the local body files and this plan, then updated each issue's body with `gh issue edit --body-file`. Verified: no issue body on GitHub still contains a placeholder.
+3. Linked the 231 edges of the Dependency Graph as GitHub "blocked by" dependencies (`POST /repos/dalini/nina-website/issues/<n>/dependencies/blocked_by`). Verified: 231 blocked-by links in total.
+
+Result: 123 created, 0 reused, 0 failed. Epic: https://github.com/dalini/nina-website/issues/2
+
+#### Issue URLs
+
+| ID | Issue |
+|---|---|
+| REQ-EPIC-001 | https://github.com/dalini/nina-website/issues/2 |
+| REQ-CONTENT-000 | https://github.com/dalini/nina-website/issues/3 |
+| REQ-OUTPUT-000 | https://github.com/dalini/nina-website/issues/4 |
+| REQ-NAV-000 | https://github.com/dalini/nina-website/issues/5 |
+| REQ-WORKS-000 | https://github.com/dalini/nina-website/issues/6 |
+| REQ-IMAGES-000 | https://github.com/dalini/nina-website/issues/7 |
+| REQ-EXHIBITIONS-000 | https://github.com/dalini/nina-website/issues/8 |
+| REQ-CV-000 | https://github.com/dalini/nina-website/issues/9 |
+| REQ-INSTAGRAM-000 | https://github.com/dalini/nina-website/issues/10 |
+| REQ-CONSENT-000 | https://github.com/dalini/nina-website/issues/11 |
+| REQ-HTTP-000 | https://github.com/dalini/nina-website/issues/12 |
+| REQ-STORE-000 | https://github.com/dalini/nina-website/issues/13 |
+| REQ-PIPELINE-000 | https://github.com/dalini/nina-website/issues/14 |
+| REQ-AUTHN-000 | https://github.com/dalini/nina-website/issues/15 |
+| REQ-EDIT-000 | https://github.com/dalini/nina-website/issues/16 |
+| REQ-MIGRATION-000 | https://github.com/dalini/nina-website/issues/17 |
+| REQ-CONTENT-010 | https://github.com/dalini/nina-website/issues/18 |
+| REQ-CONTENT-020 | https://github.com/dalini/nina-website/issues/19 |
+| REQ-CONTENT-050 | https://github.com/dalini/nina-website/issues/20 |
+| REQ-CONTENT-060 | https://github.com/dalini/nina-website/issues/21 |
+| REQ-CONTENT-030 | https://github.com/dalini/nina-website/issues/22 |
+| REQ-CONTENT-040 | https://github.com/dalini/nina-website/issues/23 |
+| REQ-CONTENT-070 | https://github.com/dalini/nina-website/issues/24 |
+| REQ-CONTENT-080 | https://github.com/dalini/nina-website/issues/25 |
+| REQ-CONTENT-090 | https://github.com/dalini/nina-website/issues/26 |
+| REQ-OUTPUT-010 | https://github.com/dalini/nina-website/issues/27 |
+| REQ-OUTPUT-020 | https://github.com/dalini/nina-website/issues/28 |
+| REQ-OUTPUT-030 | https://github.com/dalini/nina-website/issues/29 |
+| REQ-OUTPUT-040 | https://github.com/dalini/nina-website/issues/30 |
+| REQ-LAYOUT-010 | https://github.com/dalini/nina-website/issues/31 |
+| REQ-NAV-020 | https://github.com/dalini/nina-website/issues/32 |
+| REQ-NAV-040 | https://github.com/dalini/nina-website/issues/33 |
+| REQ-NAV-030 | https://github.com/dalini/nina-website/issues/34 |
+| REQ-NAV-010 | https://github.com/dalini/nina-website/issues/35 |
+| REQ-WORKS-020 | https://github.com/dalini/nina-website/issues/36 |
+| REQ-IMAGES-010 | https://github.com/dalini/nina-website/issues/37 |
+| REQ-HOME-010 | https://github.com/dalini/nina-website/issues/38 |
+| REQ-WORKS-010 | https://github.com/dalini/nina-website/issues/39 |
+| REQ-WORKS-030 | https://github.com/dalini/nina-website/issues/40 |
+| REQ-WORKS-050 | https://github.com/dalini/nina-website/issues/41 |
+| REQ-IMAGES-020 | https://github.com/dalini/nina-website/issues/42 |
+| REQ-IMAGES-040 | https://github.com/dalini/nina-website/issues/43 |
+| REQ-IMAGES-050 | https://github.com/dalini/nina-website/issues/44 |
+| REQ-IMAGES-030 | https://github.com/dalini/nina-website/issues/45 |
+| REQ-EXHIBITIONS-010 | https://github.com/dalini/nina-website/issues/46 |
+| REQ-EXHIBITIONS-030 | https://github.com/dalini/nina-website/issues/47 |
+| REQ-WORKS-040 | https://github.com/dalini/nina-website/issues/48 |
+| REQ-EXHIBITIONS-020 | https://github.com/dalini/nina-website/issues/49 |
+| REQ-HOME-020 | https://github.com/dalini/nina-website/issues/50 |
+| REQ-NEWS-010 | https://github.com/dalini/nina-website/issues/51 |
+| REQ-CV-010 | https://github.com/dalini/nina-website/issues/52 |
+| REQ-CV-020 | https://github.com/dalini/nina-website/issues/53 |
+| REQ-CV-030 | https://github.com/dalini/nina-website/issues/54 |
+| REQ-TEXTS-010 | https://github.com/dalini/nina-website/issues/55 |
+| REQ-DOWNLOADS-010 | https://github.com/dalini/nina-website/issues/56 |
+| REQ-CONTACT-010 | https://github.com/dalini/nina-website/issues/57 |
+| REQ-LEGAL-010 | https://github.com/dalini/nina-website/issues/58 |
+| REQ-INSTAGRAM-010 | https://github.com/dalini/nina-website/issues/59 |
+| REQ-INSTAGRAM-020 | https://github.com/dalini/nina-website/issues/60 |
+| REQ-CONSENT-010 | https://github.com/dalini/nina-website/issues/61 |
+| REQ-PRIV-030 | https://github.com/dalini/nina-website/issues/62 |
+| REQ-HOST-010 | https://github.com/dalini/nina-website/issues/63 |
+| REQ-HOST-020 | https://github.com/dalini/nina-website/issues/64 |
+| REQ-HOST-030 | https://github.com/dalini/nina-website/issues/65 |
+| REQ-HOST-040 | https://github.com/dalini/nina-website/issues/66 |
+| REQ-PRIV-020 | https://github.com/dalini/nina-website/issues/67 |
+| REQ-HTTP-010 | https://github.com/dalini/nina-website/issues/68 |
+| REQ-HTTP-020 | https://github.com/dalini/nina-website/issues/69 |
+| REQ-CONSENT-020 | https://github.com/dalini/nina-website/issues/70 |
+| REQ-CONSENT-050 | https://github.com/dalini/nina-website/issues/71 |
+| REQ-PERF-010 | https://github.com/dalini/nina-website/issues/72 |
+| REQ-PRIV-010 | https://github.com/dalini/nina-website/issues/73 |
+| REQ-CONSENT-030 | https://github.com/dalini/nina-website/issues/74 |
+| REQ-HTTP-030 | https://github.com/dalini/nina-website/issues/75 |
+| REQ-HTTP-040 | https://github.com/dalini/nina-website/issues/76 |
+| REQ-HTTP-060 | https://github.com/dalini/nina-website/issues/77 |
+| REQ-HTTP-070 | https://github.com/dalini/nina-website/issues/78 |
+| REQ-STORE-010 | https://github.com/dalini/nina-website/issues/79 |
+| REQ-STORE-020 | https://github.com/dalini/nina-website/issues/80 |
+| REQ-STORE-030 | https://github.com/dalini/nina-website/issues/81 |
+| REQ-STORE-040 | https://github.com/dalini/nina-website/issues/82 |
+| REQ-STORE-050 | https://github.com/dalini/nina-website/issues/83 |
+| REQ-STORE-060 | https://github.com/dalini/nina-website/issues/84 |
+| REQ-PIPELINE-010 | https://github.com/dalini/nina-website/issues/85 |
+| REQ-PIPELINE-020 | https://github.com/dalini/nina-website/issues/86 |
+| REQ-PIPELINE-030 | https://github.com/dalini/nina-website/issues/87 |
+| REQ-PIPELINE-040 | https://github.com/dalini/nina-website/issues/88 |
+| REQ-PIPELINE-050 | https://github.com/dalini/nina-website/issues/89 |
+| REQ-PIPELINE-060 | https://github.com/dalini/nina-website/issues/90 |
+| REQ-PREVIEW-010 | https://github.com/dalini/nina-website/issues/91 |
+| REQ-PIPELINE-070 | https://github.com/dalini/nina-website/issues/92 |
+| REQ-PIPELINE-080 | https://github.com/dalini/nina-website/issues/93 |
+| REQ-PIPELINE-130 | https://github.com/dalini/nina-website/issues/94 |
+| REQ-PIPELINE-090 | https://github.com/dalini/nina-website/issues/95 |
+| REQ-PIPELINE-140 | https://github.com/dalini/nina-website/issues/96 |
+| REQ-INSTAGRAM-050 | https://github.com/dalini/nina-website/issues/97 |
+| REQ-INSTAGRAM-030 | https://github.com/dalini/nina-website/issues/98 |
+| REQ-INSTAGRAM-040 | https://github.com/dalini/nina-website/issues/99 |
+| REQ-PIPELINE-100 | https://github.com/dalini/nina-website/issues/100 |
+| REQ-PIPELINE-110 | https://github.com/dalini/nina-website/issues/101 |
+| REQ-PIPELINE-120 | https://github.com/dalini/nina-website/issues/102 |
+| REQ-EDIT-010 | https://github.com/dalini/nina-website/issues/103 |
+| REQ-CONSENT-040 | https://github.com/dalini/nina-website/issues/104 |
+| REQ-AUTHN-010 | https://github.com/dalini/nina-website/issues/105 |
+| REQ-AUTHN-020 | https://github.com/dalini/nina-website/issues/106 |
+| REQ-AUTHN-030 | https://github.com/dalini/nina-website/issues/107 |
+| REQ-EDIT-100 | https://github.com/dalini/nina-website/issues/108 |
+| REQ-AUTHN-040 | https://github.com/dalini/nina-website/issues/109 |
+| REQ-AUTHN-050 | https://github.com/dalini/nina-website/issues/110 |
+| REQ-HTTP-050 | https://github.com/dalini/nina-website/issues/111 |
+| REQ-EDIT-020 | https://github.com/dalini/nina-website/issues/112 |
+| REQ-EDIT-030 | https://github.com/dalini/nina-website/issues/113 |
+| REQ-EDIT-110 | https://github.com/dalini/nina-website/issues/114 |
+| REQ-EDIT-040 | https://github.com/dalini/nina-website/issues/115 |
+| REQ-EDIT-050 | https://github.com/dalini/nina-website/issues/116 |
+| REQ-EDIT-060 | https://github.com/dalini/nina-website/issues/117 |
+| REQ-EDIT-070 | https://github.com/dalini/nina-website/issues/118 |
+| REQ-EDIT-080 | https://github.com/dalini/nina-website/issues/119 |
+| REQ-EDIT-090 | https://github.com/dalini/nina-website/issues/120 |
+| REQ-MIGRATION-010 | https://github.com/dalini/nina-website/issues/121 |
+| REQ-MIGRATION-040 | https://github.com/dalini/nina-website/issues/122 |
+| REQ-MIGRATION-020 | https://github.com/dalini/nina-website/issues/123 |
+| REQ-MIGRATION-030 | https://github.com/dalini/nina-website/issues/124 |

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: SECURITY.md SEC-INPUT-5, `REF-INPUT`; REQUIREMENTS.md FR-8.5; parent {{ISSUE_URL:REQ-IMAGES-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-5, `REF-INPUT`; REQUIREMENTS.md FR-8.5; parent https://github.com/dalini/nina-website/issues/7
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}})
-- **Downstream Requirements**: REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}})
+- **Upstream Requirements**: REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37), REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22)
+- **Downstream Requirements**: REQ-INSTAGRAM-030 (https://github.com/dalini/nina-website/issues/98)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

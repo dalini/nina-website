@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Performance
-- **Source / Parent**: REQUIREMENTS.md NFR-1; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md NFR-1; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HOME-010 ({{ISSUE_URL:REQ-HOME-010}}), REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}}), REQ-TEXTS-010 ({{ISSUE_URL:REQ-TEXTS-010}}), REQ-CV-010 ({{ISSUE_URL:REQ-CV-010}}), REQ-CONTACT-010 ({{ISSUE_URL:REQ-CONTACT-010}}), REQ-LEGAL-010 ({{ISSUE_URL:REQ-LEGAL-010}}), REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-WORKS-050 ({{ISSUE_URL:REQ-WORKS-050}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Upstream Requirements**: REQ-HOME-010 (https://github.com/dalini/nina-website/issues/38), REQ-WORKS-010 (https://github.com/dalini/nina-website/issues/39), REQ-WORKS-030 (https://github.com/dalini/nina-website/issues/40), REQ-EXHIBITIONS-020 (https://github.com/dalini/nina-website/issues/49), REQ-NEWS-010 (https://github.com/dalini/nina-website/issues/51), REQ-TEXTS-010 (https://github.com/dalini/nina-website/issues/55), REQ-CV-010 (https://github.com/dalini/nina-website/issues/52), REQ-CONTACT-010 (https://github.com/dalini/nina-website/issues/57), REQ-LEGAL-010 (https://github.com/dalini/nina-website/issues/58), REQ-INSTAGRAM-020 (https://github.com/dalini/nina-website/issues/60), REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37), REQ-WORKS-050 (https://github.com/dalini/nina-website/issues/41), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47), REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: REQUIREMENTS.md FR-8.2, FR-8.5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3, SEC-INPUT-1, SEC-INPUT-5, SEC-CICD-6; ARCHITECTURE.md Instagram Feed Integration, DR-5; parent {{ISSUE_URL:REQ-INSTAGRAM-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.2, FR-8.5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3, SEC-INPUT-1, SEC-INPUT-5, SEC-CICD-6; ARCHITECTURE.md Instagram Feed Integration, DR-5; parent https://github.com/dalini/nina-website/issues/10
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-IMAGES-020 ({{ISSUE_URL:REQ-IMAGES-020}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-PIPELINE-090 ({{ISSUE_URL:REQ-PIPELINE-090}}), REQ-INSTAGRAM-050 ({{ISSUE_URL:REQ-INSTAGRAM-050}})
-- **Downstream Requirements**: REQ-INSTAGRAM-040 ({{ISSUE_URL:REQ-INSTAGRAM-040}})
+- **Upstream Requirements**: REQ-INSTAGRAM-020 (https://github.com/dalini/nina-website/issues/60), REQ-IMAGES-020 (https://github.com/dalini/nina-website/issues/42), REQ-IMAGES-040 (https://github.com/dalini/nina-website/issues/43), REQ-PIPELINE-090 (https://github.com/dalini/nina-website/issues/95), REQ-INSTAGRAM-050 (https://github.com/dalini/nina-website/issues/97)
+- **Downstream Requirements**: REQ-INSTAGRAM-040 (https://github.com/dalini/nina-website/issues/99)
 - **External Dependencies**: Instagram API with Instagram Login (@ninalaaf must be a Business or Creator account)
 - **Dependency Assumptions**: The API returns recent media with type, media URL, caption, permalink and timestamp; responses may be malicious
 - **Failure Impact**: Feed refresh fails; the home page shows the last refreshed posts (REQ-INSTAGRAM-040)

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-6.1, FR-6.2; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-6.1, FR-6.2; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CV-010 ({{ISSUE_URL:REQ-CV-010}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}}), REQ-IMAGES-030 ({{ISSUE_URL:REQ-IMAGES-030}})
+- **Upstream Requirements**: REQ-CV-010 (https://github.com/dalini/nina-website/issues/52), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-IMAGES-050 (https://github.com/dalini/nina-website/issues/44), REQ-IMAGES-030 (https://github.com/dalini/nina-website/issues/45)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

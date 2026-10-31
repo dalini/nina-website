@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.6, FR-3.7, FR-3.10; DESIGN.md Components (Image with credit), Layout and Spacing, Accessibility; parent {{ISSUE_URL:REQ-WORKS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.6, FR-3.7, FR-3.10; DESIGN.md Components (Image with credit), Layout and Spacing, Accessibility; parent https://github.com/dalini/nina-website/issues/6
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}})
-- **Downstream Requirements**: REQ-WORKS-050 ({{ISSUE_URL:REQ-WORKS-050}}), REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}})
+- **Upstream Requirements**: REQ-WORKS-020 (https://github.com/dalini/nina-website/issues/36), REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37)
+- **Downstream Requirements**: REQ-WORKS-050 (https://github.com/dalini/nina-website/issues/41), REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

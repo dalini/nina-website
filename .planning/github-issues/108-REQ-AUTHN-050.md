@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-5, SEC-AUTHN-3 (accepted exception limited by revocation), SEC-AUTHZ-2; T-44, T-47; parent {{ISSUE_URL:REQ-AUTHN-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-5, SEC-AUTHN-3 (accepted exception limited by revocation), SEC-AUTHZ-2; T-44, T-47; parent https://github.com/dalini/nina-website/issues/15
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}})
+- **Upstream Requirements**: REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub OAuth App token revocation
 - **Dependency Assumptions**: Revoking an authorization invalidates every token of that user for the app

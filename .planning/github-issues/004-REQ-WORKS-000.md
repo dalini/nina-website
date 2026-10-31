@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.1 to FR-3.11; DESIGN.md Components (Work metadata, Image with credit, Image viewer); SECURITY.md SEC-OUT-5; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.1 to FR-3.11; DESIGN.md Components (Work metadata, Image with credit, Image viewer); SECURITY.md SEC-OUT-5; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-WORKS-050 ({{ISSUE_URL:REQ-WORKS-050}}), REQ-WORKS-040 ({{ISSUE_URL:REQ-WORKS-040}})
+- **Downstream Requirements**: REQ-WORKS-020 (https://github.com/dalini/nina-website/issues/36), REQ-WORKS-010 (https://github.com/dalini/nina-website/issues/39), REQ-WORKS-030 (https://github.com/dalini/nina-website/issues/40), REQ-WORKS-050 (https://github.com/dalini/nina-website/issues/41), REQ-WORKS-040 (https://github.com/dalini/nina-website/issues/48)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,8 +100,8 @@
 
 ## Sub-issues
 
-- [ ] REQ-WORKS-020 {{ISSUE_URL:REQ-WORKS-020}}
-- [ ] REQ-WORKS-010 {{ISSUE_URL:REQ-WORKS-010}}
-- [ ] REQ-WORKS-030 {{ISSUE_URL:REQ-WORKS-030}}
-- [ ] REQ-WORKS-050 {{ISSUE_URL:REQ-WORKS-050}}
-- [ ] REQ-WORKS-040 {{ISSUE_URL:REQ-WORKS-040}}
+- [ ] REQ-WORKS-020 https://github.com/dalini/nina-website/issues/36
+- [ ] REQ-WORKS-010 https://github.com/dalini/nina-website/issues/39
+- [ ] REQ-WORKS-030 https://github.com/dalini/nina-website/issues/40
+- [ ] REQ-WORKS-050 https://github.com/dalini/nina-website/issues/41
+- [ ] REQ-WORKS-040 https://github.com/dalini/nina-website/issues/48

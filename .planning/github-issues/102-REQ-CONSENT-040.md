@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-5 (`edit.` and `preview.` load no Google Analytics; no tag loader or measurement ID in the preview build or the Editing Interface files), SEC-HTTP-4; T-85; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-5 (`edit.` and `preview.` load no Google Analytics; no tag loader or measurement ID in the preview build or the Editing Interface files), SEC-HTTP-4; T-85; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}})
+- **Upstream Requirements**: REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

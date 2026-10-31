@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: DESIGN.md Brand and Logo, Color Palette, Typography, Layout and Spacing, Components (Links, Buttons, Focus state), Accessibility; REQUIREMENTS.md NFR-1, NFR-4; SECURITY.md SEC-PRIV-1; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: DESIGN.md Brand and Logo, Color Palette, Typography, Layout and Spacing, Components (Links, Buttons, Focus state), Accessibility; REQUIREMENTS.md NFR-1, NFR-4; SECURITY.md SEC-PRIV-1; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -86,7 +86,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-INSTAGRAM-010 ({{ISSUE_URL:REQ-INSTAGRAM-010}}), REQ-CONSENT-010 ({{ISSUE_URL:REQ-CONSENT-010}}), REQ-PRIV-010 ({{ISSUE_URL:REQ-PRIV-010}})
+- **Downstream Requirements**: REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-INSTAGRAM-010 (https://github.com/dalini/nina-website/issues/59), REQ-CONSENT-010 (https://github.com/dalini/nina-website/issues/61), REQ-PRIV-010 (https://github.com/dalini/nina-website/issues/73)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online
