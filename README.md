@@ -16,7 +16,8 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 ## Status
 
 - Done: steps 1–8 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them; step 8 added the STRIDE threat model T-1 to T-42 to `SECURITY.md` and the resulting rules, requirements and dependency rules).
-- Next: step 9 (`prompts/09-github-epic.md`, `Execution mode: DRAFT_ONLY`), in a fresh session.
+- Done: step 9 in `DRAFT_ONLY` (`.planning/github-issues/`: `ISSUE_PLAN.md`, 1 epic, 6 workstreams, 29 leaf issues). 15 blocking questions (PQ-1 to PQ-15) leave the editing interface, images, home page, exhibitions, Instagram feed, default/fallback language, required fields, DNS accounts, backups and migration undecomposed.
+- Next: step 10 (`prompts/10-resolve-open-questions.md`) to answer them, then step 9 again (`DRAFT_ONLY`, then `CREATE`), in a fresh session.
 
 ## How to run it
 
