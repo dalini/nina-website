@@ -4,7 +4,7 @@
 > Lines starting with **Open:** are undecided on purpose; they become open questions, not features.
 > Decisions from Ives, 2026-10-31: bilingual DE/EN, email contact (form optional), Instagram feed wanted,
 > fully new tech, static site with an easy editing backend, take over a selection of the old works.
-> Delete this file after step 04; its content then lives in the spec files.
+> Archived after step 04: the spec files in the repo root are now the source of truth. Record new decisions there, not here.
 
 ---
 

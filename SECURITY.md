@@ -17,7 +17,7 @@
 - Authorization model: Single role "editor" with full content rights; anyone else has read-only access to published content (FR-10.5).
 - Session model: TO BE DECIDED (editing interface only).
 - Deployment and CI/CD model: TO BE DECIDED (ARCHITECTURE.md AQ-4).
-- Applicable privacy or regulatory obligations: Operator in Germany: GDPR; Impressum and Datenschutzerklärung required (PROJECT_NOTES.md §3, FR-9.1). Exact legal wording: TO BE DECIDED (outside this document).
+- Applicable privacy or regulatory obligations: Operator in Germany: GDPR; Impressum and Datenschutzerklärung required (docs/PROJECT_NOTES.md §3, FR-9.1). Exact legal wording: TO BE DECIDED (outside this document).
 - Security assurance target: TO BE DECIDED
 - Security verification reference: OWASP ASVS 5.0.0
 - Threat model status: TO BE DECIDED
