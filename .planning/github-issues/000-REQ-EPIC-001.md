@@ -16,10 +16,10 @@
 - **Statement**: The system MUST implement every requirement in REQUIREMENTS.md and every rule in SECURITY.md through the components and dependency rules of ARCHITECTURE.md and the design language of DESIGN.md; this epic is done when every sub-issue is closed and every row of the coverage table in `.planning/github-issues/ISSUE_PLAN.md` is COVERED or OUT OF SCOPE.
 - **Rationale**: nina-laaf.de presents Nina Laaf's work to curators, galleries, collectors, press and the public and makes it easy to contact her (REQUIREMENTS.md Required Requirement Inputs).
 - **Assumptions**: None
-- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4). The blocked scope of ISSUE_PLAN.md (PQ-54 to PQ-59) gets sub-issues in a later step 9 run, after step 10 answers those questions.
+- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4). The blocked scope of ISSUE_PLAN.md (PQ-54 to PQ-59) is answered in step 10 a third time and gets sub-issues in the next step 9 run (PQ-59 removes scope: no order replaces the year order).
 - **Design Traceability**: DESIGN.md (all sections); `style-guide.html`; `logo.svg` (provisional)
 - **Architecture Traceability**: All components (Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration); DR-1 to DR-9
-- **Security Traceability**: SECURITY.md Security Rules, DEP-1 to DEP-8, Threat Model v3 (T-1 to T-85), Open Security Questions SQ-22 and SQ-23 (ISSUE_PLAN.md PQ-54, PQ-55)
+- **Security Traceability**: SECURITY.md Security Rules, DEP-1 to DEP-8, Threat Model v3 (T-1 to T-85); SQ-22 and SQ-23 (ISSUE_PLAN.md PQ-54, PQ-55) decided in step 10 a third time
 
 ## Scope
 
@@ -27,7 +27,7 @@
 - **Components**: Editing Interface (with its OAuth helper), Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration; the Google Analytics property (external)
 - **Interfaces / Operations**: All public pages (DE and EN), the editing workflows, the preview site, the build and publish pipeline, the Instagram feed, the VPS
 - **Actors**: Visitor; editors and owners (Nina, Ives); maintainer (Ives); build/deploy identity; Instagram; GitHub; Google (Google tag and Analytics); VPS provider
-- **Preconditions**: None for the decomposed sub-issues; the blocked scope needs answers to PQ-54 to PQ-59 (ISSUE_PLAN.md Open Questions)
+- **Preconditions**: None for the decomposed sub-issues; the blocked scope (PQ-54 to PQ-59, answered in step 10 a third time) needs the next step 9 run to draft it
 - **Data Classification**: Multiple
 - **Personal or Regulated Data**: Personal Data (editor identities and credentials, Nina's published email address, location metadata in uploaded photos, visitor IP addresses in access logs, visitor and browser data sent to Google Analytics, the consent choice in the visitor's browser)
 - **Jurisdiction / Regulatory Scope**: Germany / EU: GDPR; Impressum and Datenschutzerklärung (FR-9.1); wording drafted with a German legal-text generator and approved by Nina before release (SECURITY.md)
@@ -70,7 +70,7 @@
 - **On External Dependency Failure**: Per sub-issue (GitHub, Instagram, VPS)
 - **On System Error**: Per sub-issue; a failed build leaves the previous site online (SEC-INPUT-3)
 - **Logging / Audit**: Per sub-issue
-- **Alerting**: Per sub-issue (failed builds email Ives, REQ-PIPELINE-110; email alerts from the VPS are blocked scope, PQ-56)
+- **Alerting**: Per sub-issue (failed builds email Ives, REQ-PIPELINE-110; email alerts from the VPS go through the local mail relay agent, PQ-56, decided in step 10 a third time and drafted by the next step 9 run)
 
 ## Test Strategy
 
@@ -97,7 +97,7 @@
 - **Implementation Guidance**: Create order and dependencies: ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Product (Nina), security, privacy/legal (Impressum, Datenschutzerklärung) and architecture review across the epic
-- **Open Decisions**: Blocking: PQ-54 to PQ-59; non-blocking: PQ-60 to PQ-66 (ISSUE_PLAN.md Open Questions). Deferred by Ives: the final logo mark (DESIGN.md).
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2); PQ-55: the stored choice records the banner version; Ives raises it when the text, purposes or Google Analytics settings change, and everyone is asked again; no record outside the browser (FR-9.2, SEC-PRIV-7); PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1); PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6); PQ-58: materials and dimensions come from the work-level legacy fields, else from a first caption in the form "materials | dimensions | year", else stay empty; a migration report lists what Nina must complete and values that break FR-3.3 (FR-11.1); PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1); PQ-60: fixed text in the templates, written by Ives with the Datenschutzerklärung at implementation and approved by Nina; it must not claim that nothing reaches Google before consent (FR-9.2, DESIGN.md Consent banner); PQ-61: the `cookie_domain` value is verified at implementation; if none gives host-only cookies, cookies for `nina-laaf.de` are an accepted risk (SEC-PRIV-5); PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5); PQ-63: German, informal: "Deine Änderungen sind noch nicht online." and "Bitte prüfe: <Eintrag>, Feld <Feld>."; a strip above the CMS on `surface` with an `error` left border (FR-10.8, DESIGN.md Publish status banner); PQ-64: year, title (e.g. "2019  Raumforderung") (FR-5.3); PQ-65: numeric dates: DE `DD.MM.YYYY`, EN `YYYY-MM-DD`; ranges with both full dates and an en dash (FR-1.8); PQ-66: the viewer stops at the ends (Previous/Next disabled there) and shows the position, e.g. "3 / 7" (FR-3.11). Parts that were excluded as blocked scope are drafted by the next step 9 run. The excluded replacing order is dropped (PQ-59), not drafted. Deferred by Ives: the final logo mark (DESIGN.md).
 
 ## Sub-issues
 

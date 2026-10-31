@@ -16,7 +16,7 @@
 - **Statement**: The 60-day Instagram token MUST be kept in a file on the VPS owned by the deploy account and readable only by that account, and a cron job running under the deploy account MUST refresh it monthly over verified HTTPS, keeping the previous token when a refresh fails and recording the failure for the alert to Ives; the token MUST grant only `instagram_business_basic` and MUST NOT appear in command lines, environments shared with other accounts, or logs.
 - **Rationale**: The build reads the token over the deploy channel (ARCHITECTURE.md Instagram Feed Integration); one account owns it so that no root-only file has to be read by a non-root process (T-37, T-62).
 - **Assumptions**: @ninalaaf is a Business or Creator account with an Instagram API with Instagram Login app (ARCHITECTURE.md)
-- **Out of Scope**: Delivering the failure alert to Ives by email (blocked: PQ-56); reading the token in the build (REQ-INSTAGRAM-030); which paths the deploy key can write (REQ-PIPELINE-140).
+- **Out of Scope**: Delivering the failure alert to Ives by email (decided in step 10 a third time, PQ-56; drafted by the next step 9 run); reading the token in the build (REQ-INSTAGRAM-030); which paths the deploy key can write (REQ-PIPELINE-140).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Instagram Feed Integration (token on the VPS, monthly refresh); Static Hosting (runs the refresh under the deploy account); DF-13
 - **Security Traceability**: SEC-SECRET-1, SEC-SECRET-3, SEC-CICD-1, SEC-HOST-2
@@ -70,7 +70,7 @@
 - **On External Dependency Failure**: Instagram unreachable: the token file is not changed; the next monthly run tries again; the failure is recorded
 - **On System Error**: The job stops with a non-zero exit status, changes nothing it has not finished, and leaves the previous state in place
 - **Logging / Audit**: The job logs time and result (success or failure, HTTP status) without the token value
-- **Alerting**: A failed refresh is recorded for the alert path; delivering the email is blocked scope (PQ-56)
+- **Alerting**: A failed refresh is recorded for the alert path; delivering the email goes through the local mail relay agent (PQ-56, decided in step 10 a third time; drafted by the next step 9 run)
 
 ## Test Strategy
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Secret handling on the VPS across a cron job, file permissions and an outbound API call, where a mistake leaks a token or silently stops the feed.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-56 (blocking) for the excluded alert delivery.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1). Parts that were excluded as blocked scope are drafted by the next step 9 run.

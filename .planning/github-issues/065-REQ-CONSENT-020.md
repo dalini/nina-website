@@ -16,7 +16,7 @@
 - **Statement**: The first-party consent script MUST set `analytics_storage`, `ad_storage`, `ad_user_data` and `ad_personalization` to denied before the Google tag loads, and only then insert the Google tag of the property's own GA4 measurement ID (no Google Tag Manager container, no other destination); no generated page may contain the tag itself, so the tag does not load when that script does not run; Accept MUST grant `analytics_storage` only, Decline or withdrawal MUST set it back to denied, and the three ad consent types MUST stay denied in every state; the implementer MUST test narrower `script-src` sources than `https://*.googletagmanager.com` and record the narrowest one that works in SEC-HTTP-2 in the same pull request.
 - **Rationale**: Advanced Consent Mode sends only cookieless pings before consent (SEC-PRIV-5); inserting the tag from the consent script makes the defaults come first (T-71) and keeps an injected tag from being the only one (T-76).
 - **Assumptions**: The property exists with its measurement ID (REQ-PRIV-030)
-- **Out of Scope**: The banner and the stored choice (REQ-CONSENT-010); the cookie domain (REQ-CONSENT-030); preview and editing hosts (REQ-CONSENT-040); versioning the choice (blocked: PQ-55).
+- **Out of Scope**: The banner and the stored choice (REQ-CONSENT-010); the cookie domain (REQ-CONSENT-030); preview and editing hosts (REQ-CONSENT-040); versioning the choice (decided in step 10 a third time, PQ-55; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Public Site (the Google tag with Consent Mode, inserted only by the first-party consent script, T-71); DR-6
 - **Security Traceability**: SEC-PRIV-5, SEC-HTTP-2, SEC-OUT-7

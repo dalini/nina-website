@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Key separation between two outputs from one run is easy to get subtly wrong (T-20, T-21).
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-62 (non-blocking): whether the preview shows the consent banner without a tag loader, or leaves the consent script out.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5).

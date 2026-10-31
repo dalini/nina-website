@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface MUST let editors create, edit, unpublish and delete works without Markdown, Git, HTML or a command line; upload images and set their order, alt text, caption and photo credit; enter every text field in German and English (the title once); mark exactly one work as featured, so that marking a work removes the mark from the previous one (where Sveltia CMS cannot enforce this, the publish fails instead, REQ-CONTENT-030); mark works as in public space; set the manual order of works; set a work's CV hide flag and CV wording; and MUST reject a save that lacks a title, a year or an image, or an image without alt text, naming the missing field.
 - **Rationale**: Nina maintains her works herself (FR-10.1 to FR-10.3).
 - **Assumptions**: None
-- **Out of Scope**: Upload type, size and pixel checks (REQ-EDIT-050); rich-text toolbar limits (REQ-EDIT-060); history (REQ-EDIT-080); how Nina switches the Works page to a manual order that replaces the year order (blocked: PQ-59).
+- **Out of Scope**: Upload type, size and pixel checks (REQ-EDIT-050); rich-text toolbar limits (REQ-EDIT-060); history (REQ-EDIT-080); how Nina switches the Works page to a manual order that replaces the year order (dropped in step 10 a third time, PQ-59: no order replaces the year order, FR-3.1).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (Sveltia CMS); Content Store (Work and Image items)
 - **Security Traceability**: SEC-AUTHZ-1 (writes only by listed editors, via REQ-STORE-010)
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Declarative CMS configuration following the documented model.
 - **Required Human Review**: Product review by Nina (forms and wording); security review by Ives
-- **Open Decisions**: PQ-59 (blocking) for the excluded switch to a full manual order.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1). The excluded replacing order is dropped (PQ-59), not drafted.

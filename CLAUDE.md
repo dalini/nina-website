@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf. The project is specified but not built yet; step 10 and step 10 again resolved the open questions (record: `.planning/OPEN_QUESTIONS.md`). Code lives in `dalini/nina-site` (Hugo templates, config, CI, the Deno OAuth helper; maintainer only) and content in `dalini/nina-content` (private Content Store); this repository holds the specification.
+nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf. The project is specified but not built yet; step 10, step 10 again and step 10 a third time resolved the open questions (record: `.planning/OPEN_QUESTIONS.md`). Code lives in `dalini/nina-site` (Hugo templates, config, CI, the Deno OAuth helper; maintainer only) and content in `dalini/nina-content` (private Content Store); this repository holds the specification.
 
 ## Where things are defined
 

@@ -16,7 +16,7 @@
 - **Statement**: A cron job under the content check's account on the VPS MUST check `main` of `dalini/nina-content` every minute with `git ls-remote` and a read-only credential, and when the commit differs from the last one it started a build for, MUST start the build workflow of `dalini/nina-site` through `workflow_dispatch` with a fine-grained token limited to Actions: write on `dalini/nina-site`; it MUST send no dispatch inputs, or only a validated commit ID used as data; and it MUST detect and record for the alert to Ives when it cannot read the Content Store or cannot start a build.
 - **Rationale**: This check meets the 15-minute limit of FR-10.4 without using Actions minutes (ARCHITECTURE.md); a silent failure would break FR-10.4 unnoticed (T-58).
 - **Assumptions**: None
-- **Out of Scope**: The workflow's triggers and concurrency group (REQ-PIPELINE-080); delivering the alert to Ives by email (blocked: PQ-56); the account and secret files (REQ-HOST-030).
+- **Out of Scope**: The workflow's triggers and concurrency group (REQ-PIPELINE-080); delivering the alert to Ives by email (decided in step 10 a third time, PQ-56; drafted by the next step 9 run); the account and secret files (REQ-HOST-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (When it runs: VPS content check, `workflow_dispatch`); Static Hosting (runs the content check); DF-4
 - **Security Traceability**: SEC-CICD-4, SEC-SECRET-1, SEC-CICD-8, SEC-AUTHZ-4
@@ -71,7 +71,7 @@
 - **On External Dependency Failure**: GitHub unreachable: no build starts; the next run tries again; the nightly build still runs
 - **On System Error**: The job stops with a non-zero exit status, changes nothing it has not finished, and leaves the previous state in place
 - **Logging / Audit**: Each started build is logged with the commit ID and time, without token values; the build records its trigger (SEC-AUDIT-2)
-- **Alerting**: Failures are recorded for the alert path; delivering the email is blocked scope (PQ-56)
+- **Alerting**: Failures are recorded for the alert path; delivering the email goes through the local mail relay agent (PQ-56, decided in step 10 a third time; drafted by the next step 9 run)
 
 ## Test Strategy
 
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: A small job that holds a trigger token, must never pass content into a command, and is the only path that meets the 15-minute limit.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-56 (blocking) for the excluded alert delivery.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1). Parts that were excluded as blocked scope are drafted by the next step 9 run.

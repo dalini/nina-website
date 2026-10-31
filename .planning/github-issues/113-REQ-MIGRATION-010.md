@@ -16,7 +16,7 @@
 - **Statement**: A one-time import MUST create one Work item for each of the 53 legacy work series in `docs/legacy-content/works/`, with its legacy title, its year when present and its images in the legacy order, and MUST keep every non-empty legacy image caption as the caption of its own image; all values go into the German fields and the English fields stay empty.
 - **Rationale**: The existing body of work moves to the new site (FR-11.1).
 - **Assumptions**: None
-- **Out of Scope**: The works' materials and dimensions (blocked: PQ-58: FR-11.1 takes them from the first image's caption, but 25 legacy works hold work-level `materials` and `dimensions` fields, 18 of them with an empty first caption, and many first captions are not in the form "materials | dimensions | year"); publish state and featured work (REQ-MIGRATION-020); alt text (REQ-MIGRATION-030).
+- **Out of Scope**: The works' materials and dimensions and the migration report (decided in step 10 a third time, PQ-58: work-level legacy fields, else a first caption in the clean form, else empty; drafted by the next step 9 run); publish state and featured work (REQ-MIGRATION-020); alt text (REQ-MIGRATION-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (one-time import of the legacy works, DF-3)
 - **Security Traceability**: SEC-OUT-1 (legacy text is encoded at build time), SEC-PRIV-4 (legacy EXIF stripped at build time)
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md FR-11; `docs/legacy-content/` is reference input for the import, not specification; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: A mapping script from a known, uniform source format.
 - **Required Human Review**: Product review by Nina of the imported works
-- **Open Decisions**: PQ-58 (blocking) for the excluded materials and dimensions.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-58: materials and dimensions come from the work-level legacy fields, else from a first caption in the form "materials | dimensions | year", else stay empty; a migration report lists what Nina must complete and values that break FR-3.3 (FR-11.1). Parts that were excluded as blocked scope are drafted by the next step 9 run.

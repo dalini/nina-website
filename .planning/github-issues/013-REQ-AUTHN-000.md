@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST sign editors in to the Editing Interface through the self-hosted Deno OAuth helper on `edit.nina-laaf.de`, releasing tokens only to that origin, verifying `state` with `__Host-` cookies, running the helper with minimal rights, keeping tokens out of URLs and logs, and letting Ives revoke an editor's tokens.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the helper's code and lockfile get onto the VPS, and under which account (blocked: PQ-54, SECURITY.md SQ-22).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the helper's code and lockfile get onto the VPS, and under which account (decided in step 10 a third time, PQ-54; drafted by the next step 9 run, SECURITY.md SQ-22).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (OAuth helper on the VPS); DR-9; TB-2, TB-3
 - **Security Traceability**: SEC-AUTHN-1, SEC-AUTHN-3, SEC-AUTHN-4, SEC-AUTHN-5, SEC-AUTHZ-3, SEC-SECRET-1, SEC-HOST-2, SEC-CICD-2
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-54 (blocking) for the excluded installation channel.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 

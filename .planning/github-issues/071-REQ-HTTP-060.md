@@ -16,7 +16,7 @@
 - **Statement**: The TLS certificates of `nina-laaf.de`, `edit.nina-laaf.de` and `preview.nina-laaf.de` MUST be renewed automatically from Let's Encrypt (certbot or lego) before they expire, and a failed renewal, or a certificate inside its renewal window that was not renewed, MUST be detected and recorded with the host name for the alert to Ives.
 - **Rationale**: With HSTS, an expired certificate makes the site and the Editing Interface unreachable (T-64).
 - **Assumptions**: None
-- **Out of Scope**: Delivering the alert to Ives by email from the VPS (blocked: PQ-56, SEC-HTTP-5).
+- **Out of Scope**: Delivering the alert to Ives by email from the VPS (decided in step 10 a third time, PQ-56; drafted by the next step 9 run, SEC-HTTP-5).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Static Hosting
 - **Security Traceability**: SEC-HTTP-5
@@ -69,7 +69,7 @@
 - **On External Dependency Failure**: Certificate authority unreachable: renewal retries before expiry; continued failure alerts Ives
 - **On System Error**: nginx refuses to start with an invalid configuration; the configuration is checked before it is reloaded, so the running configuration stays in place
 - **Logging / Audit**: nginx access logs as SEC-PRIV-6 (REQ-PRIV-020)
-- **Alerting**: Detection and recording are part of this issue; delivering the alert email to Ives is blocked scope (PQ-56)
+- **Alerting**: Detection and recording are part of this issue; delivering the alert email to Ives goes through the local mail relay agent (PQ-56, decided in step 10 a third time; drafted by the next step 9 run)
 
 ## Test Strategy
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Standard renewal job and expiry check once the source and alert channel are chosen.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-56 (blocking) for the excluded alert delivery.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1). Parts that were excluded as blocked scope are drafted by the next step 9 run.

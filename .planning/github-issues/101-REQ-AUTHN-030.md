@@ -16,7 +16,7 @@
 - **Statement**: The OAuth helper MUST run on the VPS under its own unprivileged account with a pinned Deno version and dependencies pinned in a lockfile, and Deno MUST grant it only network access to its listening address and GitHub's OAuth endpoint, read access to its own code and its own secret file, and its own environment variables; never `--allow-all`, and no permission to write files, run programs or load native libraries.
 - **Rationale**: A flaw in the helper or its dependencies acts with the permissions it is started with; with `--allow-all` Deno's sandbox is off (T-80).
 - **Assumptions**: None
-- **Out of Scope**: How the helper's code and lockfile get onto the VPS, and under which account (blocked: PQ-54, SECURITY.md SQ-22); the account and secret file layout (REQ-HOST-030).
+- **Out of Scope**: How the helper's code and lockfile get onto the VPS, and under which account (decided in step 10 a third time, PQ-54; drafted by the next step 9 run, SECURITY.md SQ-22); the account and secret file layout (REQ-HOST-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (helper run on the VPS under its own account with a pinned Deno version); Static Hosting
 - **Security Traceability**: SEC-AUTHN-4, SEC-HOST-2, SEC-CICD-2
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Least-privilege runtime configuration for the only internet-facing server-side code (T-80, T-61).
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-54 (blocking) for the excluded installation channel.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2). Parts that were excluded as blocked scope are drafted by the next step 9 run.

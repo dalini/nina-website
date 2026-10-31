@@ -16,7 +16,7 @@
 - **Statement**: Until a visitor has chosen, every page of `nina-laaf.de` MUST show the consent banner for visitor statistics with Accept and Decline buttons of equal prominence; the choice MUST be stored in the visitor's browser and MUST NOT be asked again until it is withdrawn; the footer of every page MUST offer a link that reopens the banner so the choice can be changed or withdrawn; only a stored value that exactly matches Accept MUST count as consent, and a missing, unknown or malformed value MUST count as no choice; pages MUST remain fully usable while the banner is shown and after Decline, also when the Google tag cannot load.
 - **Rationale**: Google Analytics cookies are set only after the visitor accepts (SEC-PRIV-5); a strict reading of the stored value keeps consent from being assumed (T-72).
 - **Assumptions**: None
-- **Out of Scope**: Recording the banner version and asking again when the text, purposes or settings change, and any record of consent outside the browser (blocked: PQ-55, SECURITY.md SQ-23); setting Consent Mode and inserting the Google tag (REQ-CONSENT-020); the banner on the preview site (PQ-62, REQ-CONSENT-040).
+- **Out of Scope**: Recording the banner version and asking again when the text, purposes or settings change, and any record of consent outside the browser (decided in step 10 a third time, PQ-55; drafted by the next step 9 run, SECURITY.md SQ-23); setting Consent Mode and inserting the Google tag (REQ-CONSENT-020); the banner on the preview site (PQ-62, REQ-CONSENT-040).
 - **Design Traceability**: DESIGN.md Components (Consent banner: bar fixed to the bottom on `surface`, short text, link to the Datenschutzerklärung, two Buttons of equal size and style, never covers the main content on load, does not block scrolling, footer link reopens it; Buttons; Focus state; Inputs and form feedback); Accessibility; `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Public Site (consent banner, first-party vanilla JavaScript; the visitor's consent choice in browser storage)
 - **Security Traceability**: SEC-PRIV-5 (stored value), SEC-OUT-5; SEC-HTTP-2 and SEC-OUT-7 (own script file, no inline script)
@@ -70,7 +70,7 @@
 - **On Security-Decision Failure**: N/A: this page makes no security decision; encoding and link rules are enforced by REQ-OUTPUT-010 and REQ-OUTPUT-030
 - **On External Dependency Failure**: Google tag blocked or unreachable: the banner and the page keep working (FR-9.2, T-84)
 - **On System Error**: If the consent script fails, no consent is assumed and the Google tag is not inserted (REQ-CONSENT-020); the page stays usable
-- **Logging / Audit**: N/A: the choice exists only in the visitor's browser (record outside the browser: PQ-55)
+- **Logging / Audit**: N/A: the choice exists only in the visitor's browser; no record outside it (PQ-55, step 10 a third time)
 - **Alerting**: N/A
 
 ## Test Strategy
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: First-party script that reads browser storage and decides whether a visitor has consented; a parsing mistake grants consent the visitor never gave (T-72).
 - **Required Human Review**: Product review by Nina (banner text and layout, approved with the Datenschutzerklärung); design review against DESIGN.md and `style-guide.html`; privacy review by Ives
-- **Open Decisions**: PQ-55 (blocking) for the excluded versioning and record; PQ-60 (non-blocking): the banner's wording in German and English and where it is kept.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-55: the stored choice records the banner version; Ives raises it when the text, purposes or Google Analytics settings change, and everyone is asked again; no record outside the browser (FR-9.2, SEC-PRIV-7); PQ-60: fixed text in the templates, written by Ives with the Datenschutzerklärung at implementation and approved by Nina; it must not claim that nothing reaches Google before consent (FR-9.2, DESIGN.md Consent banner). Parts that were excluded as blocked scope are drafted by the next step 9 run.

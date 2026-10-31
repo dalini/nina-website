@@ -16,7 +16,7 @@
 - **Statement**: Every failed run of the build workflow, whether started by `workflow_dispatch` or by the schedule, MUST notify Ives by email.
 - **Rationale**: Ives must learn of failed publishes (FR-10.8, T-24).
 - **Assumptions**: None
-- **Out of Scope**: Showing the status to Nina and detecting a change that is not live 15 minutes after saving (REQ-EDIT-090); alerts from the VPS content check (blocked: PQ-56).
+- **Out of Scope**: Showing the status to Nina and detecting a change that is not live 15 minutes after saving (REQ-EDIT-090); alerts from the VPS content check (decided in step 10 a third time, PQ-56; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (GitHub Actions failure email to the maintainer)
 - **Security Traceability**: N/A

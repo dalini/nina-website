@@ -65,7 +65,7 @@
 - **On Invalid Input**: N/A: no input is processed; the setting is fixed in the consent script
 - **On Authentication Failure**: N/A: public pages need no sign-in (NFR-2)
 - **On Authorization Failure**: N/A: all public pages are read-only and need no account (NFR-2)
-- **On Security-Decision Failure**: If no tag setting yields host-only cookies, the issue stops and the gap is raised as a question (PQ-61) instead of shipping a parent-domain cookie
+- **On Security-Decision Failure**: If no tag setting yields host-only cookies, the issue records that in SEC-PRIV-5 and ships cookies for `nina-laaf.de` as the accepted risk decided in step 10 a third time (PQ-61); `edit.` and `preview.` neither read nor log them
 - **On External Dependency Failure**: N/A
 - **On System Error**: N/A
 - **Logging / Audit**: N/A
@@ -86,7 +86,7 @@
 - **Upstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
 - **Downstream Requirements**: None
 - **External Dependencies**: Google tag (gtag.js)
-- **Dependency Assumptions**: The tag's `cookie_domain` setting controls the `Domain` attribute it writes (`REF-GTAG-COOKIES`); whether a value of `nina-laaf.de` or `none` yields a host-only cookie is to be verified (PQ-61)
+- **Dependency Assumptions**: The tag's `cookie_domain` setting controls the `Domain` attribute it writes (`REF-GTAG-COOKIES`); whether a value of `nina-laaf.de` or `none` yields a host-only cookie is verified at implementation (PQ-61, step 10 a third time)
 - **Failure Impact**: A parent-domain cookie leaks identifiers to the other hosts (T-79)
 
 ## Implementation Notes
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: The setting must be verified against how browsers scope cookies (RFC 6265), and the issue must stop rather than ship a mechanism that does not meet SEC-PRIV-5.
 - **Required Human Review**: Privacy review by Ives
-- **Open Decisions**: PQ-61 (non-blocking): which tag setting yields host-only cookies; if none does, SEC-PRIV-5 cannot be met as written and the question becomes blocking.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-61: the `cookie_domain` value is verified at implementation; if none gives host-only cookies, cookies for `nina-laaf.de` are an accepted risk (SEC-PRIV-5).

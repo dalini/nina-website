@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-59 (blocking) for the manual order that replaces the year order; PQ-66 (non-blocking, image viewer at the first and last image).
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1); PQ-66: the viewer stops at the ends (Previous/Next disabled there) and shows the position, e.g. "3 / 7" (FR-3.11). The excluded replacing order is dropped (PQ-59), not drafted.
 
 ## Sub-issues
 

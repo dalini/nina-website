@@ -16,7 +16,7 @@
 - **Statement**: The content model MUST define Exhibition entry (title, type — solo, two-person, group or fair — venue, city, start date, end date, co-exhibitors, external link, linked works, a description, an ordered list of installation images, a slug that is the URL segment of the entry's page, publish state, a CV hide flag and a CV wording override) and News item (title, date, text, external link, image, publish state). Text fields MUST hold German and English values; the description is plain text. The rules MUST be: an Exhibition entry needs a title, a type, a venue, a city, a start date and an end date, and its end date MUST NOT be before its start date (the end date is the reported field); a News item needs a title and a date; installation images and the News image follow the Image rules of REQ-CONTENT-010.
 - **Rationale**: Exhibition entries drive the Exhibitions/News page and their own pages, the home page entry and the derived CV sections (FR-2.3, FR-4, FR-5.3).
 - **Assumptions**: None
-- **Out of Scope**: How the slug is filled in and what happens when two entries have the same slug (blocked: PQ-57); the slug's character rule (REQ-CONTENT-080); rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
+- **Out of Scope**: How the slug is filled in and what happens when two entries have the same slug (decided in step 10 a third time, PQ-57; drafted by the next step 9 run); the slug's character rule (REQ-CONTENT-080); rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (owns Exhibition entry and News item); DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3 (via REQ-CONTENT-030); SEC-OUT-2 (external links, via REQ-OUTPUT-030)
@@ -99,4 +99,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: A field list taken directly from FR-4 and FR-10.6, following the REQ-CONTENT-010 pattern.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: PQ-57 (blocking) for the excluded slug part; nothing else.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.

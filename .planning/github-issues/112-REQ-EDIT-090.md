@@ -17,7 +17,7 @@
 - **Rationale**: A failed or never-started publish must not go unnoticed by Nina (T-24, T-58); the status file is untrusted input on the editing origin (T-60).
 - **Assumptions**: None
 - **Out of Scope**: Writing the status file (REQ-PIPELINE-120); the failure email to Ives (REQ-PIPELINE-110); restyling Sveltia CMS (not done, DESIGN.md Components).
-- **Design Traceability**: DESIGN.md Components (Inputs and form feedback applies to the public site only; the Sveltia CMS UI is used as is). No DESIGN.md component defines this banner: PQ-63
+- **Design Traceability**: DESIGN.md Components (Inputs and form feedback applies to the public site only; the Sveltia CMS UI is used as is). DESIGN.md Components (Publish status banner, added in step 10 a third time, PQ-63)
 - **Architecture Traceability**: Editing Interface (reads the publish status file, DF-9, and shows the banner); Content Store (latest commit through the GitHub API); DR-1 (status carries no content)
 - **Security Traceability**: SEC-OUT-4, SEC-CICD-9, SEC-HTTP-4 (script from its own origin, connections to its own origin and GitHub)
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Browser code on the editing origin that reads the public status file and the editor's own latest save, must show untrusted text safely, and runs where editor tokens live (T-45, T-60).
 - **Required Human Review**: Product review by Nina (forms and wording); security review by Ives
-- **Open Decisions**: PQ-63 (non-blocking): the banner's wording and appearance.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-63: German, informal: "Deine Änderungen sind noch nicht online." and "Bitte prüfe: <Eintrag>, Feld <Feld>."; a strip above the CMS on `surface` with an `error` left border (FR-10.8, DESIGN.md Publish status banner).

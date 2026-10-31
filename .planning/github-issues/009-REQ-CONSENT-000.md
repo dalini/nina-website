@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST show the consent banner, run the Google tag only with Consent Mode v2 as SEC-PRIV-5 requires, keep its cookies on `nina-laaf.de`, keep Google Analytics off the preview and editing hosts, and administer the property under SEC-PRIV-7.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Recording the banner version and asking again when it changes, and keeping a record of consent outside the browser (blocked: PQ-55, SECURITY.md SQ-23).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Recording the banner version and asking again when it changes, and keeping a record of consent outside the browser (decided in step 10 a third time, PQ-55; drafted by the next step 9 run, SECURITY.md SQ-23).
 - **Design Traceability**: DESIGN.md Components (Consent banner, Buttons, Focus state), Accessibility
 - **Architecture Traceability**: Public Site; Site Build; DR-6; TB-6
 - **Security Traceability**: SEC-PRIV-5, SEC-PRIV-7, SEC-HTTP-2, SEC-OUT-5
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-55 (blocking) for the excluded part; PQ-60, PQ-61 and PQ-62 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-55: the stored choice records the banner version; Ives raises it when the text, purposes or Google Analytics settings change, and everyone is asked again; no record outside the browser (FR-9.2, SEC-PRIV-7); PQ-60: fixed text in the templates, written by Ives with the Datenschutzerklärung at implementation and approved by Nina; it must not claim that nothing reaches Google before consent (FR-9.2, DESIGN.md Consent banner); PQ-61: the `cookie_domain` value is verified at implementation; if none gives host-only cookies, cookies for `nina-laaf.de` are an accepted risk (SEC-PRIV-5); PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 

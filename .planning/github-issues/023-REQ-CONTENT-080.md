@@ -16,7 +16,7 @@
 - **Statement**: Before any output is deployed, the Site Build MUST fail the publish, naming the file and field, when a Content Store content file is not Markdown, when its front matter holds a field that the content model in `dalini/nina-site` does not document, or when a slug taken from content (the Exhibition entry slug, FR-4.7) contains anything other than lowercase letters, digits and hyphens; the content model MUST NOT use a field that Hugo interprets itself to choose a page's URL, template, output or renderer (among others `url`, `aliases`, `layout`, `type`, `outputs`, `cascade`, `build`, `markup`), except `slug`, and Hugo's `security.allowContent` MUST keep its default.
 - **Rationale**: Content must not control how the generator renders it: a direct write to the Content Store (T-49) could otherwise move an item to the Impressum's URL, make other URLs redirect to it, or emit raw HTML (T-77, T-76).
 - **Assumptions**: None
-- **Out of Scope**: Evaluation of generator syntax inside field values (REQ-OUTPUT-020); scripts in the generated pages (REQ-OUTPUT-040); how the slug is filled in and duplicate slugs (blocked: PQ-57).
+- **Out of Scope**: Evaluation of generator syntax inside field values (REQ-OUTPUT-020); scripts in the generated pages (REQ-OUTPUT-040); how the slug is filled in and duplicate slugs (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (rechecks content rules, DR-3); content model documented in `dalini/nina-site` (DR-4)
 - **Security Traceability**: SEC-INPUT-6, SEC-INPUT-3
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: Derive the allow-list from the content model documentation so that the two cannot drift apart.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Generator-reserved fields and content formats are a Hugo-internals trust boundary (T-77); a gap lets a direct write take over the Impressum's URL or bring raw HTML into a page.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-57 (blocking) for the excluded slug part.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.
