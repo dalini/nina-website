@@ -15,8 +15,8 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 
 ## Status
 
-- Done: steps 1–7 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them).
-- Next: step 8 (`prompts/08-threat-model.md`), in a fresh session.
+- Done: steps 1–8 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them; step 8 added the STRIDE threat model T-1 to T-42 to `SECURITY.md` and the resulting rules, requirements and dependency rules).
+- Next: step 9 (`prompts/09-github-epic.md`, `Execution mode: DRAFT_ONLY`), in a fresh session.
 
 ## How to run it
 

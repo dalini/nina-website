@@ -71,6 +71,7 @@
 - **FR-8.2** The site MUST show a feed of Nina's recent Instagram posts. How the feed is provided: OQ-6.
 - **FR-8.3** Consent gating of Instagram/Meta content: `SECURITY.md` SEC-PRIV-1 to SEC-PRIV-3.
 - **FR-8.4** If the feed cannot be shown (no consent, or Instagram unavailable), the page MUST still render and MUST show the link from FR-8.1.
+- **FR-8.5** If the feed is copied into the site when it is built (OQ-6) and cannot be refreshed during a build, the build MUST still publish all other content, and the feed area follows FR-8.4. Whether the last copied posts or none are shown then: TO BE DECIDED. (Threat: `SECURITY.md` T-39.)
 
 ### Legal pages
 
@@ -84,6 +85,8 @@
 - **FR-10.4** Changes Nina saves MUST appear on the public site after publishing; the maximum delay is TO BE DECIDED.
 - **FR-10.5** Restricting content changes to Nina and the people she authorizes: `SECURITY.md` SEC-AUTHN-1, SEC-AUTHZ-1, SEC-AUTHZ-2.
 - **FR-10.6** When Nina saves a work without a title, year or at least one image, or an image without alt text, the editor MUST reject the save and show which field is missing.
+- **FR-10.7** Nina MUST be able to see, for each content item, who changed it and when, and MUST be able to restore an earlier version. Attribution rule: `SECURITY.md` SEC-AUDIT-1. (Threat: `SECURITY.md` T-9.)
+- **FR-10.8** When a publish fails, the editing interface MUST show Nina that her changes are not live yet and, when content caused the failure, which item and field. Who else is notified: TO BE DECIDED. (Threat: `SECURITY.md` T-24.)
 
 ### Migration
 
