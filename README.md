@@ -7,16 +7,21 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 
 | Path | What it is |
 |---|---|
-| `PROJECT_NOTES.md` | **Fill this in first.** The input for steps 1, 3 and 4, pre-drafted for an artist/sculptor portfolio site. |
+| `docs/PROJECT_NOTES.md` | The input used for steps 1, 3 and 4. Archived: since step 4 the spec files are the source of truth. |
 | `docs/CONTENT_SEED.md` | Bio, awards, exhibitions and works collected from public sources, to verify with Nina. Content for loading the site later; not an input to the prompts. It lives in `docs/` so steps 7 and 10 don't treat it as spec. |
 | `docs/legacy-content/` | Text content of the previous site (Koken → Eleventy attempt in `dalini/nina-laaf-site`): 53 works, CV, news, contact, essay, old requirements. Images remain in that repo's Git LFS. Reference only. |
-| `prompts/01…11-*.md` | The 11 prompts, ready to paste. Steps 1, 3 and 4 already point to `PROJECT_NOTES.md`. |
+| `prompts/01…11-*.md` | The 11 prompts, ready to paste. Steps 1, 3 and 4 read `docs/PROJECT_NOTES.md`. |
 | `prompts/original/` | The same prompts, verbatim with the original `<<PLACEHOLDER>>` blocks, for other projects. |
+
+## Status
+
+- Done: steps 1–4 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`).
+- Next: step 5 (`prompts/05-requirement-template.md`), in a fresh session.
 
 ## How to run it
 
 1. Clone this repo (`dalini/nina-website`).
-2. Open `PROJECT_NOTES.md` and go through every `[CONFIRM]` line: keep, edit or delete it. **This matters most:** step 1 builds only what the notes say.
+2. Edit `docs/PROJECT_NOTES.md` before re-running steps 1, 3 or 4. Step 1 builds only what the notes say.
 3. Open Claude Code in the repo. For each step, paste the whole prompt file, let it finish, review the result, commit, then run `/clear` (or start a new session) before the next step.
 
 | Step | Prompt | Creates / changes |
@@ -36,7 +41,7 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 
 ## Tips
 
-- **After step 4, delete `PROJECT_NOTES.md`** (or move it to `docs/`). By then its content lives in the spec files, and a leftover copy would be a second source of truth for steps 7 and 10.
+- **`docs/` is reference, not spec.** After step 4, decisions go into the spec files (REQUIREMENTS, DESIGN, ARCHITECTURE, SECURITY), not back into `docs/PROJECT_NOTES.md`. Steps 7 and 10 work on the spec files only.
 - **Step 2 (logo):** if Nina already has a logo or signature, add it to the repo before step 2 and mention it in the notes. Otherwise the prompt makes a neutral placeholder mark.
 - **Step 9** needs the GitHub CLI (`gh auth login`) only for the `CREATE` run.
 - **Good examples:** `jmanico/oracle-buffet` (new app) and `robinschweitz/raid-website` PR #43 (existing codebase) show what each step produces.

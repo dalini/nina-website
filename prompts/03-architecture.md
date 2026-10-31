@@ -8,7 +8,7 @@ Treat the notes below as explicit human-provided input:
 
 ## Architecture Notes
 
-Read section "2. Architecture notes" of `PROJECT_NOTES.md` in this repository. If it says NONE, there are no architecture notes.
+Read section "2. Architecture notes" of `docs/PROJECT_NOTES.md` in this repository. If it says NONE, there are no architecture notes.
 
 ## File contents
 

@@ -9,7 +9,7 @@
 - System purpose: See REQUIREMENTS.md
 - Primary use cases: See REQUIREMENTS.md
 - Target users / actors: See REQUIREMENTS.md
-- Runtime environment: web application: statically rendered public site plus a web-based editing interface (`PROJECT_NOTES.md` §2)
+- Runtime environment: web application: statically rendered public site plus a web-based editing interface (`docs/PROJECT_NOTES.md` §2)
 - Server framework: none for the public site; pages are pre-built by a static site generator. Generator: TO BE DECIDED (Hugo is a candidate; AQ-1)
 - Client framework: TO BE DECIDED (none required by any requirement; AQ-2)
 - API style and integration model: TO BE DECIDED (editing interface ↔ Content Store; Instagram feed, see OQ-6)

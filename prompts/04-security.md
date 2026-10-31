@@ -8,7 +8,7 @@ Security notes may add constraints but never silently override `REQUIREMENTS.md`
 
 ## Security Notes
 
-Read section "3. Security notes" of `PROJECT_NOTES.md` in this repository. If it says NONE, there are no security notes.
+Read section "3. Security notes" of `docs/PROJECT_NOTES.md` in this repository. If it says NONE, there are no security notes.
 
 ## Security Reference Selection
 

@@ -1,6 +1,6 @@
 # REQUIREMENTS
 
-`REQUIREMENTS.md` owns WHAT the nina-laaf.de website must do. Source: section 1 of `PROJECT_NOTES.md` (2026-10-31).
+`REQUIREMENTS.md` owns WHAT the nina-laaf.de website must do. Source: section 1 of `docs/PROJECT_NOTES.md` (2026-10-31).
 
 ## Required Requirement Inputs
 

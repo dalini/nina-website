@@ -3,7 +3,7 @@ Create `REQUIREMENTS.md` in this repository. `REQUIREMENTS.md` owns WHAT the sys
 The project notes below are the sole source of truth: no speculative features, no behavior they don't support. The repository is empty, so there is no code to infer behavior from. Produce the best document the notes support and record unresolved decisions in `## Open Questions`.
 
 # Project Notes
-Read section "1. Project notes" of `PROJECT_NOTES.md` in this repository. That section is the project notes.
+Read section "1. Project notes" of `docs/PROJECT_NOTES.md` in this repository. That section is the project notes.
 
 # File contents
 `REQUIREMENTS.md` contains exactly these sections in order:
