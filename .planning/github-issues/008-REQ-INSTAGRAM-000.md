@@ -2,24 +2,24 @@
 
 - **ID**: REQ-INSTAGRAM-000
 - **Title**: Instagram
-- **Version**: 0.1.0
+- **Version**: 0.2.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-2.4, FR-8.1 to FR-8.6; ARCHITECTURE.md Instagram Feed Integration, DR-5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-2.4, FR-8.1 to FR-8.7; ARCHITECTURE.md Instagram Feed Integration, DR-5; SECURITY.md SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-1, SEC-SECRET-3; parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST link to @ninalaaf on every page and show recent posts on the home page from build-time copies, failing safe when Instagram or a post fails.
+- **Statement**: The leaf issues of this workstream MUST link to @ninalaaf on every page and show recent posts on the home page from build-time copies, keep and refresh the Instagram token on the VPS, and fail safe when Instagram or a post fails.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Storing, refreshing and delivering the Instagram token (decided in step 10 again; drafted by the step 9 re-run, PQ-33).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The email alert for a failed token refresh (blocked: PQ-56).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Instagram Feed Integration; Site Build; DR-1, DR-5
-- **Security Traceability**: SEC-PRIV-1, SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3, SEC-CICD-6
+- **Security Traceability**: SEC-PRIV-1, SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-1, SEC-SECRET-3, SEC-CICD-6
 
 ## Scope
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-INSTAGRAM-010 ({{ISSUE_URL:REQ-INSTAGRAM-010}}), REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}}), REQ-INSTAGRAM-040 ({{ISSUE_URL:REQ-INSTAGRAM-040}})
+- **Downstream Requirements**: REQ-INSTAGRAM-010 ({{ISSUE_URL:REQ-INSTAGRAM-010}}), REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-INSTAGRAM-050 ({{ISSUE_URL:REQ-INSTAGRAM-050}}), REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}}), REQ-INSTAGRAM-040 ({{ISSUE_URL:REQ-INSTAGRAM-040}})
 - **External Dependencies**: Instagram API with Instagram Login
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,11 +96,12 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-33: each secret file is owned by the one unprivileged account that uses it; the Instagram token belongs to the deploy account, which also runs the refresh (SEC-SECRET-1); PQ-50: first 120 characters of the caption, else a fixed text (FR-8.7); PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
+- **Open Decisions**: PQ-56 (blocking) for the excluded alert; PQ-65 (non-blocking, date format of the fallback alt text).
 
 ## Sub-issues
 
 - [ ] REQ-INSTAGRAM-010 {{ISSUE_URL:REQ-INSTAGRAM-010}}
 - [ ] REQ-INSTAGRAM-020 {{ISSUE_URL:REQ-INSTAGRAM-020}}
+- [ ] REQ-INSTAGRAM-050 {{ISSUE_URL:REQ-INSTAGRAM-050}}
 - [ ] REQ-INSTAGRAM-030 {{ISSUE_URL:REQ-INSTAGRAM-030}}
 - [ ] REQ-INSTAGRAM-040 {{ISSUE_URL:REQ-INSTAGRAM-040}}

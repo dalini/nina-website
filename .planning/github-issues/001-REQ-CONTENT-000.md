@@ -2,24 +2,24 @@
 
 - **ID**: REQ-CONTENT-000
 - **Title**: Content model and build-time content rules
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; REQUIREMENTS.md FR-1.4, FR-1.5, FR-3, FR-4, FR-5, FR-6, FR-7.1, FR-7.2, FR-8.6, FR-10.3, FR-10.6, FR-11.2; SECURITY.md SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-7; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; REQUIREMENTS.md FR-1.4, FR-1.5, FR-3, FR-4, FR-5, FR-6, FR-7.1, FR-7.2, FR-8.6, FR-10.3, FR-10.6, FR-11.2; SECURITY.md SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7; parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content and reject unsafe checkouts, so that templates only render (DR-3).
+- **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content, and reject unsafe checkouts, content formats and front-matter fields, so that templates only render (DR-3).
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Required title, type, venue and city of Exhibition entries and end-before-start dates (decided in step 10 again; drafted by the step 9 re-run, PQ-36).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the slug of an Exhibition entry is filled in and what happens when two entries have the same slug (blocked: PQ-57).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store, Site Build; DR-2, DR-3, DR-4
-- **Security Traceability**: SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-7
+- **Security Traceability**: SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7
 
 ## Scope
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}})
+- **Downstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-36: title, type, venue, city and both dates required; end before start rejected on save; no entry at all: the home page omits the block (FR-2.3, FR-10.6); PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
+- **Open Decisions**: PQ-57 (blocking) for the excluded slug part; nothing else for the decomposed leaves.
 
 ## Sub-issues
 
@@ -107,3 +107,4 @@
 - [ ] REQ-CONTENT-030 {{ISSUE_URL:REQ-CONTENT-030}}
 - [ ] REQ-CONTENT-040 {{ISSUE_URL:REQ-CONTENT-040}}
 - [ ] REQ-CONTENT-070 {{ISSUE_URL:REQ-CONTENT-070}}
+- [ ] REQ-CONTENT-080 {{ISSUE_URL:REQ-CONTENT-080}}

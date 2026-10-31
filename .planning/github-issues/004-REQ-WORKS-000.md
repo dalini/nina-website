@@ -2,24 +2,24 @@
 
 - **ID**: REQ-WORKS-000
 - **Title**: Works
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.1 to FR-3.10; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.1 to FR-3.11; DESIGN.md Components (Work metadata, Image with credit, Image viewer); SECURITY.md SEC-OUT-5; parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST present the Works list, the public-space group, work pages with metadata and images, and links to exhibitions.
+- **Statement**: The leaf issues of this workstream MUST present the Works list, the public-space group, work pages with metadata, images and captions, the image viewer, and links to the pages of linked Exhibition entries.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. An image viewer (decided in step 10 again; drafted by the step 9 re-run, PQ-38).
-- **Design Traceability**: DESIGN.md Components (Work metadata, Image with credit), Layout and Spacing
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
+- **Design Traceability**: DESIGN.md Components (Work metadata, Image with credit, Image viewer), Layout and Spacing, Accessibility
 - **Architecture Traceability**: Site Build; Public Site
-- **Security Traceability**: N/A
+- **Security Traceability**: SEC-OUT-5 (image viewer)
 
 ## Scope
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-WORKS-040 ({{ISSUE_URL:REQ-WORKS-040}})
+- **Downstream Requirements**: REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-WORKS-050 ({{ISSUE_URL:REQ-WORKS-050}}), REQ-WORKS-040 ({{ISSUE_URL:REQ-WORKS-040}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,11 +96,12 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-38: a simple lightbox (FR-3.11); PQ-47: each Exhibition entry gets its own page (FR-4.7); PQ-49: same-year works and downloads in Nina's order; same-year CV lines and same-date News alphabetically (FR-3.1, FR-4.6, FR-5.2, FR-6.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
+- **Open Decisions**: PQ-59 (blocking) for the manual order that replaces the year order; PQ-66 (non-blocking, image viewer at the first and last image).
 
 ## Sub-issues
 
-- [ ] REQ-WORKS-010 {{ISSUE_URL:REQ-WORKS-010}}
 - [ ] REQ-WORKS-020 {{ISSUE_URL:REQ-WORKS-020}}
+- [ ] REQ-WORKS-010 {{ISSUE_URL:REQ-WORKS-010}}
 - [ ] REQ-WORKS-030 {{ISSUE_URL:REQ-WORKS-030}}
+- [ ] REQ-WORKS-050 {{ISSUE_URL:REQ-WORKS-050}}
 - [ ] REQ-WORKS-040 {{ISSUE_URL:REQ-WORKS-040}}
