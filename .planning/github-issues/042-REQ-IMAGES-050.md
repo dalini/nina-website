@@ -58,7 +58,7 @@
 
 1. **AC-01 — Expected behavior**: Given a 3 MB JPEG and a 5 MB PDF, when the build runs, then both pass.
 2. **AC-02 — Boundary or failure behavior**: Given an executable renamed `photo.jpg`, a 12 MB image and a 25 MB PDF committed directly, when the build runs, then it fails naming each file and the rule.
-3. **AC-03 — Boundary or failure behavior**: Given an SVG containing `<script>` or an `onload` attribute or an external `href`, when the build runs, then it fails; an SVG without any of these passes.
+3. **AC-03 — Boundary or failure behavior**: Given an SVG containing `<script>` or an `onload` attribute or an external `href`, when the build runs, then it fails; every other SVG fails too: the Site Build has no SVG sanitizer, so no SVG is accepted (SEC-INPUT-2 allows rejection; changed in implementation, dalini/nina-site#25).
 4. **AC-04 — Prohibited behavior**: Given any file type other than images and PDFs among the files to publish, when the build runs, then it is not published and the build fails naming it.
 
 ## Failure Behavior
