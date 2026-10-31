@@ -1,16 +1,16 @@
 # REQUIREMENTS
 
-`REQUIREMENTS.md` owns WHAT the nina-laaf.de website must do. Source: section 1 of `docs/PROJECT_NOTES.md` (2026-10-31).
+`REQUIREMENTS.md` owns WHAT the nina-laaf.de website must do. Security and privacy requirements are authored in `SECURITY.md`. Derived from section 1 of `docs/PROJECT_NOTES.md` (archived); this file is now the source of truth.
 
 ## Required Requirement Inputs
 
 - Project purpose: Public website for artist and sculptor Nina Laaf at `nina-laaf.de` that presents her work to curators, galleries, collectors, press and the public, and makes it easy to contact her.
-- Primary users / actors: Visitor (public, anonymous); Nina, the site owner (non-technical content editor); people Nina authorizes to edit.
+- Primary users / actors: Visitor (public, anonymous: curators, galleries, collectors, press, students, the general public); Nina, the site owner (non-technical content editor); people Nina authorizes to edit.
 - Core workflows: Visitor browses works, exhibitions/news, texts and CV, switches language, downloads PDFs, views the Instagram feed after consent, contacts Nina by email. Nina adds and updates works, exhibitions, news, texts, CV and downloads through an editing interface without technical skills.
 - Business objects / data entities: Work, Image, Exhibition/News entry, Text, CV entry, Download (PDF), Page (Home, Contact, Impressum, Datenschutzerklärung), Instagram post.
 - External integrations: Instagram (feed of @ninalaaf); galerie burster (link only).
-- Authentication / roles: Visitors are anonymous. Only Nina and people she authorizes may change content. Mechanism UNKNOWN.
-- Regulatory or privacy constraints: Operated from Germany; Impressum and Datenschutzerklärung required; no third-party content may load in the visitor's browser before consent.
+- Authentication / roles: Visitors are anonymous; editors are Nina and people she authorizes. Authentication and authorization: `SECURITY.md`.
+- Regulatory or privacy constraints: Operated from Germany; Impressum and Datenschutzerklärung required (FR-9.1). GDPR and consent rules: `SECURITY.md`.
 
 ## Functional Requirements
 
@@ -22,7 +22,7 @@
 - **FR-1.4** Every text content field (descriptions, texts, CV entries, news, captions, page content) MUST hold a German and an English version.
 - **FR-1.5** Work titles MUST be shown as entered and MUST NOT be translated.
 - **FR-1.6** When a visitor arrives without choosing a language, the site MUST show the default language: TO BE DECIDED (OQ-2).
-- **FR-1.7** When the English or German version of a content field is empty, the page MUST still render without errors and without showing placeholder text. Fallback behavior: TO BE DECIDED.
+- **FR-1.7** When the English or German version of a content field is empty, the page MUST still render without errors and without showing placeholder text. Fallback behavior: TO BE DECIDED (OQ-10).
 
 ### Home
 
@@ -69,7 +69,7 @@
 
 - **FR-8.1** The site MUST link to Instagram account @ninalaaf.
 - **FR-8.2** The site MUST show a feed of Nina's recent Instagram posts. How the feed is provided: OQ-6.
-- **FR-8.3** The site MUST NOT load any content from Instagram or Meta in the visitor's browser before the visitor consents.
+- **FR-8.3** Consent gating of Instagram/Meta content: `SECURITY.md` SEC-PRIV-1 to SEC-PRIV-3.
 - **FR-8.4** If the feed cannot be shown (no consent, or Instagram unavailable), the page MUST still render and MUST show the link from FR-8.1.
 
 ### Legal pages
@@ -82,7 +82,7 @@
 - **FR-10.2** Nina MUST be able to upload images and PDFs and set image order, alt text and photo credit.
 - **FR-10.3** Nina MUST be able to mark works as featured (FR-2.1) and as in public space (FR-3.8).
 - **FR-10.4** Changes Nina saves MUST appear on the public site after publishing; the maximum delay is TO BE DECIDED.
-- **FR-10.5** Only Nina and people she authorizes MUST be able to change content; any other attempt to change content MUST be rejected with no change to the site.
+- **FR-10.5** Restricting content changes to Nina and the people she authorizes: `SECURITY.md` SEC-AUTHN-1, SEC-AUTHZ-1, SEC-AUTHZ-2.
 - **FR-10.6** When Nina saves a work without a title, year or at least one image, or an image without alt text, the editor MUST reject the save and show which field is missing.
 
 ### Migration
@@ -94,7 +94,7 @@
 
 - **NFR-1** Pages and images MUST be fast on mobile: images MUST be delivered in sizes suited to the visitor's screen rather than as the ~4 MB originals. Performance budget: TO BE DECIDED.
 - **NFR-2** The public site MUST be usable without logging in and MUST NOT require visitor accounts.
-- **NFR-3** The site MUST NOT load third-party content (fonts, Instagram/Meta, video, maps) before visitor consent.
+- **NFR-3** No third-party content before visitor consent: `SECURITY.md` SEC-PRIV-1.
 - **NFR-4** All pages MUST work on current desktop and mobile browsers.
 
 ## Open Questions

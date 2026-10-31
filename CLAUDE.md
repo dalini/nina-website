@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf, presenting her works, exhibitions, texts and CV to curators, galleries, collectors, press and the public. Nina, a non-technical editor, maintains all content through a web-based editing interface. The project is fully specified but not built yet.
+nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf. The project is specified but not built yet; open questions remain in each spec file.
 
 ## Where things are defined
 

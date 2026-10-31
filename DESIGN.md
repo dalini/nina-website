@@ -4,10 +4,10 @@
 
 ## Required Design Inputs
 
-- Brand personality: TO BE DECIDED
-- Primary audience: Curators, galleries, collectors, press, students and the general public (`REQUIREMENTS.md`, Required Requirement Inputs)
+- Brand personality: TO BE DECIDED (DQ-1)
+- Primary audience: See `REQUIREMENTS.md` (Required Requirement Inputs)
 - Platform targets (web / mobile / both): both (`REQUIREMENTS.md` NFR-1, NFR-4)
-- Light / dark mode: TO BE DECIDED
+- Light / dark mode: TO BE DECIDED (DQ-4)
 - Existing brand assets: UNKNOWN
 
 ## Brand and Logo
@@ -23,7 +23,7 @@
 | Token | Hex | Use |
 |---|---|---|
 | `primary` | `#1f1f1f` | logo, headings, buttons, links |
-| `secondary` | `#5c5c5c` | logo base line, metadata (year, materials, credits), secondary text |
+| `secondary` | `#5c5c5c` | top edge of the logo base, metadata (year, materials, credits), secondary text |
 | `background` | `#ffffff` | page background |
 | `surface` | `#f4f3f1` | panels, cards, consent placeholder, image placeholders |
 | `text` | `#1f1f1f` | body text |
@@ -36,9 +36,9 @@ Contrast (WCAG 2.2 AA): `text`/`primary` on `background` 16.5:1, on `surface` 14
 
 ## Typography
 
-- Primary: system UI stack `system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`. It loads no font files, so nothing comes from a third party (`REQUIREMENTS.md` NFR-3), and it reads well in German and English.
+- Primary: system UI stack `system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`. It loads no font files, so it meets the self-hosting rule (`SECURITY.md` SEC-PRIV-1), and it reads well in German and English.
 - Fallback: `sans-serif`.
-- Brand typography: TO BE DECIDED (DQ-3). A self-hosted, open-licensed typeface may replace the stack later.
+- Brand typography: TO BE DECIDED (DQ-3).
 - Weights: 400 (regular), 600 (semibold, for headings and titles).
 - Scale (rem, base 16 px): `xs` 0.8125 · `sm` 0.875 · `base` 1 · `lg` 1.25 · `xl` 1.5 · `2xl` 2 · `3xl` 2.75. Body line height 1.6, headings 1.2.
 - Work titles keep their original casing (often lowercase).
@@ -54,20 +54,20 @@ Contrast (WCAG 2.2 AA): `text`/`primary` on `background` 16.5:1, on `surface` 14
 
 - **Links**: `primary`, underlined in text; the underline thickens on hover. Navigation links show the current page with a 2 px bottom border.
 - **Buttons**: one style, solid `primary` with `background` text, 4 px radius, at least 44 × 44 px; hover lightens the fill; disabled uses `secondary` and is not clickable.
-- **Language switch**: shown in the header on every page as "DE | EN", with the current language marked and announced to screen readers.
+- **Language switch** (`REQUIREMENTS.md` FR-1.3): shown in the header as "DE | EN", with the current language marked and announced to screen readers.
 - **Work metadata**: title (semibold), then year, materials, dimensions, edition in `secondary`, `sm` size.
 - **Image with credit**: image, then caption and credit ("Foto: …" / "Photo: …") in `secondary`, `xs` size.
-- **Consent placeholder** (Instagram feed): a `surface` box explaining what loads and from where, with one button to load the content; nothing third-party loads before the click.
+- **Consent placeholder** (Instagram feed): a `surface` box explaining what loads and from where, with one button to load the content (loading rules: `SECURITY.md` SEC-PRIV-2).
 - **Inputs and form feedback** (editing interface and any later contact form): label above the field, 1 px `secondary` border, 4 px radius; errors show in `error` below the field, with text that names the problem (not color alone).
 - **Focus state**: every interactive element shows a 2 px `primary` outline with 2 px offset on keyboard focus.
 
 ## Accessibility
 
 - Target conformance: WCAG 2.2 AA.
-- Contrast: all text/background pairs above meet 4.5:1; non-text indicators (focus outline, borders on inputs) meet 3:1.
+- Contrast: text pairs as listed under Color Palette; non-text indicators (focus outline, borders on inputs) meet 3:1.
 - Visible focus on every interactive element; never remove outlines without a replacement.
 - Everything works with the keyboard alone, including the language switch, image sequences and the consent button.
-- Every image has alt text (`REQUIREMENTS.md` FR-3.7); decorative images are hidden from screen readers.
+- Alt text: `REQUIREMENTS.md` FR-3.7. Decorative images are hidden from screen readers.
 - The `lang` attribute matches the page language, and German and English pages are announced correctly.
 - Reduced motion: when the visitor prefers reduced motion, the site uses no animated transitions or auto-advancing images.
 

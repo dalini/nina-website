@@ -15,8 +15,8 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 
 ## Status
 
-- Done: steps 1–6 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`).
-- Next: step 7 (`prompts/07-tighten-and-dedupe.md`), in a fresh session.
+- Done: steps 1–7 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them).
+- Next: step 8 (`prompts/08-threat-model.md`), in a fresh session.
 
 ## How to run it
 

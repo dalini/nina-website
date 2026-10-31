@@ -7,17 +7,17 @@
 - Requirements source: REQUIREMENTS.md
 - Design source: DESIGN.md
 - Architecture source: ARCHITECTURE.md
-- System purpose: Public portfolio website for artist Nina Laaf, edited by her through a web-based editing interface.
-- Application profile: Statically rendered public website (no server-side code serving visitors, no visitor accounts) plus a web-based content editing interface and a build/publish pipeline.
+- System purpose: See REQUIREMENTS.md
+- Application profile: See ARCHITECTURE.md (Initial Architecture): static public site with no server-side code serving visitors, plus an editing interface and a build/publish pipeline.
 - Users / actors / roles: Visitor (anonymous, read-only); Editor (Nina and people she authorizes); build/deploy service identity; Instagram (external).
 - Public interfaces and trust boundaries: TB-1 visitor browser ↔ Static Hosting; TB-2 editor browser ↔ Editing Interface; TB-3 Editing Interface ↔ Content Store; TB-4 Content Store ↔ Site Build ↔ Static Hosting (pipeline); TB-5 Instagram ↔ Public Site or Site Build (OQ-6).
 - Sensitive or regulated data: Editor credentials and sessions; build/deploy and Instagram access secrets; Nina's email address (published on purpose); image metadata (EXIF, possibly location) in uploaded photos; unpublished content. No visitor personal data is collected by the site itself; hosting access logs: UNKNOWN.
-- External integrations: Instagram (feed); hosting provider and editing system (both TO BE DECIDED).
-- Authentication model: Editors only; mechanism TO BE DECIDED. Visitors: none.
+- External integrations: Instagram (feed); hosting provider and editing system (both TO BE DECIDED: ARCHITECTURE.md AQ-3, AQ-4).
+- Authentication model: Editors only; mechanism TO BE DECIDED (SQ-1). Visitors: none.
 - Authorization model: Single role "editor" with full content rights; anyone else has read-only access to published content (FR-10.5).
 - Session model: TO BE DECIDED (editing interface only).
 - Deployment and CI/CD model: TO BE DECIDED (ARCHITECTURE.md AQ-4).
-- Applicable privacy or regulatory obligations: Operator in Germany: GDPR; Impressum and Datenschutzerklärung required (docs/PROJECT_NOTES.md §3, FR-9.1). Exact legal wording: TO BE DECIDED (outside this document).
+- Applicable privacy or regulatory obligations: Operator in Germany: GDPR; Impressum and Datenschutzerklärung required (REQUIREMENTS.md FR-9.1). Exact legal wording: TO BE DECIDED (outside this document).
 - Security assurance target: TO BE DECIDED
 - Security verification reference: OWASP ASVS 5.0.0
 - Threat model status: TO BE DECIDED
@@ -42,9 +42,9 @@ No local secure-coding prompt library was found in this repository. Selected pub
 
 ### Public site and HTTP boundary (TB-1)
 
-- **SEC-HTTP-1** Static Hosting MUST serve every page and asset of `nina-laaf.de` over HTTPS only and MUST redirect HTTP to HTTPS.
+- **SEC-HTTP-1** Static Hosting MUST serve every page and asset of `nina-laaf.de` over HTTPS only, MUST redirect HTTP to HTTPS, and MUST send an HSTS header (max-age TO BE DECIDED).
   - **Applies to:** Static Hosting, all public responses
-  - **Verification:** Automated check that HTTP requests redirect and HTTPS responses send HSTS (max-age TO BE DECIDED)
+  - **Verification:** Automated check that HTTP requests redirect and HTTPS responses send HSTS
   - **References:** `REF-ASVS-5`
 - **SEC-HTTP-2** Public responses MUST send a Content Security Policy that allows resources only from the site's own origin, plus Instagram origins only if the feed model in OQ-6 requires them. Exact directives: TO BE DECIDED.
   - **Applies to:** Static Hosting, Public Site
@@ -57,11 +57,11 @@ No local secure-coding prompt library was found in this repository. Selected pub
 
 ### Third-party content and privacy
 
-- **SEC-PRIV-1** The Public Site MUST NOT request any third-party resource (fonts, scripts, images, embeds) before the visitor gives consent; fonts and all site assets MUST be self-hosted (NFR-3).
+- **SEC-PRIV-1** The Public Site MUST NOT request any third-party resource (fonts, scripts, images, embeds such as Instagram/Meta, video or maps) in the visitor's browser before the visitor gives consent; fonts and all site assets MUST be self-hosted.
   - **Applies to:** Public Site, Site Build templates
   - **Verification:** Automated browser test recording all network requests on every page type before consent
   - **References:** `REF-PC-2024`
-- **SEC-PRIV-2** If the browser-loaded feed model is chosen (OQ-6 (a)), Instagram content MUST load only after the visitor activates the consent placeholder on that page, and the choice MUST NOT be stored beyond what the Datenschutzerklärung describes (storage: TO BE DECIDED).
+- **SEC-PRIV-2** If the browser-loaded feed model is chosen (OQ-6 (a)), Instagram content MUST load only after the visitor activates the consent placeholder on that page, and the choice MUST NOT be stored beyond what the Datenschutzerklärung describes (storage: TO BE DECIDED, SQ-4).
   - **Applies to:** Instagram Feed Integration, Public Site
   - **Verification:** Browser test: no Instagram request before the click; requests only after it
   - **References:** `REF-PC-2024`
@@ -69,11 +69,11 @@ No local secure-coding prompt library was found in this repository. Selected pub
   - **Applies to:** Instagram Feed Integration, Site Build
   - **Verification:** Build output contains no Instagram/Meta URLs for media; browser test as SEC-PRIV-1
   - **References:** `REF-PC-2024`
-- **SEC-PRIV-4** The Site Build or upload process MUST remove EXIF and other embedded metadata (including location) from published images, except fields Nina chooses to keep (TO BE DECIDED).
+- **SEC-PRIV-4** The Site Build or upload process MUST remove EXIF and other embedded metadata (including location) from published images, except fields Nina chooses to keep (TO BE DECIDED, SQ-7).
   - **Applies to:** Editing Interface uploads, Site Build image processing
   - **Verification:** Automated check that published images contain no GPS or device metadata
   - **References:** `REF-PC-2024`
-- **SEC-PRIV-5** The site MUST NOT include analytics or tracking unless decided in SQ-5; any analytics added MUST be cookieless and self-hosted.
+- **SEC-PRIV-5** The site MUST NOT include analytics or tracking unless REQUIREMENTS.md OQ-8 decides for them; any analytics added MUST be cookieless and self-hosted (SQ-5).
   - **Applies to:** Public Site
   - **Verification:** Network test (SEC-PRIV-1); dependency review
   - **References:** `REF-PC-2024`
@@ -99,7 +99,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
   - **Applies to:** Editing Interface
   - **Verification:** Automated test: unauthenticated requests to every editing action are rejected
   - **References:** `REF-AUTH`, `REF-SESSION`
-- **SEC-AUTHZ-1** The Content Store MUST accept changes only from authenticated editors on its allow-list and MUST deny everything else by default (FR-10.5).
+- **SEC-AUTHZ-1** The Content Store MUST accept changes only from authenticated editors on its allow-list (Nina and the people she authorizes) and MUST deny everything else by default, leaving the site unchanged.
   - **Applies to:** Content Store, Editing Interface
   - **Verification:** Test with a non-listed account: change is rejected and the site is unchanged
   - **References:** `REF-ASVS-5`, `REF-PC-2024`
@@ -110,7 +110,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
 
 ### Uploads and content validation
 
-- **SEC-INPUT-1** The Editing Interface MUST accept only image files and PDFs for upload, check the actual file type (not only the extension), and reject files above a size limit (TO BE DECIDED).
+- **SEC-INPUT-1** The Editing Interface MUST accept only image files and PDFs for upload, check the actual file type (not only the extension), and reject files above a size limit (TO BE DECIDED, SQ-8).
   - **Applies to:** Editing Interface, Content Store
   - **Verification:** Upload tests with a renamed executable, an SVG with script, and an oversized file
   - **References:** `REF-INPUT`
@@ -129,7 +129,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
 
 ### Secrets and pipeline (TB-4)
 
-- **SEC-SECRET-1** Deploy credentials, editing-system credentials and any Instagram access token MUST be kept out of the repository, generated output, client code and logs, and stored in the CI/hosting secret store (product TO BE DECIDED).
+- **SEC-SECRET-1** Deploy credentials, editing-system credentials and any Instagram access token MUST be kept out of the repository, generated output, client code and logs, and stored in the CI/hosting secret store (product TO BE DECIDED, SQ-3).
   - **Applies to:** Site Build, Static Hosting, Instagram Feed Integration
   - **Verification:** Secret scanning on every change; inspection of build output
   - **References:** `REF-SECRETS`
@@ -158,7 +158,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
 | SEC-AUTHZ-1, -2 | FR-10.5 | Content Store, Editing Interface (TB-3) | CONFIRMED |
 | SEC-INPUT-1, -2 | FR-10.2 | Editing Interface | PROVISIONAL |
 | SEC-INPUT-3 | FR-10.6 | Site Build, Static Hosting | PROVISIONAL |
-| SEC-INPUT-4 | FR-11.2 | Site Build | CONFIRMED |
+| SEC-INPUT-4 | FR-10.1, FR-11.2 | Site Build | CONFIRMED |
 | SEC-SECRET-1 | FR-8.2, FR-10.4 | Site Build, Static Hosting, Instagram Feed Integration (TB-4) | PROVISIONAL |
 | SEC-CICD-1, -2 | FR-10.4 | Site Build pipeline (TB-4) | PROVISIONAL |
 
@@ -179,7 +179,7 @@ These are prospective rules; no dependency has been assessed yet. References: `R
 
 - `{{CODE_QUALITY_PROMPT}}` — RESOLVED (no local prompt found): low cyclomatic and cognitive complexity; small cohesive functions and modules; separated presentation, business-rule, persistence and integration concerns; explicit error handling and trust-boundary transitions; no duplicated security-sensitive logic; testability without hidden global state.
 - `{{API_SECURITY_PROMPT}}` — TO BE DECIDED: the public site has no API; the editing system's API and the Instagram access method are not yet chosen (AQ-3, OQ-6).
-- `{{BACKEND_FRAMEWORK_PROMPT}}` — TO BE DECIDED: static site generator not chosen (AQ-1; Hugo is a candidate).
+- `{{BACKEND_FRAMEWORK_PROMPT}}` — TO BE DECIDED: static site generator not chosen (AQ-1).
 - `{{FRONTEND_FRAMEWORK_PROMPT}}` — TO BE DECIDED: no client framework chosen (AQ-2). `REF-XSS` serves as the rendering baseline meanwhile.
 - `{{AUTH_PROMPT}}` — TO BE DECIDED: editor authentication mechanism not chosen (SQ-1); `REF-AUTH` and `REF-SESSION` remain provisional background.
 - `{{DEPLOYMENT_PROMPT}}` — PARTIALLY RESOLVED: `REF-SSDF` and `REF-CICD` apply; provider-specific guidance TO BE DECIDED (AQ-4).
@@ -187,10 +187,10 @@ These are prospective rules; no dependency has been assessed yet. References: `R
 ## Open Security Questions
 
 - **SQ-1** How do editors authenticate to the Editing Interface (e.g. through the editing system's own login or an identity provider), and is a second factor required?
-- **SQ-2** Who besides Nina may edit, and who may add or remove editors?
+- **SQ-2** Who besides Nina may edit, and does Nina name another owner who may add or remove editors (SEC-AUTHZ-2)?
 - **SQ-3** Where are deploy and Instagram secrets stored, and who can rotate them?
 - **SQ-4** For the Instagram feed (OQ-6): if loaded in the browser, how is consent stored and for how long; if copied at build time, which access method and token lifetime?
-- **SQ-5** Are analytics used at all (OQ-8)? If yes, which cookieless, self-hosted option?
+- **SQ-5** If analytics are used (REQUIREMENTS.md OQ-8), which cookieless, self-hosted option?
 - **SQ-6** What does the hosting provider log about visitors (IP addresses, retention), and how is that covered in the Datenschutzerklärung?
 - **SQ-7** Which image metadata (e.g. copyright, photographer) should be kept when location and device data are removed (SEC-PRIV-4)?
 - **SQ-8** Upload size limits for images and PDFs (SEC-INPUT-1)?
