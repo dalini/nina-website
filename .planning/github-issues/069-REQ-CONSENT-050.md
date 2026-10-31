@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: REQUIREMENTS.md FR-9.2 (choice stored with the banner version; asked again when the version changes; no record outside the browser); SECURITY.md SEC-PRIV-5 (a choice for another version counts as no choice), SEC-PRIV-7 (Ives raises the version in the same change; step 10 a third time, SQ-23 / PQ-55); T-72, T-73; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-9.2 (choice stored with the banner version; asked again when the version changes; no record outside the browser); SECURITY.md SEC-PRIV-5 (a choice for another version counts as no choice), SEC-PRIV-7 (Ives raises the version in the same change; step 10 a third time, SQ-23 / PQ-55); T-72, T-73; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -85,7 +85,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONSENT-010 ({{ISSUE_URL:REQ-CONSENT-010}}), REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Upstream Requirements**: REQ-CONSENT-010 (https://github.com/dalini/nina-website/issues/61), REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

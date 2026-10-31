@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-SECRET-1, SEC-SECRET-2, SEC-CICD-1 to SEC-CICD-9, SEC-AUDIT-2, SEC-AUTHN-1, SEC-AUTHN-2; REQUIREMENTS.md FR-10.4, FR-10.8, FR-10.9; ARCHITECTURE.md Site Build, Deployment model; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-SECRET-1, SEC-SECRET-2, SEC-CICD-1 to SEC-CICD-9, SEC-AUDIT-2, SEC-AUTHN-1, SEC-AUTHN-2; REQUIREMENTS.md FR-10.4, FR-10.8, FR-10.9; ARCHITECTURE.md Site Build, Deployment model; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-PIPELINE-020 ({{ISSUE_URL:REQ-PIPELINE-020}}), REQ-PIPELINE-030 ({{ISSUE_URL:REQ-PIPELINE-030}}), REQ-PIPELINE-040 ({{ISSUE_URL:REQ-PIPELINE-040}}), REQ-PIPELINE-050 ({{ISSUE_URL:REQ-PIPELINE-050}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-PREVIEW-010 ({{ISSUE_URL:REQ-PREVIEW-010}}), REQ-PIPELINE-070 ({{ISSUE_URL:REQ-PIPELINE-070}}), REQ-PIPELINE-080 ({{ISSUE_URL:REQ-PIPELINE-080}}), REQ-PIPELINE-130 ({{ISSUE_URL:REQ-PIPELINE-130}}), REQ-PIPELINE-090 ({{ISSUE_URL:REQ-PIPELINE-090}}), REQ-PIPELINE-140 ({{ISSUE_URL:REQ-PIPELINE-140}}), REQ-PIPELINE-100 ({{ISSUE_URL:REQ-PIPELINE-100}}), REQ-PIPELINE-110 ({{ISSUE_URL:REQ-PIPELINE-110}}), REQ-PIPELINE-120 ({{ISSUE_URL:REQ-PIPELINE-120}})
+- **Downstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-PIPELINE-020 (https://github.com/dalini/nina-website/issues/86), REQ-PIPELINE-030 (https://github.com/dalini/nina-website/issues/87), REQ-PIPELINE-040 (https://github.com/dalini/nina-website/issues/88), REQ-PIPELINE-050 (https://github.com/dalini/nina-website/issues/89), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-PREVIEW-010 (https://github.com/dalini/nina-website/issues/91), REQ-PIPELINE-070 (https://github.com/dalini/nina-website/issues/92), REQ-PIPELINE-080 (https://github.com/dalini/nina-website/issues/93), REQ-PIPELINE-130 (https://github.com/dalini/nina-website/issues/94), REQ-PIPELINE-090 (https://github.com/dalini/nina-website/issues/95), REQ-PIPELINE-140 (https://github.com/dalini/nina-website/issues/96), REQ-PIPELINE-100 (https://github.com/dalini/nina-website/issues/100), REQ-PIPELINE-110 (https://github.com/dalini/nina-website/issues/101), REQ-PIPELINE-120 (https://github.com/dalini/nina-website/issues/102)
 - **External Dependencies**: GitHub Actions; VPS
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,18 +100,18 @@
 
 ## Sub-issues
 
-- [ ] REQ-PIPELINE-010 {{ISSUE_URL:REQ-PIPELINE-010}}
-- [ ] REQ-PIPELINE-020 {{ISSUE_URL:REQ-PIPELINE-020}}
-- [ ] REQ-PIPELINE-030 {{ISSUE_URL:REQ-PIPELINE-030}}
-- [ ] REQ-PIPELINE-040 {{ISSUE_URL:REQ-PIPELINE-040}}
-- [ ] REQ-PIPELINE-050 {{ISSUE_URL:REQ-PIPELINE-050}}
-- [ ] REQ-PIPELINE-060 {{ISSUE_URL:REQ-PIPELINE-060}}
-- [ ] REQ-PREVIEW-010 {{ISSUE_URL:REQ-PREVIEW-010}}
-- [ ] REQ-PIPELINE-070 {{ISSUE_URL:REQ-PIPELINE-070}}
-- [ ] REQ-PIPELINE-080 {{ISSUE_URL:REQ-PIPELINE-080}}
-- [ ] REQ-PIPELINE-130 {{ISSUE_URL:REQ-PIPELINE-130}}
-- [ ] REQ-PIPELINE-090 {{ISSUE_URL:REQ-PIPELINE-090}}
-- [ ] REQ-PIPELINE-140 {{ISSUE_URL:REQ-PIPELINE-140}}
-- [ ] REQ-PIPELINE-100 {{ISSUE_URL:REQ-PIPELINE-100}}
-- [ ] REQ-PIPELINE-110 {{ISSUE_URL:REQ-PIPELINE-110}}
-- [ ] REQ-PIPELINE-120 {{ISSUE_URL:REQ-PIPELINE-120}}
+- [ ] REQ-PIPELINE-010 https://github.com/dalini/nina-website/issues/85
+- [ ] REQ-PIPELINE-020 https://github.com/dalini/nina-website/issues/86
+- [ ] REQ-PIPELINE-030 https://github.com/dalini/nina-website/issues/87
+- [ ] REQ-PIPELINE-040 https://github.com/dalini/nina-website/issues/88
+- [ ] REQ-PIPELINE-050 https://github.com/dalini/nina-website/issues/89
+- [ ] REQ-PIPELINE-060 https://github.com/dalini/nina-website/issues/90
+- [ ] REQ-PREVIEW-010 https://github.com/dalini/nina-website/issues/91
+- [ ] REQ-PIPELINE-070 https://github.com/dalini/nina-website/issues/92
+- [ ] REQ-PIPELINE-080 https://github.com/dalini/nina-website/issues/93
+- [ ] REQ-PIPELINE-130 https://github.com/dalini/nina-website/issues/94
+- [ ] REQ-PIPELINE-090 https://github.com/dalini/nina-website/issues/95
+- [ ] REQ-PIPELINE-140 https://github.com/dalini/nina-website/issues/96
+- [ ] REQ-PIPELINE-100 https://github.com/dalini/nina-website/issues/100
+- [ ] REQ-PIPELINE-110 https://github.com/dalini/nina-website/issues/101
+- [ ] REQ-PIPELINE-120 https://github.com/dalini/nina-website/issues/102

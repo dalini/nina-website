@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-1, SEC-AUTHN-3 to SEC-AUTHN-5, SEC-AUTHZ-3, SEC-SECRET-1, SEC-HOST-2, SEC-CICD-2; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-1, SEC-AUTHN-3 to SEC-AUTHN-5, SEC-AUTHZ-3, SEC-SECRET-1, SEC-HOST-2, SEC-CICD-2; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Editing Interface, DR-9; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}}), REQ-AUTHN-020 ({{ISSUE_URL:REQ-AUTHN-020}}), REQ-AUTHN-030 ({{ISSUE_URL:REQ-AUTHN-030}}), REQ-AUTHN-040 ({{ISSUE_URL:REQ-AUTHN-040}}), REQ-AUTHN-050 ({{ISSUE_URL:REQ-AUTHN-050}})
+- **Downstream Requirements**: REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105), REQ-AUTHN-020 (https://github.com/dalini/nina-website/issues/106), REQ-AUTHN-030 (https://github.com/dalini/nina-website/issues/107), REQ-AUTHN-040 (https://github.com/dalini/nina-website/issues/109), REQ-AUTHN-050 (https://github.com/dalini/nina-website/issues/110)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,8 +100,8 @@
 
 ## Sub-issues
 
-- [ ] REQ-AUTHN-010 {{ISSUE_URL:REQ-AUTHN-010}}
-- [ ] REQ-AUTHN-020 {{ISSUE_URL:REQ-AUTHN-020}}
-- [ ] REQ-AUTHN-030 {{ISSUE_URL:REQ-AUTHN-030}}
-- [ ] REQ-AUTHN-040 {{ISSUE_URL:REQ-AUTHN-040}}
-- [ ] REQ-AUTHN-050 {{ISSUE_URL:REQ-AUTHN-050}}
+- [ ] REQ-AUTHN-010 https://github.com/dalini/nina-website/issues/105
+- [ ] REQ-AUTHN-020 https://github.com/dalini/nina-website/issues/106
+- [ ] REQ-AUTHN-030 https://github.com/dalini/nina-website/issues/107
+- [ ] REQ-AUTHN-040 https://github.com/dalini/nina-website/issues/109
+- [ ] REQ-AUTHN-050 https://github.com/dalini/nina-website/issues/110

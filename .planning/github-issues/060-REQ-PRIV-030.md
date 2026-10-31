@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: SECURITY.md SEC-PRIV-7, SEC-PRIV-5 (property owned by Ives, Nina read access, data processing terms, default settings); T-70; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: SECURITY.md SEC-PRIV-7, SEC-PRIV-5 (property owned by Ives, Nina read access, data processing terms, default settings); T-70; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -85,7 +85,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}})
+- **Downstream Requirements**: REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70)
 - **External Dependencies**: Google Analytics
 - **Dependency Assumptions**: ASSUMPTION (SECURITY.md): the property settings cannot add script of their own choosing to the Google tag; Google Tag Manager containers are not used
 - **Failure Impact**: Wider collection than the Datenschutzerklärung describes, or readers who should not see the statistics

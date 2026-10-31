@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-3 (new token per sign-in, no tokens in URLs or logs, forgery protection, accepted exception); T-2, T-3, T-47, T-48; parent {{ISSUE_URL:REQ-AUTHN-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-3 (new token per sign-in, no tokens in URLs or logs, forgery protection, accepted exception); T-2, T-3, T-47, T-48; parent https://github.com/dalini/nina-website/issues/15
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-AUTHN-020 ({{ISSUE_URL:REQ-AUTHN-020}}), REQ-PRIV-020 ({{ISSUE_URL:REQ-PRIV-020}})
+- **Upstream Requirements**: REQ-AUTHN-020 (https://github.com/dalini/nina-website/issues/106), REQ-PRIV-020 (https://github.com/dalini/nina-website/issues/67)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub OAuth
 - **Dependency Assumptions**: GitHub issues a new OAuth App token on each code exchange

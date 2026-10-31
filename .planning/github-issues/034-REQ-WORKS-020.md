@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-3.2, FR-3.3, FR-3.4, FR-3.5, FR-1.5; DESIGN.md Components (Work metadata), Typography; parent {{ISSUE_URL:REQ-WORKS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.2, FR-3.3, FR-3.4, FR-3.5, FR-1.5; DESIGN.md Components (Work metadata), Typography; parent https://github.com/dalini/nina-website/issues/6
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}})
-- **Downstream Requirements**: REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-WORKS-040 ({{ISSUE_URL:REQ-WORKS-040}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27)
+- **Downstream Requirements**: REQ-WORKS-030 (https://github.com/dalini/nina-website/issues/40), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47), REQ-WORKS-040 (https://github.com/dalini/nina-website/issues/48)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

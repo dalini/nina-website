@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.7 (two entries with the same slug fail the publish, naming both entries and the slug field), FR-10.8; SECURITY.md SEC-INPUT-6 (the Site Build fails the publish when two entries share a slug), SEC-INPUT-3; ARCHITECTURE.md Site Build (rechecks unique Exhibition slugs); step 10 a third time, PQ-57; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.7 (two entries with the same slug fail the publish, naming both entries and the slug field), FR-10.8; SECURITY.md SEC-INPUT-6 (the Site Build fails the publish when two entries share a slug), SEC-INPUT-3; ARCHITECTURE.md Site Build (rechecks unique Exhibition slugs); step 10 a third time, PQ-57; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}})
-- **Downstream Requirements**: REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}})
+- **Upstream Requirements**: REQ-CONTENT-080 (https://github.com/dalini/nina-website/issues/25)
+- **Downstream Requirements**: REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

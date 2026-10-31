@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: SECURITY.md SEC-INPUT-3; REQUIREMENTS.md FR-10.6, FR-10.8; ARCHITECTURE.md Site Build, DR-3; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-3; REQUIREMENTS.md FR-10.6, FR-10.8; ARCHITECTURE.md Site Build, DR-3; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}})
-- **Downstream Requirements**: REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-OUTPUT-040 ({{ISSUE_URL:REQ-OUTPUT-040}}), REQ-HOME-010 ({{ISSUE_URL:REQ-HOME-010}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}}), REQ-CONTACT-010 ({{ISSUE_URL:REQ-CONTACT-010}}), REQ-LEGAL-010 ({{ISSUE_URL:REQ-LEGAL-010}}), REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-PIPELINE-120 ({{ISSUE_URL:REQ-PIPELINE-120}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20), REQ-CONTENT-060 (https://github.com/dalini/nina-website/issues/21)
+- **Downstream Requirements**: REQ-CONTENT-070 (https://github.com/dalini/nina-website/issues/24), REQ-CONTENT-080 (https://github.com/dalini/nina-website/issues/25), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-OUTPUT-040 (https://github.com/dalini/nina-website/issues/30), REQ-HOME-010 (https://github.com/dalini/nina-website/issues/38), REQ-IMAGES-040 (https://github.com/dalini/nina-website/issues/43), REQ-IMAGES-050 (https://github.com/dalini/nina-website/issues/44), REQ-CONTACT-010 (https://github.com/dalini/nina-website/issues/57), REQ-LEGAL-010 (https://github.com/dalini/nina-website/issues/58), REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-PIPELINE-120 (https://github.com/dalini/nina-website/issues/102)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

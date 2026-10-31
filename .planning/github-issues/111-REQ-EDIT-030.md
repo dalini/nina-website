@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.7, FR-5.4, FR-10.1, FR-10.2, FR-10.6; ARCHITECTURE.md Editing Interface; parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.7, FR-5.4, FR-10.1, FR-10.2, FR-10.6; ARCHITECTURE.md Editing Interface; parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -86,8 +86,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}})
-- **Downstream Requirements**: REQ-EDIT-110 ({{ISSUE_URL:REQ-EDIT-110}}), REQ-EDIT-060 ({{ISSUE_URL:REQ-EDIT-060}}), REQ-EDIT-080 ({{ISSUE_URL:REQ-EDIT-080}})
+- **Upstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20)
+- **Downstream Requirements**: REQ-EDIT-110 (https://github.com/dalini/nina-website/issues/114), REQ-EDIT-060 (https://github.com/dalini/nina-website/issues/117), REQ-EDIT-080 (https://github.com/dalini/nina-website/issues/119)
 - **External Dependencies**: GitHub API; Sveltia CMS (pinned release)
 - **Dependency Assumptions**: Sveltia CMS commits through the GitHub API as the signed-in editor (ARCHITECTURE.md Editing Interface)
 - **Failure Impact**: Editing stops while GitHub is down; the public site stays online (T-10)

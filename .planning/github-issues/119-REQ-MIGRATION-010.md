@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-11.1 (title, year, images, captions), FR-1.7, FR-3.7; ARCHITECTURE.md Content Store (one-time import, DF-3); parent {{ISSUE_URL:REQ-MIGRATION-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-11.1 (title, year, images, captions), FR-1.7, FR-3.7; ARCHITECTURE.md Content Store (one-time import, DF-3); parent https://github.com/dalini/nina-website/issues/17
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}})
-- **Downstream Requirements**: REQ-MIGRATION-040 ({{ISSUE_URL:REQ-MIGRATION-040}}), REQ-MIGRATION-020 ({{ISSUE_URL:REQ-MIGRATION-020}}), REQ-MIGRATION-030 ({{ISSUE_URL:REQ-MIGRATION-030}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18)
+- **Downstream Requirements**: REQ-MIGRATION-040 (https://github.com/dalini/nina-website/issues/122), REQ-MIGRATION-020 (https://github.com/dalini/nina-website/issues/123), REQ-MIGRATION-030 (https://github.com/dalini/nina-website/issues/124)
 - **External Dependencies**: Git LFS of `dalini/nina-laaf-site` (legacy images)
 - **Dependency Assumptions**: The legacy images are still available in that repository's Git LFS (README.md)
 - **Failure Impact**: Without the images the import cannot complete

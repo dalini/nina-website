@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HTTP-5 (email alerts through a local mail relay agent, step 10 a third time, PQ-56), SEC-SECRET-1 (the SMTP relay credential belongs to the mail relay agent's account), SEC-HOST-2 (the mail relay agent runs unprivileged); ARCHITECTURE.md Static Hosting; T-64, T-62; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-HTTP-5 (email alerts through a local mail relay agent, step 10 a third time, PQ-56), SEC-SECRET-1 (the SMTP relay credential belongs to the mail relay agent's account), SEC-HOST-2 (the mail relay agent runs unprivileged); ARCHITECTURE.md Static Hosting; T-64, T-62; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}})
-- **Downstream Requirements**: REQ-HTTP-060 ({{ISSUE_URL:REQ-HTTP-060}}), REQ-PIPELINE-130 ({{ISSUE_URL:REQ-PIPELINE-130}}), REQ-INSTAGRAM-050 ({{ISSUE_URL:REQ-INSTAGRAM-050}})
+- **Upstream Requirements**: REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65)
+- **Downstream Requirements**: REQ-HTTP-060 (https://github.com/dalini/nina-website/issues/77), REQ-PIPELINE-130 (https://github.com/dalini/nina-website/issues/94), REQ-INSTAGRAM-050 (https://github.com/dalini/nina-website/issues/97)
 - **External Dependencies**: SMTP relay provider chosen by Ives; VPS provider in Germany
 - **Dependency Assumptions**: The relay accepts authenticated submission over TLS
 - **Failure Impact**: Without the relay, Ives receives no alert for failed renewals, token refreshes and content checks (T-64, T-58)

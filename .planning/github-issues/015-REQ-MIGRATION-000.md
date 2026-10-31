@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-11.1 to FR-11.4; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-11.1 to FR-11.4; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}}), REQ-MIGRATION-040 ({{ISSUE_URL:REQ-MIGRATION-040}}), REQ-MIGRATION-020 ({{ISSUE_URL:REQ-MIGRATION-020}}), REQ-MIGRATION-030 ({{ISSUE_URL:REQ-MIGRATION-030}})
+- **Downstream Requirements**: REQ-MIGRATION-010 (https://github.com/dalini/nina-website/issues/121), REQ-MIGRATION-040 (https://github.com/dalini/nina-website/issues/122), REQ-MIGRATION-020 (https://github.com/dalini/nina-website/issues/123), REQ-MIGRATION-030 (https://github.com/dalini/nina-website/issues/124)
 - **External Dependencies**: Git LFS of `dalini/nina-laaf-site`
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,7 +100,7 @@
 
 ## Sub-issues
 
-- [ ] REQ-MIGRATION-010 {{ISSUE_URL:REQ-MIGRATION-010}}
-- [ ] REQ-MIGRATION-040 {{ISSUE_URL:REQ-MIGRATION-040}}
-- [ ] REQ-MIGRATION-020 {{ISSUE_URL:REQ-MIGRATION-020}}
-- [ ] REQ-MIGRATION-030 {{ISSUE_URL:REQ-MIGRATION-030}}
+- [ ] REQ-MIGRATION-010 https://github.com/dalini/nina-website/issues/121
+- [ ] REQ-MIGRATION-040 https://github.com/dalini/nina-website/issues/122
+- [ ] REQ-MIGRATION-020 https://github.com/dalini/nina-website/issues/123
+- [ ] REQ-MIGRATION-030 https://github.com/dalini/nina-website/issues/124

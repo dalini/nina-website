@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-1 (deploy keys: only the deploy's transfers and reads; no shell, command or forwarding; no write to the refresh job or scheduled jobs), SEC-SECRET-2; T-81; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-1 (deploy keys: only the deploy's transfers and reads; no shell, command or forwarding; no write to the refresh job or scheduled jobs), SEC-SECRET-2; T-81; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65)
 - **Downstream Requirements**: None
 - **External Dependencies**: OpenSSH on the VPS
 - **Dependency Assumptions**: sshd enforces `authorized_keys` restrictions and forced commands

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Performance
-- **Source / Parent**: REQUIREMENTS.md FR-3.10, NFR-1; SECURITY.md T-25; ARCHITECTURE.md Site Build (responsive image sizes); parent {{ISSUE_URL:REQ-IMAGES-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-3.10, NFR-1; SECURITY.md T-25; ARCHITECTURE.md Site Build (responsive image sizes); parent https://github.com/dalini/nina-website/issues/7
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}})
-- **Downstream Requirements**: REQ-HOME-010 ({{ISSUE_URL:REQ-HOME-010}}), REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-WORKS-030 ({{ISSUE_URL:REQ-WORKS-030}}), REQ-WORKS-050 ({{ISSUE_URL:REQ-WORKS-050}}), REQ-IMAGES-020 ({{ISSUE_URL:REQ-IMAGES-020}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}}), REQ-TEXTS-010 ({{ISSUE_URL:REQ-TEXTS-010}}), REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18)
+- **Downstream Requirements**: REQ-HOME-010 (https://github.com/dalini/nina-website/issues/38), REQ-WORKS-010 (https://github.com/dalini/nina-website/issues/39), REQ-WORKS-030 (https://github.com/dalini/nina-website/issues/40), REQ-WORKS-050 (https://github.com/dalini/nina-website/issues/41), REQ-IMAGES-020 (https://github.com/dalini/nina-website/issues/42), REQ-IMAGES-040 (https://github.com/dalini/nina-website/issues/43), REQ-EXHIBITIONS-030 (https://github.com/dalini/nina-website/issues/47), REQ-NEWS-010 (https://github.com/dalini/nina-website/issues/51), REQ-TEXTS-010 (https://github.com/dalini/nina-website/issues/55), REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHZ-1 to SEC-AUTHZ-4, SEC-AUTHN-2, SEC-AUDIT-1, SEC-AVAIL-1, SEC-CICD-7; ARCHITECTURE.md Repositories, Content Store, DR-8; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-AUTHZ-1 to SEC-AUTHZ-4, SEC-AUTHN-2, SEC-AUDIT-1, SEC-AVAIL-1, SEC-CICD-7; ARCHITECTURE.md Repositories, Content Store, DR-8; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-STORE-010 ({{ISSUE_URL:REQ-STORE-010}}), REQ-STORE-020 ({{ISSUE_URL:REQ-STORE-020}}), REQ-STORE-030 ({{ISSUE_URL:REQ-STORE-030}}), REQ-STORE-040 ({{ISSUE_URL:REQ-STORE-040}}), REQ-STORE-050 ({{ISSUE_URL:REQ-STORE-050}}), REQ-STORE-060 ({{ISSUE_URL:REQ-STORE-060}})
+- **Downstream Requirements**: REQ-STORE-010 (https://github.com/dalini/nina-website/issues/79), REQ-STORE-020 (https://github.com/dalini/nina-website/issues/80), REQ-STORE-030 (https://github.com/dalini/nina-website/issues/81), REQ-STORE-040 (https://github.com/dalini/nina-website/issues/82), REQ-STORE-050 (https://github.com/dalini/nina-website/issues/83), REQ-STORE-060 (https://github.com/dalini/nina-website/issues/84)
 - **External Dependencies**: GitHub
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,9 +100,9 @@
 
 ## Sub-issues
 
-- [ ] REQ-STORE-010 {{ISSUE_URL:REQ-STORE-010}}
-- [ ] REQ-STORE-020 {{ISSUE_URL:REQ-STORE-020}}
-- [ ] REQ-STORE-030 {{ISSUE_URL:REQ-STORE-030}}
-- [ ] REQ-STORE-040 {{ISSUE_URL:REQ-STORE-040}}
-- [ ] REQ-STORE-050 {{ISSUE_URL:REQ-STORE-050}}
-- [ ] REQ-STORE-060 {{ISSUE_URL:REQ-STORE-060}}
+- [ ] REQ-STORE-010 https://github.com/dalini/nina-website/issues/79
+- [ ] REQ-STORE-020 https://github.com/dalini/nina-website/issues/80
+- [ ] REQ-STORE-030 https://github.com/dalini/nina-website/issues/81
+- [ ] REQ-STORE-040 https://github.com/dalini/nina-website/issues/82
+- [ ] REQ-STORE-050 https://github.com/dalini/nina-website/issues/83
+- [ ] REQ-STORE-060 https://github.com/dalini/nina-website/issues/84

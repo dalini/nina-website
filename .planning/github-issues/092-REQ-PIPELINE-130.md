@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Operational
-- **Source / Parent**: REQUIREMENTS.md FR-10.4 (15 minutes); SECURITY.md SEC-CICD-4 (VPS side, token scope, inputs), SEC-SECRET-1, SEC-CICD-8 (rotation), SEC-AUTHZ-4; ARCHITECTURE.md Site Build (When it runs), Static Hosting; T-22, T-55, T-58; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-10.4 (15 minutes); SECURITY.md SEC-CICD-4 (VPS side, token scope, inputs), SEC-SECRET-1, SEC-CICD-8 (rotation), SEC-AUTHZ-4; ARCHITECTURE.md Site Build (When it runs), Static Hosting; T-22, T-55, T-58; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -86,7 +86,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-080 ({{ISSUE_URL:REQ-PIPELINE-080}}), REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}}), REQ-HOST-040 ({{ISSUE_URL:REQ-HOST-040}})
+- **Upstream Requirements**: REQ-PIPELINE-080 (https://github.com/dalini/nina-website/issues/93), REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65), REQ-HOST-040 (https://github.com/dalini/nina-website/issues/66)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub (`git ls-remote`, Actions API)
 - **Dependency Assumptions**: GitHub accepts `workflow_dispatch` with a fine-grained token limited to Actions: write

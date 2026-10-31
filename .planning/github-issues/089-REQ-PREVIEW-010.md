@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHN-1, SEC-AUTHN-2, SEC-CICD-3, `REF-AUTH`; REQUIREMENTS.md FR-10.9; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHN-1, SEC-AUTHN-2, SEC-CICD-3, `REF-AUTH`; REQUIREMENTS.md FR-10.9; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}})
+- **Upstream Requirements**: REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90)
 - **Downstream Requirements**: None
 - **External Dependencies**: VPS provider in Germany
 - **Dependency Assumptions**: The VPS is reachable and administered by Ives (SEC-HOST-1)

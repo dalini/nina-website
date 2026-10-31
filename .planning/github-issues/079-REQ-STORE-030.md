@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: ARCHITECTURE.md Repositories, DR-8; SECURITY.md SEC-AUTHZ-3, `REF-CICD`; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: ARCHITECTURE.md Repositories, DR-8; SECURITY.md SEC-AUTHZ-3, `REF-CICD`; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}})
+- **Downstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103)
 - **External Dependencies**: GitHub
 - **Dependency Assumptions**: GitHub enforces repository permissions as documented
 - **Failure Impact**: A GitHub outage stops editing and building; the public site stays online

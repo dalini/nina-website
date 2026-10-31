@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-8.1, FR-8.3; SECURITY.md SEC-PRIV-1, SEC-OUT-2; parent {{ISSUE_URL:REQ-INSTAGRAM-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.1, FR-8.3; SECURITY.md SEC-PRIV-1, SEC-OUT-2; parent https://github.com/dalini/nina-website/issues/10
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-LAYOUT-010 ({{ISSUE_URL:REQ-LAYOUT-010}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}})
-- **Downstream Requirements**: REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}})
+- **Upstream Requirements**: REQ-LAYOUT-010 (https://github.com/dalini/nina-website/issues/31), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29)
+- **Downstream Requirements**: REQ-INSTAGRAM-020 (https://github.com/dalini/nina-website/issues/60)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

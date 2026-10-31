@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-AUTHZ-1, SEC-AUTHZ-2, SEC-AUTHZ-4, SEC-AUTHN-2; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Repositories, Content Store; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: SECURITY.md SEC-AUTHZ-1, SEC-AUTHZ-2, SEC-AUTHZ-4, SEC-AUTHN-2; REQUIREMENTS.md FR-10.5; ARCHITECTURE.md Repositories, Content Store; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 
@@ -86,7 +86,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-STORE-040 ({{ISSUE_URL:REQ-STORE-040}}), REQ-STORE-050 ({{ISSUE_URL:REQ-STORE-050}}), REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}})
+- **Downstream Requirements**: REQ-STORE-040 (https://github.com/dalini/nina-website/issues/82), REQ-STORE-050 (https://github.com/dalini/nina-website/issues/83), REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85)
 - **External Dependencies**: GitHub
 - **Dependency Assumptions**: GitHub enforces repository permissions as documented
 - **Failure Impact**: A GitHub outage stops editing and building; the public site stays online

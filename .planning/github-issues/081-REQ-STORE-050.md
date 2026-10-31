@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: SECURITY.md SEC-AVAIL-1 (weekly mirror to the VPS, 30 days, yearly restore test, outside served directories, maintainer only), SEC-AUTHZ-4 (read-only credential), SEC-SECRET-1; ARCHITECTURE.md Content Store (Backup); T-16, T-65; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: SECURITY.md SEC-AVAIL-1 (weekly mirror to the VPS, 30 days, yearly restore test, outside served directories, maintainer only), SEC-AUTHZ-4 (read-only credential), SEC-SECRET-1; ARCHITECTURE.md Content Store (Backup); T-16, T-65; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HOST-030 ({{ISSUE_URL:REQ-HOST-030}}), REQ-STORE-010 ({{ISSUE_URL:REQ-STORE-010}})
-- **Downstream Requirements**: REQ-STORE-060 ({{ISSUE_URL:REQ-STORE-060}})
+- **Upstream Requirements**: REQ-HOST-030 (https://github.com/dalini/nina-website/issues/65), REQ-STORE-010 (https://github.com/dalini/nina-website/issues/79)
+- **Downstream Requirements**: REQ-STORE-060 (https://github.com/dalini/nina-website/issues/84)
 - **External Dependencies**: GitHub (read access to `dalini/nina-content`)
 - **Dependency Assumptions**: GitHub allows a read-only credential to clone the full history
 - **Failure Impact**: Missing mirrors reduce recovery options; the live site is unaffected

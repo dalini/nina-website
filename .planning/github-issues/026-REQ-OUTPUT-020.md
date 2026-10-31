@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-INPUT-6, SEC-CICD-6; parent {{ISSUE_URL:REQ-OUTPUT-000}}
+- **Source / Parent**: SECURITY.md SEC-INPUT-6, SEC-CICD-6; parent https://github.com/dalini/nina-website/issues/4
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19)
 - **Downstream Requirements**: None
 - **External Dependencies**: None
 - **Dependency Assumptions**: None

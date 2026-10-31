@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: ARCHITECTURE.md Static Hosting (limits requests and connections per IP); SECURITY.md T-31; parent {{ISSUE_URL:REQ-HTTP-000}}
+- **Source / Parent**: ARCHITECTURE.md Static Hosting (limits requests and connections per IP); SECURITY.md T-31; parent https://github.com/dalini/nina-website/issues/12
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-010 ({{ISSUE_URL:REQ-HTTP-010}}), REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}})
+- **Upstream Requirements**: REQ-HTTP-010 (https://github.com/dalini/nina-website/issues/68), REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76)
 - **Downstream Requirements**: None
 - **External Dependencies**: VPS provider in Germany
 - **Dependency Assumptions**: The VPS is reachable and administered by Ives (SEC-HOST-1)

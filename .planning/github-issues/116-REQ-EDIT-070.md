@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-8.6; ARCHITECTURE.md Editing Interface (manages the Instagram settings); parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.6; ARCHITECTURE.md Editing Interface (manages the Instagram settings); parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}})
+- **Upstream Requirements**: REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-CONTENT-060 (https://github.com/dalini/nina-website/issues/21)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub API; Sveltia CMS (pinned release)
 - **Dependency Assumptions**: Sveltia CMS commits through the GitHub API as the signed-in editor (ARCHITECTURE.md Editing Interface)

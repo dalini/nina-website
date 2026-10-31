@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-10.7; SECURITY.md SEC-AUDIT-1; ARCHITECTURE.md Editing Interface (change history and restore through the Git history); parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-10.7; SECURITY.md SEC-AUDIT-1; ARCHITECTURE.md Editing Interface (change history and restore through the Git history); parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}})
+- **Upstream Requirements**: REQ-EDIT-020 (https://github.com/dalini/nina-website/issues/112), REQ-EDIT-030 (https://github.com/dalini/nina-website/issues/113), REQ-EDIT-040 (https://github.com/dalini/nina-website/issues/115)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub API; Sveltia CMS (pinned release)
 - **Dependency Assumptions**: Sveltia CMS commits through the GitHub API as the signed-in editor (ARCHITECTURE.md Editing Interface)

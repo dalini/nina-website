@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-HOST-2 (unprivileged accounts, own secrets only), SEC-SECRET-1 (one secret file per account, step 10 again), SEC-AUTHN-4 (helper's own account); ARCHITECTURE.md Static Hosting; T-61, T-62; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-HOST-2 (unprivileged accounts, own secrets only), SEC-SECRET-1 (one secret file per account, step 10 again), SEC-AUTHN-4 (helper's own account); ARCHITECTURE.md Static Hosting; T-61, T-62; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HOST-020 ({{ISSUE_URL:REQ-HOST-020}})
-- **Downstream Requirements**: REQ-HOST-040 ({{ISSUE_URL:REQ-HOST-040}}), REQ-STORE-050 ({{ISSUE_URL:REQ-STORE-050}}), REQ-PIPELINE-130 ({{ISSUE_URL:REQ-PIPELINE-130}}), REQ-PIPELINE-140 ({{ISSUE_URL:REQ-PIPELINE-140}}), REQ-INSTAGRAM-050 ({{ISSUE_URL:REQ-INSTAGRAM-050}}), REQ-AUTHN-030 ({{ISSUE_URL:REQ-AUTHN-030}})
+- **Upstream Requirements**: REQ-HOST-020 (https://github.com/dalini/nina-website/issues/64)
+- **Downstream Requirements**: REQ-HOST-040 (https://github.com/dalini/nina-website/issues/66), REQ-STORE-050 (https://github.com/dalini/nina-website/issues/83), REQ-PIPELINE-130 (https://github.com/dalini/nina-website/issues/94), REQ-PIPELINE-140 (https://github.com/dalini/nina-website/issues/96), REQ-INSTAGRAM-050 (https://github.com/dalini/nina-website/issues/97), REQ-AUTHN-030 (https://github.com/dalini/nina-website/issues/107)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A wrong permission lets one compromised process read secrets of others

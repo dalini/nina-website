@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-7.1, FR-7.2, FR-7.3, FR-7.4; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-7.1, FR-7.2, FR-7.3, FR-7.4; parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}})
-- **Downstream Requirements**: REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}})
+- **Upstream Requirements**: REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29)
+- **Downstream Requirements**: REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

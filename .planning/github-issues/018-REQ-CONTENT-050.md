@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-3.7, FR-4.1 to FR-4.7, FR-5.3, FR-5.4, FR-10.6; ARCHITECTURE.md Data model expectations, Content Store, DR-3, DR-4; SECURITY.md SEC-INPUT-6 (slug field); parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-3.7, FR-4.1 to FR-4.7, FR-5.3, FR-5.4, FR-10.6; ARCHITECTURE.md Data model expectations, Content Store, DR-3, DR-4; SECURITY.md SEC-INPUT-6 (slug field); parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -87,8 +87,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}})
-- **Downstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18)
+- **Downstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-CONTENT-080 (https://github.com/dalini/nina-website/issues/25), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-EXHIBITIONS-010 (https://github.com/dalini/nina-website/issues/46), REQ-EDIT-030 (https://github.com/dalini/nina-website/issues/113)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A

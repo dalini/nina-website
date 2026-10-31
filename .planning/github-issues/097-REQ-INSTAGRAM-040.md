@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: REQUIREMENTS.md FR-8.4, FR-8.5, FR-8.6; ARCHITECTURE.md Instagram Feed Integration, DR-1; SECURITY.md SEC-CICD-1; parent {{ISSUE_URL:REQ-INSTAGRAM-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.4, FR-8.5, FR-8.6; ARCHITECTURE.md Instagram Feed Integration, DR-1; SECURITY.md SEC-CICD-1; parent https://github.com/dalini/nina-website/issues/10
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-INSTAGRAM-030 ({{ISSUE_URL:REQ-INSTAGRAM-030}}), REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}})
+- **Upstream Requirements**: REQ-INSTAGRAM-030 (https://github.com/dalini/nina-website/issues/98), REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85)
 - **Downstream Requirements**: None
 - **External Dependencies**: Static Hosting (VPS) over SSH
 - **Dependency Assumptions**: The deployed feed files are those the previous successful build wrote

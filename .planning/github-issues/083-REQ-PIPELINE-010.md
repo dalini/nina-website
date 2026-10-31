@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-1, SEC-INPUT-3, SEC-SECRET-1, `REF-CICD`, `REF-SSDF`; REQUIREMENTS.md FR-10.4; ARCHITECTURE.md Site Build, Static Hosting, Deployment model; parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-1, SEC-INPUT-3, SEC-SECRET-1, `REF-CICD`, `REF-SSDF`; REQUIREMENTS.md FR-10.4; ARCHITECTURE.md Site Build, Static Hosting, Deployment model; parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-HOST-020 ({{ISSUE_URL:REQ-HOST-020}}), REQ-STORE-010 ({{ISSUE_URL:REQ-STORE-010}})
-- **Downstream Requirements**: REQ-PIPELINE-020 ({{ISSUE_URL:REQ-PIPELINE-020}}), REQ-PIPELINE-030 ({{ISSUE_URL:REQ-PIPELINE-030}}), REQ-PIPELINE-040 ({{ISSUE_URL:REQ-PIPELINE-040}}), REQ-PIPELINE-050 ({{ISSUE_URL:REQ-PIPELINE-050}}), REQ-PIPELINE-060 ({{ISSUE_URL:REQ-PIPELINE-060}}), REQ-PIPELINE-070 ({{ISSUE_URL:REQ-PIPELINE-070}}), REQ-PIPELINE-080 ({{ISSUE_URL:REQ-PIPELINE-080}}), REQ-PIPELINE-090 ({{ISSUE_URL:REQ-PIPELINE-090}}), REQ-PIPELINE-140 ({{ISSUE_URL:REQ-PIPELINE-140}}), REQ-INSTAGRAM-040 ({{ISSUE_URL:REQ-INSTAGRAM-040}}), REQ-PIPELINE-100 ({{ISSUE_URL:REQ-PIPELINE-100}}), REQ-PIPELINE-110 ({{ISSUE_URL:REQ-PIPELINE-110}}), REQ-PIPELINE-120 ({{ISSUE_URL:REQ-PIPELINE-120}})
+- **Upstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-HOST-020 (https://github.com/dalini/nina-website/issues/64), REQ-STORE-010 (https://github.com/dalini/nina-website/issues/79)
+- **Downstream Requirements**: REQ-PIPELINE-020 (https://github.com/dalini/nina-website/issues/86), REQ-PIPELINE-030 (https://github.com/dalini/nina-website/issues/87), REQ-PIPELINE-040 (https://github.com/dalini/nina-website/issues/88), REQ-PIPELINE-050 (https://github.com/dalini/nina-website/issues/89), REQ-PIPELINE-060 (https://github.com/dalini/nina-website/issues/90), REQ-PIPELINE-070 (https://github.com/dalini/nina-website/issues/92), REQ-PIPELINE-080 (https://github.com/dalini/nina-website/issues/93), REQ-PIPELINE-090 (https://github.com/dalini/nina-website/issues/95), REQ-PIPELINE-140 (https://github.com/dalini/nina-website/issues/96), REQ-INSTAGRAM-040 (https://github.com/dalini/nina-website/issues/99), REQ-PIPELINE-100 (https://github.com/dalini/nina-website/issues/100), REQ-PIPELINE-110 (https://github.com/dalini/nina-website/issues/101), REQ-PIPELINE-120 (https://github.com/dalini/nina-website/issues/102)
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured
 - **Failure Impact**: A pipeline failure delays publishing; the previous site stays online

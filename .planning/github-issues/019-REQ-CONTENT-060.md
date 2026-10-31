@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-8.4, FR-8.6; ARCHITECTURE.md Data model expectations, Content Store, DR-5; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.4, FR-8.6; ARCHITECTURE.md Data model expectations, Content Store, DR-5; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -83,8 +83,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}})
-- **Downstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-INSTAGRAM-020 ({{ISSUE_URL:REQ-INSTAGRAM-020}}), REQ-EDIT-070 ({{ISSUE_URL:REQ-EDIT-070}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18)
+- **Downstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-INSTAGRAM-020 (https://github.com/dalini/nina-website/issues/60), REQ-EDIT-070 (https://github.com/dalini/nina-website/issues/118)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A

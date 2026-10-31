@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-11.2, FR-11.4, FR-10.3, FR-10.6; parent {{ISSUE_URL:REQ-MIGRATION-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-11.2, FR-11.4, FR-10.3, FR-10.6; parent https://github.com/dalini/nina-website/issues/17
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}})
+- **Upstream Requirements**: REQ-MIGRATION-010 (https://github.com/dalini/nina-website/issues/121), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23)
 - **Downstream Requirements**: None
 - **External Dependencies**: Git LFS of `dalini/nina-laaf-site` (legacy images)
 - **Dependency Assumptions**: The legacy images are still available in that repository's Git LFS (README.md)

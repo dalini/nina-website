@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-7, SEC-CICD-4, `REF-CICD`; parent {{ISSUE_URL:REQ-STORE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-7, SEC-CICD-4, `REF-CICD`; parent https://github.com/dalini/nina-website/issues/13
 
 ## Requirement
 

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-5.1, FR-5.2, FR-5.4, FR-6.1, FR-6.2, FR-7.1, FR-7.2, FR-9.1, FR-10.6; ARCHITECTURE.md Data model expectations, DR-3, DR-4; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-5.1, FR-5.2, FR-5.4, FR-6.1, FR-6.2, FR-7.1, FR-7.2, FR-9.1, FR-10.6; ARCHITECTURE.md Data model expectations, DR-3, DR-4; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}})
-- **Downstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-020 ({{ISSUE_URL:REQ-OUTPUT-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-IMAGES-030 ({{ISSUE_URL:REQ-IMAGES-030}}), REQ-CV-010 ({{ISSUE_URL:REQ-CV-010}}), REQ-TEXTS-010 ({{ISSUE_URL:REQ-TEXTS-010}}), REQ-CONTACT-010 ({{ISSUE_URL:REQ-CONTACT-010}}), REQ-LEGAL-010 ({{ISSUE_URL:REQ-LEGAL-010}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18)
+- **Downstream Requirements**: REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27), REQ-OUTPUT-020 (https://github.com/dalini/nina-website/issues/28), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-IMAGES-030 (https://github.com/dalini/nina-website/issues/45), REQ-CV-010 (https://github.com/dalini/nina-website/issues/52), REQ-TEXTS-010 (https://github.com/dalini/nina-website/issues/55), REQ-CONTACT-010 (https://github.com/dalini/nina-website/issues/57), REQ-LEGAL-010 (https://github.com/dalini/nina-website/issues/58), REQ-EDIT-040 (https://github.com/dalini/nina-website/issues/115)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A

@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-10.8 (editor side), FR-10.4; SECURITY.md SEC-OUT-4 (status shown as text), SEC-CICD-9 (public status file), SEC-HTTP-4; ARCHITECTURE.md Editing Interface (shows the publish status banner), DF-9; T-24, T-58, T-60; parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-10.8 (editor side), FR-10.4; SECURITY.md SEC-OUT-4 (status shown as text), SEC-CICD-9 (public status file), SEC-HTTP-4; ARCHITECTURE.md Editing Interface (shows the publish status banner), DF-9; T-24, T-58, T-60; parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-120 ({{ISSUE_URL:REQ-PIPELINE-120}}), REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-HTTP-050 ({{ISSUE_URL:REQ-HTTP-050}})
+- **Upstream Requirements**: REQ-PIPELINE-120 (https://github.com/dalini/nina-website/issues/102), REQ-EDIT-010 (https://github.com/dalini/nina-website/issues/103), REQ-HTTP-050 (https://github.com/dalini/nina-website/issues/111)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub API (latest commit of `main`)
 - **Dependency Assumptions**: The signed-in editor's token can read `main` of the Content Store (SEC-AUTHZ-1)

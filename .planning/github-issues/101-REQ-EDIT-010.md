@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-2 (including T-82), DEP-3 to DEP-5, DEP-7, `REF-SUPPLY`; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-EDIT-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-2 (including T-82), DEP-3 to DEP-5, DEP-7, `REF-SUPPLY`; ARCHITECTURE.md Editing Interface, DR-9; parent https://github.com/dalini/nina-website/issues/16
 
 ## Requirement
 
@@ -84,8 +84,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-HTTP-040 ({{ISSUE_URL:REQ-HTTP-040}}), REQ-STORE-030 ({{ISSUE_URL:REQ-STORE-030}})
-- **Downstream Requirements**: REQ-CONSENT-040 ({{ISSUE_URL:REQ-CONSENT-040}}), REQ-AUTHN-010 ({{ISSUE_URL:REQ-AUTHN-010}}), REQ-EDIT-100 ({{ISSUE_URL:REQ-EDIT-100}}), REQ-HTTP-050 ({{ISSUE_URL:REQ-HTTP-050}}), REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}}), REQ-EDIT-070 ({{ISSUE_URL:REQ-EDIT-070}}), REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
+- **Upstream Requirements**: REQ-HTTP-040 (https://github.com/dalini/nina-website/issues/76), REQ-STORE-030 (https://github.com/dalini/nina-website/issues/81)
+- **Downstream Requirements**: REQ-CONSENT-040 (https://github.com/dalini/nina-website/issues/104), REQ-AUTHN-010 (https://github.com/dalini/nina-website/issues/105), REQ-EDIT-100 (https://github.com/dalini/nina-website/issues/108), REQ-HTTP-050 (https://github.com/dalini/nina-website/issues/111), REQ-EDIT-020 (https://github.com/dalini/nina-website/issues/112), REQ-EDIT-030 (https://github.com/dalini/nina-website/issues/113), REQ-EDIT-040 (https://github.com/dalini/nina-website/issues/115), REQ-EDIT-070 (https://github.com/dalini/nina-website/issues/118), REQ-EDIT-090 (https://github.com/dalini/nina-website/issues/120)
 - **External Dependencies**: GitHub API; Sveltia CMS (pinned release)
 - **Dependency Assumptions**: Sveltia CMS commits through the GitHub API as the signed-in editor (ARCHITECTURE.md Editing Interface)
 - **Failure Impact**: Editing stops while GitHub is down; the public site stays online (T-10)

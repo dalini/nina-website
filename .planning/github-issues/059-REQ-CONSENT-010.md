@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Privacy
-- **Source / Parent**: REQUIREMENTS.md FR-9.2; DESIGN.md Components (Consent banner, Buttons, Focus state), Accessibility; SECURITY.md SEC-PRIV-5 (only an exact Accept value counts as consent), SEC-OUT-5; T-72, T-84; parent {{ISSUE_URL:REQ-CONSENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-9.2; DESIGN.md Components (Consent banner, Buttons, Focus state), Accessibility; SECURITY.md SEC-PRIV-5 (only an exact Accept value counts as consent), SEC-OUT-5; T-72, T-84; parent https://github.com/dalini/nina-website/issues/11
 
 ## Requirement
 
@@ -86,8 +86,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-LAYOUT-010 ({{ISSUE_URL:REQ-LAYOUT-010}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-LEGAL-010 ({{ISSUE_URL:REQ-LEGAL-010}})
-- **Downstream Requirements**: REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}}), REQ-CONSENT-050 ({{ISSUE_URL:REQ-CONSENT-050}})
+- **Upstream Requirements**: REQ-LAYOUT-010 (https://github.com/dalini/nina-website/issues/31), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-LEGAL-010 (https://github.com/dalini/nina-website/issues/58)
+- **Downstream Requirements**: REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70), REQ-CONSENT-050 (https://github.com/dalini/nina-website/issues/71)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

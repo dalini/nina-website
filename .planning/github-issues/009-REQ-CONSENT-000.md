@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: REQUIREMENTS.md FR-9.2, NFR-3; SECURITY.md SEC-PRIV-5, SEC-PRIV-7, SEC-HTTP-2, SEC-OUT-5, SEC-OUT-7; ARCHITECTURE.md Public Site, DR-6; DESIGN.md Components (Consent banner); parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-9.2, NFR-3; SECURITY.md SEC-PRIV-5, SEC-PRIV-7, SEC-HTTP-2, SEC-OUT-5, SEC-OUT-7; ARCHITECTURE.md Public Site, DR-6; DESIGN.md Components (Consent banner); parent https://github.com/dalini/nina-website/issues/2
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONSENT-010 ({{ISSUE_URL:REQ-CONSENT-010}}), REQ-PRIV-030 ({{ISSUE_URL:REQ-PRIV-030}}), REQ-CONSENT-020 ({{ISSUE_URL:REQ-CONSENT-020}}), REQ-CONSENT-050 ({{ISSUE_URL:REQ-CONSENT-050}}), REQ-CONSENT-030 ({{ISSUE_URL:REQ-CONSENT-030}}), REQ-CONSENT-040 ({{ISSUE_URL:REQ-CONSENT-040}})
+- **Downstream Requirements**: REQ-CONSENT-010 (https://github.com/dalini/nina-website/issues/61), REQ-PRIV-030 (https://github.com/dalini/nina-website/issues/62), REQ-CONSENT-020 (https://github.com/dalini/nina-website/issues/70), REQ-CONSENT-050 (https://github.com/dalini/nina-website/issues/71), REQ-CONSENT-030 (https://github.com/dalini/nina-website/issues/74), REQ-CONSENT-040 (https://github.com/dalini/nina-website/issues/104)
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -100,9 +100,9 @@
 
 ## Sub-issues
 
-- [ ] REQ-CONSENT-010 {{ISSUE_URL:REQ-CONSENT-010}}
-- [ ] REQ-PRIV-030 {{ISSUE_URL:REQ-PRIV-030}}
-- [ ] REQ-CONSENT-020 {{ISSUE_URL:REQ-CONSENT-020}}
-- [ ] REQ-CONSENT-050 {{ISSUE_URL:REQ-CONSENT-050}}
-- [ ] REQ-CONSENT-030 {{ISSUE_URL:REQ-CONSENT-030}}
-- [ ] REQ-CONSENT-040 {{ISSUE_URL:REQ-CONSENT-040}}
+- [ ] REQ-CONSENT-010 https://github.com/dalini/nina-website/issues/61
+- [ ] REQ-PRIV-030 https://github.com/dalini/nina-website/issues/62
+- [ ] REQ-CONSENT-020 https://github.com/dalini/nina-website/issues/70
+- [ ] REQ-CONSENT-050 https://github.com/dalini/nina-website/issues/71
+- [ ] REQ-CONSENT-030 https://github.com/dalini/nina-website/issues/74
+- [ ] REQ-CONSENT-040 https://github.com/dalini/nina-website/issues/104

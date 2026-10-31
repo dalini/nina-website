@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-OUT-1, `REF-XSS`; REQUIREMENTS.md FR-1.4, FR-5.1, FR-3.7; parent {{ISSUE_URL:REQ-OUTPUT-000}}
+- **Source / Parent**: SECURITY.md SEC-OUT-1, `REF-XSS`; REQUIREMENTS.md FR-1.4, FR-5.1, FR-3.7; parent https://github.com/dalini/nina-website/issues/4
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}})
-- **Downstream Requirements**: REQ-OUTPUT-040 ({{ISSUE_URL:REQ-OUTPUT-040}}), REQ-NAV-030 ({{ISSUE_URL:REQ-NAV-030}}), REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}}), REQ-CV-010 ({{ISSUE_URL:REQ-CV-010}}), REQ-TEXTS-010 ({{ISSUE_URL:REQ-TEXTS-010}}), REQ-LEGAL-010 ({{ISSUE_URL:REQ-LEGAL-010}})
+- **Upstream Requirements**: REQ-CONTENT-010 (https://github.com/dalini/nina-website/issues/18), REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20)
+- **Downstream Requirements**: REQ-OUTPUT-040 (https://github.com/dalini/nina-website/issues/30), REQ-NAV-030 (https://github.com/dalini/nina-website/issues/34), REQ-WORKS-020 (https://github.com/dalini/nina-website/issues/36), REQ-EXHIBITIONS-010 (https://github.com/dalini/nina-website/issues/46), REQ-NEWS-010 (https://github.com/dalini/nina-website/issues/51), REQ-CV-010 (https://github.com/dalini/nina-website/issues/52), REQ-TEXTS-010 (https://github.com/dalini/nina-website/issues/55), REQ-LEGAL-010 (https://github.com/dalini/nina-website/issues/58)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online

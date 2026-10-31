@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.1, FR-4.4, FR-10.4; parent {{ISSUE_URL:REQ-EXHIBITIONS-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.1, FR-4.4, FR-10.4; parent https://github.com/dalini/nina-website/issues/8
 
 ## Requirement
 
@@ -85,8 +85,8 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}})
-- **Downstream Requirements**: REQ-HOME-020 ({{ISSUE_URL:REQ-HOME-020}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}}), REQ-CV-020 ({{ISSUE_URL:REQ-CV-020}}), REQ-PERF-010 ({{ISSUE_URL:REQ-PERF-010}})
+- **Upstream Requirements**: REQ-EXHIBITIONS-010 (https://github.com/dalini/nina-website/issues/46), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23)
+- **Downstream Requirements**: REQ-HOME-020 (https://github.com/dalini/nina-website/issues/50), REQ-NEWS-010 (https://github.com/dalini/nina-website/issues/51), REQ-CV-020 (https://github.com/dalini/nina-website/issues/53), REQ-PERF-010 (https://github.com/dalini/nina-website/issues/72)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A: no runtime dependency; a failed build leaves the previous site online

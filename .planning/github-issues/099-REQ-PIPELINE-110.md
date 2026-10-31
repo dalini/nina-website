@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Reliability
-- **Source / Parent**: REQUIREMENTS.md FR-10.8; ARCHITECTURE.md Site Build (Outputs: a GitHub Actions failure email to the maintainer); parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-10.8; ARCHITECTURE.md Site Build (Outputs: a GitHub Actions failure email to the maintainer); parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -83,7 +83,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured

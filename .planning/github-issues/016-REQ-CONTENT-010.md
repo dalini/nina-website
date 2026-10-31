@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-1.5, FR-3.1 to FR-3.8, FR-3.10, FR-5.4, FR-10.3, FR-10.6; ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; parent {{ISSUE_URL:REQ-CONTENT-000}}
+- **Source / Parent**: REQUIREMENTS.md FR-1.4, FR-1.5, FR-3.1 to FR-3.8, FR-3.10, FR-5.4, FR-10.3, FR-10.6; ARCHITECTURE.md Data model expectations, Content Store, DR-2 to DR-4; parent https://github.com/dalini/nina-website/issues/3
 
 ## Requirement
 
@@ -87,7 +87,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-020 ({{ISSUE_URL:REQ-OUTPUT-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-NAV-020 ({{ISSUE_URL:REQ-NAV-020}}), REQ-WORKS-020 ({{ISSUE_URL:REQ-WORKS-020}}), REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-HOME-010 ({{ISSUE_URL:REQ-HOME-010}}), REQ-WORKS-010 ({{ISSUE_URL:REQ-WORKS-010}}), REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}})
+- **Downstream Requirements**: REQ-CONTENT-020 (https://github.com/dalini/nina-website/issues/19), REQ-CONTENT-050 (https://github.com/dalini/nina-website/issues/20), REQ-CONTENT-060 (https://github.com/dalini/nina-website/issues/21), REQ-CONTENT-030 (https://github.com/dalini/nina-website/issues/22), REQ-CONTENT-040 (https://github.com/dalini/nina-website/issues/23), REQ-OUTPUT-010 (https://github.com/dalini/nina-website/issues/27), REQ-OUTPUT-020 (https://github.com/dalini/nina-website/issues/28), REQ-OUTPUT-030 (https://github.com/dalini/nina-website/issues/29), REQ-NAV-020 (https://github.com/dalini/nina-website/issues/32), REQ-WORKS-020 (https://github.com/dalini/nina-website/issues/36), REQ-IMAGES-010 (https://github.com/dalini/nina-website/issues/37), REQ-HOME-010 (https://github.com/dalini/nina-website/issues/38), REQ-WORKS-010 (https://github.com/dalini/nina-website/issues/39), REQ-EDIT-020 (https://github.com/dalini/nina-website/issues/112), REQ-MIGRATION-010 (https://github.com/dalini/nina-website/issues/121)
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: N/A

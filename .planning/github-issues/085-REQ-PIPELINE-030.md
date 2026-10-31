@@ -9,7 +9,7 @@
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
-- **Source / Parent**: SECURITY.md SEC-CICD-2, DEP-4, DEP-5, DEP-7, `REF-HUGO-ADV`, `REF-SUPPLY`; ARCHITECTURE.md Site Build (Hugo version pinned); parent {{ISSUE_URL:REQ-PIPELINE-000}}
+- **Source / Parent**: SECURITY.md SEC-CICD-2, DEP-4, DEP-5, DEP-7, `REF-HUGO-ADV`, `REF-SUPPLY`; ARCHITECTURE.md Site Build (Hugo version pinned); parent https://github.com/dalini/nina-website/issues/14
 
 ## Requirement
 
@@ -84,7 +84,7 @@
 
 ## Dependencies
 
-- **Upstream Requirements**: REQ-PIPELINE-010 ({{ISSUE_URL:REQ-PIPELINE-010}})
+- **Upstream Requirements**: REQ-PIPELINE-010 (https://github.com/dalini/nina-website/issues/85)
 - **Downstream Requirements**: None
 - **External Dependencies**: GitHub Actions
 - **Dependency Assumptions**: GitHub Actions runs workflows as configured
