@@ -11,12 +11,12 @@
 - Application profile: See ARCHITECTURE.md (Architecture): static public site built by Hugo with no server-side code serving visitors, plus a self-hosted Sveltia CMS editing interface and a GitHub Actions build/publish pipeline; everything served by nginx on one rented VPS in Germany.
 - Users / actors / roles: Visitor (anonymous, read-only); Editor (Nina and Ives); Owner (Nina and Ives, SEC-AUTHZ-2); Maintainer (Ives: admin of `dalini/nina-site` and `dalini/nina-content`, CI, VPS, registrar and DNS); build/deploy identity; Instagram (external).
 - Public interfaces and trust boundaries: TB-1 visitor browser ↔ Static Hosting (nginx on the VPS, including the domain and DNS of `nina-laaf.de`); TB-2 editor browser ↔ Editing Interface (`edit.nina-laaf.de`) and preview site (`preview.nina-laaf.de`); TB-3 Editing Interface ↔ Content Store (GitHub API, `dalini/nina-content`); TB-4 Content Store ↔ Site Build (GitHub Actions in `dalini/nina-site`) ↔ Static Hosting (rsync/SSH); TB-5 Instagram ↔ Site Build.
-- Sensitive or regulated data: Editor GitHub credentials and OAuth tokens; preview Basic Auth credentials; deploy, preview-deploy and content-read secrets; the Instagram token (on the VPS); Nina's email address (published on purpose); image and PDF metadata (EXIF, possibly location); unpublished content; visitor IP addresses in nginx access logs (SEC-PRIV-6).
+- Sensitive or regulated data: Editor GitHub credentials and OAuth tokens; preview Basic Auth credentials; deploy, preview-deploy and content-read secrets; the build-trigger token and the Instagram token (on the VPS); Nina's email address (published on purpose); image and PDF metadata (EXIF, possibly location); unpublished content; visitor IP addresses in nginx access logs (SEC-PRIV-6).
 - External integrations: GitHub (Content Store, OAuth sign-in, Actions); Instagram (Instagram API with Instagram Login, build time); VPS provider in Germany.
 - Authentication model: Editors sign in with individual GitHub accounts through GitHub OAuth, second factor required (SEC-AUTHN-1, SEC-AUTHN-2); preview site: per-editor HTTP Basic Auth over HTTPS. Visitors: none.
 - Authorization model: Single role "editor" with full content rights in `dalini/nina-content`; owners add and remove editors; only the maintainer writes `dalini/nina-site`; anyone else has read-only access to published content (FR-10.5).
 - Session model: Editing Interface sessions end after 30 minutes of inactivity and after at most 8 hours (SEC-AUTHN-3).
-- Deployment and CI/CD model: GitHub Actions in `dalini/nina-site` (5-minute poll, nightly build) build with Hugo and deploy only the output over rsync/SSH with restricted deploy keys (production and preview); secrets in GitHub Actions secrets of a `production` environment limited to `main` (SEC-SECRET-1, SEC-SECRET-2).
+- Deployment and CI/CD model: GitHub Actions in `dalini/nina-site` (started by the VPS content check through `workflow_dispatch`, plus a nightly schedule) build with Hugo and deploy only the output over rsync/SSH with restricted deploy keys (production and preview); secrets in GitHub Actions secrets of a `production` environment limited to `main` (SEC-SECRET-1, SEC-SECRET-2).
 - Applicable privacy or regulatory obligations: Operator in Germany: GDPR; Impressum and Datenschutzerklärung required (REQUIREMENTS.md FR-9.1). Wording: drafted with a German legal-text generator (e.g. eRecht24), completed and approved by Nina before release; it must describe the access logs (SEC-PRIV-6) and the log statistics (SEC-PRIV-5). No GDPR article mapping is kept in this document or the issues.
 - Security assurance target: OWASP ASVS 5.0.0 Level 1 for the whole system. NIST SP 800-53 and Zero Trust mappings are not applicable to this project.
 - Security verification reference: OWASP ASVS 5.0.0
@@ -151,7 +151,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
   - **Verification:** Test with Nina's editor account and the Editing Interface credential: a push to `dalini/nina-site` is rejected; review that only Ives has write access there
   - **References:** `REF-CICD`, `REF-ASVS-5`
   - **Threats:** T-11
-- **SEC-AUTHZ-4** The Content Store, including its history and media originals, MUST NOT be publicly readable; read access is limited to editors, the build identity (read-only credential) and the maintainer (Ives).
+- **SEC-AUTHZ-4** The Content Store, including its history and media originals, MUST NOT be publicly readable; read access is limited to editors, the build identity and the VPS content check and backup (read-only credentials), and the maintainer (Ives).
   - **Applies to:** Content Store (TB-3)
   - **Verification:** Unauthenticated read request is rejected; review of the access list
   - **References:** `REF-ASVS-5`
@@ -206,7 +206,7 @@ No local secure-coding prompt library was found in this repository. Selected pub
 
 ### Secrets and pipeline (TB-4)
 
-- **SEC-SECRET-1** Deploy credentials, editing-system credentials and any Instagram access token MUST be kept out of the repository, generated output, client code and logs, and stored as follows: deploy, preview-deploy and content-read secrets in GitHub Actions secrets of the `production` environment of `dalini/nina-site`; the Instagram token in a root-only file on the VPS. Ives rotates them at least yearly and after any suspected leak.
+- **SEC-SECRET-1** Deploy credentials, editing-system credentials and any Instagram access token MUST be kept out of the repository, generated output, client code and logs, and stored as follows: deploy, preview-deploy and content-read secrets in GitHub Actions secrets of the `production` environment of `dalini/nina-site`; the build-trigger token (SEC-CICD-4) and the Instagram token in root-only files on the VPS. Ives rotates them at least yearly and after any suspected leak.
   - **Applies to:** Site Build, Static Hosting, Instagram Feed Integration
   - **Verification:** Secret scanning on every change; inspection of build output; rotation dates reviewed yearly
   - **References:** `REF-SECRETS`
@@ -234,9 +234,9 @@ No local secure-coding prompt library was found in this repository. Selected pub
   - **Verification:** Request a preview URL without signing in: denied
   - **References:** `REF-CICD`
   - **Threats:** T-21
-- **SEC-CICD-4** Builds MUST start only from the workflows in `dalini/nina-site` (5-minute poll of `main`, nightly schedule); no externally callable build trigger exists, so no trigger secret is needed.
-  - **Applies to:** Site Build pipeline
-  - **Verification:** CI configuration review: no webhook or dispatch trigger is reachable from outside the maintainer's repository
+- **SEC-CICD-4** Builds MUST start only through `workflow_dispatch` called by the content check on the VPS, or the nightly schedule. The content check MUST use a fine-grained token limited to Actions: write on `dalini/nina-site`, kept in a root-only file on the VPS (SEC-SECRET-1); no other build trigger (webhook, `repository_dispatch`, push from `dalini/nina-content`) exists, and nothing editors can write holds a trigger secret.
+  - **Applies to:** Site Build pipeline, Static Hosting (VPS)
+  - **Verification:** CI configuration review of the workflow triggers; token scope review; a dispatch attempt without the token is rejected
   - **References:** `REF-CICD`
   - **Threats:** T-22
 - **SEC-CICD-5** Only the Site Build's generated output MUST be deployed to Static Hosting; repository metadata, source content and configuration MUST NOT be reachable on the site.
@@ -311,7 +311,7 @@ STRIDE per element (`REF-TM`) of the documented system; no implementation exists
   - DF-1 editor browser → Editing Interface: sign-in, edits, uploads.
   - DF-2 Editing Interface → Content Store: content and media writes.
   - DF-3 legacy import → Content Store (one-time, FR-11.1).
-  - DF-4 publish trigger → Site Build: at v1 from the Editing Interface (FR-10.4) and on a schedule (then an ASSUMPTION); since step 10 a 5-minute poll of the Content Store plus a nightly build (ARCHITECTURE.md Site Build).
+  - DF-4 publish trigger → Site Build: at v1 from the Editing Interface (FR-10.4) and on a schedule (then an ASSUMPTION); since step 10 a content check on the VPS that starts the build through `workflow_dispatch`, plus a nightly build (ARCHITECTURE.md Site Build).
   - DF-5 Content Store, templates and design tokens → Site Build.
   - DF-6 Site Build → Static Hosting: deploy.
   - DF-7 Static Hosting → visitor browser.
@@ -372,7 +372,7 @@ Why no credible threat was identified:
 | T-19 | Tampering | Site Build toolchain (TB-4) | A compromised generator release, image tool, dependency or CI step injects script into every page or steals secrets. | SEC-CICD-2, DEP-1 to DEP-8 | Tools installed outside a lockfile were not covered: SEC-CICD-2 strengthened (build tools pinned, checksum or signature checked). |
 | T-20 | Information Disclosure | Pipeline secrets (TB-4) | Builds of non-production branches (editing-system drafts, external pull requests) run with deploy or Instagram secrets, so unreviewed changes can read them. | SEC-SECRET-1, SEC-CICD-1 (only main deploys) | Added SEC-SECRET-2. |
 | T-21 | Information Disclosure | Preview deployments (TB-4 → TB-1) | The hosting or CI publishes previews of drafts at public URLs, exposing unpublished content. | SEC-INPUT-4 (production output only) | Added SEC-CICD-3. Step 10: previews exist only at `preview.nina-laaf.de` behind per-editor HTTP Basic Auth, deployed with their own key (SEC-SECRET-2). |
-| T-22 | Spoofing | Publish trigger (DF-4) | Anyone who learns the build trigger (e.g. a webhook URL) poses as the Editing Interface and starts builds repeatedly, using up build capacity and delaying real publishes. | SEC-CICD-1 (only main deploys, so content cannot be changed this way) | Added SEC-CICD-4. Step 10: no externally callable trigger exists; `dalini/nina-site` polls `main` every 5 minutes (ARCHITECTURE.md Site Build). |
+| T-22 | Spoofing | Publish trigger (DF-4) | Anyone who learns the build trigger (e.g. a webhook URL) poses as the Editing Interface and starts builds repeatedly, using up build capacity and delaying real publishes. | SEC-CICD-1 (only main deploys, so content cannot be changed this way) | Added SEC-CICD-4. Step 10: the only trigger is `workflow_dispatch` from the VPS content check with a token limited to Actions: write on `dalini/nina-site`, kept root-only on the VPS (SEC-CICD-4); a leaked token can start builds but cannot change content. |
 | T-23 | Repudiation | Deploys (DF-6) | After a defacement or a bad publish, nobody can tell which Content Store version is live or what triggered the deploy, and the previous site cannot be restored quickly. | NONE | Added SEC-AUDIT-2. |
 | T-24 | Denial of Service | Publishing (DF-4 to DF-6) | Publishing fails without anyone noticing (invalid content under SEC-INPUT-3, a failed scheduled build, an Instagram fetch error): Nina's changes never appear, and upcoming/current/past grouping (FR-4.1) goes stale. | SEC-INPUT-3 (previous site stays online) | Added REQUIREMENTS.md FR-10.8 (publish status shown to Nina) and the DF-9 status read in ARCHITECTURE.md; feed failures: T-39. |
 | T-25 | Information Disclosure | Build output (DF-6) | Full-resolution originals or files with metadata end up in the static output (generators can copy page resources), exposing GPS and device data and unprotected originals; PDFs carry author, software or embedded-image metadata. | SEC-PRIV-4 (images), NFR-1 | SEC-PRIV-4 strengthened (PDFs; every file in the output checked). Step 10: originals never published, images at most 2400 px (FR-3.10); copyright and creator metadata kept (SEC-PRIV-4). |

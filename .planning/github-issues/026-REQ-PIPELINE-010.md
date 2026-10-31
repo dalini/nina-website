@@ -16,7 +16,7 @@
 - **Statement**: The pipeline MUST deploy to production only builds of the Content Store's main branch that completed successfully, using a deploy identity that holds only the permissions needed to publish the site; a failed build MUST leave the live site unchanged.
 - **Rationale**: Only reviewed content reaches production and a compromised or broken build cannot replace the site (SECURITY.md T-19, T-20, T-27).
 - **Assumptions**: None (the Content Store is the private Git repository `dalini/nina-content`, ARCHITECTURE.md)
-- **Out of Scope**: The 5-minute poll of the Content Store, the nightly build and the 15-minute publish limit (FR-10.4, SEC-CICD-4, ARCHITECTURE.md Site Build): decided in step 10 and decomposed in the step 9 re-run.
+- **Out of Scope**: The VPS content check that starts builds via `workflow_dispatch`, the nightly build and the 15-minute publish limit (FR-10.4, SEC-CICD-4, ARCHITECTURE.md Site Build): decided in step 10 and decomposed in the step 9 re-run.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build → Static Hosting (DF-6); DR-1
 - **Security Traceability**: SEC-CICD-1, SEC-INPUT-3
