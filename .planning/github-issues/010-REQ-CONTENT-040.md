@@ -4,7 +4,7 @@
 - **Title**: Exclude unpublished content from the static output
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Critical
@@ -16,7 +16,7 @@
 - **Statement**: The Site Build MUST NOT write any page, listing entry, image or file of an unpublished content item to the static output.
 - **Rationale**: Unpublished content must stay private (SEC-INPUT-4); lists show only published items (FR-3.1, FR-5.1); legacy works not selected must not be published (FR-11.2).
 - **Assumptions**: None
-- **Out of Scope**: Preview builds of unpublished content (REQ-PIPELINE-060); read access to the Content Store (SEC-AUTHZ-4, blocked by PQ-4).
+- **Out of Scope**: Preview builds of unpublished content (REQ-PIPELINE-060); read access to the Content Store (SEC-AUTHZ-4; decomposed in the step 9 re-run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (generates only published content); DR-1
 - **Security Traceability**: SEC-INPUT-4
@@ -40,15 +40,15 @@
 - **Abuse / Misuse Case**: An unpublished work's images or page reach the public site through a listing, a direct file copy or a sitemap.
 - **Trust Boundary**: TB-4 (Content Store → Site Build, DF-5)
 - **Untrusted Inputs or Assertions**: Every content file read from the Content Store, including legacy imports (DF-3)
-- **Authoritative Enforcement Point**: Site Build (recheck, DR-3); the Editing Interface check is blocked scope (PQ-1)
+- **Authoritative Enforcement Point**: Site Build (recheck, DR-3); the Editing Interface check (Sveltia CMS, FR-10.6) is decomposed in the step 9 re-run
 - **Independent Verification**: The Site Build validates content independently of the Editing Interface that wrote it (DR-3)
 - **Zero Trust Relevance**: N/A
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: N/A
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: A publish state missing or not recognized is a content-model violation (REQ-CONTENT-030)
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A: the Site Build only reads content
 - **On Security-Decision Failure**: Content whose publish state cannot be determined is treated as unpublished
 - **On External Dependency Failure**: N/A
@@ -78,8 +78,8 @@
 - **Security Tests**: Output scan for unpublished identifiers, titles and media file names in HTML, sitemaps, feeds and copied assets
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-040/AC-01`; AC-02 → `test:CONTENT-040/AC-02`; AC-03 → `test:CONTENT-040/AC-03`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1)
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build)
 
 ## Dependencies
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added
 - **Prohibited Approaches**: Hiding unpublished items only in templates or with CSS while files are still copied
 - **Implementation Guidance**: Filter at the content-loading step so templates never receive unpublished items.
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`), because: Confidentiality control with a subtle failure mode: generators copy page resources and sitemaps on their own (SECURITY.md T-25, T-29).
 - **Required Human Review**: Security review
-- **Open Decisions**: Non-blocking: PQ-16.
+- **Open Decisions**: None (step 10: Hugo).

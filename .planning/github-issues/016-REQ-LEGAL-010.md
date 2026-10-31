@@ -4,7 +4,7 @@
 - **Title**: Publish the Impressum and Datenschutzerklärung pages and link them from every page
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Critical
@@ -16,7 +16,7 @@
 - **Statement**: The Site Build MUST generate the Impressum and the Datenschutzerklärung from their Page content in German and English, and every public page MUST link to both.
 - **Rationale**: The site is operated from Germany; an Impressum and a Datenschutzerklärung are required (FR-9.1).
 - **Assumptions**: None
-- **Out of Scope**: The legal wording itself (TO BE DECIDED outside SECURITY.md; Nina's content); behavior when a legal Page is missing (PQ-13); Datenschutzerklärung statements about hosting logs (SQ-6, PQ-17) and Instagram (PQ-7).
+- **Out of Scope**: The legal wording itself (Nina's content, drafted with a German legal-text generator); the build failure on a missing legal Page (FR-10.6); Datenschutzerklärung statements about access logs and log statistics (SECURITY.md SEC-PRIV-5, SEC-PRIV-6), which are content.
 - **Design Traceability**: DESIGN.md Components (Links); Typography (68-character text width); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Content Store (Page), Site Build; DR-2
 - **Security Traceability**: SEC-OUT-1 (via REQ-OUTPUT-010)
@@ -30,7 +30,7 @@
 - **Preconditions**: REQ-CONTENT-020 (Page model), REQ-NAV-020 (bilingual pages)
 - **Data Classification**: Public
 - **Personal or Regulated Data**: Personal Data (Nina's name and contact data in the Impressum, published on purpose)
-- **Jurisdiction / Regulatory Scope**: Germany / EU: GDPR; Impressum obligation; exact legal basis and wording TO BE DECIDED outside SECURITY.md
+- **Jurisdiction / Regulatory Scope**: Germany / EU: GDPR; Impressum obligation; wording drafted with a German legal-text generator and approved by Nina (SECURITY.md)
 
 ## Security Context
 
@@ -46,11 +46,11 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
-- **Regulatory**: TO BE DECIDED: exact statutes and sections are not assessed in the source documents
+- **Regulatory**: GDPR; Impressum obligation. No statute or article mapping is kept (SECURITY.md Applicable privacy or regulatory obligations)
 - **Other**: W3C WCAG 2.2, Level AA (DESIGN.md Accessibility target)
 - **Mapping Basis**: Other: WCAG 2.2 Level AA as targeted by DESIGN.md.
 
@@ -64,7 +64,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Content violating the model fails the build (REQ-CONTENT-030)
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A: all public pages are read-only and need no account (NFR-2)
 - **On Security-Decision Failure**: N/A: this page makes no security decision; encoding and link rules are enforced by REQ-OUTPUT-010 and REQ-OUTPUT-030
 - **On External Dependency Failure**: N/A
@@ -77,10 +77,10 @@
 - **Unit Tests**: Legal-link presence in the shared layout
 - **Integration Tests**: Full build: every output page links to both legal pages in its language
 - **Security Tests**: Covered by REQ-OUTPUT-010 fixtures run against this page type; REQ-PRIV-010 network test includes this page type
-- **Compliance Tests / Evidence**: Manual evidence before release: legal wording reviewed (reviewer TO BE DECIDED); screenshot of both links on each page type
+- **Compliance Tests / Evidence**: Manual evidence before release: legal wording approved by Nina; screenshot of both links on each page type
 - **Acceptance-Criteria Traceability**: AC-01 → `test:LEGAL-010/AC-01`; AC-02 → `test:LEGAL-010/AC-02`; AC-03 → `test:LEGAL-010/AC-03`; AC-04 → `test:LEGAL-010/AC-04`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); current desktop and mobile browsers (list: PQ-21); screen reader check
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); screen reader check
 
 ## Dependencies
 
@@ -92,9 +92,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added; legal text is Page content, not template text (DR-2)
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added; legal text is Page content, not template text (DR-2)
 - **Prohibited Approaches**: Hard-coding legal text in templates; linking to an externally hosted legal page
 - **Implementation Guidance**: The legal links can sit in the shared footer; placement inside the page is a design detail DESIGN.md leaves open.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`), because: Two Page renders plus footer links; wording is content.
 - **Required Human Review**: Legal/privacy review of the wording (outside this issue); product review by Nina
-- **Open Decisions**: Non-blocking: PQ-16, PQ-21. Who reviews the legal wording: TO BE DECIDED.
+- **Open Decisions**: None (step 10: Hugo; browsers NFR-4; Nina approves the legal wording).

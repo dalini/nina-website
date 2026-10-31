@@ -4,7 +4,7 @@
 - **Title**: Link to Instagram account @ninalaaf without loading any Instagram content
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
@@ -16,7 +16,7 @@
 - **Statement**: The site MUST show a link to the Instagram account @ninalaaf, and showing that link MUST NOT request any resource from Instagram or Meta.
 - **Rationale**: Visitors find Nina's Instagram (FR-8.1); the link is what remains when the feed cannot be shown (FR-8.4).
 - **Assumptions**: None
-- **Out of Scope**: The feed, its consent placeholder and its failure states (FR-8.2 to FR-8.5, SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3, SEC-OUT-6; blocked by PQ-7); on which page(s) the link appears (PQ-19).
+- **Out of Scope**: The posts on the home page, their refresh, failure and hide behavior (FR-8.2 to FR-8.6, SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3): build-time model decided in step 10 and decomposed in the step 9 re-run.
 - **Design Traceability**: DESIGN.md Components (Links); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build, Public Site; DR-5 (no Instagram data outside the Instagram Feed Integration)
 - **Security Traceability**: SEC-PRIV-1, SEC-OUT-2
@@ -25,7 +25,7 @@
 
 - **Applies To**: Web Client
 - **Components**: Site Build, Public Site
-- **Interfaces / Operations**: Instagram link on the page(s) chosen under PQ-19
+- **Interfaces / Operations**: Instagram link in the footer of every page (FR-8.1)
 - **Actors**: Visitor (anonymous)
 - **Preconditions**: REQ-NAV-020, REQ-OUTPUT-030
 - **Data Classification**: Public
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: W3C WCAG 2.2, Level AA (DESIGN.md Accessibility target)
@@ -56,14 +56,14 @@
 
 ## Acceptance Criteria
 
-1. **AC-01 — Expected behavior**: Given the generated site, when the page(s) carrying the link are loaded, then they show a text link to the @ninalaaf account over `https:` with `rel="noopener"`.
+1. **AC-01 — Expected behavior**: Given the generated site, when any page is loaded, then its footer shows a text link to the @ninalaaf account over `https:` with `rel="noopener"`.
 2. **AC-02 — Boundary or failure behavior**: Given those pages are loaded in a browser with network recording, when loading completes, then no request goes to an Instagram or Meta origin.
 3. **AC-03 — Prohibited behavior**: Given the link, when it is inspected, then it uses no Instagram-hosted image, script or font.
 
 ## Failure Behavior
 
 - **On Invalid Input**: Content violating the model fails the build (REQ-CONTENT-030)
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A: all public pages are read-only and need no account (NFR-2)
 - **On Security-Decision Failure**: N/A: this page makes no security decision; encoding and link rules are enforced by REQ-OUTPUT-010 and REQ-OUTPUT-030
 - **On External Dependency Failure**: N/A
@@ -78,8 +78,8 @@
 - **Security Tests**: Network recording as in REQ-PRIV-010 on the pages with the link
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:INSTAGRAM-010/AC-01`; AC-02 → `test:INSTAGRAM-010/AC-02`; AC-03 → `test:INSTAGRAM-010/AC-03`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); current desktop and mobile browsers (list: PQ-21); screen reader check
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); screen reader check
 
 ## Dependencies
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added; self-hosted icon if any (SEC-PRIV-1)
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added; self-hosted icon if any (SEC-PRIV-1)
 - **Prohibited Approaches**: Instagram embed scripts or hot-linked Instagram images
 - **Implementation Guidance**: Whether the link is template text or Page content is not specified; the account name is fixed by FR-8.1.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`), because: A plain link plus a network check; no feed logic in scope.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: Non-blocking: PQ-19 (placement), PQ-21.
+- **Open Decisions**: None (step 10: footer of every page; browsers NFR-4).

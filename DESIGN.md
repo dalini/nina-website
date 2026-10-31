@@ -1,44 +1,46 @@
 # DESIGN
 
-`DESIGN.md` owns the visual and frontend design language of nina-laaf.de. `style-guide.html` renders it as working code; `logo.svg` is the mark. Product, users and pages: see `REQUIREMENTS.md`.
+`DESIGN.md` owns the visual and frontend design language of nina-laaf.de. `style-guide.html` renders it as working code; `logo.svg` is the mark. Product, users and pages: see `REQUIREMENTS.md`. Decisions from step 10: `.planning/OPEN_QUESTIONS.md`.
 
 ## Required Design Inputs
 
-- Brand personality: TO BE DECIDED (DQ-1)
+- Brand personality: quiet, neutral, image-first; no further direction
 - Primary audience: See `REQUIREMENTS.md` (Required Requirement Inputs)
 - Platform targets (web / mobile / both): both (`REQUIREMENTS.md` NFR-1, NFR-4)
-- Light / dark mode: TO BE DECIDED (DQ-4)
-- Existing brand assets: UNKNOWN
+- Light / dark mode: both, following the visitor's system setting (`prefers-color-scheme`)
+- Existing brand assets: none
 
 ## Brand and Logo
 
-- Brand direction: TO BE DECIDED (DQ-1). The design stays quiet and neutral so that the artwork images carry the site.
-- Logo concept (provisional): an abstract mark, one solid round body resting on a flat base line: a form placed on a plinth. It uses no letters, so it works for both languages.
-- Wordmark: "Nina Laaf" set in the primary font (Typography), next to or below the mark. TO BE DECIDED whether the wordmark replaces the mark in the header (DQ-2).
-- Usage: keep clear space of at least 25% of the mark's width on every side. Minimum display size: 24 × 24 px. Show it in `primary` on `background` or `surface`, or in `background` on `primary`.
+- Brand direction: quiet and neutral, so that the artwork images carry the site.
+- Logo concept (provisional until Nina decides on a mark; deferred): an abstract mark, one solid round body resting on a flat base line: a form placed on a plinth. It uses no letters, so it works for both languages.
+- Wordmark: "Nina Laaf" set in the primary font (Typography), weight 600. The header shows the wordmark only; the mark is used as the favicon.
+- Usage: keep clear space of at least 25% of the mark's width on every side. Minimum display size: 24 × 24 px. Show it in `primary` on `background` or `surface`, or in `background` on `primary`, in the current color mode.
 - Incorrect usage: do not stretch or rotate it, add effects or shadows, recolor it outside the palette, or place it on top of artwork images.
 
 ## Color Palette
 
-| Token | Hex | Use |
-|---|---|---|
-| `primary` | `#1f1f1f` | logo, headings, buttons, links |
-| `secondary` | `#5c5c5c` | top edge of the logo base, metadata (year, materials, credits), secondary text |
-| `background` | `#ffffff` | page background |
-| `surface` | `#f4f3f1` | panels, cards, consent placeholder, image placeholders |
-| `text` | `#1f1f1f` | body text |
-| `error` | `#b3261e` | form errors |
-| `success` | `#1d6b38` | confirmations |
+Light mode is the default; dark mode applies when the visitor's system prefers dark (`prefers-color-scheme: dark`). Both use the same token roles.
+
+| Token | Light | Dark | Use |
+|---|---|---|---|
+| `primary` | `#1f1f1f` | `#ededed` | logo, headings, buttons, links |
+| `secondary` | `#5c5c5c` | `#a3a3a3` | top edge of the logo base, metadata (year, materials, credits), secondary text |
+| `background` | `#ffffff` | `#141414` | page background |
+| `surface` | `#f4f3f1` | `#222120` | panels, cards, image placeholders |
+| `text` | `#1f1f1f` | `#ededed` | body text |
+| `error` | `#b3261e` | `#f2b8b5` | form errors |
+| `success` | `#1d6b38` | `#8fd19e` | confirmations |
 
 Logo colors: `primary` (body and base) and `secondary` (top edge of the base).
 
-Contrast (WCAG 2.2 AA): `text`/`primary` on `background` 16.5:1, on `surface` 14.9:1; `secondary` on `background` 6.7:1, on `surface` 6.0:1; `error` and `success` on `background` 6.5:1, on `surface` 5.9:1; `background` on `primary` 16.5:1. All pass 4.5:1 for body text.
+Contrast (WCAG 2.2 AA). Light: `text`/`primary` on `background` 16.5:1, on `surface` 14.9:1; `secondary` on `background` 6.7:1, on `surface` 6.0:1; `error` and `success` on `background` 6.5:1, on `surface` 5.9:1; `background` on `primary` 16.5:1. Dark: `text`/`primary` on `background` 15.7:1, on `surface` 13.7:1; `secondary` on `background` 7.3:1, on `surface` 6.4:1; `error` on `background` 10.8:1, on `surface` 9.4:1; `success` on `background` 10.3:1, on `surface` 9.0:1; `background` on `primary` 15.7:1. All pairs in both modes pass 4.5:1 for body text.
 
 ## Typography
 
 - Primary: system UI stack `system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`. It loads no font files, so it meets the self-hosting rule (`SECURITY.md` SEC-PRIV-1), and it reads well in German and English.
 - Fallback: `sans-serif`.
-- Brand typography: TO BE DECIDED (DQ-3).
+- Brand typography: none; the system stack is the brand typeface (no font files).
 - Weights: 400 (regular), 600 (semibold, for headings and titles).
 - Scale (rem, base 16 px): `xs` 0.8125 · `sm` 0.875 · `base` 1 · `lg` 1.25 · `xl` 1.5 · `2xl` 2 · `3xl` 2.75. Body line height 1.6, headings 1.2.
 - Work titles keep their original casing (often lowercase).
@@ -57,7 +59,7 @@ Contrast (WCAG 2.2 AA): `text`/`primary` on `background` 16.5:1, on `surface` 14
 - **Language switch** (`REQUIREMENTS.md` FR-1.3): shown in the header as "DE | EN", with the current language marked and announced to screen readers.
 - **Work metadata**: title (semibold), then year, materials, dimensions, edition in `secondary`, `sm` size.
 - **Image with credit**: image, then caption and credit ("Foto: …" / "Photo: …") in `secondary`, `xs` size.
-- **Consent placeholder** (Instagram feed): a `surface` box explaining what loads and from where, with one button to load the content (loading rules: `SECURITY.md` SEC-PRIV-2).
+- **Instagram posts** (home page, `REQUIREMENTS.md` FR-8.2): up to 6 post images laid out in the works grid (Layout and Spacing), each linking to its post, followed by the @ninalaaf link; images are self-hosted (`SECURITY.md` SEC-PRIV-3). When no posts exist only the link is shown (FR-8.4).
 - **Inputs and form feedback** (editing interface and any later contact form): label above the field, 1 px `secondary` border, 4 px radius; errors show in `error` below the field, with text that names the problem (not color alone).
 - **Focus state**: every interactive element shows a 2 px `primary` outline with 2 px offset on keyboard focus.
 
@@ -66,14 +68,11 @@ Contrast (WCAG 2.2 AA): `text`/`primary` on `background` 16.5:1, on `surface` 14
 - Target conformance: WCAG 2.2 AA.
 - Contrast: text pairs as listed under Color Palette; non-text indicators (focus outline, borders on inputs) meet 3:1.
 - Visible focus on every interactive element; never remove outlines without a replacement.
-- Everything works with the keyboard alone, including the language switch, image sequences and the consent button.
+- Everything works with the keyboard alone, including the language switch, image sequences and the image viewer.
 - Alt text: `REQUIREMENTS.md` FR-3.7. Decorative images are hidden from screen readers.
 - The `lang` attribute matches the page language, and German and English pages are announced correctly.
 - Reduced motion: when the visitor prefers reduced motion, the site uses no animated transitions or auto-advancing images.
 
 ## Open Questions
 
-- **DQ-1** What is the brand personality and direction, if any beyond "quiet, image-first"?
-- **DQ-2** Is the header the mark, the wordmark "Nina Laaf", or both?
-- **DQ-3** Is a custom (self-hosted, open-licensed) typeface wanted instead of the system stack?
-- **DQ-4** Light mode only, or also dark mode?
+None open. DQ-1 to DQ-4 were resolved in step 10 (`.planning/OPEN_QUESTIONS.md`). Deferred: the final mark; `logo.svg` stays a provisional placeholder until Nina decides.

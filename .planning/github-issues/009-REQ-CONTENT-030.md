@@ -4,7 +4,7 @@
 - **Title**: Fail the Site Build and publish nothing when content violates the content model
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Critical
@@ -16,7 +16,7 @@
 - **Statement**: The Site Build MUST validate all content against the content model before generating output and, on any violation, MUST end with a failure, write no deployable output, and report each violating content item and field.
 - **Rationale**: DR-3 requires the Site Build to recheck content rules; SEC-INPUT-3 keeps the previous site online when content is invalid; FR-10.8 needs the failing item and field.
 - **Assumptions**: None
-- **Out of Scope**: Showing the failure in the Editing Interface (FR-10.8 display, blocked by PQ-1); who else is notified (FR-10.8 TO BE DECIDED); keeping the previous site online is verified with the deploy step in REQ-PIPELINE-010.
+- **Out of Scope**: Showing the failure in the Editing Interface (FR-10.8: status file and banner on `edit.nina-laaf.de`; decomposed in the step 9 re-run); keeping the previous site online is verified with the deploy step in REQ-PIPELINE-010.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (rechecks content rules, fails the publish, publishes status with the failing item); DR-1, DR-3
 - **Security Traceability**: SEC-INPUT-3
@@ -40,15 +40,15 @@
 - **Abuse / Misuse Case**: Invalid or crafted content is written directly to the store (T-12) or imported (T-41) and would otherwise be published.
 - **Trust Boundary**: TB-4 (Content Store → Site Build, DF-5)
 - **Untrusted Inputs or Assertions**: Every content file read from the Content Store, including legacy imports (DF-3)
-- **Authoritative Enforcement Point**: Site Build (recheck, DR-3); the Editing Interface check is blocked scope (PQ-1)
+- **Authoritative Enforcement Point**: Site Build (recheck, DR-3); the Editing Interface check (Sveltia CMS, FR-10.6) is decomposed in the step 9 re-run
 - **Independent Verification**: The Site Build validates content independently of the Editing Interface that wrote it (DR-3)
 - **Zero Trust Relevance**: N/A
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: N/A
@@ -63,13 +63,13 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Build fails; report lists each violation (item, field); no output
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A: the Site Build only reads content
 - **On Security-Decision Failure**: A validator error or crash counts as failure; nothing is published
 - **On External Dependency Failure**: N/A
 - **On System Error**: Build fails without output; temporary files are removed or excluded from any deployable artifact
 - **Logging / Audit**: Build log: content type, item identifier and field for each violation; no content values beyond the identifier; no secrets
-- **Alerting**: Who besides Nina is notified of a failed publish: TO BE DECIDED (REQUIREMENTS.md FR-10.8)
+- **Alerting**: A failed build emails Ives (maintainer) through GitHub Actions failure notifications (REQUIREMENTS.md FR-10.8)
 
 ## Test Strategy
 
@@ -78,8 +78,8 @@
 - **Security Tests**: Build with an unparseable content file fails without output and without a stack trace that prints content values
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-030/AC-01`; AC-02 → `test:CONTENT-030/AC-02`; AC-03 → `test:CONTENT-030/AC-03`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1)
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build)
 
 ## Dependencies
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added
 - **Prohibited Approaches**: Skipping invalid items and publishing the rest; continuing the build after a validation error
 - **Implementation Guidance**: Run validation as the first build step so no rendering starts on invalid content.
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`), because: Wires the existing rule set into a fail-closed first build step; behavior is fully specified by SEC-INPUT-3.
 - **Required Human Review**: Architecture review (DR-3, DR-4); product review by Nina of field names shown in error messages
-- **Open Decisions**: Non-blocking: PQ-16. Publish-status format read by the Editing Interface (DF-9) is part of PQ-1 (blocked).
+- **Open Decisions**: None (step 10: Hugo; publish-status file format is part of the Editing Interface scope, ARCHITECTURE.md Site Build).

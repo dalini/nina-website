@@ -4,7 +4,7 @@
 - **Title**: Show a work's images in Nina's order with alt text and photo credit
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
@@ -16,7 +16,7 @@
 - **Statement**: A work page MUST show all images of the work in the order stored in the Content Store, each with its alt text, and MUST show an image's photo credit when one is entered.
 - **Rationale**: Object and installation views are the core of the site (FR-3.6); alt text and credits are required for accessibility and attribution (FR-3.7).
 - **Assumptions**: None
-- **Out of Scope**: Responsive image sizes and image processing (NFR-1, SEC-INPUT-5; blocked by PQ-5); removal of image metadata (SEC-PRIV-4; blocked by PQ-5, PQ-6); image protection (OQ-9, PQ-5).
+- **Out of Scope**: Responsive image sizes and image processing (NFR-1, FR-3.10, SEC-INPUT-5), removal of image metadata (SEC-PRIV-4: keep only copyright and creator) and the 2400 px cap with originals never published (FR-3.10): decided in step 10 and decomposed in the step 9 re-run.
 - **Design Traceability**: DESIGN.md Components (Image with credit: caption and credit "Foto: …" / "Photo: …" in `secondary`, `xs`); Layout and Spacing (images keep their aspect ratio, never cropped on work pages); Accessibility (alt text, reduced motion: no auto-advancing images); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build (work pages); Content Store (image order, alt text, credits)
 - **Security Traceability**: SEC-OUT-1 (via REQ-OUTPUT-010)
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: W3C WCAG 2.2, Level AA (DESIGN.md Accessibility target)
@@ -65,7 +65,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Content violating the model fails the build (REQ-CONTENT-030)
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A: all public pages are read-only and need no account (NFR-2)
 - **On Security-Decision Failure**: N/A: this page makes no security decision; encoding and link rules are enforced by REQ-OUTPUT-010 and REQ-OUTPUT-030
 - **On External Dependency Failure**: N/A
@@ -80,8 +80,8 @@
 - **Security Tests**: Covered by REQ-OUTPUT-010 fixtures run against this page type; REQ-PRIV-010 network test includes this page type
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:WORKS-030/AC-01`; AC-02 → `test:WORKS-030/AC-02`; AC-03 → `test:WORKS-030/AC-03`; AC-04 → `test:WORKS-030/AC-04`; AC-05 → `test:WORKS-030/AC-05`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); current desktop and mobile browsers (list: PQ-21); screen reader check
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); screen reader check
 
 ## Dependencies
 
@@ -93,9 +93,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added; release gate: the site is not released while NFR-1 and SEC-PRIV-4 (blocked by PQ-5, PQ-6) are open, because this issue alone would publish original image files
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added; release gate: the site is not released before NFR-1, FR-3.10 and SEC-PRIV-4 are implemented, because this issue alone would publish original image files
 - **Prohibited Approaches**: Cropping images on work pages; carousels that auto-advance
-- **Implementation Guidance**: Use the image references the build provides; when the blocked image workstream lands, only the source of those references changes.
+- **Implementation Guidance**: Use the image references the build provides; when the image-processing issue from the step 9 re-run lands, only the source of those references changes.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`), because: Ordered image rendering with alt text and credit labels; no image processing in scope.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: Non-blocking: PQ-21. Blocked parts listed in Out of Scope (PQ-5, PQ-6).
+- **Open Decisions**: None (step 10: browsers NFR-4; image rules FR-3.10, NFR-1, SEC-PRIV-4).
