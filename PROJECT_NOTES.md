@@ -1,82 +1,70 @@
 # Project Notes: nina-laaf.de
 
-> **Fill this in before step 1.** The prompts treat this file as the *only* source of truth.
-> Anything written here becomes a requirement, and anything left out won't be built.
-> Lines marked `[CONFIRM]` are suggestions: keep, change or delete each one.
-> Delete a whole line rather than leaving it vague. Write `NONE` under a heading if nothing applies.
+> Input for steps 01, 03 and 04. The prompts treat this file as the *only* source of truth.
+> Lines starting with **Open:** are undecided on purpose; they become open questions, not features.
+> Decisions from Ives, 2026-10-31: bilingual DE/EN, email contact (form optional), Instagram feed wanted,
+> fully new tech, static site with an easy editing backend, take over a selection of the old works.
+> Delete this file after step 04; its content then lives in the spec files.
 
 ---
 
 ## 1. Project notes (used by step 01 → REQUIREMENTS.md)
 
 ### Purpose
-- Rebuild the personal website of **Nina Laaf**, artist and sculptor, at `nina-laaf.de`.
+- New website for **Nina Laaf**, artist and sculptor, at `nina-laaf.de`. It presents her work to curators, galleries, collectors, press and the public, and makes it easy to get in touch.
 - The live nina-laaf.de is currently an empty placeholder ("Hello World").
-- The previous site ran on **Koken CMS**. A first rebuild attempt (`dalini/nina-laaf-site`, Eleventy) already migrated its content: **53 work series (2012–2023)**, CV, news, one essay, contact page. Their text is copied into `docs/legacy-content/`; images (~4 MB JPEGs each) stay in that repo's Git LFS. All of it MUST be carried over to the new site with no loss of works, images, titles, materials, dimensions or years. [CONFIRM]
-- The old site's navigation was: **Works, Essays, News, CV, Contact**. [CONFIRM] keep it.
-- Goal of the site: [CONFIRM] present her work to curators, galleries, collectors and press, and make it easy to get in touch.
-
-### About the artist (from public gallery/press sources, 2018–2021: verify and update)
-- Sculptor, lives and works in Karlsruhe. Studied at the Staatliche Akademie der Bildenden Künste Karlsruhe; Meisterschülerin of Prof. Harald Klingelhöller.
-- Works with: large site-specific sculptures and room-sized installations built from many small elements; wall pieces combining plaster/gypsum, steel, copper and lacquer (series *Circles*); small ceramics with gold glaze; silk-screen prints in editions (e.g. "ed. 10").
-- Gallery: galerie burster (Berlin / Karlsruhe), still current in 2026 (solo show *MUTUAL*, Nov 2025; group show *HEAT*, Aug–Sep 2026). The site should link to the gallery and name it as the contact for sales. [CONFIRM]
-- Active exhibition practice: several shows a year, so the exhibitions list must be easy to keep current.
-- Her full exhibition history and works are collected in `docs/CONTENT_SEED.md`. That file is content, not specification.
-- Exhibitions and press exist in German and English; installation photos are credited to photographers (e.g. Silke Briel).
-- The old nina-laaf.de hosted PDF downloads (e.g. diploma catalogue *betwixt*, 2016).
-
-### What this means for the site
-- A work record needs: title (often lowercase, sometimes "ohne titel (…)"), year, materials, dimensions (H × W × D, cm; sometimes 2 values), edition (for prints), series, photo credit per image, and optionally a short text.
-- Works need **installation views** as well as single-object photos, and an exhibition should link to the works shown in it.
-- Exhibitions list: solo/group, title, venue, city, dates, optional link, optional PDF/catalogue/audio guide.
-- Gallery representation shown on Contact and/or About.
+- The site is built from scratch. Earlier versions (Koken CMS, then an Eleventy attempt in `dalini/nina-laaf-site`) are input only; their text content is in `docs/legacy-content/`, and their images are in that repo's Git LFS.
+- **A selection of the 53 old work series (2012–2023) is taken over**, not all of them. Nina chooses which. Each migrated work keeps its title, year, materials, dimensions and images.
+- **Open:** which works are migrated (Nina's selection list).
 
 ### Who uses it
-- **Visitors** (public, no login): curators, gallerists, collectors, press, students, the general public. [CONFIRM]
-- **Nina (site owner)**: adds and updates works, exhibitions and texts. [CONFIRM: does she edit content herself, or does someone else do it?]
+- **Visitors** (public, no login): curators, gallerists, collectors, press, students, the general public.
+- **Nina (site owner, non-technical)**: adds and updates works, exhibitions, news and texts **herself**, through an easy editing interface. She must not need to know Markdown, Git, HTML or the command line.
+
+### About the artist (facts that shape the site; details in `docs/CONTENT_SEED.md`)
+- Sculptor, lives and works in Karlsruhe. Represented by galerie burster (Berlin / Karlsruhe).
+- Large site-specific sculptures and room-sized installations, permanent works in public space, wall pieces (plaster, steel, copper, lacquer), small ceramics, silk-screen prints in editions.
+- Several exhibitions a year, so exhibitions and news must be quick to add.
+- Installation photos are credited to photographers.
 
 ### Content and pages
-- **Home**: [CONFIRM] one strong image or a small selection of current work, name, short tagline.
-- **Works / Arbeiten**: [CONFIRM] grouped by series or year; each work has images, title, year, material, dimensions, and optionally a short text. Sculpture often needs several views per work, and maybe video.
-- **Exhibitions / Ausstellungen**: [CONFIRM] upcoming, current, past; title, venue, city, dates, solo/group, link.
-- **About / Vita (CV)**: [CONFIRM] short bio, education, awards and grants, collections, bibliography.
-- **Essays / Texts**: catalogue texts and essays (the old site had one essay, *What you see is not always what it seems to be*).
-- **News**: current and upcoming exhibitions and fairs (e.g. art karlsruhe, art antwerp) with dates, venue, co-exhibitors and link; past entries move to an archive.
-- **CV** (old site): solo exhibitions, works in public space (permanent outdoor installations, e.g. Skulpturenradweg Seckach, Art Loop Strohgäu, Botanischer Garten Karlsruhe), group exhibitions, awards. Bilingual labels side by side ("Einzelausstellungen | Solo Exhibitions").
-- **Portfolio downloads**: PDFs (*Portfolio Nina Laaf 2023*, *Außenskulpturen 2023*, older catalogues). [CONFIRM] which to keep / update.
-- **Contact / Kontakt**: the old site had a contact form (email, name, message) and a newsletter sign-up. [CONFIRM] keep the form, or email link only? Keep the newsletter (it needs a mailing provider and double opt-in under GDPR)?
-- **Works in public space** as their own category or filter. [CONFIRM]
-- **Impressum** and **Datenschutzerklärung**: required for a site operated from Germany.
+- **Navigation**: Works, Exhibitions/News, Texts, CV, Contact (the old site used Works, Essays, News, CV, Contact).
+- **Home**: name and a selection of current or featured work. **Open:** one large image, or a small selection?
+- **Works**: list of works; each work page has title, year, materials, dimensions (2 or 3 values, cm), optional edition (for prints), optional series, optional short text, and several images (object views and installation views), each image with alt text and an optional photo credit. Works in public space are marked as such and can be found as a group.
+- **Exhibitions / News**: upcoming, current and past exhibitions and fairs; each entry has title, type (solo / two-person / group / fair), venue, city, dates, optional co-exhibitors, optional link, and optional linked works. Past entries remain visible as an archive.
+- **Texts**: essays and catalogue texts (the old site had one: *What you see is not always what it seems to be*).
+- **CV**: short bio, education, solo exhibitions, works in public space, group exhibitions, awards and grants.
+- **Downloads**: portfolio PDFs (the old site offered *Portfolio Nina Laaf 2023* and *Außenskulpturen 2023*). **Open:** which PDFs are offered.
+- **Contact**: Nina's email address and a link to the gallery. A contact form MAY be added later; it is not required. **Open:** whether the gallery is named as the contact for sales.
+- **Instagram**: a link to @ninalaaf, plus an **Instagram feed** showing her recent posts on the site. It must not load anything from Instagram/Meta in the visitor's browser before the visitor consents. **Open:** how the feed is provided (for example: a click-to-load feed after consent, or recent posts copied into the site when it is built).
+- **Impressum** and **Datenschutzerklärung**: required, since the site is operated from Germany.
 
 ### Languages
-- [CONFIRM] German and English (press and gallery texts already exist in both). Which one is the default?
-- [CONFIRM] Link to Instagram (@ninalaaf). Link only; no embedded feed, since embeds load Meta scripts before consent.
+- All pages and all content fields that contain text exist in **German and English**. Visitors can switch language on every page; titles of works are not translated.
+- **Open:** which language is the default.
 
-### Things it must NOT do (keep it small)
-- [CONFIRM] No shop, no user accounts, no comments. (Newsletter: see Contact.)
-
-### Content to supply
-- Images of works (high resolution), image credits / photographers.
-- Bio, CV, exhibition list, texts.
-- Existing logo or signature: [CONFIRM] none, or describe it.
+### Not in scope
+- No shop, no user accounts for visitors, no comments.
+- **Open:** newsletter (the old site had one; it would need a mailing provider and double opt-in).
 
 ---
 
-## 2. Architecture notes (used by step 03, replaces <<ARCHITECTURE_NOTES_OR_NONE>>)
+## 2. Architecture notes (used by step 03)
 
-- The first rebuild attempt used **Eleventy** (static site generator), content as Markdown with YAML front matter, images in **Git LFS**, deployed via GitHub Actions to GitHub Pages (a Netlify config also existed). [CONFIRM] keep this direction, or let step 03 decide fresh.
-- [CONFIRM] Prefer a **static website** (pre-built pages, no server-side code, no database) unless a requirement needs more. A contact form or newsletter on a static site needs an external service: name it or leave it TO BE DECIDED.
-- [CONFIRM] Content editing: Nina edits Markdown files herself / uses a simple CMS / someone else edits for her.
-- Hosting: [CONFIRM] keep the current host of `nina-laaf.de` (which one?) or choose a new one.
-- Images: must stay fast on mobile; served in responsive sizes.
-- Write `NONE` here if you'd rather leave all of this open for step 03.
+- Tech is **fully new**. The Eleventy setup of the earlier attempt does not need to be kept.
+- The public site is **statically rendered**: pre-built pages, no server-side code or database serving visitors.
+- **Hugo** is a candidate static site generator. **Open:** Hugo or another generator.
+- Nina edits through an **easy web-based editing backend** suitable for a non-technical artist, that publishes to the static site (for example a Git-based headless CMS). **Open:** which editing system.
+- Images must stay fast on mobile and be served in responsive sizes; originals are large (~4 MB JPEGs).
+- **Open:** hosting and deployment (where `nina-laaf.de` is hosted today is unknown).
 
 ---
 
-## 3. Security notes (used by step 04, replaces <<SECURITY_NOTES_OR_NONE>>)
+## 3. Security notes (used by step 04)
 
-- The site is operated from Germany and addresses visitors in the EU: GDPR applies; Impressum and Datenschutzerklärung required.
-- [CONFIRM] No tracking or analytics, or only cookieless analytics, so no cookie banner is needed.
-- [CONFIRM] No third-party embeds that load before consent (Google Fonts, YouTube, Instagram, Maps).
-- [CONFIRM] If there's a contact form: spam protection without third-party CAPTCHA; messages go to Nina's email; nothing stored on the server.
-- Protect image rights: [CONFIRM] show watermarks? Disable high-res download? (Note: any image a browser shows can be saved.)
+- Operated from Germany for an international audience: GDPR applies; Impressum and Datenschutzerklärung are required.
+- No third-party content (fonts, Instagram/Meta, video, maps) may load in the visitor's browser before consent; fonts are self-hosted.
+- **Open:** analytics (none, or cookieless only).
+- Only Nina (and people she authorizes) may change content through the editing backend.
+- If a contact form is added later: spam protection without a third-party CAPTCHA, and messages are not stored on the website.
+- **Open:** image protection (watermarks, limiting download size).

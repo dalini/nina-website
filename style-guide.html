@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style guide · nina-laaf.de</title>
+<style>
+  :root {
+    --primary: #1f1f1f; --secondary: #5c5c5c; --background: #ffffff; --surface: #f4f3f1;
+    --text: #1f1f1f; --error: #b3261e; --success: #1d6b38;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --fs-xs: .8125rem; --fs-sm: .875rem; --fs-base: 1rem; --fs-lg: 1.25rem; --fs-xl: 1.5rem; --fs-2xl: 2rem; --fs-3xl: 2.75rem;
+    --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 400 var(--fs-base)/1.6 var(--font); color: var(--text); background: var(--background); }
+  main { max-width: 1200px; margin: 0 auto; padding: var(--s6) var(--s4); }
+  @media (min-width: 768px) { main { padding: var(--s7) var(--s6); } }
+  h1, h2, h3 { font-weight: 600; line-height: 1.2; color: var(--primary); }
+  h1 { font-size: var(--fs-3xl); margin: 0 0 var(--s4); }
+  h2 { font-size: var(--fs-xl); margin: var(--s8) 0 var(--s4); padding-top: var(--s5); border-top: 1px solid var(--surface); }
+  p { max-width: 68ch; }
+  .provisional { display: inline-block; font-size: var(--fs-xs); color: var(--secondary); background: var(--surface); padding: 0 var(--s2); border-radius: 4px; margin-left: var(--s2); vertical-align: middle; font-weight: 400; }
+  .meta { color: var(--secondary); font-size: var(--fs-sm); }
+  a { color: var(--primary); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+  .row { display: flex; flex-wrap: wrap; gap: var(--s5); align-items: center; }
+  .logo-box { padding: var(--s5); border-radius: 4px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s4); }
+  .swatch { border: 1px solid var(--surface); border-radius: 4px; overflow: hidden; }
+  .swatch div { height: 72px; }
+  .swatch p { margin: 0; padding: var(--s2) var(--s3); font-size: var(--fs-sm); }
+  .scale > * { margin: 0 0 var(--s3); }
+  .space { display: flex; align-items: center; gap: var(--s3); margin-bottom: var(--s2); font-size: var(--fs-sm); }
+  .space span { display: block; height: 12px; background: var(--primary); }
+  nav.site { display: flex; gap: var(--s5); align-items: center; flex-wrap: wrap; }
+  nav.site a { text-decoration: none; padding: var(--s1) 0; border-bottom: 2px solid transparent; }
+  nav.site a[aria-current="page"] { border-bottom-color: var(--primary); }
+  nav.site a:hover { border-bottom-color: var(--secondary); }
+  .lang { margin-left: auto; font-size: var(--fs-sm); }
+  .lang a { border: 0 !important; }
+  .lang [aria-current="true"] { font-weight: 600; text-decoration: underline; }
+  button, .button { font: 600 var(--fs-base) var(--font); background: var(--primary); color: var(--background); border: 0; border-radius: 4px; min-height: 44px; min-width: 44px; padding: var(--s3) var(--s5); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  button:hover, .button:hover { background: #3a3a3a; }
+  button:disabled { background: var(--secondary); cursor: not-allowed; }
+  label { display: block; font-weight: 600; margin-bottom: var(--s1); }
+  input, textarea { font: inherit; width: 100%; max-width: 420px; padding: var(--s3); border: 1px solid var(--secondary); border-radius: 4px; color: var(--text); background: var(--background); }
+  .field { margin-bottom: var(--s5); }
+  .field.invalid input { border-color: var(--error); border-width: 2px; }
+  .msg-error { color: var(--error); font-size: var(--fs-sm); margin: var(--s1) 0 0; }
+  .msg-success { color: var(--success); font-size: var(--fs-sm); }
+  .work { max-width: 420px; }
+  .work .img { aspect-ratio: 4/3; background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: var(--fs-sm); }
+  .work h3 { font-size: var(--fs-lg); margin: var(--s3) 0 var(--s1); }
+  .credit { font-size: var(--fs-xs); color: var(--secondary); margin: var(--s1) 0 0; }
+  .consent { background: var(--surface); padding: var(--s5); border-radius: 4px; max-width: 520px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>nina-laaf.de · style guide</h1>
+  <p>The rendered reference for the tokens and components in <code>DESIGN.md</code>. Items marked <span class="provisional">provisional</span> stand for decisions that are still <em>TO BE DECIDED</em>.</p>
+
+  <h2>Logo <span class="provisional">provisional (DQ-1, DQ-2)</span></h2>
+  <div class="row">
+    <div class="logo-box" style="background:var(--background);border:1px solid var(--surface)">
+      <svg viewBox="0 0 64 64" width="96" height="96" role="img" aria-label="Nina Laaf logo"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
+    </div>
+    <div class="logo-box" style="background:var(--surface)">
+      <svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
+    </div>
+    <div class="logo-box" style="background:var(--primary)">
+      <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#ffffff"/><rect x="10" y="44" width="44" height="6" fill="#ffffff"/></svg>
+    </div>
+    <div class="row" style="gap:var(--s3)">
+      <svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
+      <span style="font-weight:600;font-size:var(--fs-lg)">Nina Laaf</span>
+    </div>
+  </div>
+  <p class="meta">96 px on background · 48 px on surface · 24 px minimum, reversed on primary · mark with wordmark.</p>
+
+  <h2>Color tokens</h2>
+  <div class="swatches">
+    <div class="swatch"><div style="background:#1f1f1f"></div><p><strong>primary</strong><br>#1f1f1f</p></div>
+    <div class="swatch"><div style="background:#5c5c5c"></div><p><strong>secondary</strong><br>#5c5c5c</p></div>
+    <div class="swatch"><div style="background:#ffffff"></div><p><strong>background</strong><br>#ffffff</p></div>
+    <div class="swatch"><div style="background:#f4f3f1"></div><p><strong>surface</strong><br>#f4f3f1</p></div>
+    <div class="swatch"><div style="background:#1f1f1f"></div><p><strong>text</strong><br>#1f1f1f</p></div>
+    <div class="swatch"><div style="background:#b3261e"></div><p><strong>error</strong><br>#b3261e</p></div>
+    <div class="swatch"><div style="background:#1d6b38"></div><p><strong>success</strong><br>#1d6b38</p></div>
+  </div>
+
+  <h2>Type scale <span class="provisional">provisional typeface (DQ-3)</span></h2>
+  <div class="scale">
+    <p style="font-size:var(--fs-3xl);font-weight:600;line-height:1.2">3xl · Nina Laaf</p>
+    <p style="font-size:var(--fs-2xl);font-weight:600;line-height:1.2">2xl · Ausstellungen / Exhibitions</p>
+    <p style="font-size:var(--fs-xl);font-weight:600;line-height:1.2">xl · vom Flüstern und Formen</p>
+    <p style="font-size:var(--fs-lg);font-weight:600">lg · ohne titel (flattered)</p>
+    <p>base · Body text for essays and descriptions, at most 68 characters per line, in German and English.</p>
+    <p style="font-size:var(--fs-sm)" class="meta">sm · 2021 · ceramic, gold glaze with iron content · 26 × 20 × 9.5 cm</p>
+    <p style="font-size:var(--fs-xs)" class="meta">xs · Foto: Silke Briel</p>
+  </div>
+
+  <h2>Spacing scale</h2>
+  <div class="space"><span style="width:4px"></span>1 · 4 px</div>
+  <div class="space"><span style="width:8px"></span>2 · 8 px</div>
+  <div class="space"><span style="width:12px"></span>3 · 12 px</div>
+  <div class="space"><span style="width:16px"></span>4 · 16 px</div>
+  <div class="space"><span style="width:24px"></span>5 · 24 px</div>
+  <div class="space"><span style="width:32px"></span>6 · 32 px</div>
+  <div class="space"><span style="width:48px"></span>7 · 48 px</div>
+  <div class="space"><span style="width:64px"></span>8 · 64 px</div>
+  <div class="space"><span style="width:96px"></span>9 · 96 px</div>
+
+  <h2>Navigation and language switch</h2>
+  <nav class="site" aria-label="Main">
+    <a href="#">Works</a>
+    <a href="#" aria-current="page">Exhibitions</a>
+    <a href="#">Texts</a>
+    <a href="#">CV</a>
+    <a href="#">Contact</a>
+    <span class="lang"><a href="#" lang="de" hreflang="de">DE</a> | <a href="#" aria-current="true" lang="en">EN</a></span>
+  </nav>
+
+  <h2>Links and buttons</h2>
+  <p>A text link to <a href="#">galerie burster</a> and an email link <a href="mailto:example@example.org">example@example.org</a>.</p>
+  <div class="row">
+    <button type="button">Download portfolio (PDF)</button>
+    <button type="button" disabled>Disabled</button>
+  </div>
+
+  <h2>Work card with metadata and credit</h2>
+  <article class="work">
+    <div class="img" role="img" aria-label="Image placeholder">image</div>
+    <p class="credit">Photo: Silke Briel</p>
+    <h3><a href="#">amalthea</a></h3>
+    <p class="meta" style="margin:0">2021 · plaster, steel, copper, lacquer · 99 × 53 cm</p>
+  </article>
+
+  <h2>Consent placeholder (Instagram feed) <span class="provisional">provisional (OQ-6)</span></h2>
+  <div class="consent">
+    <p style="margin-top:0"><strong>Instagram</strong></p>
+    <p>Showing the feed loads content from Instagram (Meta Platforms Ireland). Nothing has been loaded yet.</p>
+    <div class="row"><button type="button">Load Instagram feed</button><a href="#">@ninalaaf on Instagram</a></div>
+  </div>
+
+  <h2>Inputs and form feedback</h2>
+  <form onsubmit="return false" novalidate>
+    <div class="field">
+      <label for="t1">Title</label>
+      <input id="t1" value="ohne titel (kann ein stein ein berg sein?)">
+    </div>
+    <div class="field invalid">
+      <label for="t2">Alt text</label>
+      <input id="t2" aria-invalid="true" aria-describedby="t2e">
+      <p class="msg-error" id="t2e">Alt text is missing. Describe the image in a few words.</p>
+    </div>
+    <p class="msg-success" role="status">Saved. The change appears after publishing.</p>
+  </form>
+</main>
+</body>
+</html>
