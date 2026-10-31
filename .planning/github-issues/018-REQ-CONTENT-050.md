@@ -2,10 +2,10 @@
 
 - **ID**: REQ-CONTENT-050
 - **Title**: Define the Exhibition entry and News item content models
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
@@ -13,10 +13,10 @@
 
 ## Requirement
 
-- **Statement**: The content model MUST define Exhibition entry (title, type — solo, two-person, group or fair — venue, city, start date, end date, co-exhibitors, external link, linked works, a description, an ordered list of installation images, a slug that is the URL segment of the entry's page, publish state, a CV hide flag and a CV wording override) and News item (title, date, text, external link, image, publish state). Text fields MUST hold German and English values; the description is plain text. The rules MUST be: an Exhibition entry needs a title, a type, a venue, a city, a start date and an end date, and its end date MUST NOT be before its start date (the end date is the reported field); a News item needs a title and a date; installation images and the News image follow the Image rules of REQ-CONTENT-010.
+- **Statement**: The content model MUST define Exhibition entry (title, type — solo, two-person, group or fair — venue, city, start date, end date, co-exhibitors, external link, linked works, a description, an ordered list of installation images, a slug that is the URL segment of the entry's page and is set once when the entry is first saved (FR-4.7), publish state, a CV hide flag and a CV wording override) and News item (title, date, text, external link, image, publish state). Text fields MUST hold German and English values; the description is plain text. The rules MUST be: an Exhibition entry needs a title, a type, a venue, a city, a start date and an end date, and its end date MUST NOT be before its start date (the end date is the reported field); it needs a slug, because its page address is formed from it (FR-4.7); a News item needs a title and a date; installation images and the News image follow the Image rules of REQ-CONTENT-010.
 - **Rationale**: Exhibition entries drive the Exhibitions/News page and their own pages, the home page entry and the derived CV sections (FR-2.3, FR-4, FR-5.3).
 - **Assumptions**: None
-- **Out of Scope**: How the slug is filled in and what happens when two entries have the same slug (decided in step 10 a third time, PQ-57; drafted by the next step 9 run); the slug's character rule (REQ-CONTENT-080); rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
+- **Out of Scope**: Generating the slug in the Editing Interface (REQ-EDIT-110); the slug's character rule (REQ-CONTENT-080); the check for two entries with the same slug (REQ-CONTENT-090); rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (owns Exhibition entry and News item); DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3 (via REQ-CONTENT-030); SEC-OUT-2 (external links, via REQ-OUTPUT-030)
@@ -60,8 +60,9 @@
 2. **AC-02 — Boundary or failure behavior**: Given six Exhibition entries each missing one of title, type, venue, city, start date or end date, and a News item without a title or without a date, when the rule check runs, then each is reported with item identifier and the missing field (FR-10.6).
 3. **AC-03 — Boundary or failure behavior**: Given an Exhibition entry with type `talk`, when the rule check runs, then the type field is reported; only solo, two-person, group and fair are accepted (FR-4.2).
 4. **AC-04 — Boundary or failure behavior**: Given an entry starting 2026-06-30 and ending 2026-06-01, when the rule check runs, then it is reported with the field `end date`; an entry that starts and ends on the same day is valid (FR-4.1, FR-10.6).
-5. **AC-05 — Prohibited behavior**: Given a News item, when the model is reviewed, then it has no Exhibition type and is never treated as an Exhibition entry (FR-4.6).
-6. **AC-06 — Additional criterion**: Given an installation image without alt text, when the rule check runs, then it is reported like a work image without alt text (FR-3.7, FR-10.6).
+5. **AC-05 — Boundary or failure behavior**: Given an Exhibition entry without a slug (e.g. written directly to the Content Store), when the rule check runs, then it is reported with the item identifier and the field `slug`.
+6. **AC-06 — Prohibited behavior**: Given a News item, when the model is reviewed, then it has no Exhibition type and is never treated as an Exhibition entry (FR-4.6).
+7. **AC-07 — Additional criterion**: Given an installation image without alt text, when the rule check runs, then it is reported like a work image without alt text (FR-3.7, FR-10.6).
 
 ## Failure Behavior
 
@@ -80,7 +81,7 @@
 - **Integration Tests**: Hugo reads fixture Exhibition and News files
 - **Security Tests**: Fixtures written directly to a test content repository, bypassing the Editing Interface, are rejected by the rule check
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-050/AC-01`; AC-02 → `test:CONTENT-050/AC-02`; AC-03 → `test:CONTENT-050/AC-03`; AC-04 → `test:CONTENT-050/AC-04`; AC-05 → `test:CONTENT-050/AC-05`; AC-06 → `test:CONTENT-050/AC-06` (test command `deno task test`, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-050/AC-01`; AC-02 → `test:CONTENT-050/AC-02`; AC-03 → `test:CONTENT-050/AC-03`; AC-04 → `test:CONTENT-050/AC-04`; AC-05 → `test:CONTENT-050/AC-05`; AC-06 → `test:CONTENT-050/AC-06`; AC-07 → `test:CONTENT-050/AC-07` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model
 
@@ -99,4 +100,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: A field list taken directly from FR-4 and FR-10.6, following the REQ-CONTENT-010 pattern.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Slug generation is REQ-EDIT-110, the duplicate check REQ-CONTENT-090.

@@ -2,10 +2,10 @@
 
 - **ID**: REQ-PIPELINE-000
 - **Title**: Secrets and build/deploy pipeline
-- **Version**: 0.3.0
+- **Version**: 0.4.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST build and deploy production and preview with least-privilege identities and restricted deploy keys, pinned tools, secrets limited to `main` and isolated from content processing, recorded deploys, a VPS content check as the only trigger besides the nightly schedule, and failure reporting.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The email alert of the VPS content check (decided in step 10 a third time, PQ-56; drafted by the next step 9 run).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build pipeline (GitHub Actions in `dalini/nina-site`); Static Hosting
 - **Security Traceability**: SEC-SECRET-1, SEC-SECRET-2, SEC-CICD-1 to SEC-CICD-9, SEC-AUDIT-2
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1); PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1); PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5). Their scope is drafted in this workstream's leaves (step 9 fourth run).
 
 ## Sub-issues
 

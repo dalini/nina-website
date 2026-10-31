@@ -2,10 +2,10 @@
 
 - **ID**: REQ-CONTENT-080
 - **Title**: Fail the publish for content files that are not Markdown, use front-matter fields outside the content model, or carry an unsafe slug
-- **Version**: 0.1.0
+- **Version**: 0.2.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Security
@@ -16,7 +16,7 @@
 - **Statement**: Before any output is deployed, the Site Build MUST fail the publish, naming the file and field, when a Content Store content file is not Markdown, when its front matter holds a field that the content model in `dalini/nina-site` does not document, or when a slug taken from content (the Exhibition entry slug, FR-4.7) contains anything other than lowercase letters, digits and hyphens; the content model MUST NOT use a field that Hugo interprets itself to choose a page's URL, template, output or renderer (among others `url`, `aliases`, `layout`, `type`, `outputs`, `cascade`, `build`, `markup`), except `slug`, and Hugo's `security.allowContent` MUST keep its default.
 - **Rationale**: Content must not control how the generator renders it: a direct write to the Content Store (T-49) could otherwise move an item to the Impressum's URL, make other URLs redirect to it, or emit raw HTML (T-77, T-76).
 - **Assumptions**: None
-- **Out of Scope**: Evaluation of generator syntax inside field values (REQ-OUTPUT-020); scripts in the generated pages (REQ-OUTPUT-040); how the slug is filled in and duplicate slugs (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
+- **Out of Scope**: Evaluation of generator syntax inside field values (REQ-OUTPUT-020); scripts in the generated pages (REQ-OUTPUT-040); generating the slug (REQ-EDIT-110); two entries with the same slug (REQ-CONTENT-090).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (rechecks content rules, DR-3); content model documented in `dalini/nina-site` (DR-4)
 - **Security Traceability**: SEC-INPUT-6, SEC-INPUT-3
@@ -86,7 +86,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}})
-- **Downstream Requirements**: REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}})
+- **Downstream Requirements**: REQ-CONTENT-090 ({{ISSUE_URL:REQ-CONTENT-090}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}})
 - **External Dependencies**: None
 - **Dependency Assumptions**: None
 - **Failure Impact**: A failure of the check blocks publishing until the content is fixed; the previous site stays online
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: Derive the allow-list from the content model documentation so that the two cannot drift apart.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Generator-reserved fields and content formats are a Hugo-internals trust boundary (T-77); a gap lets a direct write take over the Impressum's URL or bring raw HTML into a page.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Slug generation is REQ-EDIT-110, the duplicate check REQ-CONTENT-090.

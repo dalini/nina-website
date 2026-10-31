@@ -2,10 +2,10 @@
 
 - **ID**: REQ-MIGRATION-000
 - **Title**: Legacy migration
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Medium
 - **Requirement Type**: Functional
@@ -13,10 +13,10 @@
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST import the 53 legacy works with their German values and image captions, publish state, featured work and interim alt text.
+- **Statement**: The leaf issues of this workstream MUST import the 53 legacy works with their German values, materials and dimensions and image captions, publish state, featured work and interim alt text, and write the migration report for Nina.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The works' materials and dimensions and the migration report (decided in step 10 a third time, PQ-58; drafted by the next step 9 run).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (one-time import, DF-3)
 - **Security Traceability**: N/A
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}}), REQ-MIGRATION-020 ({{ISSUE_URL:REQ-MIGRATION-020}}), REQ-MIGRATION-030 ({{ISSUE_URL:REQ-MIGRATION-030}})
+- **Downstream Requirements**: REQ-MIGRATION-010 ({{ISSUE_URL:REQ-MIGRATION-010}}), REQ-MIGRATION-040 ({{ISSUE_URL:REQ-MIGRATION-040}}), REQ-MIGRATION-020 ({{ISSUE_URL:REQ-MIGRATION-020}}), REQ-MIGRATION-030 ({{ISSUE_URL:REQ-MIGRATION-030}})
 - **External Dependencies**: Git LFS of `dalini/nina-laaf-site`
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,10 +96,11 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-58: materials and dimensions come from the work-level legacy fields, else from a first caption in the form "materials | dimensions | year", else stay empty; a migration report lists what Nina must complete and values that break FR-3.3 (FR-11.1). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: PQ-68 and PQ-69 (non-blocking, TO BE DECIDED): first captions with stray characters, and where the migration report is written and how Nina receives it (REQ-MIGRATION-040). Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-58: materials and dimensions come from the work-level legacy fields, else from a first caption in the form "materials | dimensions | year", else stay empty; a migration report lists what Nina must complete and values that break FR-3.3 (FR-11.1). Their scope is drafted in this workstream's leaves (step 9 fourth run).
 
 ## Sub-issues
 
 - [ ] REQ-MIGRATION-010 {{ISSUE_URL:REQ-MIGRATION-010}}
+- [ ] REQ-MIGRATION-040 {{ISSUE_URL:REQ-MIGRATION-040}}
 - [ ] REQ-MIGRATION-020 {{ISSUE_URL:REQ-MIGRATION-020}}
 - [ ] REQ-MIGRATION-030 {{ISSUE_URL:REQ-MIGRATION-030}}

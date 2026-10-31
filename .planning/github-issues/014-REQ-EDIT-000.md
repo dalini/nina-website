@@ -2,21 +2,21 @@
 
 - **ID**: REQ-EDIT-000
 - **Title**: Editing Interface (Sveltia CMS)
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-8.6, FR-10.1 to FR-10.3, FR-10.6 to FR-10.8; SECURITY.md SEC-CICD-2, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-8.6, FR-10.1 to FR-10.3, FR-10.6 to FR-10.8; REQUIREMENTS.md FR-4.7 (slug); SECURITY.md SEC-CICD-2, SEC-INPUT-6, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4; ARCHITECTURE.md Editing Interface, DR-9; parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST let editors manage all content types, uploads, Instagram settings and history in a pinned Sveltia CMS on `edit.nina-laaf.de`, with the required-field and upload checks, safe display, and the publish status shown to Nina.
+- **Statement**: The leaf issues of this workstream MUST let editors manage all content types, uploads, Instagram settings and history in a pinned Sveltia CMS on `edit.nina-laaf.de`, installed by hand by Ives from a tagged release, with the required-field and upload checks, generated Exhibition slugs, safe display, and the publish status shown to Nina.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Sign-in through the OAuth helper (REQ-AUTHN-000). How the Editing Interface files reach the VPS (decided in step 10 a third time, PQ-54; drafted by the next step 9 run); how an Exhibition entry's slug is filled in (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Sign-in through the OAuth helper (REQ-AUTHN-000).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface; Content Store; DR-3, DR-8, DR-9
 - **Security Traceability**: SEC-CICD-2, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}}), REQ-EDIT-050 ({{ISSUE_URL:REQ-EDIT-050}}), REQ-EDIT-060 ({{ISSUE_URL:REQ-EDIT-060}}), REQ-EDIT-070 ({{ISSUE_URL:REQ-EDIT-070}}), REQ-EDIT-080 ({{ISSUE_URL:REQ-EDIT-080}}), REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
+- **Downstream Requirements**: REQ-EDIT-010 ({{ISSUE_URL:REQ-EDIT-010}}), REQ-EDIT-100 ({{ISSUE_URL:REQ-EDIT-100}}), REQ-EDIT-020 ({{ISSUE_URL:REQ-EDIT-020}}), REQ-EDIT-030 ({{ISSUE_URL:REQ-EDIT-030}}), REQ-EDIT-110 ({{ISSUE_URL:REQ-EDIT-110}}), REQ-EDIT-040 ({{ISSUE_URL:REQ-EDIT-040}}), REQ-EDIT-050 ({{ISSUE_URL:REQ-EDIT-050}}), REQ-EDIT-060 ({{ISSUE_URL:REQ-EDIT-060}}), REQ-EDIT-070 ({{ISSUE_URL:REQ-EDIT-070}}), REQ-EDIT-080 ({{ISSUE_URL:REQ-EDIT-080}}), REQ-EDIT-090 ({{ISSUE_URL:REQ-EDIT-090}})
 - **External Dependencies**: Sveltia CMS; GitHub API
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,13 +96,15 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2); PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6); PQ-63: German, informal: "Deine Änderungen sind noch nicht online." and "Bitte prüfe: <Eintrag>, Feld <Feld>."; a strip above the CMS on `surface` with an `error` left border (FR-10.8, DESIGN.md Publish status banner). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: PQ-67 (non-blocking, TO BE DECIDED): transliteration of umlauts and ß and hyphen handling in Exhibition slugs (REQ-EDIT-110). Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2); PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6); PQ-63: German, informal: "Deine Änderungen sind noch nicht online." and "Bitte prüfe: <Eintrag>, Feld <Feld>."; a strip above the CMS on `surface` with an `error` left border (FR-10.8, DESIGN.md Publish status banner). Their scope is drafted in this workstream's leaves (step 9 fourth run).
 
 ## Sub-issues
 
 - [ ] REQ-EDIT-010 {{ISSUE_URL:REQ-EDIT-010}}
+- [ ] REQ-EDIT-100 {{ISSUE_URL:REQ-EDIT-100}}
 - [ ] REQ-EDIT-020 {{ISSUE_URL:REQ-EDIT-020}}
 - [ ] REQ-EDIT-030 {{ISSUE_URL:REQ-EDIT-030}}
+- [ ] REQ-EDIT-110 {{ISSUE_URL:REQ-EDIT-110}}
 - [ ] REQ-EDIT-040 {{ISSUE_URL:REQ-EDIT-040}}
 - [ ] REQ-EDIT-050 {{ISSUE_URL:REQ-EDIT-050}}
 - [ ] REQ-EDIT-060 {{ISSUE_URL:REQ-EDIT-060}}

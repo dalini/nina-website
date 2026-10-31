@@ -2,10 +2,10 @@
 
 - **ID**: REQ-INSTAGRAM-000
 - **Title**: Instagram
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST link to @ninalaaf on every page and show recent posts on the home page from build-time copies, keep and refresh the Instagram token on the VPS, and fail safe when Instagram or a post fails.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The email alert for a failed token refresh (decided in step 10 a third time, PQ-56; drafted by the next step 9 run).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Instagram Feed Integration; Site Build; DR-1, DR-5
 - **Security Traceability**: SEC-PRIV-1, SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-1, SEC-SECRET-3, SEC-CICD-6
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1); PQ-65: numeric dates: DE `DD.MM.YYYY`, EN `YYYY-MM-DD`; ranges with both full dates and an en dash (FR-1.8). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1); PQ-65: numeric dates: DE `DD.MM.YYYY`, EN `YYYY-MM-DD`; ranges with both full dates and an en dash (FR-1.8). Their scope is drafted in this workstream's leaves (step 9 fourth run).
 
 ## Sub-issues
 

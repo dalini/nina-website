@@ -2,10 +2,10 @@
 
 - **ID**: REQ-CONTENT-010
 - **Title**: Define the Work and Image content model with its required-field rules
-- **Version**: 0.3.0
+- **Version**: 0.4.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
@@ -16,7 +16,7 @@
 - **Statement**: The content model MUST define Work and Image items as Markdown files with YAML front matter in `dalini/nina-content`, documented in `dalini/nina-site`, with: a work title held once and never translated; a year that is a single four-digit year; materials; dimensions holding two or three values in centimeters; edition; series; short text; an in-public-space flag; a manual position in the Works order; a publish state; a way to mark exactly one work as featured; a CV hide flag and a CV wording override for the work's derived works-in-public-space line; and an ordered list of images, each with alt text, caption and photo credit. Every text field except the title MUST hold a German and an English value. The model MUST define these rules: a work needs a title, a year and at least one image; an image needs alt text in at least one language; the caption is optional plain text; exactly one published work is featured, and where the Editing Interface cannot keep it so, the publish fails and names the works and the field (FR-10.3, FR-10.6).
 - **Rationale**: One portable, documented model lets the Editing Interface check and the Site Build recheck the same rules (DR-3) and lets either system be replaced (DR-4).
 - **Assumptions**: None
-- **Out of Scope**: Rendering (REQ-WORKS-*); Editing Interface forms (REQ-EDIT-020); enforcing the rules in the build (REQ-CONTENT-030); the legacy import (REQ-MIGRATION-*); how a manual Works order that replaces the year order is represented (dropped in step 10 a third time, PQ-59: no order replaces the year order, FR-3.1).
+- **Out of Scope**: Rendering (REQ-WORKS-*); Editing Interface forms (REQ-EDIT-020); enforcing the rules in the build (REQ-CONTENT-030); the legacy import (REQ-MIGRATION-*). There is no Works order that replaces the year order (FR-3.1).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (owns Work and Image, flags, orders, image order, alt text and credits); DR-2, DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3 (rules rechecked by the Site Build, via REQ-CONTENT-030)
@@ -99,4 +99,4 @@
 - **Implementation Guidance**: A single reference to the featured work (for example on the Home page item) instead of a flag on every work makes 'exactly one' structural; the CMS behavior is REQ-EDIT-020. Alt text in one language is enough because FR-1.7 shows the other language and FR-11.3 counts German-only interim alt text as alt text.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: It sets the shared rule set and portable format that every page, validation and editing issue reads; a modelling mistake here spreads everywhere.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1). The excluded replacing order is dropped (PQ-59), not drafted.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1).

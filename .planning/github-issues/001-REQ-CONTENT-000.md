@@ -2,10 +2,10 @@
 
 - **ID**: REQ-CONTENT-000
 - **Title**: Content model and build-time content rules
-- **Version**: 0.3.0
+- **Version**: 0.4.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
@@ -13,10 +13,10 @@
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content, and reject unsafe checkouts, content formats and front-matter fields, so that templates only render (DR-3).
+- **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content, reject unsafe checkouts, content formats and front-matter fields, and fail the publish on duplicate Exhibition slugs, so that templates only render (DR-3).
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the slug of an Exhibition entry is filled in and what happens when two entries have the same slug (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store, Site Build; DR-2, DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}})
+- **Downstream Requirements**: REQ-CONTENT-010 ({{ISSUE_URL:REQ-CONTENT-010}}), REQ-CONTENT-020 ({{ISSUE_URL:REQ-CONTENT-020}}), REQ-CONTENT-050 ({{ISSUE_URL:REQ-CONTENT-050}}), REQ-CONTENT-060 ({{ISSUE_URL:REQ-CONTENT-060}}), REQ-CONTENT-030 ({{ISSUE_URL:REQ-CONTENT-030}}), REQ-CONTENT-040 ({{ISSUE_URL:REQ-CONTENT-040}}), REQ-CONTENT-070 ({{ISSUE_URL:REQ-CONTENT-070}}), REQ-CONTENT-080 ({{ISSUE_URL:REQ-CONTENT-080}}), REQ-CONTENT-090 ({{ISSUE_URL:REQ-CONTENT-090}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.
+- **Open Decisions**: None. Decided in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Their scope is drafted in this workstream's leaves (step 9 fourth run).
 
 ## Sub-issues
 
@@ -108,3 +108,4 @@
 - [ ] REQ-CONTENT-040 {{ISSUE_URL:REQ-CONTENT-040}}
 - [ ] REQ-CONTENT-070 {{ISSUE_URL:REQ-CONTENT-070}}
 - [ ] REQ-CONTENT-080 {{ISSUE_URL:REQ-CONTENT-080}}
+- [ ] REQ-CONTENT-090 {{ISSUE_URL:REQ-CONTENT-090}}
