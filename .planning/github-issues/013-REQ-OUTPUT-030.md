@@ -4,7 +4,7 @@
 - **Title**: Allow only https: and mailto: links in content and open external links with noopener
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
@@ -16,7 +16,7 @@
 - **Statement**: The Site Build MUST reject content links whose scheme is not `https:` or `mailto:` and MUST render every external link with `rel="noopener"`.
 - **Rationale**: Other schemes can run script or mislead visitors; `noopener` keeps target pages from controlling the site's window (REF-XSS, REF-INPUT).
 - **Assumptions**: None
-- **Out of Scope**: Links inside Instagram content (PQ-7); exhibition external links (FR-4.3, blocked by PQ-11) follow this rule once that scope is unblocked.
+- **Out of Scope**: Links inside Instagram content (SEC-OUT-3) and Exhibition/News external links (FR-4.3, FR-4.6): they follow this rule and are decomposed in the step 9 re-run.
 - **Design Traceability**: DESIGN.md Components (Links)
 - **Architecture Traceability**: Site Build; DR-3
 - **Security Traceability**: SEC-OUT-2
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: OWASP XSS Prevention and Input Validation Cheat Sheets (`REF-XSS`, `REF-INPUT`)
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Build fails with item and field; nothing published
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A
 - **On Security-Decision Failure**: Links whose scheme cannot be parsed are rejected
 - **On External Dependency Failure**: N/A
@@ -78,8 +78,8 @@
 - **Security Tests**: Scheme-bypass corpus (case, whitespace, entity-encoded colon); output scan for external links without `noopener`
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:OUTPUT-030/AC-01`; AC-02 → `test:OUTPUT-030/AC-02`; AC-03 → `test:OUTPUT-030/AC-03`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); fixtures with hostile content
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); fixtures with hostile content
 
 ## Dependencies
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added
 - **Prohibited Approaches**: Fixing schemes by rewriting them silently; allow-listing by substring match
 - **Implementation Guidance**: Parse URLs with the platform's URL parser before checking the scheme.
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`), because: Small allow-list with a known bypass corpus; well specified by SEC-OUT-2.
 - **Required Human Review**: Security review
-- **Open Decisions**: Non-blocking: PQ-16.
+- **Open Decisions**: None (step 10: Hugo).

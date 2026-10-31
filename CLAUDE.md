@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf. The project is specified but not built yet; open questions remain in each spec file.
+nina-laaf.de is the public, bilingual (DE/EN) website of artist and sculptor Nina Laaf. The project is specified but not built yet; step 10 resolved the open questions (record: `.planning/OPEN_QUESTIONS.md`). Code lives in `dalini/nina-site` (Hugo templates, config, CI; maintainer only) and content in `dalini/nina-content` (private Content Store); this repository holds the specification.
 
 ## Where things are defined
 
@@ -20,4 +20,9 @@ Read only the file the task needs; each owns its domain.
 
 ## Commands
 
-Build, test and run: TO BE DECIDED.
+In `dalini/nina-site` (Hugo):
+
+- Build: `hugo --minify`
+- Run locally: `hugo server`
+- Test: TO BE DECIDED (deferred to step 11; the first coding PR sets it).
+- Coverage target: 80% line coverage of first-party code, and every acceptance criterion has an automated test.

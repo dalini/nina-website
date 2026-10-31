@@ -4,7 +4,7 @@
 - **Title**: Treat content fields as data and never evaluate generator syntax inside them
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Critical
@@ -27,7 +27,7 @@
 - **Components**: Site Build, Public Site
 - **Interfaces / Operations**: Content loading and rendering in the Site Build
 - **Actors**: Editor (author of content); Visitor (reader); Site Build
-- **Preconditions**: Generator chosen (PQ-16), so its template and shortcode syntax is known
+- **Preconditions**: Generator chosen: Hugo (ARCHITECTURE.md), so test inputs use Hugo template and shortcode syntax
 - **Data Classification**: Public
 - **Personal or Regulated Data**: None
 - **Jurisdiction / Regulatory Scope**: N/A
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: N/A
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Syntax is rendered as encoded text; no evaluation
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A
 - **On Security-Decision Failure**: If a field cannot be loaded as plain data, the build fails (SEC-INPUT-3)
 - **On External Dependency Failure**: N/A
@@ -78,8 +78,8 @@
 - **Security Tests**: Template-injection payloads for the chosen generator, including environment and file access
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:OUTPUT-020/AC-01`; AC-02 → `test:OUTPUT-020/AC-02`; AC-03 → `test:OUTPUT-020/AC-03`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); fixtures with hostile content
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); fixtures with hostile content
 
 ## Dependencies
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added
 - **Prohibited Approaches**: Rendering content through the template engine (e.g. content files processed as templates); enabling shortcodes in editor-controlled fields
 - **Implementation Guidance**: Configure the generator so content files are data inputs; check its documentation for content files processed as templates.
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`), because: Template-injection prevention depends on generator internals and build-time secret exposure (T-18).
 - **Required Human Review**: Security review
-- **Open Decisions**: Non-blocking: PQ-16.
+- **Open Decisions**: None (step 10: Hugo).

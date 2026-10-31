@@ -7,10 +7,14 @@
 <style>
   :root {
     --primary: #1f1f1f; --secondary: #5c5c5c; --background: #ffffff; --surface: #f4f3f1;
-    --text: #1f1f1f; --error: #b3261e; --success: #1d6b38;
+    --text: #1f1f1f; --error: #b3261e; --success: #1d6b38; --primary-hover: #3a3a3a;
+    color-scheme: light dark;
     --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --fs-xs: .8125rem; --fs-sm: .875rem; --fs-base: 1rem; --fs-lg: 1.25rem; --fs-xl: 1.5rem; --fs-2xl: 2rem; --fs-3xl: 2.75rem;
     --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --primary: #ededed; --secondary: #a3a3a3; --background: #141414; --surface: #222120; --text: #ededed; --error: #f2b8b5; --success: #8fd19e; --primary-hover: #ffffff; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; font: 400 var(--fs-base)/1.6 var(--font); color: var(--text); background: var(--background); }
@@ -42,7 +46,7 @@
   .lang a { border: 0 !important; }
   .lang [aria-current="true"] { font-weight: 600; text-decoration: underline; }
   button, .button { font: 600 var(--fs-base) var(--font); background: var(--primary); color: var(--background); border: 0; border-radius: 4px; min-height: 44px; min-width: 44px; padding: var(--s3) var(--s5); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
-  button:hover, .button:hover { background: #3a3a3a; }
+  button:hover, .button:hover { background: var(--primary-hover); }
   button:disabled { background: var(--secondary); cursor: not-allowed; }
   label { display: block; font-weight: 600; margin-bottom: var(--s1); }
   input, textarea { font: inherit; width: 100%; max-width: 420px; padding: var(--s3); border: 1px solid var(--secondary); border-radius: 4px; color: var(--text); background: var(--background); }
@@ -54,32 +58,35 @@
   .work .img { aspect-ratio: 4/3; background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: var(--fs-sm); }
   .work h3 { font-size: var(--fs-lg); margin: var(--s3) 0 var(--s1); }
   .credit { font-size: var(--fs-xs); color: var(--secondary); margin: var(--s1) 0 0; }
-  .consent { background: var(--surface); padding: var(--s5); border-radius: 4px; max-width: 520px; }
+  .wordmark { font-weight: 600; font-size: var(--fs-lg); color: var(--primary); text-decoration: none; margin-right: var(--s5); }
+  .posts { display: grid; grid-template-columns: 1fr; gap: var(--s4); max-width: 1200px; }
+  @media (min-width: 768px) { .posts { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .posts { grid-template-columns: repeat(3, 1fr); } }
+  .posts a { display: block; aspect-ratio: 1; background: var(--surface); color: var(--secondary); font-size: var(--fs-sm); text-decoration: none; display: flex; align-items: center; justify-content: center; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
 <main>
   <h1>nina-laaf.de · style guide</h1>
-  <p>The rendered reference for the tokens and components in <code>DESIGN.md</code>. Items marked <span class="provisional">provisional</span> stand for decisions that are still <em>TO BE DECIDED</em>.</p>
+  <p>The rendered reference for the tokens and components in <code>DESIGN.md</code>. Items marked <span class="provisional">provisional</span> stand for decisions that were explicitly deferred. Colors follow the viewer's system setting (light or dark mode).</p>
 
-  <h2>Logo <span class="provisional">provisional (DQ-1, DQ-2)</span></h2>
+  <h2>Logo <span class="provisional">provisional mark: deferred until Nina decides</span></h2>
   <div class="row">
     <div class="logo-box" style="background:var(--background);border:1px solid var(--surface)">
-      <svg viewBox="0 0 64 64" width="96" height="96" role="img" aria-label="Nina Laaf logo"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
+      <svg viewBox="0 0 64 64" width="96" height="96" role="img" aria-label="Nina Laaf logo"><circle cx="32" cy="27" r="17" style="fill:var(--primary)"/><rect x="10" y="46" width="44" height="4" style="fill:var(--primary)"/><rect x="10" y="44" width="44" height="2" style="fill:var(--secondary)"/></svg>
     </div>
     <div class="logo-box" style="background:var(--surface)">
-      <svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
+      <svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true"><circle cx="32" cy="27" r="17" style="fill:var(--primary)"/><rect x="10" y="46" width="44" height="4" style="fill:var(--primary)"/><rect x="10" y="44" width="44" height="2" style="fill:var(--secondary)"/></svg>
     </div>
     <div class="logo-box" style="background:var(--primary)">
-      <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#ffffff"/><rect x="10" y="44" width="44" height="6" fill="#ffffff"/></svg>
+      <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true"><circle cx="32" cy="27" r="17" style="fill:var(--background)"/><rect x="10" y="44" width="44" height="6" style="fill:var(--background)"/></svg>
     </div>
     <div class="row" style="gap:var(--s3)">
-      <svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true"><circle cx="32" cy="27" r="17" fill="#1f1f1f"/><rect x="10" y="46" width="44" height="4" fill="#1f1f1f"/><rect x="10" y="44" width="44" height="2" fill="#5c5c5c"/></svg>
-      <span style="font-weight:600;font-size:var(--fs-lg)">Nina Laaf</span>
+      <span class="wordmark">Nina Laaf</span>
     </div>
   </div>
-  <p class="meta">96 px on background · 48 px on surface · 24 px minimum, reversed on primary · mark with wordmark.</p>
+  <p class="meta">96 px on background · 48 px on surface · 24 px minimum, reversed on primary (as favicon) · the wordmark alone is the header.</p>
 
   <h2>Color tokens</h2>
   <div class="swatches">
@@ -91,8 +98,18 @@
     <div class="swatch"><div style="background:#b3261e"></div><p><strong>error</strong><br>#b3261e</p></div>
     <div class="swatch"><div style="background:#1d6b38"></div><p><strong>success</strong><br>#1d6b38</p></div>
   </div>
+  <p class="meta">Light mode (above). Dark mode, used when the viewer's system prefers dark:</p>
+  <div class="swatches">
+    <div class="swatch"><div style="background:#ededed"></div><p><strong>primary</strong><br>#ededed</p></div>
+    <div class="swatch"><div style="background:#a3a3a3"></div><p><strong>secondary</strong><br>#a3a3a3</p></div>
+    <div class="swatch"><div style="background:#141414"></div><p><strong>background</strong><br>#141414</p></div>
+    <div class="swatch"><div style="background:#222120"></div><p><strong>surface</strong><br>#222120</p></div>
+    <div class="swatch"><div style="background:#ededed"></div><p><strong>text</strong><br>#ededed</p></div>
+    <div class="swatch"><div style="background:#f2b8b5"></div><p><strong>error</strong><br>#f2b8b5</p></div>
+    <div class="swatch"><div style="background:#8fd19e"></div><p><strong>success</strong><br>#8fd19e</p></div>
+  </div>
 
-  <h2>Type scale <span class="provisional">provisional typeface (DQ-3)</span></h2>
+  <h2>Type scale</h2>
   <div class="scale">
     <p style="font-size:var(--fs-3xl);font-weight:600;line-height:1.2">3xl · Nina Laaf</p>
     <p style="font-size:var(--fs-2xl);font-weight:600;line-height:1.2">2xl · Ausstellungen / Exhibitions</p>
@@ -116,8 +133,9 @@
 
   <h2>Navigation and language switch</h2>
   <nav class="site" aria-label="Main">
+    <a href="#" class="wordmark">Nina Laaf</a>
     <a href="#">Works</a>
-    <a href="#" aria-current="page">Exhibitions</a>
+    <a href="#" aria-current="page">Exhibitions/News</a>
     <a href="#">Texts</a>
     <a href="#">CV</a>
     <a href="#">Contact</a>
@@ -139,12 +157,12 @@
     <p class="meta" style="margin:0">2021 · plaster, steel, copper, lacquer · 99 × 53 cm</p>
   </article>
 
-  <h2>Consent placeholder (Instagram feed) <span class="provisional">provisional (OQ-6)</span></h2>
-  <div class="consent">
-    <p style="margin-top:0"><strong>Instagram</strong></p>
-    <p>Showing the feed loads content from Instagram (Meta Platforms Ireland). Nothing has been loaded yet.</p>
-    <div class="row"><button type="button">Load Instagram feed</button><a href="#">@ninalaaf on Instagram</a></div>
+  <h2>Instagram posts (home page)</h2>
+  <p class="meta">Up to 6 recent posts, copied into the site at build time and served from it; no request goes to Instagram when the page loads.</p>
+  <div class="posts">
+    <a href="#">post 1</a><a href="#">post 2</a><a href="#">post 3</a><a href="#">post 4</a><a href="#">post 5</a><a href="#">post 6</a>
   </div>
+  <p><a href="#">@ninalaaf on Instagram</a></p>
 
   <h2>Inputs and form feedback</h2>
   <form onsubmit="return false" novalidate>

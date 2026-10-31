@@ -4,7 +4,7 @@
 - **Title**: HTML-encode editor text and render rich text from a restricted format
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: Critical
@@ -13,10 +13,10 @@
 
 ## Requirement
 
-- **Statement**: The Site Build MUST HTML-encode all editor-provided text by default and MUST render rich-text fields from a restricted format, removing or rejecting raw HTML, scripts, inline event handlers, iframes and `javascript:` URLs.
+- **Statement**: The Site Build MUST HTML-encode all editor-provided text by default and MUST render rich-text fields (Text bodies, Page content, News text, work short text, CV bio) from a restricted format allowing only paragraphs, headings h2–h3, bold, italic, links, lists, block quotes and, in Text bodies only, images from the Content Store, removing or rejecting raw HTML, scripts, inline event handlers, iframes and `javascript:` URLs.
 - **Rationale**: Stored content is untrusted; script in it would run for every visitor (SECURITY.md T-5, T-41; REF-XSS).
 - **Assumptions**: None
-- **Out of Scope**: Encoding in the Editing Interface (SEC-OUT-4, blocked by PQ-1); Instagram captions (SEC-OUT-3, blocked by PQ-7); client-side insertion (SEC-OUT-5, AQ-2).
+- **Out of Scope**: Encoding in the Editing Interface (SEC-OUT-4) and Instagram captions (SEC-OUT-3), both decomposed in the step 9 re-run; client-side insertion (SEC-OUT-5; small first-party JavaScript is allowed, ARCHITECTURE.md).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build templates only render (DR-3)
 - **Security Traceability**: SEC-OUT-1
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: OWASP XSS Prevention Cheat Sheet (`REF-XSS`, unversioned web resource cited by SECURITY.md)
@@ -64,7 +64,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Removed or rejected per SEC-OUT-1; if rejected, the build fails (SEC-INPUT-3)
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A
 - **On Security-Decision Failure**: Content the sanitizer cannot parse is rejected (build fails), never passed through
 - **On External Dependency Failure**: N/A
@@ -79,8 +79,8 @@
 - **Security Tests**: XSS payload corpus (script tags, event handlers, `javascript:` and `data:` URLs, SVG-in-HTML, malformed tags) in every text and rich-text field; browser check that nothing executes
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 → `test:OUTPUT-010/AC-01`; AC-02 → `test:OUTPUT-010/AC-02`; AC-03 → `test:OUTPUT-010/AC-03`; AC-04 → `test:OUTPUT-010/AC-04`
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
-- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); fixtures with hostile content
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Required Test Environment**: Site Build run locally against fixture content in the documented content model; Static site generator: Hugo (ARCHITECTURE.md Site Build); fixtures with hostile content
 
 ## Dependencies
 
@@ -92,9 +92,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Static site generator: TO BE DECIDED (PQ-16, ARCHITECTURE.md AQ-1); DEP-1 to DEP-8 apply to every dependency added; DEP-1: use a vetted HTML sanitizer or the generator's built-in safe rendering, not custom sanitizing code
+- **Constraints**: Static site generator: Hugo (ARCHITECTURE.md Site Build); DEP-1 to DEP-8 apply to every dependency added; DEP-1: use a vetted HTML sanitizer or the generator's built-in safe rendering, not custom sanitizing code
 - **Prohibited Approaches**: Disabling the generator's auto-escaping; marking content as safe HTML; regex-based HTML sanitizing
 - **Implementation Guidance**: Prefer a rich-text format that cannot express raw HTML; keep one rendering helper per field kind.
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`), because: Security-critical sanitizing and escaping; needs careful use of a vetted sanitizer and a hostile test corpus.
 - **Required Human Review**: Security review
-- **Open Decisions**: Non-blocking: PQ-16, PQ-20 (allowed rich-text elements beyond the SEC-OUT-1 examples; which fields are rich text).
+- **Open Decisions**: None (step 10: Hugo; allowed elements and rich-text fields as in SECURITY.md SEC-OUT-1).

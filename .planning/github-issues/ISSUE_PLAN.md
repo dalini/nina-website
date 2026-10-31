@@ -1,6 +1,6 @@
 # ISSUE_PLAN — nina-laaf.de
 
-Step 9 draft (`prompts/09-github-epic.md`), 2026-10-31. Nothing on GitHub was changed.
+Step 9 draft (`prompts/09-github-epic.md`), 2026-10-31, annotated in step 10 with the answers to PQ-1 to PQ-28. Nothing on GitHub was changed.
 
 ## Run Inputs
 
@@ -14,69 +14,71 @@ Step 9 draft (`prompts/09-github-epic.md`), 2026-10-31. Nothing on GitHub was ch
 - **Blocking** means the answer changes observable behavior, roles or permissions, auth, an API contract, data semantics, a trust boundary, a security control, failure behavior, or what an acceptance test can assert (prompt definition). Scope that depends on a blocking question is marked under Blocked Scope and is **not** decomposed into issues.
 - **Non-blocking** questions are technology selections, orderings, placements and content choices that leave every acceptance criterion pass/fail as written. They appear as `TO BE DECIDED` in the issues' Open Decisions. They still have to be answered before work on those issues starts, because an implementer must not make them alone (step 10).
 - Where a source states something plainly, the drafts follow it as written. FR-1.4, for example, makes every text field bilingual except work titles (FR-1.5).
-- Standards Alignment: SECURITY.md uses no ASVS identifiers until they are verified, so every issue carries `TO BE DECIDED` there. Only references SECURITY.md already cites (`REF-*`) or that define the mechanism (RFC 6797, WCAG 2.2, W3C CSP) are listed. Threat references are the STRIDE categories and T-IDs of SECURITY.md Threat Model v1, plus CWE identifiers where they match directly.
+- Standards Alignment: SECURITY.md uses no ASVS identifiers until they are verified; since step 10 every issue states the target (ASVS 5.0.0 Level 1) and marks NIST SP 800-53 and Zero Trust as not applicable. Only references SECURITY.md already cites (`REF-*`) or that define the mechanism (RFC 6797, WCAG 2.2, W3C CSP) are listed. Threat references are the STRIDE categories and T-IDs of SECURITY.md Threat Model v1, plus CWE identifiers where they match directly.
 - Models were verified against Anthropic's models overview (https://platform.claude.com/docs/models/overview) on 2026-10-31: Claude Fable 5.1 `claude-fable-5-1`, Claude Opus 5.5 `claude-opus-5-5`, Claude Sonnet 5.5 `claude-sonnet-5-5`. No issue is assigned to Fable (no leaf is long-horizon or cross-boundary) or to OpenAI GPT (the project uses no OpenAI tooling).
 
 ## Open Questions
 
-### Blocking (must be answered before a CREATE run)
+Step 10 (2026-10-31) answered every question below; the full record is `.planning/OPEN_QUESTIONS.md`, and the decisions are written into the spec files. Re-run step 9 (`DRAFT_ONLY`) to decompose the unblocked scope against the updated specs.
 
-| ID | Question | Source and conflict | Affected IDs |
-|---|---|---|---|
-| PQ-1 | Which editing system is used, and what are the Editing Interface ↔ Content Store write contract, the publish trigger to the Site Build, and the publish-status format the Editing Interface reads (DF-9)? | ARCHITECTURE.md AQ-3, Required Architecture Inputs (API style: TO BE DECIDED), DR-1, DR-8, DR-9 | FR-10.1 to FR-10.8; SEC-HTTP-4, SEC-OUT-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5 (uploads), SEC-PRIV-4 (uploads), SEC-AUTHZ-1 to -3, SEC-AUDIT-1, SEC-CICD-4 |
-| PQ-2 | How do editors authenticate, is a second factor required, and what are the session timeouts? | SECURITY.md SQ-1 | SEC-AUTHN-1, SEC-AUTHN-2, SEC-AUTHN-3; FR-10.5; editor-only previews (SEC-CICD-3 option) |
-| PQ-3 | Who besides Nina may edit, and does Nina name another owner who may add or remove editors? | SECURITY.md SQ-2 | SEC-AUTHZ-1 (allow-list), SEC-AUTHZ-2; FR-10.5 |
-| PQ-4 | Who is the maintainer, which access does that role hold, and how are templates and pipeline files kept outside editors' write access? | SECURITY.md SQ-10; ARCHITECTURE.md DR-8 | SEC-AUTHZ-3, SEC-AUTHZ-4, SEC-AVAIL-1 |
-| PQ-5 | Where are image originals stored, are responsive sizes produced by the Site Build or by the host, what are the upload size and pixel limits, what is the performance budget, and are images protected (watermarks, limited size)? The answer decides which component processes untrusted images. | ARCHITECTURE.md AQ-5; REQUIREMENTS.md NFR-1, OQ-9; SECURITY.md SQ-8, SEC-INPUT-5, T-8, T-17, T-25 | NFR-1; SEC-INPUT-5; SEC-PRIV-4; FR-10.2 |
-| PQ-6 | Which image and PDF metadata fields are kept when location and device data are removed? | SECURITY.md SQ-7, SEC-PRIV-4 | SEC-PRIV-4 |
-| PQ-7 | Instagram feed: loaded in the browser after consent, or copied at build time? How is consent stored, how is Instagram script isolated, which access method and token lifetime, are posts shown without Nina's review, what happens when a build-time refresh fails (last posts or none), and on which page does the feed appear? | REQUIREMENTS.md OQ-6, FR-8.2, FR-8.5; SECURITY.md SQ-4, SQ-15; ARCHITECTURE.md Instagram Feed Integration | FR-8.2, FR-8.3, FR-8.4 (feed states), FR-8.5; SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3, SEC-OUT-5, SEC-OUT-6, SEC-SECRET-3, SEC-HTTP-2 (Instagram origins) |
-| PQ-8 | Which language does a visitor see who has not chosen one, and what does the site root show? | REQUIREMENTS.md OQ-2, FR-1.6 | FR-1.6 |
-| PQ-9 | What does the visitor see when one language version of a field is empty? This also decides how migrated works with German-only materials appear. | REQUIREMENTS.md OQ-10, FR-1.7 | FR-1.7; visible result of FR-11.1 |
-| PQ-10 | Does the home page show one large featured image or a selection, and what home page content exists besides the artist's name? | REQUIREMENTS.md OQ-3, FR-2.1 | FR-2.1, FR-2.2 |
-| PQ-11 | What dates does an Exhibition/News entry have (one date, start and end, optional end), are boundary days inclusive, and against which time zone is the current date taken for upcoming/current/past? How do News entries fit FR-4.2, whose type list (solo, two-person, group, fair) has no news type? | REQUIREMENTS.md FR-4.1, FR-4.2 (gap; no source defines the date fields or a news type); ARCHITECTURE.md Site Build (scheduled builds ASSUMPTION) | FR-4.1 to FR-4.5, FR-3.9; scheduled builds |
-| PQ-12 | Who holds the registrar, DNS and hosting accounts for `nina-laaf.de` today, and who will? | SECURITY.md SQ-13; ARCHITECTURE.md AQ-4 | SEC-HOST-1 |
-| PQ-13 | FR-3.2 says a work page MUST show materials and dimensions, but FR-10.6 does not require them on save. Are they required? Which fields are required for Texts, CV entries and Downloads, and must the Contact email address and the Impressum and Datenschutzerklärung Pages exist for a build to succeed? | REQUIREMENTS.md FR-3.2 vs FR-10.6 (conflict); DR-3 | FR-3.2 (empty materials or dimensions); required-field rules beyond FR-10.6; missing Contact email or legal Page (FR-7.1, FR-9.1) |
-| PQ-14 | How often are backups made, where are they kept, for how long, and who tests restoring? Must content removed for legal reasons also be removed from history and backups, and who may do that? | SECURITY.md SQ-11, SQ-12, SEC-AVAIL-1, SEC-AUDIT-1 | SEC-AVAIL-1; SEC-AUDIT-1 exceptions |
-| PQ-15 | Legacy migration: which of the 53 legacy works are selected, and how are their single-language values mapped? Legacy materials exist only in German, and legacy alt text is only the work title, while FR-1.4 needs both languages and FR-3.7/FR-10.6 need alt text. Who writes the English values and real alt text? | REQUIREMENTS.md OQ-1, FR-11.1 vs FR-1.4, FR-3.7, FR-10.6 (conflict); legacy format checked in `docs/legacy-content/works/` | FR-11.1, FR-11.2 (import part) |
+### Blocking (answered in step 10)
 
-### Non-blocking (TO BE DECIDED in the affected issues; answer before work starts)
+| ID | Question | Source and conflict | Affected IDs | Step 10 answer |
+|---|---|---|---|---|
+| PQ-1 | Which editing system is used, and what are the Editing Interface ↔ Content Store write contract, the publish trigger to the Site Build, and the publish-status format the Editing Interface reads (DF-9)? | ARCHITECTURE.md AQ-3, Required Architecture Inputs (API style: TO BE DECIDED), DR-1, DR-8, DR-9 | FR-10.1 to FR-10.8; SEC-HTTP-4, SEC-OUT-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5 (uploads), SEC-PRIV-4 (uploads), SEC-AUTHZ-1 to -3, SEC-AUDIT-1, SEC-CICD-4 | Sveltia CMS on `edit.nina-laaf.de`, committing via the GitHub API with the editor's token; `dalini/nina-site` polls `main` every 5 minutes (no trigger secret); status JSON + banner (Q-2 to Q-2d) |
+| PQ-2 | How do editors authenticate, is a second factor required, and what are the session timeouts? | SECURITY.md SQ-1 | SEC-AUTHN-1, SEC-AUTHN-2, SEC-AUTHN-3; FR-10.5; editor-only previews (SEC-CICD-3 option) | GitHub OAuth, individual accounts, 2FA required; 30 min idle / 8 h max (Q-9) |
+| PQ-3 | Who besides Nina may edit, and does Nina name another owner who may add or remove editors? | SECURITY.md SQ-2 | SEC-AUTHZ-1 (allow-list), SEC-AUTHZ-2; FR-10.5 | Editors and owners: Nina and Ives; only Ives is GitHub admin; changes logged in `EDITORS.md` (Q-10 to Q-10c) |
+| PQ-4 | Who is the maintainer, which access does that role hold, and how are templates and pipeline files kept outside editors' write access? | SECURITY.md SQ-10; ARCHITECTURE.md DR-8 | SEC-AUTHZ-3, SEC-AUTHZ-4, SEC-AVAIL-1 | Maintainer Ives; two repositories (`dalini/nina-site` maintainer-only, `dalini/nina-content`); accepted risk for Ives's CMS token (Q-11 to Q-11e) |
+| PQ-5 | Where are image originals stored, are responsive sizes produced by the Site Build or by the host, what are the upload size and pixel limits, what is the performance budget, and are images protected (watermarks, limited size)? The answer decides which component processes untrusted images. | ARCHITECTURE.md AQ-5; REQUIREMENTS.md NFR-1, OQ-9; SECURITY.md SQ-8, SEC-INPUT-5, T-8, T-17, T-25 | NFR-1; SEC-INPUT-5; SEC-PRIV-4; FR-10.2 | Originals in Git without LFS; Hugo builds sizes; max 2400 px, no watermark; Core Web Vitals 'good'; 10 MB / 20 MB / 40 MP (Q-3, Q-5, Q-28 to Q-30) |
+| PQ-6 | Which image and PDF metadata fields are kept when location and device data are removed? | SECURITY.md SQ-7, SEC-PRIV-4 | SEC-PRIV-4 | Keep copyright and creator only (Q-31) |
+| PQ-7 | Instagram feed: loaded in the browser after consent, or copied at build time? How is consent stored, how is Instagram script isolated, which access method and token lifetime, are posts shown without Nina's review, what happens when a build-time refresh fails (last posts or none), and on which page does the feed appear? | REQUIREMENTS.md OQ-6, FR-8.2, FR-8.5; SECURITY.md SQ-4, SQ-15; ARCHITECTURE.md Instagram Feed Integration | FR-8.2, FR-8.3, FR-8.4 (feed states), FR-8.5; SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3, SEC-OUT-5, SEC-OUT-6, SEC-SECRET-3, SEC-HTTP-2 (Instagram origins) | Build-time copy; Instagram API with Instagram Login, `instagram_business_basic`; token on the VPS, monthly cron refresh; last posts kept on failure; automatic with hide list and feed switch; home page, 6 posts (Q-23 to Q-27, Q-24b, Q-26b) |
+| PQ-8 | Which language does a visitor see who has not chosen one, and what does the site root show? | REQUIREMENTS.md OQ-2, FR-1.6 | FR-1.6 | English at `/`, German under `/de/`, no redirect (Q-13) |
+| PQ-9 | What does the visitor see when one language version of a field is empty? This also decides how migrated works with German-only materials appear. | REQUIREMENTS.md OQ-10, FR-1.7 | FR-1.7; visible result of FR-11.1 | Show the other language with its `lang` attribute (Q-14); legacy German-only values use it (Q-22b) |
+| PQ-10 | Does the home page show one large featured image or a selection, and what home page content exists besides the artist's name? | REQUIREMENTS.md OQ-3, FR-2.1 | FR-2.1, FR-2.2 | One featured work (exactly one; legacy flag ignored, newest work at launch) + one Exhibition entry (current, else next upcoming, else latest past) + Instagram posts (Q-15, Q-15b, Q-53, Q-56) |
+| PQ-11 | What dates does an Exhibition/News entry have (one date, start and end, optional end), are boundary days inclusive, and against which time zone is the current date taken for upcoming/current/past? How do News entries fit FR-4.2, whose type list (solo, two-person, group, fair) has no news type? | REQUIREMENTS.md FR-4.1, FR-4.2 (gap; no source defines the date fields or a news type); ARCHITECTURE.md Site Build (scheduled builds ASSUMPTION) | FR-4.1 to FR-4.5, FR-3.9; scheduled builds | Start and end date required, inclusive, Europe/Berlin; order Q-54; News is a separate object (title, date; optional text, link, image), own section, newest first (Q-16 to Q-16c) |
+| PQ-12 | Who holds the registrar, DNS and hosting accounts for `nina-laaf.de` today, and who will? | SECURITY.md SQ-13; ARCHITECTURE.md AQ-4 | SEC-HOST-1 | Ives holds registrar, DNS and VPS accounts (Q-12) |
+| PQ-13 | FR-3.2 says a work page MUST show materials and dimensions, but FR-10.6 does not require them on save. Are they required? Which fields are required for Texts, CV entries and Downloads, and must the Contact email address and the Impressum and Datenschutzerklärung Pages exist for a build to succeed? | REQUIREMENTS.md FR-3.2 vs FR-10.6 (conflict); DR-3 | FR-3.2 (empty materials or dimensions); required-field rules beyond FR-10.6; missing Contact email or legal Page (FR-7.1, FR-9.1) | Materials and dimensions optional; Text, CV, Download, News, Exhibition required fields as FR-10.6; build fails without Contact email, legal Pages or a featured work (Q-18, Q-18b, Q-52, Q-53) |
+| PQ-14 | How often are backups made, where are they kept, for how long, and who tests restoring? Must content removed for legal reasons also be removed from history and backups, and who may do that? | SECURITY.md SQ-11, SQ-12, SEC-AVAIL-1, SEC-AUDIT-1 | SEC-AVAIL-1; SEC-AUDIT-1 exceptions | Weekly mirror to the VPS, 30 days, yearly restore test by Ives; legal purge only by Ives with a record (Q-34, Q-35) |
+| PQ-15 | Legacy migration: which of the 53 legacy works are selected, and how are their single-language values mapped? Legacy materials exist only in German, and legacy alt text is only the work title, while FR-1.4 needs both languages and FR-3.7/FR-10.6 need alt text. Who writes the English values and real alt text? | REQUIREMENTS.md OQ-1, FR-11.1 vs FR-1.4, FR-3.7, FR-10.6 (conflict); legacy format checked in `docs/legacy-content/works/` | FR-11.1, FR-11.2 (import part) | All 53 imported; 41 published, 12 without year unpublished; German only; interim alt text 'title, view n' (Q-22, Q-22b, Q-22c, Q-55) |
 
-| ID | Question | Source | Affected |
-|---|---|---|---|
-| PQ-16 | Which static site generator? (Some test inputs, e.g. template syntax for REQ-OUTPUT-020, depend on it.) | ARCHITECTURE.md AQ-1 | Every Site Build issue |
-| PQ-17 | Which hosting provider and CI/CD platform? Does the host make previews? What are the HSTS max-age and exact CSP directives? Which secret store, and who rotates secrets? What does the host log about visitors? Does the provider absorb traffic floods, and is a cost limit needed? | ARCHITECTURE.md AQ-4; SECURITY.md SEC-HTTP-1, SEC-HTTP-2, SQ-3, SQ-6, SQ-14 | REQ-HTTP-*, REQ-PIPELINE-*, REQ-LEGAL-010 (logs in the Datenschutzerklärung) |
-| PQ-18 | Content storage format and the form of the Content Store (version-controlled repository with large-file storage is an ASSUMPTION). | ARCHITECTURE.md Data model expectations, AQ-5, DR-4 | REQ-CONTENT-010, REQ-CONTENT-020, REQ-PIPELINE-010 |
-| PQ-19 | Order of lists (works, texts, CV entries, downloads), and the pages that carry the downloads (FR-6.1) and the Instagram link (FR-8.1). No source fixes either. | REQUIREMENTS.md FR-3.1, FR-5.1, FR-5.2, FR-6.1, FR-8.1 | REQ-WORKS-010, REQ-TEXTS-010, REQ-CV-010, REQ-DOWNLOADS-010, REQ-INSTAGRAM-010 |
-| PQ-20 | Which rich-text elements are allowed beyond the SEC-OUT-1 examples (headings, emphasis, links, lists), and which fields are rich text? | SECURITY.md SEC-OUT-1 | REQ-OUTPUT-010, REQ-CONTENT-020, REQ-TEXTS-010 |
-| PQ-21 | Which browsers and versions count as "current" for NFR-4? | REQUIREMENTS.md NFR-4 | All UI issues |
-| PQ-22 | Which portfolio PDFs are offered? | REQUIREMENTS.md OQ-4 | REQ-DOWNLOADS-010 (content only) |
-| PQ-23 | Are the CV sections for solo exhibitions, group exhibitions and works in public space entered as their own CV entries (as the sources read today), or derived from Exhibition entries and public-space works? Is the short bio a CV entry? Are empty sections shown? | REQUIREMENTS.md FR-5.2, Business objects | REQ-CONTENT-020, REQ-CV-010 |
-| PQ-24 | Is a work's year always a single year, or can it be a range? | REQUIREMENTS.md FR-3.2 | REQ-CONTENT-010, REQ-WORKS-020 |
-| PQ-25 | Design open questions: brand direction, header mark or wordmark, custom typeface, dark mode. | DESIGN.md DQ-1 to DQ-4 | REQ-NAV-010 (header), all UI issues |
-| PQ-26 | Is galerie burster named as the contact for sales? (This is Contact Page wording.) | REQUIREMENTS.md OQ-5, FR-7.2 | REQ-CONTACT-010 (content only) |
-| PQ-27 | Does the Public Site need any client-side code beyond the consent-gated feed? No drafted issue needs any; SEC-OUT-5 applies as soon as some is added. | ARCHITECTURE.md AQ-2; SECURITY.md SEC-OUT-5 | SEC-OUT-5; REQ-NAV-020 |
-| PQ-28 | What is the security assurance target (e.g. an ASVS 5.0.0 level)? This decides the Standards Alignment mappings. | SECURITY.md SQ-9 | Standards Alignment of every issue |
+### Non-blocking (answered in step 10; the affected issues carry the values)
 
-Recorded, not decomposed: REQUIREMENTS.md OQ-7 (newsletter) and OQ-8 (analytics) have no requirement yet. The default for OQ-8 (no analytics, SEC-PRIV-5) is implemented in REQ-PRIV-010. FR-10.4 maximum publish delay and FR-10.8 notification recipients are `TO BE DECIDED` in the sources and stay so in REQ-PIPELINE-010 and REQ-CONTENT-030.
+| ID | Question | Source | Affected | Step 10 answer |
+|---|---|---|---|---|
+| PQ-16 | Which static site generator? (Some test inputs, e.g. template syntax for REQ-OUTPUT-020, depend on it.) | ARCHITECTURE.md AQ-1 | Every Site Build issue | Hugo (Q-1) |
+| PQ-17 | Which hosting provider and CI/CD platform? Does the host make previews? What are the HSTS max-age and exact CSP directives? Which secret store, and who rotates secrets? What does the host log about visitors? Does the provider absorb traffic floods, and is a cost limit needed? | ARCHITECTURE.md AQ-4; SECURITY.md SEC-HTTP-1, SEC-HTTP-2, SQ-3, SQ-6, SQ-14 | REQ-HTTP-*, REQ-PIPELINE-*, REQ-LEGAL-010 (logs in the Datenschutzerklärung) | VPS in Germany with nginx; GitHub Actions; protected preview site; HSTS 1 year + includeSubDomains; CSP self-only; GitHub Actions secrets; full IP logs 14 days; nginx rate limits (Q-4 to Q-4f, Q-33, Q-36 to Q-38) |
+| PQ-18 | Content storage format and the form of the Content Store (version-controlled repository with large-file storage is an ASSUMPTION). | ARCHITECTURE.md Data model expectations, AQ-5, DR-4 | REQ-CONTENT-010, REQ-CONTENT-020, REQ-PIPELINE-010 | Markdown with YAML front matter in private `dalini/nina-content` (Q-3) |
+| PQ-19 | Order of lists (works, texts, CV entries, downloads), and the pages that carry the downloads (FR-6.1) and the Instagram link (FR-8.1). No source fixes either. | REQUIREMENTS.md FR-3.1, FR-5.1, FR-5.2, FR-6.1, FR-8.1 | REQ-WORKS-010, REQ-TEXTS-010, REQ-CV-010, REQ-DOWNLOADS-010, REQ-INSTAGRAM-010 | Works newest year first + manual; Texts manual with optional year; CV newest first per section; Downloads on CV page; Instagram link in footer (Q-21, Q-51) |
+| PQ-20 | Which rich-text elements are allowed beyond the SEC-OUT-1 examples (headings, emphasis, links, lists), and which fields are rich text? | SECURITY.md SEC-OUT-1 | REQ-OUTPUT-010, REQ-CONTENT-020, REQ-TEXTS-010 | Paragraphs, h2–h3, bold, italic, links, lists, block quotes; images in Text bodies only; rich text in Text bodies, Page content, News text, work short text, CV bio (Q-20) |
+| PQ-21 | Which browsers and versions count as "current" for NFR-4? | REQUIREMENTS.md NFR-4 | All UI issues | Last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS), Samsung Internet (Q-49) |
+| PQ-22 | Which portfolio PDFs are offered? | REQUIREMENTS.md OQ-4 | REQ-DOWNLOADS-010 (content only) | No fixed list; Nina publishes PDFs in the CMS (Q-40) |
+| PQ-23 | Are the CV sections for solo exhibitions, group exhibitions and works in public space entered as their own CV entries (as the sources read today), or derived from Exhibition entries and public-space works? Is the short bio a CV entry? Are empty sections shown? | REQUIREMENTS.md FR-5.2, Business objects | REQ-CONTENT-020, REQ-CV-010 | Derived from Exhibition entries (solo/two-person → solo, group/fair → group; past and current) and public-space works, editable (hide, override, add); bio is a CV entry without year; empty sections hidden (Q-19 to Q-19c, Q-57, Q-58) |
+| PQ-24 | Is a work's year always a single year, or can it be a range? | REQUIREMENTS.md FR-3.2 | REQ-CONTENT-010, REQ-WORKS-020 | Single four-digit year (Q-17) |
+| PQ-25 | Design open questions: brand direction, header mark or wordmark, custom typeface, dark mode. | DESIGN.md DQ-1 to DQ-4 | REQ-NAV-010 (header), all UI issues | Quiet, image-first; header wordmark only; system font stack; light + dark (Q-45 to Q-48b); final mark deferred |
+| PQ-26 | Is galerie burster named as the contact for sales? (This is Contact Page wording.) | REQUIREMENTS.md OQ-5, FR-7.2 | REQ-CONTACT-010 (content only) | Linked as her gallery, not named as sales contact (Q-41) |
+| PQ-27 | Does the Public Site need any client-side code beyond the consent-gated feed? No drafted issue needs any; SEC-OUT-5 applies as soon as some is added. | ARCHITECTURE.md AQ-2; SECURITY.md SEC-OUT-5 | SEC-OUT-5; REQ-NAV-020 | Small first-party vanilla JavaScript allowed (Q-6) |
+| PQ-28 | What is the security assurance target (e.g. an ASVS 5.0.0 level)? This decides the Standards Alignment mappings. | SECURITY.md SQ-9 | Standards Alignment of every issue | ASVS 5.0.0 Level 1; NIST SP 800-53 and Zero Trust not applicable (Q-39) |
+
+Step 10 also decided: no newsletter (FR-7.4); no analytics in pages, statistics only from nginx logs (SEC-PRIV-5, SEC-PRIV-6); maximum publish delay 15 minutes (FR-10.4); failed publishes email Ives (FR-10.8).
 
 ## Blocked Scope
 
-These requirements have no issues yet. After step 10 answers the listed questions, re-run step 9 to decompose them. The specs will have changed by then, so the prompt re-decomposes rather than creating from these drafts as-is.
+Step 10 answered every listed question, so all rows below are unblocked but have no issues yet; re-run step 9 to decompose them. The specs will have changed by then, so the prompt re-decomposes rather than creating from these drafts as-is.
 
-| Capability | Blocking questions | Requirements |
+| Capability | Questions (answered in step 10) | Requirements |
 |---|---|---|
 | Content editing (Editing Interface) | PQ-1, PQ-2, PQ-3, PQ-4, PQ-5, PQ-6 | FR-10.1 to FR-10.8 (editor side), SEC-AUTHN-1 to -3, SEC-AUTHZ-1 to -3, SEC-HTTP-4, SEC-OUT-4, SEC-INPUT-1, SEC-INPUT-2, SEC-CICD-4, DR-9 |
 | Content Store access, history and backups | PQ-1, PQ-4, PQ-14 | SEC-AUTHZ-4, SEC-AUDIT-1, SEC-AVAIL-1, FR-10.7 |
 | Images: responsive sizes, processing limits, metadata | PQ-5, PQ-6 | NFR-1, SEC-INPUT-5, SEC-PRIV-4 (images and PDFs) |
-| Home page | PQ-10 | FR-2.1, FR-2.2 |
-| Exhibitions and News | PQ-11 | FR-4.1 to FR-4.5, FR-3.9, scheduled builds |
+| Home page | PQ-10 | FR-2.1 to FR-2.4 |
+| Exhibitions and News | PQ-11 | FR-4.1 to FR-4.6, FR-3.9, FR-5.3, FR-5.4, scheduled builds |
 | Instagram feed | PQ-7 | FR-8.2, FR-8.3, FR-8.4 (feed states), FR-8.5, SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3, SEC-OUT-5, SEC-OUT-6, SEC-SECRET-3, SEC-HTTP-2 (Instagram origins) |
 | Default language and empty-language fallback | PQ-8, PQ-9 | FR-1.6, FR-1.7 |
 | Required fields beyond FR-10.6 | PQ-13 | FR-3.2 (empty materials/dimensions), required fields of Text, CV entry, Download, missing Contact email or legal Page |
 | Domain, DNS and hosting accounts | PQ-12 | SEC-HOST-1 |
-| Legacy migration | PQ-15, PQ-9 | FR-11.1, FR-11.2 (import) |
+| Legacy migration | PQ-15, PQ-9 | FR-11.1 to FR-11.4 |
 
-Release gate: until the Images row is unblocked and done, REQ-WORKS-030 and REQ-DOWNLOADS-010 would publish original images and unchecked PDFs (NFR-1, SEC-PRIV-4, SECURITY.md T-25). The epic stays unreleasable until then, and both issues say so in their Constraints.
+Release gate: until the Images row is decomposed and done, REQ-WORKS-030 and REQ-DOWNLOADS-010 would publish original images and unchecked PDFs (NFR-1, SEC-PRIV-4, SECURITY.md T-25). The epic stays unreleasable until then, and both issues say so in their Constraints.
 
 ## Coverage
 
@@ -87,10 +89,10 @@ Release gate: until the Images row is unblocked and done, REQ-WORKS-030 and REQ-
 | FR-1.3 | REQ-NAV-020 | Site Build, Public Site (TB-1) | SEC-OUT-5 (only with client-side code, PQ-27) | Components (Language switch) | COVERED |
 | FR-1.4 | REQ-CONTENT-010, REQ-CONTENT-020, REQ-NAV-020 | Content Store, Site Build (TB-4) | SEC-OUT-1 | — | COVERED |
 | FR-1.5 | REQ-CONTENT-010, REQ-NAV-020, REQ-WORKS-020 | Content Store, Site Build | — | Typography (original casing) | COVERED |
-| FR-1.6 | — | Site Build, Public Site (TB-1) | — | Components (Language switch) | BLOCKED (PQ-8) |
-| FR-1.7 | — | Site Build, Public Site (TB-1) | — | — | BLOCKED (PQ-9) |
-| FR-2.1 | — | Site Build, Public Site (TB-1) | — | — | BLOCKED (PQ-10) |
-| FR-2.2 | — | Site Build, Public Site (TB-1) | — | — | BLOCKED (PQ-10) |
+| FR-1.6 | — | Site Build, Public Site (TB-1) | — | Components (Language switch) | NOT YET DECOMPOSED (unblocked in step 10: PQ-8) |
+| FR-1.7 | — | Site Build, Public Site (TB-1) | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-9) |
+| FR-2.1 | — | Site Build, Public Site (TB-1) | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-10) |
+| FR-2.2 | — | Site Build, Public Site (TB-1) | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-10) |
 | FR-3.1 | REQ-WORKS-010, REQ-CONTENT-040 | Site Build, Public Site (TB-1) | SEC-INPUT-4 | Layout and Spacing (Grid) | COVERED |
 | FR-3.2 | REQ-CONTENT-010, REQ-WORKS-020 | Site Build, Public Site (TB-1) | SEC-OUT-1 | Components (Work metadata) | PARTIALLY COVERED (empty materials/dimensions: PQ-13) |
 | FR-3.3 | REQ-CONTENT-010, REQ-WORKS-020 | Site Build, Public Site (TB-1) | — | Components (Work metadata) | COVERED |
@@ -99,12 +101,12 @@ Release gate: until the Images row is unblocked and done, REQ-WORKS-030 and REQ-
 | FR-3.6 | REQ-CONTENT-010, REQ-WORKS-030 | Site Build, Public Site (TB-1) | — | Layout and Spacing (no cropping) | COVERED (image sizes: NFR-1, blocked) |
 | FR-3.7 | REQ-CONTENT-010, REQ-WORKS-030 | Site Build, Public Site (TB-1) | — | Components (Image with credit), Accessibility | COVERED |
 | FR-3.8 | REQ-CONTENT-010, REQ-WORKS-010 | Site Build, Public Site (TB-1) | — | Layout and Spacing (Grid) | COVERED |
-| FR-3.9 | — | Site Build, Public Site (TB-1) | — | — | BLOCKED (PQ-11) |
-| FR-4.1 | — | Content Store, Site Build | — | — | BLOCKED (PQ-11) |
-| FR-4.2 | — | Content Store, Site Build | — | — | BLOCKED (PQ-11) |
-| FR-4.3 | — | Content Store, Site Build | SEC-OUT-2 (FR-4.3 links) | — | BLOCKED (PQ-11) |
-| FR-4.4 | — | Content Store, Site Build | — | — | BLOCKED (PQ-11) |
-| FR-4.5 | — | Content Store, Site Build | — | — | BLOCKED (PQ-11) |
+| FR-3.9 | — | Site Build, Public Site (TB-1) | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
+| FR-4.1 | — | Content Store, Site Build | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
+| FR-4.2 | — | Content Store, Site Build | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
+| FR-4.3 | — | Content Store, Site Build | SEC-OUT-2 (FR-4.3 links) | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
+| FR-4.4 | — | Content Store, Site Build | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
+| FR-4.5 | — | Content Store, Site Build | — | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-11) |
 | FR-5.1 | REQ-CONTENT-020, REQ-TEXTS-010 | Site Build, Public Site (TB-1) | SEC-OUT-1, SEC-INPUT-4 | Typography | COVERED |
 | FR-5.2 | REQ-CONTENT-020, REQ-CV-010 | Site Build, Public Site (TB-1) | SEC-OUT-1 | Typography | COVERED |
 | FR-6.1 | REQ-CONTENT-020, REQ-DOWNLOADS-010 | Site Build, Public Site (TB-1) | SEC-INPUT-4; SEC-PRIV-4 (blocked) | Components (Links) | COVERED (placement PQ-19; PDF metadata release gate) |
@@ -113,69 +115,69 @@ Release gate: until the Images row is unblocked and done, REQ-WORKS-030 and REQ-
 | FR-7.2 | REQ-CONTENT-020, REQ-CONTACT-010 | Site Build, Public Site (TB-1) | SEC-OUT-2 | Components (Links) | COVERED |
 | FR-7.3 | — | — | — | — | OUT OF SCOPE (not part of this release, FR-7.3) |
 | FR-8.1 | REQ-INSTAGRAM-010 | Site Build, Public Site (TB-1) | SEC-PRIV-1, SEC-OUT-2 | Components (Links) | COVERED |
-| FR-8.2 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | BLOCKED (PQ-7) |
-| FR-8.3 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | BLOCKED (PQ-7) |
-| FR-8.5 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | BLOCKED (PQ-7) |
+| FR-8.2 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| FR-8.3 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| FR-8.5 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2, SEC-PRIV-3, SEC-OUT-3 | Components (Consent placeholder) | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
 | FR-8.4 | REQ-INSTAGRAM-010 | Public Site (TB-1, TB-5) | SEC-PRIV-1 | Components (Consent placeholder) | PARTIALLY COVERED (link; feed states blocked by PQ-7) |
 | FR-9.1 | REQ-LEGAL-010 | Site Build, Public Site (TB-1) | — | Components (Links) | COVERED |
-| FR-10.1 | — | Editing Interface (TB-2, TB-3) | SEC-AUTHN-1, SEC-AUTHZ-1 | Components (Inputs and form feedback) | BLOCKED (PQ-1) |
-| FR-10.2 | — | Editing Interface (TB-2) | SEC-INPUT-1, SEC-INPUT-2, SEC-PRIV-4 | Components (Inputs and form feedback) | BLOCKED (PQ-1, PQ-5, PQ-6) |
+| FR-10.1 | — | Editing Interface (TB-2, TB-3) | SEC-AUTHN-1, SEC-AUTHZ-1 | Components (Inputs and form feedback) | NOT YET DECOMPOSED (unblocked in step 10: PQ-1) |
+| FR-10.2 | — | Editing Interface (TB-2) | SEC-INPUT-1, SEC-INPUT-2, SEC-PRIV-4 | Components (Inputs and form feedback) | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-5, PQ-6) |
 | FR-10.3 | REQ-CONTENT-010 | Content Store; Editing Interface | — | — | PARTIALLY COVERED (flags in the model; setting them: PQ-1) |
 | FR-10.4 | REQ-PIPELINE-010 | Site Build → Static Hosting (TB-4) | SEC-CICD-1, SEC-CICD-4 | — | PARTIALLY COVERED (deploy of main; save/publish trigger: PQ-1) |
-| FR-10.5 | — | Editing Interface, Content Store | SEC-AUTHN-1, SEC-AUTHZ-1, SEC-AUTHZ-2 | — | BLOCKED (PQ-1, PQ-2, PQ-3) |
+| FR-10.5 | — | Editing Interface, Content Store | SEC-AUTHN-1, SEC-AUTHZ-1, SEC-AUTHZ-2 | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-2, PQ-3) |
 | FR-10.6 | REQ-CONTENT-010, REQ-CONTENT-030 | Site Build (TB-4); Editing Interface | SEC-INPUT-3 | Components (Inputs and form feedback) | PARTIALLY COVERED (build recheck; editor rejection: PQ-1) |
-| FR-10.7 | — | Editing Interface, Content Store | SEC-AUDIT-1 | — | BLOCKED (PQ-1, PQ-14) |
+| FR-10.7 | — | Editing Interface, Content Store | SEC-AUDIT-1 | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-14) |
 | FR-10.8 | REQ-CONTENT-030 | Site Build; Editing Interface (DF-9) | SEC-INPUT-3 | — | PARTIALLY COVERED (failing item and field in the build report; display: PQ-1) |
-| FR-11.1 | — | Content Store (DF-3) | SEC-OUT-1, SEC-PRIV-4 | — | BLOCKED (PQ-15, PQ-9) |
+| FR-11.1 | — | Content Store (DF-3) | SEC-OUT-1, SEC-PRIV-4 | — | NOT YET DECOMPOSED (unblocked in step 10: PQ-15, PQ-9) |
 | FR-11.2 | REQ-CONTENT-040 | Site Build | SEC-INPUT-4 | — | PARTIALLY COVERED (unpublished items never reach the output; import: PQ-15) |
-| NFR-1 | — | Site Build or Static Hosting | SEC-INPUT-5 | Layout and Spacing | BLOCKED (PQ-5) |
+| NFR-1 | — | Site Build or Static Hosting | SEC-INPUT-5 | Layout and Spacing | NOT YET DECOMPOSED (unblocked in step 10: PQ-5) |
 | NFR-2 | REQ-NAV-010, REQ-NAV-020 | Site Build, Public Site (TB-1) | — | — | COVERED |
 | NFR-3 | REQ-PRIV-010, REQ-HTTP-020 | Site Build, Public Site (TB-1) | SEC-PRIV-1, SEC-HTTP-2 | Typography (system fonts) | COVERED |
 | NFR-4 | REQ-NAV-010, REQ-NAV-020, REQ-LEGAL-010, REQ-WORKS-010, REQ-WORKS-020, REQ-WORKS-030, REQ-TEXTS-010, REQ-CV-010, REQ-DOWNLOADS-010, REQ-CONTACT-010, REQ-INSTAGRAM-010, REQ-HTTP-010 | Site Build, Public Site (TB-1) | SEC-HTTP-1 | Layout and Spacing (Breakpoints) | COVERED (browser list PQ-21) |
 | SEC-HTTP-1 | REQ-HTTP-010 | Static Hosting (TB-1) | SEC-HTTP-1 | N/A | COVERED |
 | SEC-HTTP-2 | REQ-HTTP-020 | Static Hosting, Public Site (TB-1) | SEC-HTTP-2 | N/A | PARTIALLY COVERED (Instagram origins: PQ-7) |
 | SEC-HTTP-3 | REQ-HTTP-030 | Static Hosting (TB-1) | SEC-HTTP-3 | N/A | COVERED |
-| SEC-HTTP-4 | — | Editing Interface (TB-2) | SEC-HTTP-4 | N/A | BLOCKED (PQ-1) |
-| SEC-HOST-1 | — | Domain, DNS, Static Hosting (TB-1) | SEC-HOST-1 | N/A | BLOCKED (PQ-12) |
+| SEC-HTTP-4 | — | Editing Interface (TB-2) | SEC-HTTP-4 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1) |
+| SEC-HOST-1 | — | Domain, DNS, Static Hosting (TB-1) | SEC-HOST-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-12) |
 | SEC-PRIV-1 | REQ-PRIV-010, REQ-INSTAGRAM-010 | Public Site, Site Build (TB-1) | SEC-PRIV-1 | N/A | COVERED |
-| SEC-PRIV-2 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2 | N/A | BLOCKED (PQ-7) |
-| SEC-PRIV-3 | — | Instagram Feed Integration, Site Build (TB-5) | SEC-PRIV-3 | N/A | BLOCKED (PQ-7) |
-| SEC-PRIV-4 | — | Editing Interface, Site Build | SEC-PRIV-4 | N/A | BLOCKED (PQ-5, PQ-6; uploads PQ-1) |
+| SEC-PRIV-2 | — | Instagram Feed Integration (TB-5) | SEC-PRIV-2 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| SEC-PRIV-3 | — | Instagram Feed Integration, Site Build (TB-5) | SEC-PRIV-3 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| SEC-PRIV-4 | — | Editing Interface, Site Build | SEC-PRIV-4 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-5, PQ-6; uploads PQ-1) |
 | SEC-PRIV-5 | REQ-PRIV-010 | Public Site | SEC-PRIV-5 | N/A | COVERED (default: none, OQ-8) |
 | SEC-OUT-1 | REQ-OUTPUT-010 | Site Build (TB-4) | SEC-OUT-1 | N/A | COVERED |
 | SEC-OUT-2 | REQ-OUTPUT-030 | Site Build | SEC-OUT-2 | N/A | COVERED |
-| SEC-OUT-3 | — | Instagram Feed Integration, Site Build (TB-5) | SEC-OUT-3 | N/A | BLOCKED (PQ-7) |
-| SEC-OUT-4 | — | Editing Interface (TB-2) | SEC-OUT-4 | N/A | BLOCKED (PQ-1) |
-| SEC-OUT-5 | — | Public Site client-side code | SEC-OUT-5 | N/A | BLOCKED (PQ-7; applies only with client-side code, PQ-27) |
-| SEC-OUT-6 | — | Instagram Feed Integration, Public Site (TB-5) | SEC-OUT-6 | N/A | BLOCKED (PQ-7) |
-| SEC-AUTHN-1 | — | Editing Interface (TB-2) | SEC-AUTHN-1 | N/A | BLOCKED (PQ-1, PQ-2) |
-| SEC-AUTHN-2 | — | Editing Interface (TB-2) | SEC-AUTHN-2 | N/A | BLOCKED (PQ-1, PQ-2) |
-| SEC-AUTHN-3 | — | Editing Interface (TB-2) | SEC-AUTHN-3 | N/A | BLOCKED (PQ-1, PQ-2) |
-| SEC-AUTHZ-1 | — | Content Store, Editing Interface (TB-3) | SEC-AUTHZ-1 | N/A | BLOCKED (PQ-1, PQ-3) |
-| SEC-AUTHZ-2 | — | Editing Interface, Content Store | SEC-AUTHZ-2 | N/A | BLOCKED (PQ-1, PQ-3) |
-| SEC-AUTHZ-3 | — | Content Store, Editing Interface, Site Build (TB-3, TB-4) | SEC-AUTHZ-3 | N/A | BLOCKED (PQ-1, PQ-4) |
-| SEC-AUTHZ-4 | — | Content Store (TB-3) | SEC-AUTHZ-4 | N/A | BLOCKED (PQ-4) |
-| SEC-AUDIT-1 | — | Content Store, Editing Interface | SEC-AUDIT-1 | N/A | BLOCKED (PQ-1, PQ-14) |
+| SEC-OUT-3 | — | Instagram Feed Integration, Site Build (TB-5) | SEC-OUT-3 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| SEC-OUT-4 | — | Editing Interface (TB-2) | SEC-OUT-4 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1) |
+| SEC-OUT-5 | — | Public Site client-side code | SEC-OUT-5 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7; applies only with client-side code, PQ-27) |
+| SEC-OUT-6 | — | Instagram Feed Integration, Public Site (TB-5) | SEC-OUT-6 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
+| SEC-AUTHN-1 | — | Editing Interface (TB-2) | SEC-AUTHN-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-2) |
+| SEC-AUTHN-2 | — | Editing Interface (TB-2) | SEC-AUTHN-2 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-2) |
+| SEC-AUTHN-3 | — | Editing Interface (TB-2) | SEC-AUTHN-3 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-2) |
+| SEC-AUTHZ-1 | — | Content Store, Editing Interface (TB-3) | SEC-AUTHZ-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-3) |
+| SEC-AUTHZ-2 | — | Editing Interface, Content Store | SEC-AUTHZ-2 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-3) |
+| SEC-AUTHZ-3 | — | Content Store, Editing Interface, Site Build (TB-3, TB-4) | SEC-AUTHZ-3 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-4) |
+| SEC-AUTHZ-4 | — | Content Store (TB-3) | SEC-AUTHZ-4 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-4) |
+| SEC-AUDIT-1 | — | Content Store, Editing Interface | SEC-AUDIT-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-14) |
 | SEC-AUDIT-2 | REQ-PIPELINE-070 | Site Build, Static Hosting (TB-4) | SEC-AUDIT-2 | N/A | COVERED |
-| SEC-AVAIL-1 | — | Content Store | SEC-AVAIL-1 | N/A | BLOCKED (PQ-4, PQ-14) |
-| SEC-INPUT-1 | — | Editing Interface | SEC-INPUT-1 | N/A | BLOCKED (PQ-1, PQ-5) |
-| SEC-INPUT-2 | — | Editing Interface | SEC-INPUT-2 | N/A | BLOCKED (PQ-1) |
+| SEC-AVAIL-1 | — | Content Store | SEC-AVAIL-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-4, PQ-14) |
+| SEC-INPUT-1 | — | Editing Interface | SEC-INPUT-1 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1, PQ-5) |
+| SEC-INPUT-2 | — | Editing Interface | SEC-INPUT-2 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1) |
 | SEC-INPUT-3 | REQ-CONTENT-030, REQ-PIPELINE-010 | Site Build, Static Hosting (TB-4) | SEC-INPUT-3 | N/A | COVERED |
 | SEC-INPUT-4 | REQ-CONTENT-040 | Site Build | SEC-INPUT-4 | N/A | COVERED |
-| SEC-INPUT-5 | — | Editing Interface, Site Build | SEC-INPUT-5 | N/A | BLOCKED (PQ-5; uploads PQ-1) |
+| SEC-INPUT-5 | — | Editing Interface, Site Build | SEC-INPUT-5 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-5; uploads PQ-1) |
 | SEC-INPUT-6 | REQ-OUTPUT-020 | Site Build (TB-4) | SEC-INPUT-6 | N/A | COVERED |
 | SEC-SECRET-1 | REQ-PIPELINE-040 | Site Build, Static Hosting (TB-4) | SEC-SECRET-1 | N/A | COVERED |
 | SEC-SECRET-2 | REQ-PIPELINE-050 | Site Build pipeline (TB-4) | SEC-SECRET-2 | N/A | COVERED |
-| SEC-SECRET-3 | — | Instagram Feed Integration (TB-5) | SEC-SECRET-3 | N/A | BLOCKED (PQ-7) |
+| SEC-SECRET-3 | — | Instagram Feed Integration (TB-5) | SEC-SECRET-3 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-7) |
 | SEC-CICD-1 | REQ-PIPELINE-010 | Site Build, Static Hosting (TB-4) | SEC-CICD-1 | N/A | COVERED |
 | SEC-CICD-2 | REQ-PIPELINE-030 | Site Build pipeline (TB-4) | SEC-CICD-2 | N/A | COVERED |
 | SEC-CICD-3 | REQ-PIPELINE-060 | Site Build pipeline, Static Hosting | SEC-CICD-3 | N/A | COVERED (previews off until PQ-2) |
-| SEC-CICD-4 | — | Editing Interface, Site Build pipeline | SEC-CICD-4 | N/A | BLOCKED (PQ-1) |
+| SEC-CICD-4 | — | Editing Interface, Site Build pipeline | SEC-CICD-4 | N/A | NOT YET DECOMPOSED (unblocked in step 10: PQ-1) |
 | SEC-CICD-5 | REQ-PIPELINE-020 | Site Build pipeline, Static Hosting | SEC-CICD-5 | N/A | COVERED |
 | DEP-1 to DEP-6, DEP-8 | All leaf issues (Constraints) | All components | DEP-1 to DEP-6, DEP-8 | N/A | COVERED (applied whenever a dependency is added) |
 | DEP-7 | REQ-PIPELINE-030 | Site Build pipeline | DEP-7 | N/A | COVERED |
 
-Totals: BLOCKED 42, COVERED 41, OUT OF SCOPE 1, PARTIALLY COVERED 8 (92 rows).
+Totals: NOT YET DECOMPOSED 42 (all unblocked in step 10), COVERED 41, OUT OF SCOPE 1, PARTIALLY COVERED 8 (92 rows).
 
 ## Hierarchy
 

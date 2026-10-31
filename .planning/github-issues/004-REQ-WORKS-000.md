@@ -4,7 +4,7 @@
 - **Title**: Works
 - **Version**: 0.1.0
 - **Status**: Draft
-- **Owner**: Repository maintainer (dalini); the maintainer role is still open in SECURITY.md SQ-10
+- **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 draft, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST render the Works page and one page per published work with its metadata and images.
 - **Rationale**: Groups leaf issues that share components and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Behavior outside the listed leaf issues; see ISSUE_PLAN.md Blocked Scope for related blocked requirements.
+- **Out of Scope**: Behavior outside the listed leaf issues; scope unblocked by step 10 is decomposed in the step 9 re-run (ISSUE_PLAN.md).
 - **Design Traceability**: DESIGN.md Layout and Spacing (Grid), Components (Work metadata, Image with credit), Accessibility
 - **Architecture Traceability**: Site Build, Public Site
 - **Security Traceability**: SEC-OUT-1
@@ -46,9 +46,9 @@
 
 ## Standards Alignment
 
-- **OWASP ASVS 5.0.0**: TO BE DECIDED: SECURITY.md cites ASVS 5.0.0 but uses no ASVS identifiers until they are verified; assurance level open in SECURITY.md SQ-9
+- **OWASP ASVS 5.0.0**: Level 1 (SECURITY.md Security assurance target); ASVS identifiers are added once verified against the 5.0.0 release
 - **OWASP AISVS 1.0**: N/A: no AI-enabled component
-- **NIST SP 800-53 Rev. 5**: TO BE DECIDED: not assessed
+- **NIST SP 800-53 Rev. 5**: Not applicable (SECURITY.md Security assurance target)
 - **NIST SP 800-207**: N/A
 - **Regulatory**: N/A
 - **Other**: N/A
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Per leaf issue
-- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication is blocked scope (ISSUE_PLAN.md PQ-2)
+- **On Authentication Failure**: N/A: the public site and the Site Build have no sign-in; editor authentication (SECURITY.md SEC-AUTHN-1 to -3) is decomposed in the step 9 re-run
 - **On Authorization Failure**: N/A
 - **On Security-Decision Failure**: Per leaf issue
 - **On External Dependency Failure**: N/A
@@ -78,7 +78,7 @@
 - **Security Tests**: Per leaf issue
 - **Compliance Tests / Evidence**: N/A
 - **Acceptance-Criteria Traceability**: AC-01 to AC-03 → workstream close checklist
-- **Coverage Target**: Project coverage target TO BE DECIDED (build and test commands are TO BE DECIDED in CLAUDE.md). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
+- **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Per leaf issue
 
 ## Dependencies
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: Blocking, excluded from this workstream: PQ-11 (FR-3.9 links to exhibitions), PQ-5 and PQ-6 (NFR-1 image sizes, SEC-PRIV-4 image metadata), PQ-13 (required fields beyond FR-10.6). Non-blocking: PQ-16, PQ-19.
+- **Open Decisions**: None. Step 10 answered PQ-11 (FR-3.9, FR-4), PQ-5 and PQ-6 (NFR-1, FR-3.10, SEC-PRIV-4) and PQ-13 (FR-3.3, FR-10.6); that scope is decomposed in the step 9 re-run. Order of works: FR-3.1; year: FR-3.2.
 
 ## Sub-issues
 
