@@ -63,6 +63,12 @@
   @media (min-width: 768px) { .posts { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1024px) { .posts { grid-template-columns: repeat(3, 1fr); } }
   .posts a { display: block; aspect-ratio: 1; background: var(--surface); color: var(--secondary); font-size: var(--fs-sm); text-decoration: none; display: flex; align-items: center; justify-content: center; }
+  .viewer { background: var(--background); border: 1px solid var(--surface); border-radius: 4px; padding: var(--s5); max-width: 720px; }
+  .viewer .img { aspect-ratio: 3/2; background: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: var(--fs-sm); }
+  .viewer .controls { display: flex; gap: var(--s3); justify-content: space-between; margin-top: var(--s4); }
+  .consent { background: var(--surface); border-radius: 4px; padding: var(--s4) var(--s5); display: flex; flex-wrap: wrap; gap: var(--s4); align-items: center; justify-content: space-between; max-width: 1200px; }
+  .consent p { margin: 0; }
+  .consent .row { gap: var(--s3); }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 </head>
@@ -141,6 +147,16 @@
     <a href="#">Contact</a>
     <span class="lang"><a href="#" lang="de" hreflang="de">DE</a> | <a href="#" aria-current="true" lang="en">EN</a></span>
   </nav>
+  <nav class="site" aria-label="Hauptmenü" lang="de" style="margin-top:var(--s4)">
+    <a href="#" class="wordmark">Nina Laaf</a>
+    <a href="#">Arbeiten</a>
+    <a href="#">Ausstellungen/News</a>
+    <a href="#">Texte</a>
+    <a href="#" aria-current="page">Vita</a>
+    <a href="#">Kontakt</a>
+    <span class="lang"><a href="#" aria-current="true" lang="de">DE</a> | <a href="#" lang="en" hreflang="en">EN</a></span>
+  </nav>
+  <p class="meta">Fixed labels (DESIGN.md Interface labels): CV sections Kurzbiografie, Ausbildung, Einzelausstellungen, Arbeiten im öffentlichen Raum, Gruppenausstellungen, Preise und Stipendien · exhibition groups Demnächst, Aktuell, Vergangen · types Einzelausstellung, Doppelausstellung, Gruppenausstellung, Messe · downloads marked “PDF”.</p>
 
   <h2>Links and buttons</h2>
   <p>A text link to <a href="#">galerie burster</a> and an email link <a href="mailto:example@example.org">example@example.org</a>.</p>
@@ -152,10 +168,32 @@
   <h2>Work card with metadata and credit</h2>
   <article class="work">
     <div class="img" role="img" aria-label="Image placeholder">image</div>
-    <p class="credit">Photo: Silke Briel</p>
+    <p class="credit">installation view · Photo: Silke Briel</p>
     <h3><a href="#">amalthea</a></h3>
     <p class="meta" style="margin:0">2021 · plaster, steel, copper, lacquer · 99 × 53 cm</p>
   </article>
+
+  <h2>Image viewer (work pages)</h2>
+  <p class="meta">Opens the selected image full-screen; previous/next by buttons and arrow keys, Esc or the close button returns focus to the image; never advances on its own. Without JavaScript each image links to its largest size.</p>
+  <div class="viewer" role="dialog" aria-label="Image 2 of 3: amalthea">
+    <div class="img" role="img" aria-label="Image placeholder">image 2 / 3</div>
+    <p class="credit">Aluminium | 60 x 40 x 4 cm | 2016 · Foto: Silke Briel</p>
+    <div class="controls">
+      <button type="button" aria-label="Previous image">←</button>
+      <button type="button" aria-label="Close viewer">Close</button>
+      <button type="button" aria-label="Next image">→</button>
+    </div>
+  </div>
+
+  <h2>Consent banner (visitor statistics)</h2>
+  <p class="meta">Shown fixed to the bottom of the viewport until the visitor chooses; Accept and Decline have equal weight; a footer link reopens it. Text and labels are approved by Nina with the Datenschutzerklärung; the wording below is a placeholder.</p>
+  <div class="consent" role="region" aria-label="Consent for visitor statistics">
+    <p>This site uses Google Analytics for visitor statistics if you agree. <a href="#">Privacy policy</a></p>
+    <div class="row">
+      <button type="button">Accept</button>
+      <button type="button">Decline</button>
+    </div>
+  </div>
 
   <h2>Instagram posts (home page)</h2>
   <p class="meta">Up to 6 recent posts, copied into the site at build time and served from it; no request goes to Instagram when the page loads.</p>
@@ -165,6 +203,7 @@
   <p><a href="#">@ninalaaf on Instagram</a></p>
 
   <h2>Inputs and form feedback</h2>
+  <p class="meta">For forms on the public site only (a later contact form); the Editing Interface uses Sveltia CMS's own UI. The fields below only demonstrate the states.</p>
   <form onsubmit="return false" novalidate>
     <div class="field">
       <label for="t1">Title</label>

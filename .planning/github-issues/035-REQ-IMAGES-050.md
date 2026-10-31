@@ -78,7 +78,7 @@
 - **Integration Tests**: Build with renamed, oversized and malicious fixtures written directly to the test content repository
 - **Security Tests**: Polyglot files (valid image header with appended payload) and SVG obfuscation variants
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:IMAGES-050/AC-01`; AC-02 → `test:IMAGES-050/AC-02`; AC-03 → `test:IMAGES-050/AC-03`; AC-04 → `test:IMAGES-050/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:IMAGES-050/AC-01`; AC-02 → `test:IMAGES-050/AC-02`; AC-03 → `test:IMAGES-050/AC-03`; AC-04 → `test:IMAGES-050/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model, including hostile fixtures
 

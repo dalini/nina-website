@@ -16,7 +16,7 @@
 - **Statement**: `dalini/nina-content` MUST NOT be publicly readable; it MUST accept changes only from its collaborators Nina and Ives, each with an individual GitHub account with a second factor enabled; Ives MUST be its only admin; every editor addition or removal MUST be decided by the owners, carried out by Ives and committed as a line in `EDITORS.md` in the Content Store.
 - **Rationale**: The store holds unpublished content and originals (T-13); only listed editors may change it (T-6, T-12).
 - **Assumptions**: None
-- **Out of Scope**: Branch protection and verified commits (blocked scope, PQ-31); the read-only build credential (REQ-PIPELINE-010); the VPS content check and backup credentials (blocked scope, PQ-33).
+- **Out of Scope**: Branch protection and verified commits (decided in step 10 again; drafted by the step 9 re-run, PQ-31); the read-only build credential (REQ-PIPELINE-010); the VPS content check and backup credentials (decided in step 10 again; drafted by the step 9 re-run, PQ-33).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (`dalini/nina-content`, private)
 - **Security Traceability**: SEC-AUTHZ-1, SEC-AUTHZ-2, SEC-AUTHZ-4, SEC-AUTHN-2 (individual accounts with second factor)
@@ -79,7 +79,7 @@
 - **Integration Tests**: Push and read attempts with a non-listed test account and unauthenticated
 - **Security Tests**: Settings review; collaborator list against `EDITORS.md`
 - **Compliance Tests / Evidence**: Evidence: dated review of visibility, collaborators, admin role and second factors
-- **Acceptance-Criteria Traceability**: AC-01 → `test:STORE-010/AC-01`; AC-02 → `test:STORE-010/AC-02`; AC-03 → `test:STORE-010/AC-03`; AC-04 → `test:STORE-010/AC-04`; AC-05 → `test:STORE-010/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:STORE-010/AC-01`; AC-02 → `test:STORE-010/AC-02`; AC-03 → `test:STORE-010/AC-03`; AC-04 → `test:STORE-010/AC-04`; AC-05 → `test:STORE-010/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test GitHub account that is not a collaborator; the real repositories for the settings review
 

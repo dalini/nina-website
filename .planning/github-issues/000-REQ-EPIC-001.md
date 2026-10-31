@@ -16,7 +16,7 @@
 - **Statement**: The system MUST implement every requirement in REQUIREMENTS.md and every rule in SECURITY.md through the components and dependency rules of ARCHITECTURE.md and the design language of DESIGN.md; this epic is done when every sub-issue is closed and every row of the coverage table in `.planning/github-issues/ISSUE_PLAN.md` is COVERED or OUT OF SCOPE.
 - **Rationale**: nina-laaf.de presents Nina Laaf's work to curators, galleries, collectors, press and the public and makes it easy to contact her (REQUIREMENTS.md Required Requirement Inputs).
 - **Assumptions**: None
-- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4); analytics in pages (SEC-PRIV-5). Blocked scope (ISSUE_PLAN.md Blocked Scope, PQ-29 to PQ-39) has no sub-issues yet and is decomposed in a later step 9 run.
+- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4). The scope that was blocked (ISSUE_PLAN.md Blocked Scope, PQ-29 to PQ-39) was decided in step 10 again and gets sub-issues in the step 9 re-run, together with the scope step 10 again added: Google Analytics with Consent Mode and the consent banner (SEC-PRIV-5, FR-9.2), the image viewer (FR-3.11), Exhibition entry pages (FR-4.7), image captions (FR-3.7) and Instagram alt text (FR-8.7).
 - **Design Traceability**: DESIGN.md (all sections); `style-guide.html`; `logo.svg` (provisional)
 - **Architecture Traceability**: All components (Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration); DR-1 to DR-9
 - **Security Traceability**: SECURITY.md Security Rules, DEP-1 to DEP-8, Threat Model v2 (T-1 to T-68), Open Security Questions SQ-16 to SQ-21
@@ -27,7 +27,7 @@
 - **Components**: Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration
 - **Interfaces / Operations**: All public pages (DE and EN), the editing workflows, the preview site, the build and publish pipeline, the Instagram feed, the VPS
 - **Actors**: Visitor; editors and owners (Nina, Ives); maintainer (Ives); build/deploy identity; Instagram; GitHub; VPS provider
-- **Preconditions**: None for the decomposed sub-issues; the blocked scope needs answers to PQ-29 to PQ-39 (step 10) and a step 9 re-run
+- **Preconditions**: None for the decomposed sub-issues; PQ-29 to PQ-53 were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`); the step 9 re-run drafts the scope that was blocked
 - **Data Classification**: Multiple
 - **Personal or Regulated Data**: Personal Data (editor identities and credentials, Nina's published email address, location metadata in uploaded photos, visitor IP addresses in access logs)
 - **Jurisdiction / Regulatory Scope**: Germany / EU: GDPR; Impressum and Datenschutzerklärung (FR-9.1); wording drafted with a German legal-text generator and approved by Nina before release (SECURITY.md)
@@ -64,7 +64,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Per sub-issue
-- **On Authentication Failure**: Per sub-issue; Editing Interface sign-in is blocked scope (PQ-34)
+- **On Authentication Failure**: Per sub-issue; Editing Interface sign-in through the Deno OAuth helper was decided in step 10 again (PQ-34) and is drafted by the step 9 re-run
 - **On Authorization Failure**: Per sub-issue; deny by default
 - **On Security-Decision Failure**: Per sub-issue; deny by default
 - **On External Dependency Failure**: Per sub-issue (GitHub, Instagram, VPS)
@@ -97,7 +97,7 @@
 - **Implementation Guidance**: Create order and dependencies: ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Product (Nina), security, privacy/legal (Impressum, Datenschutzerklärung) and architecture review across the epic
-- **Open Decisions**: Blocking: PQ-29 to PQ-39 (ISSUE_PLAN.md; PQ-29 to PQ-34 are SECURITY.md SQ-16 to SQ-21). Non-blocking: PQ-40 to PQ-53. Deferred by Ives: the final logo mark (DESIGN.md) and the test command (CLAUDE.md, step 11).
+- **Open Decisions**: None blocking. PQ-29 to PQ-53 (PQ-29 to PQ-34 are SECURITY.md SQ-16 to SQ-21) were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`); the test command is `deno task test` (CLAUDE.md). Deferred by Ives: the final logo mark (DESIGN.md). Before the first release: re-run step 8 for Google Analytics (SECURITY.md Threat model status).
 
 ## Sub-issues
 

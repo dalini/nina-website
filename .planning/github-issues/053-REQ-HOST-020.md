@@ -16,7 +16,7 @@
 - **Statement**: The VPS MUST receive operating-system and package security updates on a schedule, MUST allow administrative access only over SSH with keys (no password sign-in, no direct root sign-in), MUST expose only ports 22, 80 and 443 to the internet, and nginx worker processes MUST run under an unprivileged account.
 - **Rationale**: One VPS runs every internet-facing process; one unpatched flaw or weak login would take over all three sites (T-61).
 - **Assumptions**: None
-- **Out of Scope**: How non-root processes read their root-only secrets, and the processes that need them (OAuth helper, content check, token refresh, backup): blocked scope (PQ-33, PQ-34). The deploy account (REQ-PIPELINE-010). The statistics tool (blocked scope, PQ-35).
+- **Out of Scope**: How non-root processes read their root-only secrets, and the processes that need them (OAuth helper, content check, token refresh, backup): decided in step 10 again and drafted by the step 9 re-run (PQ-33, PQ-34). The deploy account (REQ-PIPELINE-010). The statistics tool (decided in step 10 again; drafted by the step 9 re-run, PQ-35).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Static Hosting (server hardening, process accounts)
 - **Security Traceability**: SEC-HOST-2 (except the secret-reading part)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Port scan from outside; SSH sign-in attempts; process list check on the test server
 - **Security Tests**: Port scan; SSH password and root attempts
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:HOST-020/AC-01`; AC-02 → `test:HOST-020/AC-02`; AC-03 → `test:HOST-020/AC-03`; AC-04 → `test:HOST-020/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:HOST-020/AC-01`; AC-02 → `test:HOST-020/AC-02`; AC-03 → `test:HOST-020/AC-03`; AC-04 → `test:HOST-020/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test server running the same nginx configuration as the VPS, plus the live hosts after deploy
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Server hardening is security-sensitive and a mistake (e.g. locking out SSH) is costly to undo.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-41 (non-blocking): the security-update schedule; PQ-33 and PQ-34 (blocking for the excluded part).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-33: each secret file is owned by the one unprivileged account that uses it; the Instagram token belongs to the deploy account, which also runs the refresh (SEC-SECRET-1); PQ-34: Deno port of the Sveltia CMS Authenticator in `dalini/nina-site` (SEC-AUTHN-4); PQ-41: daily unattended security updates, automatic reboot at night (SEC-HOST-2). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

@@ -77,7 +77,7 @@
 - **Integration Tests**: Crawl: every page links to both legal pages
 - **Security Tests**: REQ-OUTPUT-010 hostile fixtures run against this page type; the REQ-PRIV-010 network test covers this page type
 - **Compliance Tests / Evidence**: Evidence: crawl report showing both links on every page; Nina's approval of the wording, including the description of access logs (SEC-PRIV-6) and log statistics (SEC-PRIV-5)
-- **Acceptance-Criteria Traceability**: AC-01 → `test:LEGAL-010/AC-01`; AC-02 → `test:LEGAL-010/AC-02`; AC-03 → `test:LEGAL-010/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:LEGAL-010/AC-01`; AC-02 → `test:LEGAL-010/AC-02`; AC-03 → `test:LEGAL-010/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 

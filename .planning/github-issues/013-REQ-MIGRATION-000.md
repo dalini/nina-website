@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST import the 53 legacy works with their German values, publish state, featured work and interim alt text.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Materials and dimensions (blocked scope, PQ-37).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Materials and dimensions (decided in step 10 again; drafted by the step 9 re-run, PQ-37).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (one-time import, DF-3)
 - **Security Traceability**: N/A
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-37 (blocking, materials and dimensions only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-37: materials and dimensions from the first image's caption; every legacy caption kept on its image (FR-11.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

@@ -16,7 +16,7 @@
 - **Statement**: Every third-party CI action MUST be pinned to a commit SHA, Hugo and every build tool installed outside the lockfile MUST be pinned to an exact version and verified against a published checksum or signature, and builds MUST resolve dependencies from a committed lockfile with frozen resolution; the pinned Hugo version MUST NOT be affected by the advisories in `REF-HUGO-ADV`.
 - **Rationale**: A compromised or floating release would run in every build with access to secrets (T-19, T-50).
 - **Assumptions**: None
-- **Out of Scope**: The Editing Interface bundle (REQ-EDIT-010); the OAuth helper code (blocked scope, PQ-34).
+- **Out of Scope**: The Editing Interface bundle (REQ-EDIT-010); the OAuth helper code (decided in step 10 again; drafted by the step 9 re-run, PQ-34).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (Hugo version pinned)
 - **Security Traceability**: SEC-CICD-2 (CI part), DEP-7
@@ -78,7 +78,7 @@
 - **Integration Tests**: Workflow run with a tampered checksum fixture
 - **Security Tests**: Pin lint on every change; dependency vulnerability check (DEP-5)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-030/AC-01`; AC-02 → `test:PIPELINE-030/AC-02`; AC-03 → `test:PIPELINE-030/AC-03`; AC-04 → `test:PIPELINE-030/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-030/AC-01`; AC-02 → `test:PIPELINE-030/AC-02`; AC-03 → `test:PIPELINE-030/AC-03`; AC-04 → `test:PIPELINE-030/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -92,7 +92,7 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Mechanical pinning and checksum verification with a lint check.

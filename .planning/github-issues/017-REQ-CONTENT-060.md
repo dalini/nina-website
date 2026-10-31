@@ -77,7 +77,7 @@
 - **Integration Tests**: Hugo reads the fixture settings file
 - **Security Tests**: Fixtures written directly to a test content repository, bypassing the Editing Interface, are rejected by the rule check
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-060/AC-01`; AC-02 → `test:CONTENT-060/AC-02`; AC-03 → `test:CONTENT-060/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-060/AC-01`; AC-02 → `test:CONTENT-060/AC-02`; AC-03 → `test:CONTENT-060/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A small, fully specified settings item.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: PQ-53 (non-blocking): which identifier Nina uses to name a post to hide (its link or its ID).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6).

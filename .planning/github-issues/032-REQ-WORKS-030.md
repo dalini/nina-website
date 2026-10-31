@@ -16,7 +16,7 @@
 - **Statement**: A work page MUST show all images of the work in the order Nina sets, each with its alt text and, when entered, its caption and photo credit ("Foto: …" / "Photo: …"); images MUST keep their aspect ratio and not be cropped; the site MUST NOT add watermarks or block saving images.
 - **Rationale**: Images carry the work (FR-3.6); alt text and credits are required (FR-3.7); saving is not blocked (FR-3.10).
 - **Assumptions**: None
-- **Out of Scope**: Producing the image sizes (REQ-IMAGES-010); an image viewer (blocked scope, PQ-38).
+- **Out of Scope**: Producing the image sizes (REQ-IMAGES-010); an image viewer (decided in step 10 again; drafted by the step 9 re-run, PQ-38).
 - **Design Traceability**: DESIGN.md Components (Image with credit: caption and credit in `secondary`, `xs`); Layout and Spacing (never cropped on work pages); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build; Public Site
 - **Security Traceability**: N/A
@@ -78,7 +78,7 @@
 - **Integration Tests**: Build with multi-image fixture works
 - **Security Tests**: REQ-OUTPUT-010 hostile fixtures run against this page type; the REQ-PRIV-010 network test covers this page type
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:WORKS-030/AC-01`; AC-02 → `test:WORKS-030/AC-02`; AC-03 → `test:WORKS-030/AC-03`; AC-04 → `test:WORKS-030/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:WORKS-030/AC-01`; AC-02 → `test:WORKS-030/AC-02`; AC-03 → `test:WORKS-030/AC-03`; AC-04 → `test:WORKS-030/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Ordered image rendering with labels; the image processing itself is a separate issue.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-38 (blocking, image viewer only); PQ-46 (non-blocking): label wording beyond "Foto" / "Photo".
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-38: a simple lightbox (FR-3.11); PQ-46: labels in DESIGN.md Interface labels. Parts that were excluded as blocked scope are drafted by the step 9 re-run.

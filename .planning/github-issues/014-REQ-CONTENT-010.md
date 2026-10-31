@@ -80,7 +80,7 @@
 - **Integration Tests**: Hugo reads fixture work files in the documented format
 - **Security Tests**: Fixtures written directly to a test content repository, bypassing the Editing Interface, are rejected by the rule check
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-010/AC-01`; AC-02 → `test:CONTENT-010/AC-02`; AC-03 → `test:CONTENT-010/AC-03`; AC-04 → `test:CONTENT-010/AC-04`; AC-05 → `test:CONTENT-010/AC-05`; AC-06 → `test:CONTENT-010/AC-06` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-010/AC-01`; AC-02 → `test:CONTENT-010/AC-02`; AC-03 → `test:CONTENT-010/AC-03`; AC-04 → `test:CONTENT-010/AC-04`; AC-05 → `test:CONTENT-010/AC-05`; AC-06 → `test:CONTENT-010/AC-06` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model
 
@@ -99,4 +99,4 @@
 - **Implementation Guidance**: A single reference to the featured work (for example on the Home page item) instead of a flag on every work makes 'exactly one' structural; the CMS behavior is REQ-EDIT-020. Alt text in one language is enough because FR-1.7 shows the other language and FR-11.3 counts German-only interim alt text as alt text.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: It sets the shared rule set and portable format that every page, validation and editing issue reads; a modelling mistake here spreads everywhere.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: None for this issue. The Sveltia CMS behavior for a single featured work is verified in REQ-EDIT-020 (PQ-44).
+- **Open Decisions**: None for this issue. PQ-44 answered in step 10 again: where Sveltia CMS cannot enforce a check, the publish fails instead; history and restore from Git, Ives restores on request (FR-10.6, FR-10.7).

@@ -78,7 +78,7 @@
 - **Integration Tests**: Requests with no, wrong and correct credentials for pages and media on the test preview host
 - **Security Tests**: Brute-force simulation; hash method review of every entry
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PREVIEW-010/AC-01`; AC-02 → `test:PREVIEW-010/AC-02`; AC-03 → `test:PREVIEW-010/AC-03`; AC-04 → `test:PREVIEW-010/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PREVIEW-010/AC-01`; AC-02 → `test:PREVIEW-010/AC-02`; AC-03 → `test:PREVIEW-010/AC-03`; AC-04 → `test:PREVIEW-010/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test server running the same nginx configuration as the VPS, plus the live hosts after deploy
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Authentication setup with password-storage and guessing-limit requirements.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-42 (non-blocking): the limit values.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-42: 20 requests/s per IP (burst 40) and 20 connections per IP; preview: 5 failed sign-ins per IP per minute, then 429 (ARCHITECTURE.md Static Hosting).

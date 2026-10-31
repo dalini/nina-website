@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST present the Works list, the public-space group, work pages with metadata and images, and links to exhibitions.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. An image viewer (blocked scope, PQ-38).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. An image viewer (decided in step 10 again; drafted by the step 9 re-run, PQ-38).
 - **Design Traceability**: DESIGN.md Components (Work metadata, Image with credit), Layout and Spacing
 - **Architecture Traceability**: Site Build; Public Site
 - **Security Traceability**: N/A
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-38 (blocking, image viewer only); PQ-47, PQ-49 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-38: a simple lightbox (FR-3.11); PQ-47: each Exhibition entry gets its own page (FR-4.7); PQ-49: same-year works and downloads in Nina's order; same-year CV lines and same-date News alphabetically (FR-3.1, FR-4.6, FR-5.2, FR-6.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

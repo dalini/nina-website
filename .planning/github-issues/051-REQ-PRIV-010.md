@@ -16,7 +16,7 @@
 - **Statement**: No page MUST request any third-party resource (fonts, scripts, images, embeds, video or maps) in the visitor's browser, and no page MUST include analytics or tracking scripts, cookies or pixels.
 - **Rationale**: Visitors' IP addresses are not sent to third parties without consent, and the site needs no consent step (FR-8.3, NFR-3).
 - **Assumptions**: None
-- **Out of Scope**: Visitor statistics from the access logs (blocked scope, PQ-35).
+- **Out of Scope**: Visitor statistics from the access logs (decided in step 10 again; drafted by the step 9 re-run, PQ-35).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Public Site (loads nothing from third parties); Site Build templates
 - **Security Traceability**: SEC-PRIV-1, SEC-PRIV-5 (the part about pages)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Automated browser test recording all requests on every page type
 - **Security Tests**: Output scan for third-party URLs in `src`, `href` of resources, CSS `url()` and `srcset`
 - **Compliance Tests / Evidence**: Evidence: network recordings of every page type, for the Datenschutzerklärung review
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PRIV-010/AC-01`; AC-02 → `test:PRIV-010/AC-02`; AC-03 → `test:PRIV-010/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PRIV-010/AC-01`; AC-02 → `test:PRIV-010/AC-02`; AC-03 → `test:PRIV-010/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A browser network-recording test over a known list of page types; the rule is unambiguous.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-35 (blocking for statistics only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-35: Google Analytics with Consent Mode v2 and an own consent banner replaces the log statistics (SEC-PRIV-5, REQUIREMENTS.md FR-9.2). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

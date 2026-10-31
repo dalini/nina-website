@@ -16,7 +16,7 @@
 - **Statement**: The content model MUST define Exhibition entry (title, type — solo, two-person, group or fair — venue, city, start date, end date, co-exhibitors, external link, linked works, publish state, a CV hide flag and a CV wording override) and News item (title, date, text, external link, image, publish state). Text fields MUST hold German and English values. The rules MUST be: an Exhibition entry needs a start date and an end date; a News item needs a title and a date; a News image follows the Image rules of REQ-CONTENT-010.
 - **Rationale**: Exhibition entries drive the Exhibitions/News page, the home page entry and the derived CV sections (FR-2.3, FR-4, FR-5.3).
 - **Assumptions**: None
-- **Out of Scope**: Whether title, type, venue and city are required, and what an entry whose end date is before its start date means: blocked scope (PQ-36). Rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
+- **Out of Scope**: Whether title, type, venue and city are required, and what an entry whose end date is before its start date means: decided in step 10 again and drafted by the step 9 re-run (PQ-36). Rendering (REQ-EXHIBITIONS-*, REQ-NEWS-010); forms (REQ-EDIT-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (owns Exhibition entry and News item); DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3 (via REQ-CONTENT-030); SEC-OUT-2 (external links, via REQ-OUTPUT-030)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Hugo reads fixture Exhibition and News files
 - **Security Tests**: Fixtures written directly to a test content repository, bypassing the Editing Interface, are rejected by the rule check
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-050/AC-01`; AC-02 → `test:CONTENT-050/AC-02`; AC-03 → `test:CONTENT-050/AC-03`; AC-04 → `test:CONTENT-050/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-050/AC-01`; AC-02 → `test:CONTENT-050/AC-02`; AC-03 → `test:CONTENT-050/AC-03`; AC-04 → `test:CONTENT-050/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A field list taken directly from FR-4 and FR-10.6, following the REQ-CONTENT-010 pattern.
 - **Required Human Review**: Product review by Nina (fields as she will see them); architecture review by Ives (DR-3, DR-4)
-- **Open Decisions**: PQ-36 (blocking for the excluded part only): required title, type, venue and city; end date before start date.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-36: title, type, venue, city and both dates required; end before start rejected on save; no entry at all: the home page omits the block (FR-2.3, FR-10.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

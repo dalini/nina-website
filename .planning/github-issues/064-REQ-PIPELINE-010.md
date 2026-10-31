@@ -16,7 +16,7 @@
 - **Statement**: The production workflow in `dalini/nina-site` MUST check out `main` of `dalini/nina-content` with a read-only credential, build it with Hugo and, only after every check passed, deploy the output to the `nina-laaf.de` web root with rsync over SSH, using a deploy key restricted to that web root and a deploy account on the VPS that has no root rights and can reach only the web root, the deployed feed files and the publish status file; the workflow's `GITHUB_TOKEN` MUST be read-only, and every connection to the VPS MUST verify its SSH host key against a pinned value.
 - **Rationale**: The deploy identity must be able to publish the site and nothing else (T-27, T-57, T-62).
 - **Assumptions**: None
-- **Out of Scope**: Where the secrets are stored and limited to `main` (blocked scope, PQ-31); reading the Instagram token over the deploy channel (blocked scope, PQ-33); the trigger (REQ-PIPELINE-080).
+- **Out of Scope**: Where the secrets are stored and limited to `main` (decided in step 10 again; drafted by the step 9 re-run, PQ-31); reading the Instagram token over the deploy channel (decided in step 10 again; drafted by the step 9 re-run, PQ-33); the trigger (REQ-PIPELINE-080).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (GitHub Actions in `dalini/nina-site`); Static Hosting (rsync over SSH)
 - **Security Traceability**: SEC-CICD-1 (except reading the Instagram token), SEC-INPUT-3
@@ -79,7 +79,7 @@
 - **Integration Tests**: End-to-end run against a test content repository and a test host with test keys
 - **Security Tests**: Deploy-key misuse attempts (write outside root, shell, sudo); host-key mismatch
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-010/AC-01`; AC-02 → `test:PIPELINE-010/AC-02`; AC-03 → `test:PIPELINE-010/AC-03`; AC-04 → `test:PIPELINE-010/AC-04`; AC-05 → `test:PIPELINE-010/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-010/AC-01`; AC-02 → `test:PIPELINE-010/AC-02`; AC-03 → `test:PIPELINE-010/AC-03`; AC-04 → `test:PIPELINE-010/AC-04`; AC-05 → `test:PIPELINE-010/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -93,9 +93,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: A forced-command restriction such as `rrsync` limits the key to the web root; deploying into a new release directory and switching it at the end keeps the previous site online and supports REQ-PIPELINE-070.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Least-privilege deploy identity, host-key pinning and fail-closed gating across GitHub Actions and the VPS.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-31 and PQ-33 (blocking for the excluded parts only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-31: paid GitHub plan (Pro or Team): branch protection and the `production` environment limited to `main` are available; PQ-33: each secret file is owned by the one unprivileged account that uses it; the Instagram token belongs to the deploy account, which also runs the refresh (SEC-SECRET-1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

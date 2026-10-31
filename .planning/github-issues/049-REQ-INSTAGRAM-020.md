@@ -79,7 +79,7 @@
 - **Integration Tests**: Build with fixture post lists (full, partly hidden, empty, switched off)
 - **Security Tests**: Caption and link fixtures with markup and non-https links (left out upstream by REQ-INSTAGRAM-030); network recording
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:INSTAGRAM-020/AC-01`; AC-02 → `test:INSTAGRAM-020/AC-02`; AC-03 → `test:INSTAGRAM-020/AC-03`; AC-04 → `test:INSTAGRAM-020/AC-04`; AC-05 → `test:INSTAGRAM-020/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:INSTAGRAM-020/AC-01`; AC-02 → `test:INSTAGRAM-020/AC-02`; AC-03 → `test:INSTAGRAM-020/AC-03`; AC-04 → `test:INSTAGRAM-020/AC-04`; AC-05 → `test:INSTAGRAM-020/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Rendering from a neutral list with a small selection rule; the risky fetch is a separate issue.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-50 (non-blocking): the source of each post image's alt text.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-50: first 120 characters of the caption, else a fixed text (FR-8.7).

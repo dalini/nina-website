@@ -78,7 +78,7 @@
 - **Integration Tests**: Full build: one page per published work in both languages
 - **Security Tests**: REQ-OUTPUT-010 hostile fixtures run against this page type; the REQ-PRIV-010 network test covers this page type
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:WORKS-020/AC-01`; AC-02 → `test:WORKS-020/AC-02`; AC-03 → `test:WORKS-020/AC-03`; AC-04 → `test:WORKS-020/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:WORKS-020/AC-01`; AC-02 → `test:WORKS-020/AC-02`; AC-03 → `test:WORKS-020/AC-03`; AC-04 → `test:WORKS-020/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 

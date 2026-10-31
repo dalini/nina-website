@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-30, PQ-31 (blocking for the excluded parts).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-30: GitHub OAuth App with its default scope; wider reach accepted (SEC-AUTHZ-3); PQ-31: paid GitHub plan (Pro or Team): branch protection and the `production` environment limited to `main` are available. Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 
