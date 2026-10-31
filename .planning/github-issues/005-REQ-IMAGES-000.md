@@ -2,10 +2,10 @@
 
 - **ID**: REQ-IMAGES-000
 - **Title**: Image processing in the Site Build
-- **Version**: 0.1.0
+- **Version**: 0.2.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
@@ -13,10 +13,10 @@
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST publish images only as sized, metadata-free derivatives and recheck the type, size and pixel limits of every published file.
+- **Statement**: The leaf issues of this workstream MUST publish images only as sized, metadata-free derivatives, remove embedded metadata from published PDFs, and recheck the type, size and pixel limits of every published file.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. PDF metadata checks (decided in step 10 again; drafted by the step 9 re-run, PQ-39).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (responsive image sizes, metadata stripping, upload rechecks, DR-3)
 - **Security Traceability**: SEC-PRIV-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-IMAGES-020 ({{ISSUE_URL:REQ-IMAGES-020}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}})
+- **Downstream Requirements**: REQ-IMAGES-010 ({{ISSUE_URL:REQ-IMAGES-010}}), REQ-IMAGES-020 ({{ISSUE_URL:REQ-IMAGES-020}}), REQ-IMAGES-040 ({{ISSUE_URL:REQ-IMAGES-040}}), REQ-IMAGES-050 ({{ISSUE_URL:REQ-IMAGES-050}}), REQ-IMAGES-030 ({{ISSUE_URL:REQ-IMAGES-030}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-39: PDF metadata cleaned automatically (SEC-PRIV-4). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
+- **Open Decisions**: None for the decomposed leaves.
 
 ## Sub-issues
 
@@ -104,3 +104,4 @@
 - [ ] REQ-IMAGES-020 {{ISSUE_URL:REQ-IMAGES-020}}
 - [ ] REQ-IMAGES-040 {{ISSUE_URL:REQ-IMAGES-040}}
 - [ ] REQ-IMAGES-050 {{ISSUE_URL:REQ-IMAGES-050}}
+- [ ] REQ-IMAGES-030 {{ISSUE_URL:REQ-IMAGES-030}}

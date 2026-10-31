@@ -2,22 +2,22 @@
 
 - **ID**: REQ-EXHIBITIONS-000
 - **Title**: Exhibitions and News
-- **Version**: 0.1.0
+- **Version**: 0.2.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.6; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: REQUIREMENTS.md FR-4.1 to FR-4.7; DESIGN.md Components (Exhibition entry page, Interface labels); parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST show Exhibition entries with their facts and linked works, grouped as upcoming, current and past, and News items in their own section.
+- **Statement**: The leaf issues of this workstream MUST list Exhibition entries with their facts, grouped as upcoming, current and past, give each entry its own page with its linked works, description and installation images, and list News items in their own section.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Entries with empty title, type, venue or city, or with end before start (decided in step 10 again; drafted by the step 9 re-run, PQ-36).
-- **Design Traceability**: N/A
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Duplicate slugs and how the slug is filled in (blocked: PQ-57).
+- **Design Traceability**: DESIGN.md Components (Exhibition entry page, Image with credit, Interface labels), Layout and Spacing
 - **Architecture Traceability**: Site Build; Public Site
 - **Security Traceability**: N/A
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}})
+- **Downstream Requirements**: REQ-EXHIBITIONS-010 ({{ISSUE_URL:REQ-EXHIBITIONS-010}}), REQ-EXHIBITIONS-030 ({{ISSUE_URL:REQ-EXHIBITIONS-030}}), REQ-EXHIBITIONS-020 ({{ISSUE_URL:REQ-EXHIBITIONS-020}}), REQ-NEWS-010 ({{ISSUE_URL:REQ-NEWS-010}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -96,10 +96,11 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-36: title, type, venue, city and both dates required; end before start rejected on save; no entry at all: the home page omits the block (FR-2.3, FR-10.6); PQ-46: labels in DESIGN.md Interface labels; PQ-49: same-year works and downloads in Nina's order; same-year CV lines and same-date News alphabetically (FR-3.1, FR-4.6, FR-5.2, FR-6.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
+- **Open Decisions**: PQ-57 (blocking) for the excluded slug part; PQ-65 (non-blocking, date formats).
 
 ## Sub-issues
 
 - [ ] REQ-EXHIBITIONS-010 {{ISSUE_URL:REQ-EXHIBITIONS-010}}
+- [ ] REQ-EXHIBITIONS-030 {{ISSUE_URL:REQ-EXHIBITIONS-030}}
 - [ ] REQ-EXHIBITIONS-020 {{ISSUE_URL:REQ-EXHIBITIONS-020}}
 - [ ] REQ-NEWS-010 {{ISSUE_URL:REQ-NEWS-010}}

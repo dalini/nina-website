@@ -2,24 +2,24 @@
 
 - **ID**: REQ-OUTPUT-000
 - **Title**: Output encoding and safe rendering
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: SECURITY.md SEC-OUT-1, SEC-OUT-2, SEC-INPUT-6; parent {{ISSUE_URL:REQ-EPIC-001}}
+- **Source / Parent**: SECURITY.md SEC-OUT-1, SEC-OUT-2, SEC-OUT-7, SEC-INPUT-6; parent {{ISSUE_URL:REQ-EPIC-001}}
 
 ## Requirement
 
-- **Statement**: The leaf issues of this workstream MUST encode editor content, restrict rich text, keep generator syntax inert and allow only safe link schemes.
+- **Statement**: The leaf issues of this workstream MUST encode editor content, restrict rich text, keep generator syntax inert, allow only safe link schemes, and fail any build whose pages contain scripts other than the site's own.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
 - **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (TB-4); DR-3
-- **Security Traceability**: SEC-OUT-1, SEC-OUT-2, SEC-INPUT-6
+- **Security Traceability**: SEC-OUT-1, SEC-OUT-2, SEC-OUT-7, SEC-INPUT-6
 
 ## Scope
 
@@ -84,7 +84,7 @@
 ## Dependencies
 
 - **Upstream Requirements**: None
-- **Downstream Requirements**: REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-020 ({{ISSUE_URL:REQ-OUTPUT-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}})
+- **Downstream Requirements**: REQ-OUTPUT-010 ({{ISSUE_URL:REQ-OUTPUT-010}}), REQ-OUTPUT-020 ({{ISSUE_URL:REQ-OUTPUT-020}}), REQ-OUTPUT-030 ({{ISSUE_URL:REQ-OUTPUT-030}}), REQ-OUTPUT-040 ({{ISSUE_URL:REQ-OUTPUT-040}})
 - **External Dependencies**: See the leaf issues
 - **Dependency Assumptions**: See the leaf issues
 - **Failure Impact**: See the leaf issues
@@ -103,3 +103,4 @@
 - [ ] REQ-OUTPUT-010 {{ISSUE_URL:REQ-OUTPUT-010}}
 - [ ] REQ-OUTPUT-020 {{ISSUE_URL:REQ-OUTPUT-020}}
 - [ ] REQ-OUTPUT-030 {{ISSUE_URL:REQ-OUTPUT-030}}
+- [ ] REQ-OUTPUT-040 {{ISSUE_URL:REQ-OUTPUT-040}}

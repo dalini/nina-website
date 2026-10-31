@@ -2,44 +2,44 @@
 
 - **ID**: REQ-EPIC-001
 - **Title**: Build the bilingual nina-laaf.de website from the specification
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
-- **Author**: Claude (step 9 re-run, prompts/09-github-epic.md)
+- **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
 - **Last Updated**: 2026-10-31
 - **Priority**: High
 - **Requirement Type**: Functional
-- **Source / Parent**: REQUIREMENTS.md FR-1.1 to FR-11.4 and NFR-1 to NFR-4; SECURITY.md Security Rules, DEP-1 to DEP-8 and Threat Model v2 (T-1 to T-68); ARCHITECTURE.md Architecture and DR-1 to DR-9; DESIGN.md
+- **Source / Parent**: REQUIREMENTS.md FR-1.1 to FR-11.4 and NFR-1 to NFR-4; SECURITY.md Security Rules, DEP-1 to DEP-8 and Threat Model v3 (T-1 to T-85); ARCHITECTURE.md Architecture and DR-1 to DR-9; DESIGN.md
 
 ## Requirement
 
 - **Statement**: The system MUST implement every requirement in REQUIREMENTS.md and every rule in SECURITY.md through the components and dependency rules of ARCHITECTURE.md and the design language of DESIGN.md; this epic is done when every sub-issue is closed and every row of the coverage table in `.planning/github-issues/ISSUE_PLAN.md` is COVERED or OUT OF SCOPE.
 - **Rationale**: nina-laaf.de presents Nina Laaf's work to curators, galleries, collectors, press and the public and makes it easy to contact her (REQUIREMENTS.md Required Requirement Inputs).
 - **Assumptions**: None
-- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4). The scope that was blocked (ISSUE_PLAN.md Blocked Scope, PQ-29 to PQ-39) was decided in step 10 again and gets sub-issues in the step 9 re-run, together with the scope step 10 again added: Google Analytics with Consent Mode and the consent banner (SEC-PRIV-5, FR-9.2), the image viewer (FR-3.11), Exhibition entry pages (FR-4.7), image captions (FR-3.7) and Instagram alt text (FR-8.7).
+- **Out of Scope**: FR-7.3 contact form (not in this release); newsletter (FR-7.4). The blocked scope of ISSUE_PLAN.md (PQ-54 to PQ-59) gets sub-issues in a later step 9 run, after step 10 answers those questions.
 - **Design Traceability**: DESIGN.md (all sections); `style-guide.html`; `logo.svg` (provisional)
 - **Architecture Traceability**: All components (Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration); DR-1 to DR-9
-- **Security Traceability**: SECURITY.md Security Rules, DEP-1 to DEP-8, Threat Model v2 (T-1 to T-68), Open Security Questions SQ-16 to SQ-21
+- **Security Traceability**: SECURITY.md Security Rules, DEP-1 to DEP-8, Threat Model v3 (T-1 to T-85), Open Security Questions SQ-22 and SQ-23 (ISSUE_PLAN.md PQ-54, PQ-55)
 
 ## Scope
 
 - **Applies To**: Multiple
-- **Components**: Editing Interface, Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration
+- **Components**: Editing Interface (with its OAuth helper), Content Store, Site Build, Static Hosting, Public Site, Instagram Feed Integration; the Google Analytics property (external)
 - **Interfaces / Operations**: All public pages (DE and EN), the editing workflows, the preview site, the build and publish pipeline, the Instagram feed, the VPS
-- **Actors**: Visitor; editors and owners (Nina, Ives); maintainer (Ives); build/deploy identity; Instagram; GitHub; VPS provider
-- **Preconditions**: None for the decomposed sub-issues; PQ-29 to PQ-53 were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`); the step 9 re-run drafts the scope that was blocked
+- **Actors**: Visitor; editors and owners (Nina, Ives); maintainer (Ives); build/deploy identity; Instagram; GitHub; Google (Google tag and Analytics); VPS provider
+- **Preconditions**: None for the decomposed sub-issues; the blocked scope needs answers to PQ-54 to PQ-59 (ISSUE_PLAN.md Open Questions)
 - **Data Classification**: Multiple
-- **Personal or Regulated Data**: Personal Data (editor identities and credentials, Nina's published email address, location metadata in uploaded photos, visitor IP addresses in access logs)
+- **Personal or Regulated Data**: Personal Data (editor identities and credentials, Nina's published email address, location metadata in uploaded photos, visitor IP addresses in access logs, visitor and browser data sent to Google Analytics, the consent choice in the visitor's browser)
 - **Jurisdiction / Regulatory Scope**: Germany / EU: GDPR; Impressum and Datenschutzerklärung (FR-9.1); wording drafted with a German legal-text generator and approved by Nina before release (SECURITY.md)
 
 ## Security Context
 
 - **Security Objectives**: Multiple
 - **Control Layers**: Architecture, Authentication, Authorization, Session Management, Input Validation, Output Encoding, Sanitization, Data Protection, Logging and Monitoring, Availability, Supply Chain
-- **Threat References**: SECURITY.md Threat Model v2 (2026-10-31), STRIDE, T-1 to T-68
+- **Threat References**: SECURITY.md Threat Model v3 (2026-10-31), STRIDE, T-1 to T-85
 - **Abuse / Misuse Case**: See each sub-issue and SECURITY.md Threats
-- **Trust Boundary**: TB-1 to TB-5 (SECURITY.md Required Security Inputs)
-- **Untrusted Inputs or Assertions**: Editor content and uploads, direct writes to the Content Store, legacy content (DF-3), Instagram data (DF-8), visitor requests
+- **Trust Boundary**: TB-1 to TB-6 (SECURITY.md Required Security Inputs)
+- **Untrusted Inputs or Assertions**: Editor content and uploads, direct writes to the Content Store, legacy content (DF-3), Instagram data (DF-8), visitor requests, the Google tag served live by Google and the property settings that drive it (DF-14, DF-15)
 - **Authoritative Enforcement Point**: Per sub-issue: Site Build, Static Hosting, Content Store (GitHub), Editing Interface
 - **Independent Verification**: Content rules are enforced by the Editing Interface and rechecked by the Site Build (DR-3)
 - **Zero Trust Relevance**: N/A
@@ -64,20 +64,20 @@
 ## Failure Behavior
 
 - **On Invalid Input**: Per sub-issue
-- **On Authentication Failure**: Per sub-issue; Editing Interface sign-in through the Deno OAuth helper was decided in step 10 again (PQ-34) and is drafted by the step 9 re-run
+- **On Authentication Failure**: Per sub-issue; Editing Interface sign-in: REQ-AUTHN-000
 - **On Authorization Failure**: Per sub-issue; deny by default
 - **On Security-Decision Failure**: Per sub-issue; deny by default
 - **On External Dependency Failure**: Per sub-issue (GitHub, Instagram, VPS)
 - **On System Error**: Per sub-issue; a failed build leaves the previous site online (SEC-INPUT-3)
 - **Logging / Audit**: Per sub-issue
-- **Alerting**: Per sub-issue (failed builds email Ives, REQ-PIPELINE-110)
+- **Alerting**: Per sub-issue (failed builds email Ives, REQ-PIPELINE-110; email alerts from the VPS are blocked scope, PQ-56)
 
 ## Test Strategy
 
 - **Unit Tests**: Per sub-issue
 - **Integration Tests**: Per sub-issue
 - **Security Tests**: Per sub-issue
-- **Compliance Tests / Evidence**: Impressum and Datenschutzerklärung reachable from every page (REQ-LEGAL-010); network recordings (REQ-PRIV-010); access-log retention (REQ-PRIV-020)
+- **Compliance Tests / Evidence**: Impressum and Datenschutzerklärung reachable from every page and their content reviewed (REQ-LEGAL-010); consent banner and Consent Mode browser tests (REQ-CONSENT-010, REQ-CONSENT-020); network recordings (REQ-PRIV-010); access-log retention (REQ-PRIV-020); Google Analytics property review (REQ-PRIV-030)
 - **Acceptance-Criteria Traceability**: AC-01 → coverage review of ISSUE_PLAN.md; AC-02 → epic close checklist; AC-03 → review of each sub-issue's pull request; AC-04 → release checklist against the release gate
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Per sub-issue
@@ -86,7 +86,7 @@
 
 - **Upstream Requirements**: None
 - **Downstream Requirements**: All sub-issues listed below
-- **External Dependencies**: GitHub (repositories, OAuth, Actions); Instagram API with Instagram Login; VPS provider in Germany; Sveltia CMS; Hugo
+- **External Dependencies**: GitHub (repositories, OAuth, Actions); Instagram API with Instagram Login; Google Analytics (Google tag, Consent Mode v2); VPS provider in Germany; Let's Encrypt; Sveltia CMS; Hugo; Deno
 - **Dependency Assumptions**: See each sub-issue
 - **Failure Impact**: See each sub-issue
 
@@ -97,7 +97,7 @@
 - **Implementation Guidance**: Create order and dependencies: ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Product (Nina), security, privacy/legal (Impressum, Datenschutzerklärung) and architecture review across the epic
-- **Open Decisions**: None blocking. PQ-29 to PQ-53 (PQ-29 to PQ-34 are SECURITY.md SQ-16 to SQ-21) were answered in step 10 again (`.planning/OPEN_QUESTIONS.md`); the test command is `deno task test` (CLAUDE.md). Deferred by Ives: the final logo mark (DESIGN.md). Before the first release: re-run step 8 for Google Analytics (SECURITY.md Threat model status).
+- **Open Decisions**: Blocking: PQ-54 to PQ-59; non-blocking: PQ-60 to PQ-66 (ISSUE_PLAN.md Open Questions). Deferred by Ives: the final logo mark (DESIGN.md).
 
 ## Sub-issues
 
@@ -109,20 +109,23 @@
 - [ ] REQ-EXHIBITIONS-000 {{ISSUE_URL:REQ-EXHIBITIONS-000}}
 - [ ] REQ-CV-000 {{ISSUE_URL:REQ-CV-000}}
 - [ ] REQ-INSTAGRAM-000 {{ISSUE_URL:REQ-INSTAGRAM-000}}
+- [ ] REQ-CONSENT-000 {{ISSUE_URL:REQ-CONSENT-000}}
 - [ ] REQ-HTTP-000 {{ISSUE_URL:REQ-HTTP-000}}
 - [ ] REQ-STORE-000 {{ISSUE_URL:REQ-STORE-000}}
 - [ ] REQ-PIPELINE-000 {{ISSUE_URL:REQ-PIPELINE-000}}
+- [ ] REQ-AUTHN-000 {{ISSUE_URL:REQ-AUTHN-000}}
 - [ ] REQ-EDIT-000 {{ISSUE_URL:REQ-EDIT-000}}
 - [ ] REQ-MIGRATION-000 {{ISSUE_URL:REQ-MIGRATION-000}}
 - [ ] REQ-LAYOUT-010 {{ISSUE_URL:REQ-LAYOUT-010}}
 - [ ] REQ-HOME-010 {{ISSUE_URL:REQ-HOME-010}}
 - [ ] REQ-HOME-020 {{ISSUE_URL:REQ-HOME-020}}
-- [ ] REQ-PERF-010 {{ISSUE_URL:REQ-PERF-010}}
 - [ ] REQ-TEXTS-010 {{ISSUE_URL:REQ-TEXTS-010}}
 - [ ] REQ-DOWNLOADS-010 {{ISSUE_URL:REQ-DOWNLOADS-010}}
 - [ ] REQ-CONTACT-010 {{ISSUE_URL:REQ-CONTACT-010}}
 - [ ] REQ-LEGAL-010 {{ISSUE_URL:REQ-LEGAL-010}}
-- [ ] REQ-PRIV-010 {{ISSUE_URL:REQ-PRIV-010}}
-- [ ] REQ-PRIV-020 {{ISSUE_URL:REQ-PRIV-020}}
 - [ ] REQ-HOST-010 {{ISSUE_URL:REQ-HOST-010}}
 - [ ] REQ-HOST-020 {{ISSUE_URL:REQ-HOST-020}}
+- [ ] REQ-HOST-030 {{ISSUE_URL:REQ-HOST-030}}
+- [ ] REQ-PRIV-020 {{ISSUE_URL:REQ-PRIV-020}}
+- [ ] REQ-PERF-010 {{ISSUE_URL:REQ-PERF-010}}
+- [ ] REQ-PRIV-010 {{ISSUE_URL:REQ-PRIV-010}}
