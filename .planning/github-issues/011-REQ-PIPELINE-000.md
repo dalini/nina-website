@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-31, PQ-32, PQ-33 (blocking for the excluded parts); PQ-42, PQ-43 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-31: paid GitHub plan (Pro or Team): branch protection and the `production` environment limited to `main` are available; PQ-32: the publish status file is public (SEC-CICD-9); PQ-33: each secret file is owned by the one unprivileged account that uses it; the Instagram token belongs to the deploy account, which also runs the refresh (SEC-SECRET-1); PQ-42: 20 requests/s per IP (burst 40) and 20 connections per IP; preview: 5 failed sign-ins per IP per minute, then 429 (ARCHITECTURE.md Static Hosting); PQ-43: 30 minutes (SEC-CICD-8). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

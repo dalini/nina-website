@@ -16,7 +16,7 @@
 - **Statement**: Every production run MUST write the publish status file (DF-9) through the deploy channel, containing only the Content Store version, the result (success or failure) and, for a failure caused by content, the failing item's identifier and field name; it MUST NOT contain content values, build log output or secrets.
 - **Rationale**: The status lets the Editing Interface tell Nina whether her change is live (FR-10.8) without leaking unpublished content (T-59).
 - **Assumptions**: None
-- **Out of Scope**: Who may read the file, whether nginx serves it, and the banner in the Editing Interface (blocked scope, PQ-32); until PQ-32 is answered the file is not served.
+- **Out of Scope**: Who may read the file, whether nginx serves it, and the banner in the Editing Interface (decided in step 10 again; drafted by the step 9 re-run, PQ-32); PQ-32 answered in step 10 again: the file is public; serving it is drafted by the step 9 re-run.
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (publish status file on `edit.nina-laaf.de`); DR-1 (status carries no content)
 - **Security Traceability**: SEC-CICD-9 (content of the file)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Successful and failing runs against the test host
 - **Security Tests**: Marker-text fixture (SEC-CICD-9 Verification)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-120/AC-01`; AC-02 → `test:PIPELINE-120/AC-02`; AC-03 → `test:PIPELINE-120/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-120/AC-01`; AC-02 → `test:PIPELINE-120/AC-02`; AC-03 → `test:PIPELINE-120/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A small writer with a fixed schema; the open access question is excluded.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-32 (blocking for access and display only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-32: the publish status file is public (SEC-CICD-9). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

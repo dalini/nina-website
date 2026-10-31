@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface MUST send a Content Security Policy that allows script only from its own origin (no inline or third-party script), allows connections only to its own origin and the GitHub endpoints the CMS uses, and sets `frame-ancestors 'none'`; the full directive list MUST name each allowed origin.
 - **Rationale**: Sveltia CMS keeps the editor's GitHub token in browser storage; any foreign script in that origin could steal it (T-45, T-46).
 - **Assumptions**: None
-- **Out of Scope**: Serving the CMS bundle (REQ-EDIT-010); the OAuth helper's sign-in flow (blocked scope, PQ-34).
+- **Out of Scope**: Serving the CMS bundle (REQ-EDIT-010); the OAuth helper's sign-in flow (decided in step 10 again; drafted by the step 9 re-run, PQ-34).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (own origin, DR-9); Static Hosting
 - **Security Traceability**: SEC-HTTP-4 (CSP for the Editing Interface)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Browser run of the main CMS workflows against a test repository with CSP violation collection
 - **Security Tests**: Injected inline and cross-origin script; exfiltration attempt to a non-listed host
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-050/AC-01`; AC-02 → `test:HTTP-050/AC-02`; AC-03 → `test:HTTP-050/AC-03`; AC-04 → `test:HTTP-050/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-050/AC-01`; AC-02 → `test:HTTP-050/AC-02`; AC-03 → `test:HTTP-050/AC-03`; AC-04 → `test:HTTP-050/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Test `edit.` host serving the pinned Sveltia CMS release (REQ-EDIT-010); test content repository; Chrome, Edge, Firefox, Safari
 

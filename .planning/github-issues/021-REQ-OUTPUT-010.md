@@ -79,7 +79,7 @@
 - **Integration Tests**: Build with the hostile fixture corpus across every page type
 - **Security Tests**: Hostile corpus (script tags, event handlers, `javascript:` variants with case and whitespace tricks, SVG and iframe markup); output scan
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:OUTPUT-010/AC-01`; AC-02 → `test:OUTPUT-010/AC-02`; AC-03 → `test:OUTPUT-010/AC-03`; AC-04 → `test:OUTPUT-010/AC-04`; AC-05 → `test:OUTPUT-010/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:OUTPUT-010/AC-01`; AC-02 → `test:OUTPUT-010/AC-02`; AC-03 → `test:OUTPUT-010/AC-03`; AC-04 → `test:OUTPUT-010/AC-04`; AC-05 → `test:OUTPUT-010/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model, including hostile fixtures
 

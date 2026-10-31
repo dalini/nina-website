@@ -16,7 +16,7 @@
 - **Statement**: Before any output is deployed, the Site Build MUST run every rule of the content model (REQ-CONTENT-010, -020, -050, -060) and the publish rules of FR-10.6 (a published featured work exists; the Contact email address, the Impressum and the Datenschutzerklärung exist); on any violation it MUST fail, report the failing item and field, and publish nothing, leaving the previous site online.
 - **Rationale**: A direct write can bypass the Editing Interface (T-12, T-49); failing closed keeps the live site intact and tells Nina what to fix (FR-10.8).
 - **Assumptions**: None
-- **Out of Scope**: Showing the failure to Nina in the Editing Interface (blocked scope, PQ-32); file type, size, pixel and SVG rechecks (REQ-IMAGES-040, REQ-IMAGES-050).
+- **Out of Scope**: Showing the failure to Nina in the Editing Interface (decided in step 10 again; drafted by the step 9 re-run, PQ-32); file type, size, pixel and SVG rechecks (REQ-IMAGES-040, REQ-IMAGES-050).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (rechecks content rules, fails the publish); DR-3
 - **Security Traceability**: SEC-INPUT-3
@@ -79,7 +79,7 @@
 - **Integration Tests**: Full build against a test content repository with an invalid commit; deploy step not reached
 - **Security Tests**: Direct-write fixtures (bypassing the Editing Interface) for each rule; the build log contains no content values
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-030/AC-01`; AC-02 → `test:CONTENT-030/AC-02`; AC-03 → `test:CONTENT-030/AC-03`; AC-04 → `test:CONTENT-030/AC-04`; AC-05 → `test:CONTENT-030/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-030/AC-01`; AC-02 → `test:CONTENT-030/AC-02`; AC-03 → `test:CONTENT-030/AC-03`; AC-04 → `test:CONTENT-030/AC-04`; AC-05 → `test:CONTENT-030/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model, including hostile fixtures
 

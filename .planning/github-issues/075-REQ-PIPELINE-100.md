@@ -16,7 +16,7 @@
 - **Statement**: Every build job MUST have a time limit well above a normal build; the account's Actions spending limit MUST stay at zero and GitHub's included-usage alerts for Actions minutes MUST be on and reach Ives; an unexplained build run or usage alert is handled as a suspected leak of the build-trigger token.
 - **Rationale**: A stuck build or a leaked trigger token must not exhaust the 2,000 included minutes or cause costs (T-56).
 - **Assumptions**: None
-- **Out of Scope**: Rotating the trigger token (blocked scope with the content check, PQ-33).
+- **Out of Scope**: Rotating the trigger token (decided in step 10 again; drafted by the step 9 re-run, with the content check, PQ-33).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (one concurrency group; cost note)
 - **Security Traceability**: SEC-CICD-8
@@ -77,7 +77,7 @@
 - **Integration Tests**: Over-long test job in a test repository
 - **Security Tests**: Billing and alert settings review (also in the yearly REQ-HOST-010 review)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-100/AC-01`; AC-02 → `test:PIPELINE-100/AC-02`; AC-03 → `test:PIPELINE-100/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-100/AC-01`; AC-02 → `test:PIPELINE-100/AC-02`; AC-03 → `test:PIPELINE-100/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Configuration and settings with a simple test.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-43 (non-blocking): the time limit value.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-43: 30 minutes (SEC-CICD-8).

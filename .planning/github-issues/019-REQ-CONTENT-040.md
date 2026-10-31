@@ -78,7 +78,7 @@
 - **Integration Tests**: Production build of fixture content with unpublished items of every type; full-text search of the output
 - **Security Tests**: Search of the output for unpublished identifiers and media file names; HTTP requests for guessed paths return 404 on the test host
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-040/AC-01`; AC-02 → `test:CONTENT-040/AC-02`; AC-03 → `test:CONTENT-040/AC-03`; AC-04 → `test:CONTENT-040/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:CONTENT-040/AC-01`; AC-02 → `test:CONTENT-040/AC-02`; AC-03 → `test:CONTENT-040/AC-03`; AC-04 → `test:CONTENT-040/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model, including hostile fixtures
 

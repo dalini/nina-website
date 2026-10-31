@@ -1,6 +1,6 @@
 # DESIGN
 
-`DESIGN.md` owns the visual and frontend design language of nina-laaf.de. `style-guide.html` renders it as working code; `logo.svg` is the mark. Product, users and pages: see `REQUIREMENTS.md`. Decisions from step 10: `.planning/OPEN_QUESTIONS.md`.
+`DESIGN.md` owns the visual and frontend design language of nina-laaf.de. `style-guide.html` renders it as working code; `logo.svg` is the mark. Product, users and pages: see `REQUIREMENTS.md`. Decisions from step 10 and step 10 again: `.planning/OPEN_QUESTIONS.md`.
 
 ## Required Design Inputs
 
@@ -58,9 +58,18 @@ Contrast (WCAG 2.2 AA). Light: `text`/`primary` on `background` 16.5:1, on `surf
 - **Buttons**: one style, solid `primary` with `background` text, 4 px radius, at least 44 × 44 px; hover lightens the fill; disabled uses `secondary` and is not clickable.
 - **Language switch** (`REQUIREMENTS.md` FR-1.3): shown in the header as "DE | EN", with the current language marked and announced to screen readers.
 - **Work metadata**: title (semibold), then year, materials, dimensions, edition in `secondary`, `sm` size.
-- **Image with credit**: image, then caption and credit ("Foto: …" / "Photo: …") in `secondary`, `xs` size.
+- **Image with credit**: image, then caption (optional, `REQUIREMENTS.md` FR-3.7) and credit ("Foto: …" / "Photo: …") in `secondary`, `xs` size.
+- **Image viewer** (work pages, `REQUIREMENTS.md` FR-3.11): opens the selected image full-screen on `background`, with caption and credit below it; previous, next and close are Buttons, also reachable with the arrow keys and Esc; focus moves into the viewer and returns to the image when it closes; no auto-advance, no animated transition when reduced motion is preferred. Without JavaScript each image is a plain link to its largest size.
+- **Exhibition entry page** (`REQUIREMENTS.md` FR-4.7): title (semibold), then type, venue, city and dates in `secondary`; co-exhibitors and external link when entered; the description in body text; installation images as Image with credit; linked works as thumbnails in the works grid.
+- **Consent banner** (`REQUIREMENTS.md` FR-9.2): a bar fixed to the bottom of the viewport on `surface`, with a short text and a link to the Datenschutzerklärung, and two Buttons of equal size and style (Accept, Decline); it never covers the page's main content on load and does not block scrolling. A footer link reopens it. Text and labels are written with the Datenschutzerklärung and approved by Nina (`SECURITY.md` Required Security Inputs).
 - **Instagram posts** (home page, `REQUIREMENTS.md` FR-8.2): up to 6 post images laid out in the works grid (Layout and Spacing), each linking to its post, followed by the @ninalaaf link; images are self-hosted (`SECURITY.md` SEC-PRIV-3). When no posts exist only the link is shown (FR-8.4).
-- **Inputs and form feedback** (editing interface and any later contact form): label above the field, 1 px `secondary` border, 4 px radius; errors show in `error` below the field, with text that names the problem (not color alone).
+- **Inputs and form feedback** (public site only: the consent banner and any later contact form; the Editing Interface uses Sveltia CMS's own UI without restyling): label above the field, 1 px `secondary` border, 4 px radius; errors show in `error` below the field, with text that names the problem (not color alone).
+- **Interface labels** (`REQUIREMENTS.md` FR-1.1, FR-4.1, FR-4.2, FR-5.2, FR-6.2):
+  - Navigation: EN Works, Exhibitions/News, Texts, CV, Contact; DE Arbeiten, Ausstellungen/News, Texte, Vita, Kontakt.
+  - CV sections: EN Short bio, Education, Solo exhibitions, Works in public space, Group exhibitions, Awards and grants; DE Kurzbiografie, Ausbildung, Einzelausstellungen, Arbeiten im öffentlichen Raum, Gruppenausstellungen, Preise und Stipendien.
+  - Exhibition groups: EN Upcoming, Current, Past; DE Demnächst, Aktuell, Vergangen.
+  - Exhibition types: EN Solo, Two-person, Group, Fair; DE Einzelausstellung, Doppelausstellung, Gruppenausstellung, Messe.
+  - Download label: "PDF" in both languages.
 - **Focus state**: every interactive element shows a 2 px `primary` outline with 2 px offset on keyboard focus.
 
 ## Accessibility
@@ -75,4 +84,4 @@ Contrast (WCAG 2.2 AA). Light: `text`/`primary` on `background` 16.5:1, on `surf
 
 ## Open Questions
 
-None open. DQ-1 to DQ-4 were resolved in step 10 (`.planning/OPEN_QUESTIONS.md`). Deferred: the final mark; `logo.svg` stays a provisional placeholder until Nina decides.
+None open. DQ-1 to DQ-4 were resolved in step 10; PQ-38, PQ-46 and PQ-52 in step 10 again (`.planning/OPEN_QUESTIONS.md`). Deferred: the final mark; `logo.svg` stays a provisional placeholder until Nina decides.

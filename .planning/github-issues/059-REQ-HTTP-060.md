@@ -69,7 +69,7 @@
 - **On External Dependency Failure**: Certificate authority unreachable: renewal retries before expiry; continued failure alerts Ives
 - **On System Error**: nginx refuses to start with an invalid configuration; the configuration is checked before it is reloaded, so the running configuration stays in place
 - **Logging / Audit**: nginx access logs as SEC-PRIV-6 (REQ-PRIV-020)
-- **Alerting**: A failed renewal, or a certificate within its renewal window that was not renewed, alerts Ives (mechanism: PQ-40)
+- **Alerting**: A failed renewal, or a certificate within its renewal window that was not renewed, alerts Ives (by email through an SMTP relay, PQ-40, SEC-HTTP-5)
 
 ## Test Strategy
 
@@ -77,7 +77,7 @@
 - **Integration Tests**: Forced renewal and forced failure on the test server; expiry check against all three hosts
 - **Security Tests**: N/A
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-060/AC-01`; AC-02 → `test:HTTP-060/AC-02`; AC-03 → `test:HTTP-060/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-060/AC-01`; AC-02 → `test:HTTP-060/AC-02`; AC-03 → `test:HTTP-060/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test server running the same nginx configuration as the VPS, plus the live hosts after deploy
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Standard renewal job and expiry check once the source and alert channel are chosen.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-40 (non-blocking): certificate source and alert mechanism.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-40: Let's Encrypt; alerts emailed to Ives through an SMTP relay (SEC-HTTP-5).

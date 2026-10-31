@@ -16,7 +16,7 @@
 - **Statement**: When the Instagram refresh fails, the Site Build MUST still publish all other content and MUST reuse the post list and images already deployed on the VPS, read over the deploy SSH channel with a pinned host key, applying the current hidden-post list and feed switch; when none are deployed, the home page shows only the link (FR-8.4).
 - **Rationale**: Publishing must not depend on Instagram's availability or the token's state (T-39).
 - **Assumptions**: None
-- **Out of Scope**: Token delivery and refresh (blocked scope, PQ-33).
+- **Out of Scope**: Token delivery and refresh (decided in step 10 again; drafted by the step 9 re-run, PQ-33).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build may read its own earlier output from Static Hosting (DR-1); Instagram Feed Integration
 - **Security Traceability**: SEC-CICD-1 (deploy channel, pinned host key)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Build against a test host with and without deployed feed files; refresh forced to fail
 - **Security Tests**: Host-key mismatch test; malformed deployed files
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:INSTAGRAM-040/AC-01`; AC-02 → `test:INSTAGRAM-040/AC-02`; AC-03 → `test:INSTAGRAM-040/AC-03`; AC-04 → `test:INSTAGRAM-040/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:INSTAGRAM-040/AC-01`; AC-02 → `test:INSTAGRAM-040/AC-02`; AC-03 → `test:INSTAGRAM-040/AC-03`; AC-04 → `test:INSTAGRAM-040/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Test target host with the deploy account of REQ-PIPELINE-010 and test keys; mock Instagram API that fails
 

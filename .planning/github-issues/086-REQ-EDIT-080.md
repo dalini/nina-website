@@ -16,10 +16,10 @@
 - **Statement**: For each content item the Editing Interface MUST show who changed it and when, taking the editor from the Content Store history, and MUST let an editor restore an earlier version as a new change.
 - **Rationale**: Nina can see and undo changes (FR-10.7, T-9).
 - **Assumptions**: None
-- **Out of Scope**: Protecting the history against rewriting and requiring verified commits (blocked scope, PQ-31).
+- **Out of Scope**: Protecting the history against rewriting and requiring verified commits (decided in step 10 again; drafted by the step 9 re-run, PQ-31).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface; Content Store (Git history)
-- **Security Traceability**: SEC-AUDIT-1 (attribution taken from the sign-in; enforcement is blocked scope, PQ-31)
+- **Security Traceability**: SEC-AUDIT-1 (attribution taken from the sign-in; enforcement decided in step 10 again; drafted by the step 9 re-run, PQ-31)
 
 ## Scope
 
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: The save is rejected and the form names the missing or invalid field in text (FR-10.6, DESIGN.md Inputs and form feedback); nothing is committed
-- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper is blocked scope (PQ-34) and not part of this issue
+- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper (PQ-34 answered in step 10 again: Deno port) is not part of this issue; the step 9 re-run drafts it
 - **On Authorization Failure**: A commit by an account that is not on the Content Store allow-list is rejected by GitHub (SEC-AUTHZ-1, REQ-STORE-010); the Editing Interface shows the error and nothing changes
 - **On Security-Decision Failure**: N/A: the authoritative checks are the Site Build rechecks
 - **On External Dependency Failure**: GitHub API unavailable: the save fails with an error shown to the editor; nothing is half-written; the public site stays online (T-10)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Two test editor accounts making changes; restore through the test instance
 - **Security Tests**: Content written directly to the test content repository, bypassing the forms, is rejected by the Site Build recheck
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-080/AC-01`; AC-02 → `test:EDIT-080/AC-02`; AC-03 → `test:EDIT-080/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-080/AC-01`; AC-02 → `test:EDIT-080/AC-02`; AC-03 → `test:EDIT-080/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test Sveltia CMS instance at the pinned release (REQ-EDIT-010) with the project configuration, working on a test content repository with a test editor account (not `dalini/nina-content`); Chrome, Edge, Firefox and Safari in their last two major versions; keyboard-only check
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Depends on a capability of the editing system that must be verified, with a careful restore path.
 - **Required Human Review**: Product review by Nina (forms and wording); security review by Ives
-- **Open Decisions**: PQ-44 (non-blocking): verify how Sveltia CMS provides history and restore; a gap is raised as an open question, not filled by the implementer.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-44: where Sveltia CMS cannot enforce a check, the publish fails instead; history and restore from Git, Ives restores on request (FR-10.6, FR-10.7).

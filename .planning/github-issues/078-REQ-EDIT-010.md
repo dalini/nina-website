@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface page on `edit.nina-laaf.de` MUST load the Sveltia CMS bundle only from its own origin, pinned to an exact release and verified against a published checksum or the lockfile, together with the project's CMS configuration from `dalini/nina-site`; it MUST NOT load the bundle or any script from a CDN.
 - **Rationale**: The CMS runs with the editor's GitHub token; a CDN or floating release could ship code that steals it (T-46).
 - **Assumptions**: None
-- **Out of Scope**: The OAuth helper (blocked scope, PQ-34); the CSP (REQ-HTTP-050).
+- **Out of Scope**: The OAuth helper (decided in step 10 again; drafted by the step 9 re-run, PQ-34); the CSP (REQ-HTTP-050).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (bundle served from the VPS at a pinned release); DR-9
 - **Security Traceability**: SEC-CICD-2 (Editing Interface bundle)
@@ -64,7 +64,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: A bundle whose checksum does not match is not installed; the previous bundle stays in place
-- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper is blocked scope (PQ-34) and not part of this issue
+- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper (PQ-34 answered in step 10 again: Deno port) is not part of this issue; the step 9 re-run drafts it
 - **On Authorization Failure**: A commit by an account that is not on the Content Store allow-list is rejected by GitHub (SEC-AUTHZ-1, REQ-STORE-010); the Editing Interface shows the error and nothing changes
 - **On Security-Decision Failure**: N/A: the authoritative checks are the Site Build rechecks
 - **On External Dependency Failure**: GitHub API unavailable: the save fails with an error shown to the editor; nothing is half-written; the public site stays online (T-10)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Load the test `edit.` host and record script origins
 - **Security Tests**: Checksum mismatch fixture; network recording of the page
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-010/AC-01`; AC-02 → `test:EDIT-010/AC-02`; AC-03 → `test:EDIT-010/AC-03`; AC-04 → `test:EDIT-010/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-010/AC-01`; AC-02 → `test:EDIT-010/AC-02`; AC-03 → `test:EDIT-010/AC-03`; AC-04 → `test:EDIT-010/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test Sveltia CMS instance at the pinned release (REQ-EDIT-010) with the project configuration, working on a test content repository with a test editor account (not `dalini/nina-content`); Chrome, Edge, Firefox and Safari in their last two major versions; keyboard-only check
 

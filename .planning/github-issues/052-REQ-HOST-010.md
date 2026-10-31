@@ -77,7 +77,7 @@
 - **Integration Tests**: DNS records compared with the live targets of all three hosts
 - **Security Tests**: Review that each provider account has a second factor enabled
 - **Compliance Tests / Evidence**: Evidence: the dated yearly review record (it also covers the SEC-CICD-8 billing settings and the SEC-HOST-2 update log)
-- **Acceptance-Criteria Traceability**: AC-01 → `test:HOST-010/AC-01`; AC-02 → `test:HOST-010/AC-02`; AC-03 → `test:HOST-010/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:HOST-010/AC-01`; AC-02 → `test:HOST-010/AC-02`; AC-03 → `test:HOST-010/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: The real provider accounts, reviewed by Ives
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; settings changes are made by Ives, who records them; a human reviews every change. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A checklist and its first review record; no code beyond a DNS check script.
 - **Required Human Review**: Security review by Ives; Nina is informed of the account holder
-- **Open Decisions**: PQ-51 (non-blocking): where the review record is kept.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-51: `docs/ops/` in `dalini/nina-website`.

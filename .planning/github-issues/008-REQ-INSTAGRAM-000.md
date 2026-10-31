@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST link to @ninalaaf on every page and show recent posts on the home page from build-time copies, failing safe when Instagram or a post fails.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Storing, refreshing and delivering the Instagram token (blocked scope, PQ-33).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Storing, refreshing and delivering the Instagram token (decided in step 10 again; drafted by the step 9 re-run, PQ-33).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Instagram Feed Integration; Site Build; DR-1, DR-5
 - **Security Traceability**: SEC-PRIV-1, SEC-PRIV-3, SEC-OUT-3, SEC-SECRET-3, SEC-CICD-6
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-33 (blocking, token handling); PQ-50, PQ-53 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-33: each secret file is owned by the one unprivileged account that uses it; the Instagram token belongs to the deploy account, which also runs the refresh (SEC-SECRET-1); PQ-50: first 120 characters of the caption, else a fixed text (FR-8.7); PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

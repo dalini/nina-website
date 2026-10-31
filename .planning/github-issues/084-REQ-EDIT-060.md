@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface MUST offer rich text only in Text bodies, Page content, News text, a work's short text and the CV bio, with only the SEC-OUT-1 elements (images only in Text bodies, from the Content Store), and MUST display content in lists, forms and previews with the same encoding and restricted rules as SEC-OUT-1, so that markup in content never runs.
 - **Rationale**: Script stored in content must not run when another editor opens it (T-5); in this origin it could steal the token (T-45).
 - **Assumptions**: None
-- **Out of Scope**: Displaying the publish status file as text (blocked scope, PQ-32).
+- **Out of Scope**: Displaying the publish status file as text (decided in step 10 again; drafted by the step 9 re-run, PQ-32).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface
 - **Security Traceability**: SEC-OUT-1 (editor format), SEC-OUT-4 (content display)
@@ -63,7 +63,7 @@
 ## Failure Behavior
 
 - **On Invalid Input**: The save is rejected and the form names the missing or invalid field in text (FR-10.6, DESIGN.md Inputs and form feedback); nothing is committed
-- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper is blocked scope (PQ-34) and not part of this issue
+- **On Authentication Failure**: Editing actions require a signed-in editor (SEC-AUTHN-1); the production sign-in through the OAuth helper (PQ-34 answered in step 10 again: Deno port) is not part of this issue; the step 9 re-run drafts it
 - **On Authorization Failure**: A commit by an account that is not on the Content Store allow-list is rejected by GitHub (SEC-AUTHZ-1, REQ-STORE-010); the Editing Interface shows the error and nothing changes
 - **On Security-Decision Failure**: N/A: the authoritative checks are the Site Build rechecks
 - **On External Dependency Failure**: GitHub API unavailable: the save fails with an error shown to the editor; nothing is half-written; the public site stays online (T-10)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Open hostile fixture items in every view of the test instance with a script-execution canary
 - **Security Tests**: Hostile corpus as REQ-OUTPUT-010; canary that reports any execution
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-060/AC-01`; AC-02 → `test:EDIT-060/AC-02`; AC-03 → `test:EDIT-060/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:EDIT-060/AC-01`; AC-02 → `test:EDIT-060/AC-02`; AC-03 → `test:EDIT-060/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test Sveltia CMS instance at the pinned release (REQ-EDIT-010) with the project configuration, working on a test content repository with a test editor account (not `dalini/nina-content`); Chrome, Edge, Firefox and Safari in their last two major versions; keyboard-only check
 

@@ -16,7 +16,7 @@
 - **Statement**: The Exhibitions/News page MUST list published Exhibition entries in the groups upcoming (start after today), current (today between start and end date, both inclusive) and past (end before today), with today taken as the build date in Europe/Berlin; upcoming and current entries are listed earliest start first, past entries most recent end date first; past entries MUST remain listed.
 - **Rationale**: FR-4.1 defines the grouping exactly; the nightly build keeps it current (FR-10.4).
 - **Assumptions**: None
-- **Out of Scope**: Entries whose end date is before their start date (blocked scope, PQ-36); the nightly build (REQ-PIPELINE-080).
+- **Out of Scope**: Entries whose end date is before their start date (decided in step 10 again; drafted by the step 9 re-run, PQ-36); the nightly build (REQ-PIPELINE-080).
 - **Design Traceability**: DESIGN.md Layout and Spacing; DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build (upcoming/current/past grouping in Europe/Berlin)
 - **Security Traceability**: N/A
@@ -79,7 +79,7 @@
 - **Integration Tests**: Builds with fixed build timestamps around midnight Berlin time
 - **Security Tests**: REQ-OUTPUT-010 hostile fixtures run against this page type; the REQ-PRIV-010 network test covers this page type
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:EXHIBITIONS-020/AC-01`; AC-02 → `test:EXHIBITIONS-020/AC-02`; AC-03 → `test:EXHIBITIONS-020/AC-03`; AC-04 → `test:EXHIBITIONS-020/AC-04`; AC-05 → `test:EXHIBITIONS-020/AC-05` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:EXHIBITIONS-020/AC-01`; AC-02 → `test:EXHIBITIONS-020/AC-02`; AC-03 → `test:EXHIBITIONS-020/AC-03`; AC-04 → `test:EXHIBITIONS-020/AC-04`; AC-05 → `test:EXHIBITIONS-020/AC-05` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Date-boundary logic fully defined by FR-4.1, with clear test cases.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-36 (blocking for the excluded case only); PQ-46 (non-blocking): group headings.
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-36: title, type, venue, city and both dates required; end before start rejected on save; no entry at all: the home page omits the block (FR-2.3, FR-10.6); PQ-46: labels in DESIGN.md Interface labels. Parts that were excluded as blocked scope are drafted by the step 9 re-run.

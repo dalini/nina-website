@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content and reject unsafe checkouts, so that templates only render (DR-3).
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Required title, type, venue and city of Exhibition entries and end-before-start dates (blocked scope, PQ-36).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Required title, type, venue and city of Exhibition entries and end-before-start dates (decided in step 10 again; drafted by the step 9 re-run, PQ-36).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store, Site Build; DR-2, DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-7
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-36 (blocking, Exhibition entry fields); PQ-53 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-36: title, type, venue, city and both dates required; end before start rejected on save; no entry at all: the home page omits the block (FR-2.3, FR-10.6); PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

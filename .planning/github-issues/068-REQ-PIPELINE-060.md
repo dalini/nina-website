@@ -16,7 +16,7 @@
 - **Statement**: The pipeline MUST build a preview of the same Content Store version including unpublished items and deploy it only to `preview.nina-laaf.de`, with a separate preview deploy key and account that can write only the preview web root; the production key MUST NOT be used for the preview, and the preview output MUST NOT reach `nina-laaf.de`.
 - **Rationale**: Editors check unpublished content before publishing (FR-10.9) without exposing it (T-21).
 - **Assumptions**: None
-- **Out of Scope**: The preview sign-in (REQ-PREVIEW-010); limiting secrets to `main` (blocked scope, PQ-31).
+- **Out of Scope**: The preview sign-in (REQ-PREVIEW-010); limiting secrets to `main` (decided in step 10 again; drafted by the step 9 re-run, PQ-31).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (preview build, separate preview deploy key); Static Hosting
 - **Security Traceability**: SEC-CICD-3, SEC-SECRET-2 (preview key part), SEC-INPUT-4
@@ -77,7 +77,7 @@
 - **Integration Tests**: End-to-end run with unpublished fixtures against test public and preview roots
 - **Security Tests**: Cross-root write attempts with each key
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-060/AC-01`; AC-02 → `test:PIPELINE-060/AC-02`; AC-03 → `test:PIPELINE-060/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-060/AC-01`; AC-02 → `test:PIPELINE-060/AC-02`; AC-03 → `test:PIPELINE-060/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -91,9 +91,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Key separation between two outputs from one run is easy to get subtly wrong (T-20, T-21).
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-31 (blocking for limiting secrets to `main` only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-31: paid GitHub plan (Pro or Team): branch protection and the `production` environment limited to `main` are available. Parts that were excluded as blocked scope are drafted by the step 9 re-run.

@@ -16,7 +16,7 @@
 - **Statement**: The nginx access logs of `nina-laaf.de`, `edit.nina-laaf.de` and `preview.nina-laaf.de` MAY contain full visitor IP addresses; they MUST be deleted after 14 days and MUST be readable only by the maintainer.
 - **Rationale**: IP addresses are personal data; they are kept only for abuse handling (T-30).
 - **Assumptions**: None
-- **Out of Scope**: Statistics from the logs (blocked scope, PQ-35); describing the logs in the Datenschutzerklärung (content, REQ-LEGAL-010 review).
+- **Out of Scope**: Statistics from the logs (decided in step 10 again; drafted by the step 9 re-run, PQ-35); describing the logs in the Datenschutzerklärung (content, REQ-LEGAL-010 review).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Static Hosting (keeps access logs as SEC-PRIV-6)
 - **Security Traceability**: SEC-PRIV-6
@@ -77,7 +77,7 @@
 - **Integration Tests**: Log rotation run with backdated files on the test server; permission checks per account
 - **Security Tests**: Read attempts from the deploy and web server accounts
 - **Compliance Tests / Evidence**: Evidence: log and rotation configuration and permission listing, for the Datenschutzerklärung review
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PRIV-020/AC-01`; AC-02 → `test:PRIV-020/AC-02`; AC-03 → `test:PRIV-020/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PRIV-020/AC-01`; AC-02 → `test:PRIV-020/AC-02`; AC-03 → `test:PRIV-020/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test server running the same nginx configuration as the VPS, plus the live hosts after deploy
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Log rotation and file permissions with a clear retention value.
 - **Required Human Review**: Security and privacy review by Ives
-- **Open Decisions**: PQ-35 (blocking for statistics, which would read these logs).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-35: Google Analytics with Consent Mode v2 and an own consent banner replaces the log statistics (SEC-PRIV-5, REQUIREMENTS.md FR-9.2). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

@@ -16,7 +16,7 @@
 - **Statement**: The Site Build MUST remove EXIF and all other embedded metadata, including location, device, software and dates, from every published image, keeping only the copyright notice and the creator (photographer).
 - **Rationale**: Photos can reveal where Nina lives or works (T-25); copyright and creator stay with the image.
 - **Assumptions**: None
-- **Out of Scope**: PDF metadata (blocked scope, PQ-39); Instagram media go through the same processing (REQ-INSTAGRAM-030).
+- **Out of Scope**: PDF metadata (decided in step 10 again; drafted by the step 9 re-run, PQ-39); Instagram media go through the same processing (REQ-INSTAGRAM-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build image processing
 - **Security Traceability**: SEC-PRIV-4
@@ -77,7 +77,7 @@
 - **Integration Tests**: Build with fixture originals carrying EXIF, XMP and IPTC blocks
 - **Security Tests**: Automated output scan for GPS and device fields across all images (SEC-PRIV-4 Verification)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:IMAGES-020/AC-01`; AC-02 → `test:IMAGES-020/AC-02`; AC-03 → `test:IMAGES-020/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:IMAGES-020/AC-01`; AC-02 → `test:IMAGES-020/AC-02`; AC-03 → `test:IMAGES-020/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model, including hostile fixtures
 

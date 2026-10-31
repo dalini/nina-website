@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-40, PQ-42 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-40: Let's Encrypt; alerts emailed to Ives through an SMTP relay (SEC-HTTP-5); PQ-42: 20 requests/s per IP (burst 40) and 20 connections per IP; preview: 5 failed sign-ins per IP per minute, then 429 (ARCHITECTURE.md Static Hosting).
 
 ## Sub-issues
 

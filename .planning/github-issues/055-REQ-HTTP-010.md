@@ -77,7 +77,7 @@
 - **Integration Tests**: Header and redirect check against the test server and, after deploy, the live host
 - **Security Tests**: TLS configuration scan; HTTP request matrix over sample paths and assets
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-010/AC-01`; AC-02 → `test:HTTP-010/AC-02`; AC-03 → `test:HTTP-010/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:HTTP-010/AC-01`; AC-02 → `test:HTTP-010/AC-02`; AC-03 → `test:HTTP-010/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test server running the same nginx configuration as the VPS, plus the live hosts after deploy
 

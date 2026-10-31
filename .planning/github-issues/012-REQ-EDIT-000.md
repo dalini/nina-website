@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-29, PQ-30, PQ-32, PQ-34 (blocking for the excluded parts); PQ-44, PQ-52, PQ-53 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-29: no inactivity timeout, no session maximum, cached content kept: accepted exception (SEC-AUTHN-3); PQ-30: GitHub OAuth App with its default scope; wider reach accepted (SEC-AUTHZ-3); PQ-32: the publish status file is public (SEC-CICD-9); PQ-34: Deno port of the Sveltia CMS Authenticator in `dalini/nina-site` (SEC-AUTHN-4); PQ-44: where Sveltia CMS cannot enforce a check, the publish fails instead; history and restore from Git, Ives restores on request (FR-10.6, FR-10.7); PQ-52: no restyling of Sveltia CMS (DESIGN.md); PQ-53: Nina pastes the post link; the build matches the shortcode (FR-8.6). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

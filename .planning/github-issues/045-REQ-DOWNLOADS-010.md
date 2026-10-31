@@ -16,7 +16,7 @@
 - **Statement**: The CV page MUST offer for download every PDF Nina publishes as a Download, each showing its title and that it is a PDF before the visitor opens it.
 - **Rationale**: Curators download portfolios (FR-6).
 - **Assumptions**: None
-- **Out of Scope**: PDF metadata checks (blocked scope, PQ-39); order of downloads (PQ-49, non-blocking).
+- **Out of Scope**: PDF metadata checks (decided in step 10 again; drafted by the step 9 re-run, PQ-39); order of downloads (PQ-49 answered in step 10 again: same-year works and downloads in Nina's order; same-year CV lines and same-date News alphabetically (FR-3.1, FR-4.6, FR-5.2, FR-6.1)).
 - **Design Traceability**: DESIGN.md Components (Links); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build; Public Site
 - **Security Traceability**: SEC-INPUT-4 (via REQ-CONTENT-040); SEC-INPUT-1 (via REQ-IMAGES-050)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Build with fixture Downloads
 - **Security Tests**: REQ-OUTPUT-010 hostile fixtures run against this page type; the REQ-PRIV-010 network test covers this page type
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:DOWNLOADS-010/AC-01`; AC-02 → `test:DOWNLOADS-010/AC-02`; AC-03 → `test:DOWNLOADS-010/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:DOWNLOADS-010/AC-01`; AC-02 → `test:DOWNLOADS-010/AC-02`; AC-03 → `test:DOWNLOADS-010/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: Site Build (Hugo) run locally against fixture content in the documented content model; the last two major versions of Chrome, Edge, Firefox, Safari (macOS, iOS) and Samsung Internet (NFR-4); keyboard-only and screen reader check
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A routine link list with a text label.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-39 (blocking for PDF metadata only); PQ-49 (non-blocking).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-39: PDF metadata cleaned automatically (SEC-PRIV-4); PQ-49: same-year works and downloads in Nina's order; same-year CV lines and same-date News alphabetically (FR-3.1, FR-4.6, FR-5.2, FR-6.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

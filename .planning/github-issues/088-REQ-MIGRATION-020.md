@@ -77,7 +77,7 @@
 - **Integration Tests**: Import plus production and preview builds
 - **Security Tests**: Legacy text containing `<a>`, `<p>` or `<script>` is imported as text and appears encoded in the build output (REQ-OUTPUT-010)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:MIGRATION-020/AC-01`; AC-02 → `test:MIGRATION-020/AC-02`; AC-03 → `test:MIGRATION-020/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:MIGRATION-020/AC-01`; AC-02 → `test:MIGRATION-020/AC-02`; AC-03 → `test:MIGRATION-020/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A copy of `docs/legacy-content/works/` and the legacy images; a test content repository; the Site Build for the end-to-end check
 

@@ -16,7 +16,7 @@
 - **Statement**: Every production deploy MUST record the Content Store version it was built from, the `dalini/nina-site` version and what triggered it, and the previously deployed version MUST be restorable without a new content change.
 - **Rationale**: After a bad publish or defacement, Ives must know what is live and roll back quickly (T-23, T-27).
 - **Assumptions**: None
-- **Out of Scope**: Content history in the Content Store (blocked scope, PQ-31).
+- **Out of Scope**: Content history in the Content Store (decided in step 10 again; drafted by the step 9 re-run, PQ-31).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build; Static Hosting
 - **Security Traceability**: SEC-AUDIT-2
@@ -77,7 +77,7 @@
 - **Integration Tests**: Two deploys to the test host, then a restore drill
 - **Security Tests**: Record content review
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-070/AC-01`; AC-02 → `test:PIPELINE-070/AC-02`; AC-03 → `test:PIPELINE-070/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:PIPELINE-070/AC-01`; AC-02 → `test:PIPELINE-070/AC-02`; AC-03 → `test:PIPELINE-070/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test copy of the workflow in a test repository, a test content repository and a test target host with test keys; never the production keys
 
@@ -91,7 +91,7 @@
 
 ## Implementation Notes
 
-- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` is blocked scope (PQ-31), so secrets are referenced by name and the run is not pointed at production until PQ-31 is answered; DEP-1 to DEP-8 apply
+- **Constraints**: GitHub Actions in `dalini/nina-site`, Hugo, rsync over SSH (ARCHITECTURE.md Deployment model); the `production` environment limited to `main` (PQ-31 answered in step 10 again: paid plan) is drafted by the step 9 re-run; until then secrets are referenced by name and the run is not pointed at production; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Printing secrets; giving content-processing steps access to deploy keys or the Instagram token (SEC-CICD-6)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A deploy record and a restore drill using the release layout from REQ-PIPELINE-010.

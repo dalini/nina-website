@@ -16,7 +16,7 @@
 - **Statement**: Only Ives (the maintainer) MUST have write access to `dalini/nina-site`; Nina's editor account MUST NOT be able to change templates, build configuration or pipeline definitions.
 - **Rationale**: Templates and pipeline run with the deploy secrets; editors must not be able to change them (T-11).
 - **Assumptions**: None
-- **Out of Scope**: Narrowing the scope of the Editing Interface credential, including the accepted risk that Ives's CMS token can write `dalini/nina-site` and the wider `repo,user` reach (blocked scope, PQ-30).
+- **Out of Scope**: Narrowing the scope of the Editing Interface credential, including the accepted risk that Ives's CMS token can write `dalini/nina-site` and the wider `repo,user` reach (decided in step 10 again; drafted by the step 9 re-run, PQ-30).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: DR-8 (templates, design tokens, build configuration and pipeline in `dalini/nina-site`, maintainer only)
 - **Security Traceability**: SEC-AUTHZ-3 (repository access part)
@@ -77,7 +77,7 @@
 - **Integration Tests**: Push attempt with a test account in Nina's role
 - **Security Tests**: Settings review including deploy keys
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:STORE-030/AC-01`; AC-02 → `test:STORE-030/AC-02`; AC-03 → `test:STORE-030/AC-03` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:STORE-030/AC-01`; AC-02 → `test:STORE-030/AC-02`; AC-03 → `test:STORE-030/AC-03` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A test GitHub account that is not a collaborator; the real repositories for the settings review
 
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and SECURITY.md; settings changes are made by Ives, who records them; a human reviews every change. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: Repository settings with one negative test.
 - **Required Human Review**: Security review by Ives; Nina confirms the editor list as owner
-- **Open Decisions**: PQ-30 (blocking for the credential scope only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-30: GitHub OAuth App with its default scope; wider reach accepted (SEC-AUTHZ-3). Parts that were excluded as blocked scope are drafted by the step 9 re-run.

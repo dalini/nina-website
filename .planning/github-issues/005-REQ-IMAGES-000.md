@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST publish images only as sized, metadata-free derivatives and recheck the type, size and pixel limits of every published file.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. PDF metadata checks (blocked scope, PQ-39).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. PDF metadata checks (decided in step 10 again; drafted by the step 9 re-run, PQ-39).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (responsive image sizes, metadata stripping, upload rechecks, DR-3)
 - **Security Traceability**: SEC-PRIV-4, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-39 (blocking, PDF metadata only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-39: PDF metadata cleaned automatically (SEC-PRIV-4). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
 
 ## Sub-issues
 

@@ -16,7 +16,7 @@
 - **Statement**: A one-time import MUST create one Work item for each of the 53 legacy work series in `docs/legacy-content/works/`, with its legacy title, its year when present and its images in the legacy order, all values in the German fields and the English fields left empty.
 - **Rationale**: The existing body of work moves to the new site (FR-11.1).
 - **Assumptions**: None
-- **Out of Scope**: Materials and dimensions, which the legacy data holds per image caption rather than per work (blocked scope, PQ-37); publish state and featured work (REQ-MIGRATION-020); alt text (REQ-MIGRATION-030).
+- **Out of Scope**: Materials and dimensions, which the legacy data holds per image caption rather than per work (decided in step 10 again; drafted by the step 9 re-run, PQ-37); publish state and featured work (REQ-MIGRATION-020); alt text (REQ-MIGRATION-030).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (one-time import of the legacy works, DF-3)
 - **Security Traceability**: SEC-OUT-1 (legacy text is encoded at build time), SEC-PRIV-4 (legacy EXIF stripped at build time)
@@ -78,7 +78,7 @@
 - **Integration Tests**: Import into a test repository, then a preview build
 - **Security Tests**: Legacy text containing `<a>`, `<p>` or `<script>` is imported as text and appears encoded in the build output (REQ-OUTPUT-010)
 - **Compliance Tests / Evidence**: N/A
-- **Acceptance-Criteria Traceability**: AC-01 → `test:MIGRATION-010/AC-01`; AC-02 → `test:MIGRATION-010/AC-02`; AC-03 → `test:MIGRATION-010/AC-03`; AC-04 → `test:MIGRATION-010/AC-04` (test command TO BE DECIDED by the first coding PR, CLAUDE.md)
+- **Acceptance-Criteria Traceability**: AC-01 → `test:MIGRATION-010/AC-01`; AC-02 → `test:MIGRATION-010/AC-02`; AC-03 → `test:MIGRATION-010/AC-03`; AC-04 → `test:MIGRATION-010/AC-04` (test command `deno task test`, CLAUDE.md)
 - **Coverage Target**: 80% line coverage of first-party code (CLAUDE.md Commands). Every AC-* has at least one automated test; every security decision and error path has a positive and a negative test.
 - **Required Test Environment**: A copy of `docs/legacy-content/works/` and the legacy images; a test content repository; the Site Build for the end-to-end check
 
@@ -97,4 +97,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md FR-11; `docs/legacy-content/` is reference input for the import, not specification; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; NOT VERIFIED, see ISSUE_PLAN.md Planning Rules), because: A mapping script from a known, uniform source format.
 - **Required Human Review**: Product review by Nina of the imported works
-- **Open Decisions**: PQ-37 (blocking for materials and dimensions only).
+- **Open Decisions**: None. Answered in step 10 again (`.planning/OPEN_QUESTIONS.md`): PQ-37: materials and dimensions from the first image's caption; every legacy caption kept on its image (FR-11.1). Parts that were excluded as blocked scope are drafted by the step 9 re-run.
