@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST define the documented, portable content model and make the Site Build enforce its rules, exclude unpublished content, and reject unsafe checkouts, content formats and front-matter fields, so that templates only render (DR-3).
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the slug of an Exhibition entry is filled in and what happens when two entries have the same slug (blocked: PQ-57).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. How the slug of an Exhibition entry is filled in and what happens when two entries have the same slug (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store, Site Build; DR-2, DR-3, DR-4
 - **Security Traceability**: SEC-INPUT-3, SEC-INPUT-4, SEC-INPUT-6, SEC-INPUT-7
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-57 (blocking) for the excluded slug part; nothing else for the decomposed leaves.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 

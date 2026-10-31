@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface MUST let editors create, edit, unpublish and delete Exhibition entries (with title, type, venue, city, start and end date, co-exhibitors, external link, linked works, description, installation images with their order, alt text, caption and photo credit, CV hide flag and CV wording) and News items (with title, date, text, external link and image), and MUST reject a save of an Exhibition entry without title, type, venue, city, start date or end date, or whose end date is before its start date (naming the end date), or of a News item without title or date, naming the missing field.
 - **Rationale**: Nina keeps exhibitions and news current herself (FR-10.1).
 - **Assumptions**: None
-- **Out of Scope**: How the slug of an entry is filled in, and duplicate slugs (blocked: PQ-57); upload checks (REQ-EDIT-050).
+- **Out of Scope**: How the slug of an entry is filled in, and duplicate slugs (decided in step 10 a third time, PQ-57; drafted by the next step 9 run); upload checks (REQ-EDIT-050).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface; Content Store (Exhibition entry, News item)
 - **Security Traceability**: SEC-OUT-2 (link fields rechecked by the Site Build, REQ-OUTPUT-030)
@@ -99,4 +99,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Declarative CMS configuration following the documented model.
 - **Required Human Review**: Product review by Nina (forms and wording); security review by Ives
-- **Open Decisions**: PQ-57 (blocking) for the excluded slug part.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6). Parts that were excluded as blocked scope are drafted by the next step 9 run.

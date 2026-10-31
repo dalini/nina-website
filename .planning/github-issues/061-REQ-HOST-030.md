@@ -16,7 +16,7 @@
 - **Statement**: Every process on the VPS that handles input from outside it (nginx workers, the OAuth helper, the content check, the Instagram token refresh, the backup, the deploy account's rsync) MUST run under an unprivileged account, never as root; the OAuth helper, the content check and the backup MUST each have their own account and the token refresh MUST run under the deploy account; and each secret file on the VPS (the OAuth helper's client secret, the build-trigger token, the read credentials of the content check and the backup, the Instagram token) MUST be owned by the one account that uses it and readable only by that account, never by root-run services, the web server or another job's account.
 - **Rationale**: One flaw in any internet-facing process must not reach every secret, the backup or the other sites (T-61, T-62).
 - **Assumptions**: None
-- **Out of Scope**: Base hardening (REQ-HOST-020); what the deploy keys may do (REQ-PIPELINE-140); the jobs themselves (REQ-PIPELINE-130, REQ-INSTAGRAM-050, REQ-STORE-050, REQ-AUTHN-030); the credential of the email alert path (blocked: PQ-56).
+- **Out of Scope**: Base hardening (REQ-HOST-020); what the deploy keys may do (REQ-PIPELINE-140); the jobs themselves (REQ-PIPELINE-130, REQ-INSTAGRAM-050, REQ-STORE-050, REQ-AUTHN-030); the credential of the email alert path (decided in step 10 a third time, PQ-56; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Static Hosting (process accounts, SEC-HOST-2; each secret file belongs to the account that uses it)
 - **Security Traceability**: SEC-HOST-2, SEC-SECRET-1

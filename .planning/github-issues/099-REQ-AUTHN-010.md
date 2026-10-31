@@ -16,7 +16,7 @@
 - **Statement**: Editors MUST sign in to the Editing Interface through the OAuth helper on `edit.nina-laaf.de`, a Deno port of the Sveltia CMS Authenticator kept in `dalini/nina-site`; the helper MUST request only the scopes SEC-AUTHZ-3 allows and never `workflow`, MUST read its GitHub OAuth client secret from its own secret file, and MUST release a token only to pages served from `https://edit.nina-laaf.de`, comparing the full origin (scheme and host); an empty allowed-domains setting MUST release no token.
 - **Rationale**: Nina cannot edit without a sign-in; the upstream authenticator releases tokens to any page when the setting is empty and compares host names only (T-80), and another site must not receive an editor's token (T-43).
 - **Assumptions**: The GitHub OAuth App keeps its default scope `repo,user` (accepted risk, SEC-AUTHZ-3)
-- **Out of Scope**: The `state` check and its cookies (REQ-AUTHN-020); the helper's process, account and Deno permissions (REQ-AUTHN-030); how the helper's code gets onto the VPS (blocked: PQ-54).
+- **Out of Scope**: The `state` check and its cookies (REQ-AUTHN-020); the helper's process, account and Deno permissions (REQ-AUTHN-030); how the helper's code gets onto the VPS (decided in step 10 a third time, PQ-54; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (GitHub OAuth helper on `edit.nina-laaf.de`, Deno port in `dalini/nina-site`); DR-9; DF-10
 - **Security Traceability**: SEC-AUTHN-1, SEC-AUTHN-4, SEC-AUTHZ-3, SEC-SECRET-1
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Security-critical port of an OAuth relay where upstream behavior (empty allowed-domains, host-only comparison) must be changed, not copied (T-80, T-43).
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-54 (blocking) for the excluded installation channel.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2). Parts that were excluded as blocked scope are drafted by the next step 9 run.

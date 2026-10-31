@@ -16,7 +16,7 @@
 - **Statement**: The Works page MUST list all published works newest year first, and works of the same year in the order Nina sets; works marked "in public space" MUST be identifiable on the Works page and MUST be viewable together as a group.
 - **Rationale**: Curators browse the whole body of work and the public commissions (FR-3.1, FR-3.8).
 - **Assumptions**: None
-- **Out of Scope**: The manual order that replaces the year order, and how Nina switches to it (blocked: PQ-59); work pages (REQ-WORKS-020).
+- **Out of Scope**: The manual order that replaces the year order, and how Nina switches to it (dropped in step 10 a third time, PQ-59: no order replaces the year order, FR-3.1); work pages (REQ-WORKS-020).
 - **Design Traceability**: DESIGN.md Layout and Spacing (Grid: 1 column small, 2 from `md`, 3 from `lg`); DESIGN.md Accessibility (WCAG 2.2 AA, visible focus, keyboard use, `lang`); `style-guide.html` as the rendered reference
 - **Architecture Traceability**: Site Build; Public Site
 - **Security Traceability**: SEC-INPUT-4 (via REQ-CONTENT-040)
@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: List and filtered view from fields already in the model; layout fixed by DESIGN.md.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-59 (blocking) for the excluded manual order.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-59: no order replaces the year order: newest year first, the manual position orders works within a year only (FR-3.1). The excluded replacing order is dropped (PQ-59), not drafted.

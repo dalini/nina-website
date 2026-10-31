@@ -98,4 +98,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; read DESIGN.md and `style-guide.html` before UI work; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Rendering from a neutral list with a small selection rule; the risky fetch is a separate issue.
 - **Required Human Review**: Product review by Nina (content and layout); design review against DESIGN.md and `style-guide.html`
-- **Open Decisions**: PQ-65 (non-blocking): the date format in the fallback alt text.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-65: numeric dates: DE `DD.MM.YYYY`, EN `YYYY-MM-DD`; ranges with both full dates and an en dash (FR-1.8).

@@ -16,7 +16,7 @@
 - **Statement**: The preview build's output and the Editing Interface files (CMS bundle, CMS configuration, the OAuth helper's code) MUST contain neither the Google tag loader nor the measurement ID, checked at build time, and `edit.nina-laaf.de` and `preview.nina-laaf.de` MUST make no request to a Google origin.
 - **Rationale**: Preview pages show unpublished titles and URLs; with the tag present, only the preview CSP would keep them from Google (T-85).
 - **Assumptions**: None
-- **Out of Scope**: Whether the preview shows the consent banner without a tag loader (PQ-62); the preview CSP itself (REQ-HTTP-040).
+- **Out of Scope**: Leaving the consent script and its footer link out of the preview build (decided in step 10 a third time, PQ-62; drafted by the next step 9 run); the preview CSP itself (REQ-HTTP-040).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Site Build (preview build); Editing Interface files in `dalini/nina-site`; DR-9
 - **Security Traceability**: SEC-PRIV-5 (preview and Editing Interface), SEC-HTTP-4
@@ -96,4 +96,4 @@
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Sonnet 5.5 (`claude-sonnet-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: A build-time search over two outputs plus a browser check on two hosts; the rule is unambiguous.
 - **Required Human Review**: Security review by Ives
-- **Open Decisions**: PQ-62 (non-blocking): whether the preview shows the consent banner (without a tag loader) or leaves the consent script out.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-62: the preview build leaves out the consent script and its footer link (FR-9.2, SEC-PRIV-5).

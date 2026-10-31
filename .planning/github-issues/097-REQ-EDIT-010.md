@@ -16,7 +16,7 @@
 - **Statement**: The Editing Interface page on `edit.nina-laaf.de` MUST load the Sveltia CMS bundle only from its own origin, pinned to an exact release and verified against a published checksum or the lockfile, together with the project's CMS configuration from `dalini/nina-site`; it MUST NOT load the bundle or any script from a CDN; and on the VPS the bundle and the configuration MUST NOT be writable by the web server, the OAuth helper's account or a deploy key.
 - **Rationale**: The CMS runs with the editor's GitHub token; a CDN or floating release could ship code that steals it (T-46).
 - **Assumptions**: None
-- **Out of Scope**: How the bundle and the configuration get from `dalini/nina-site` onto the VPS, and under which account (blocked: PQ-54, SECURITY.md SQ-22); the OAuth helper (REQ-AUTHN-010 to REQ-AUTHN-030); the CSP (REQ-HTTP-050).
+- **Out of Scope**: How the bundle and the configuration get from `dalini/nina-site` onto the VPS, and under which account (decided in step 10 a third time, PQ-54; drafted by the next step 9 run, SECURITY.md SQ-22); the OAuth helper (REQ-AUTHN-010 to REQ-AUTHN-030); the CSP (REQ-HTTP-050).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface (bundle served from the VPS at a pinned release); DR-9
 - **Security Traceability**: SEC-CICD-2 (Editing Interface bundle)
@@ -93,9 +93,9 @@
 
 ## Implementation Notes
 
-- **Constraints**: Until PQ-54 is answered, the deploy account writes nothing on `edit.nina-laaf.de` except the publish status file (SEC-CICD-2), and the installation channel is not part of this issue; configuration in `dalini/nina-site`; DEP-1 to DEP-8 apply
+- **Constraints**: The deploy account writes nothing on `edit.nina-laaf.de` except the publish status file (SEC-CICD-2); the files are installed by hand by Ives from a tagged release (PQ-54, decided in step 10 a third time; the installation itself is drafted by the next step 9 run); configuration in `dalini/nina-site`; DEP-1 to DEP-8 apply
 - **Prohibited Approaches**: Rules enforced only in the Editing Interface without the Site Build recheck (DR-3); configuration that lets editors write outside content and media (DR-8)
 - **Implementation Guidance**: None beyond the sources cited above.
 - **AI Development Guidance**: Follow CLAUDE.md and REQUIREMENTS.md; implement as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request. Recommended model: Claude Opus 5.5 (`claude-opus-5-5`; verified 2026-10-31, see ISSUE_PLAN.md Planning Rules), because: Supply-chain control for code that runs with every editor's token.
 - **Required Human Review**: Product review by Nina (forms and wording); security review by Ives
-- **Open Decisions**: PQ-54 (blocking) for the excluded installation channel.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2). Parts that were excluded as blocked scope are drafted by the next step 9 run.

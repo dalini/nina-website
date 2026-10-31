@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST serve all three hosts over HTTPS with the required headers and policies, renew certificates and limit abusive clients.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The email alert for a failed certificate renewal (blocked: PQ-56).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The email alert for a failed certificate renewal (decided in step 10 a third time, PQ-56; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Static Hosting; DR-9
 - **Security Traceability**: SEC-HTTP-1 to SEC-HTTP-5
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-56 (blocking) for the excluded alert.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-56: VPS alerts go through a local mail relay agent that runs under its own account and alone holds the relay credential; the jobs hand mail to local `sendmail` (SEC-HTTP-5, SEC-SECRET-1). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 

@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST let editors manage all content types, uploads, Instagram settings and history in a pinned Sveltia CMS on `edit.nina-laaf.de`, with the required-field and upload checks, safe display, and the publish status shown to Nina.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Sign-in through the OAuth helper (REQ-AUTHN-000). How the Editing Interface files reach the VPS (blocked: PQ-54); how an Exhibition entry's slug is filled in (blocked: PQ-57).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. Sign-in through the OAuth helper (REQ-AUTHN-000). How the Editing Interface files reach the VPS (decided in step 10 a third time, PQ-54; drafted by the next step 9 run); how an Exhibition entry's slug is filled in (decided in step 10 a third time, PQ-57; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Editing Interface; Content Store; DR-3, DR-8, DR-9
 - **Security Traceability**: SEC-CICD-2, SEC-INPUT-1, SEC-INPUT-2, SEC-INPUT-5, SEC-OUT-1, SEC-OUT-4
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-54 and PQ-57 (blocking) for the excluded parts; PQ-63 (non-blocking, status banner wording and look).
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-54: Ives installs the Editing Interface files by hand from a tagged, verified release of `dalini/nina-site`; root-owned, read-only to nginx and the helper; no deploy key writes them (SEC-CICD-2); PQ-57: the slug is generated from title and start year at first save (e.g. `faltungen-2025`) and never changes; duplicate slugs fail the publish, naming both entries (FR-4.7, SEC-INPUT-6); PQ-63: German, informal: "Deine Änderungen sind noch nicht online." and "Bitte prüfe: <Eintrag>, Feld <Feld>."; a strip above the CMS on `surface` with an `error` left border (FR-10.8, DESIGN.md Publish status banner). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 

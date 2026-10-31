@@ -16,7 +16,7 @@
 - **Statement**: The leaf issues of this workstream MUST import the 53 legacy works with their German values and image captions, publish state, featured work and interim alt text.
 - **Rationale**: Groups leaf issues that share components, rules and dependencies so they can be planned and reviewed together.
 - **Assumptions**: None
-- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The works' materials and dimensions (blocked: PQ-58, FR-11.1 conflicts with the legacy data).
+- **Out of Scope**: Implementation work in this workstream issue itself; behavior outside the listed leaves. The works' materials and dimensions and the migration report (decided in step 10 a third time, PQ-58; drafted by the next step 9 run).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store (one-time import, DF-3)
 - **Security Traceability**: N/A
@@ -96,7 +96,7 @@
 - **Implementation Guidance**: Work the leaves in ISSUE_PLAN.md Topological Creation Order
 - **AI Development Guidance**: Follow CLAUDE.md and the spec file that owns each domain; implement each leaf as one pull request (prompts/11-start-coding.md); a human reviews and merges every pull request.
 - **Required Human Review**: Per leaf issue
-- **Open Decisions**: PQ-58 (blocking) for the excluded materials and dimensions.
+- **Open Decisions**: None. Answered in step 10 a third time (`.planning/OPEN_QUESTIONS.md`): PQ-58: materials and dimensions come from the work-level legacy fields, else from a first caption in the form "materials | dimensions | year", else stay empty; a migration report lists what Nina must complete and values that break FR-3.3 (FR-11.1). Parts that were excluded as blocked scope are drafted by the next step 9 run.
 
 ## Sub-issues
 
