@@ -15,10 +15,11 @@ Eleven prompts take an empty repo to a full specification, and then to code.
 
 ## Status
 
-- Done: steps 1–8 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them; step 8 added the STRIDE threat model T-1 to T-42 to `SECURITY.md` and the resulting rules, requirements and dependency rules).
+- Done: steps 1–8 (`REQUIREMENTS.md`, `logo.svg`, `DESIGN.md`, `style-guide.html`, `ARCHITECTURE.md`, `SECURITY.md`, `REQUIREMENT_TEMPLATE.md`, `CLAUDE.md`, `AGENTS.md`; step 7 tightened and de-duplicated them; step 8 added the STRIDE threat model v1, T-1 to T-42, to `SECURITY.md` and the resulting rules, requirements and dependency rules).
 - Done: step 9 in `DRAFT_ONLY` (`.planning/github-issues/`: `ISSUE_PLAN.md`, 1 epic, 6 workstreams, 29 leaf issues). 15 blocking questions (PQ-1 to PQ-15) leave the editing interface, images, home page, exhibitions, Instagram feed, default/fallback language, required fields, DNS accounts, backups and migration undecomposed.
 - Done: step 10. Every open question was answered (record: `.planning/OPEN_QUESTIONS.md`): Hugo, Sveltia CMS on `edit.nina-laaf.de`, content in a private `dalini/nina-content` repository, code in `dalini/nina-site`, GitHub Actions deploying to a VPS with nginx, Instagram posts copied at build time, English at `/` and German under `/de/`. Deferred: the final logo mark and the test command.
-- Next: step 9 again (`DRAFT_ONLY`, then `CREATE`) to decompose the unblocked scope, in a fresh session.
+- Done: step 8 again (threat model v2, 2026-10-31) against the decided architecture: T-43 to T-68 added to `SECURITY.md` with new and strengthened rules (SEC-HTTP-4, -5, SEC-HOST-2, SEC-AUTHN-2 to -5, SEC-AUTHZ-3, SEC-AUDIT-1, SEC-AVAIL-1, SEC-INPUT-1, -2, -7, SEC-OUT-3, -4, SEC-PRIV-5, SEC-SECRET-1, -2, SEC-CICD-1, -2, -4, -6 to -9), FR-8.5 and FR-10.8 extended, and the Site Build split into stages in `ARCHITECTURE.md`. Six security questions are open (SQ-16 to SQ-21): session limits and token scope of the CMS sign-in, the GitHub plan needed for branch protection and environments on private repositories, access to the publish status file, how non-root processes on the VPS read their secrets, and the OAuth helper's runtime.
+- Next: step 10 again to answer SQ-16 to SQ-21, then step 9 again (`DRAFT_ONLY`, then `CREATE`) to decompose the unblocked scope, each in a fresh session.
 
 ## How to run it
 
