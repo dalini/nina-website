@@ -30,7 +30,7 @@
 Nina edits in the **Editing Interface**, which writes to the **Content Store**; the **Site Build** turns the store into static files; **Static Hosting** serves them to the **Public Site** in the visitor's browser. Flow and enforcement rules: Dependency Rules below.
 
 - **Editing Interface**
-  - **Technology:** Sveltia CMS, self-hosted at `edit.nina-laaf.de` together with its GitHub OAuth helper (DR-9); configuration kept in `dalini/nina-site`.
+  - **Technology:** Sveltia CMS, self-hosted at `edit.nina-laaf.de` together with its GitHub OAuth helper (DR-9); configuration kept in `dalini/nina-site`. The CMS bundle and the helper are served from the VPS at pinned releases, never loaded from a CDN (`SECURITY.md` SEC-CICD-2). The helper (Sveltia CMS Authenticator) is written for Cloudflare Workers, so its runtime on the VPS is TO BE DECIDED (`SECURITY.md` SQ-21).
   - **Responsibility:** Lets editors create, edit, unpublish and delete content and upload images/PDFs without technical skills (FR-10.1–10.3); validates required fields before saving (FR-10.6); shows change history and restore through the Git history (FR-10.7); shows the publish status banner (FR-10.8); manages the Instagram settings (FR-8.6).
   - **Inputs:** Editor actions and uploads; editor identity (GitHub sign-in); the publish status file written by the Site Build (DF-9).
   - **Outputs:** Commits of content and media to `main` of the Content Store. A save on `main` is the publish trigger (DF-4).
@@ -49,6 +49,7 @@ Nina edits in the **Editing Interface**, which writes to the **Content Store**; 
   - **Technology:** Hugo, run by GitHub Actions in `dalini/nina-site`, with the Hugo version pinned (`SECURITY.md` SEC-CICD-2).
   - **Responsibility:** Generates the complete static site in DE (`/de/`) and EN (`/`) from the Content Store: all pages, language switch targets (FR-1.3), upcoming/current/past grouping in Europe/Berlin (FR-4.1), the home page entry (FR-2.3), derived CV sections (FR-5.3), responsive image sizes from the originals with a 2400 px maximum (NFR-1, FR-3.10), metadata stripping (`SECURITY.md` SEC-PRIV-4), the Instagram posts (FR-8.2) and only published content. Rechecks content rules (DR-3); on invalid content it fails the publish (`SECURITY.md` SEC-INPUT-3).
   - **When it runs:** only when content changed, plus nightly. A cron job on the VPS checks `main` of the Content Store every minute with `git ls-remote` and a read-only credential (no GitHub Actions minutes) and, when the commit differs from the last one it started a build for, starts the build workflow in `dalini/nina-site` through `workflow_dispatch`; this meets the 15-minute limit of FR-10.4. A nightly scheduled build (Europe/Berlin) keeps FR-4.1 and FR-2.3 correct (FR-10.4). The workflow uses one concurrency group, so a new run replaces a queued one. Cost: Actions minutes are used only by real builds, well inside the 2,000 included minutes per month of a free private repository.
+  - **Stages:** checking out and processing the Content Store (Hugo, image and PDF processing, content checks) runs without the deploy keys and the Instagram token. Only the step that downloads Instagram posts and the step that deploys the finished output receive them (`SECURITY.md` SEC-CICD-6, T-54).
   - **Production and preview:** the production build of `main` publishes only published content to `nina-laaf.de`. A preview build of the same content, including unpublished items, is deployed to `preview.nina-laaf.de` with a separate preview deploy key (`SECURITY.md` SEC-CICD-3, SEC-SECRET-2).
   - **Inputs:** Content Store (read-only credential); templates and design tokens (`DESIGN.md`, `style-guide.html`) from `dalini/nina-site`, outside editors' write access (DR-8); build date; Instagram posts (Instagram Feed Integration).
   - **Outputs:** Static files (HTML, CSS, JavaScript, images, PDFs) deployed to Static Hosting; a publish status file on `edit.nina-laaf.de` (content version, success or failure, failing item and field) that the Editing Interface shows (FR-10.8); a GitHub Actions failure email to the maintainer (FR-10.8).
@@ -56,10 +57,10 @@ Nina edits in the **Editing Interface**, which writes to the **Content Store**; 
 
 - **Static Hosting**
   - **Technology:** a rented VPS (root server) in Germany running nginx, administered by Ives; serves `nina-laaf.de`, `preview.nina-laaf.de` and `edit.nina-laaf.de`. Registrar, DNS and VPS accounts are held by Ives (`SECURITY.md` SEC-HOST-1).
-  - **Responsibility:** Serves the generated files over HTTPS with the headers of `SECURITY.md` SEC-HTTP-1 to SEC-HTTP-4; limits requests and connections per IP (T-31); protects `preview.nina-laaf.de` with per-editor HTTP Basic Auth; keeps access logs as in `SECURITY.md` SEC-PRIV-6; produces cookieless statistics from those logs (SEC-PRIV-5); holds the weekly Content Store backup; runs the content check that starts builds (Site Build, When it runs); runs the monthly Instagram token refresh.
+  - **Responsibility:** Serves the generated files over HTTPS with the headers of `SECURITY.md` SEC-HTTP-1 to SEC-HTTP-4; limits requests and connections per IP (T-31); protects `preview.nina-laaf.de` with per-editor HTTP Basic Auth; keeps access logs as in `SECURITY.md` SEC-PRIV-6; produces cookieless statistics from those logs (SEC-PRIV-5); holds the weekly Content Store backup; runs the content check that starts builds (Site Build, When it runs); runs the monthly Instagram token refresh; runs the Editing Interface's OAuth helper. Server hardening and process accounts: `SECURITY.md` SEC-HOST-2.
   - **Inputs:** Output of the Site Build (rsync over SSH).
   - **Outputs:** Responses to visitor browsers.
-  - **Data owned or accessed:** Generated files; access logs; content backup; Instagram token.
+  - **Data owned or accessed:** Generated files; access logs and statistics reports; content backup; Instagram token, build-trigger token, the content check's and backup's read credentials, and the OAuth helper's client secret (`SECURITY.md` SEC-SECRET-1).
 
 - **Public Site (visitor's browser)**
   - **Responsibility:** Displays pages, the language switch and images; works without login (NFR-2); loads nothing from third parties (FR-8.2, `SECURITY.md` SEC-PRIV-1).
@@ -88,7 +89,7 @@ Nina edits in the **Editing Interface**, which writes to the **Content Store**; 
 
 - **DR-1** Content flows one way: Editing Interface → Content Store → Site Build → Static Hosting → Public Site. No component writes back upstream, and the Public Site never reaches the Editing Interface or Content Store. The Editing Interface may read the Site Build's publish status file (FR-10.8); the status carries no content and grants no write access (`SECURITY.md` T-24). The Site Build may read its own earlier output from Static Hosting to reuse the last Instagram posts (FR-8.5).
 - **DR-2** The Content Store is the only owner of content and media. Templates and the Public Site MUST NOT hold content that editors are expected to change (FR-10.1).
-- **DR-3** Content rules (required fields, publish state, language fields) are defined once for the content model and enforced by the Editing Interface and rechecked by the Site Build, never in the visitor's browser; templates only render.
+- **DR-3** Content rules (required fields, publish state, language fields) are defined once for the content model and enforced by the Editing Interface and rechecked by the Site Build, never in the visitor's browser; templates only render. The Site Build also rechecks the upload rules for every file it publishes (`SECURITY.md` SEC-INPUT-1, SEC-INPUT-2, T-49).
 - **DR-4** The content model MUST NOT depend on a specific editing system or generator: content is stored in a documented, portable format (Markdown with YAML front matter) so either can be replaced.
 - **DR-5** Instagram-specific data and access stay inside the Instagram Feed Integration; other components consume only a neutral list of posts (image, caption, link, date).
 - **DR-6** Third-party resources in the Public Site: `SECURITY.md` SEC-PRIV-1 and SEC-PRIV-3.
@@ -98,4 +99,4 @@ Nina edits in the **Editing Interface**, which writes to the **Content Store**; 
 
 ## Open Questions
 
-None. AQ-1 to AQ-5 were resolved in step 10 (`.planning/OPEN_QUESTIONS.md`).
+None. AQ-1 to AQ-5 were resolved in step 10 (`.planning/OPEN_QUESTIONS.md`). Open security questions that may change the architecture: `SECURITY.md` SQ-17, SQ-18, SQ-20, SQ-21.

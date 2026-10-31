@@ -78,7 +78,7 @@
 - **FR-8.2** The home page MUST show the 6 most recent posts of @ninalaaf that are not hidden (FR-8.6). Posts are copied into the site when it is built, so visitors' browsers never load anything from Instagram (`SECURITY.md` SEC-PRIV-1, SEC-PRIV-3).
 - **FR-8.3** Privacy rules for Instagram content: `SECURITY.md` SEC-PRIV-1 and SEC-PRIV-3; no consent step is needed because visitors make no request to Instagram.
 - **FR-8.4** If no posts can be shown (feed switched off, or none ever fetched), the home page MUST still render and MUST show the link from FR-8.1.
-- **FR-8.5** If the posts cannot be refreshed during a build, the build MUST still publish all other content, and the home page MUST show the posts from the last successful refresh. (Threat: `SECURITY.md` T-39.)
+- **FR-8.5** If the posts cannot be refreshed during a build, the build MUST still publish all other content, and the home page MUST show the posts from the last successful refresh. A fetched post whose media fails the checks of `SECURITY.md` SEC-OUT-3 MUST be left out like a hidden post (FR-8.6), without failing the build. (Threats: `SECURITY.md` T-39, T-68.)
 - **FR-8.6** Posts appear without Nina reviewing them. Nina MUST be able to hide a single post and to switch the whole feed off in the editing interface; the change is published like any other content change (FR-10.4). (Threat: `SECURITY.md` T-36.)
 
 ### Legal pages
@@ -94,7 +94,7 @@
 - **FR-10.5** Restricting content changes to the editors: `SECURITY.md` SEC-AUTHN-1, SEC-AUTHZ-1, SEC-AUTHZ-2.
 - **FR-10.6** The editor MUST reject a save and show which field is missing when: a work has no title, year or image; an image has no alt text; a Text has no title or body; a CV entry has no section or text, or no year in any section other than the short bio; a Download has no title or PDF file; a News item has no title or date; an Exhibition entry has no start or end date. A publish MUST fail (FR-10.8) when no published work is featured, or when the Contact email address, the Impressum or the Datenschutzerklärung is missing.
 - **FR-10.7** Nina MUST be able to see, for each content item, who changed it and when, and MUST be able to restore an earlier version. Attribution rule: `SECURITY.md` SEC-AUDIT-1. (Threat: `SECURITY.md` T-9.)
-- **FR-10.8** When a publish fails, the editing interface MUST show Nina that her changes are not live yet and, when content caused the failure, which item and field. Ives (the maintainer) MUST be notified by email. (Threat: `SECURITY.md` T-24.)
+- **FR-10.8** When a publish fails, or a saved change is still not live 15 minutes after it was saved (FR-10.4), the editing interface MUST show Nina that her changes are not live yet and, when content caused the failure, which item and field. Ives (the maintainer) MUST be notified by email. (Threats: `SECURITY.md` T-24, T-58.)
 - **FR-10.9** Editors MUST be able to preview unpublished content before it is published; previews are reachable only by editors (`SECURITY.md` SEC-CICD-3).
 
 ### Migration
