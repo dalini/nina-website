@@ -2,20 +2,20 @@
 
 - **ID**: REQ-MIGRATION-020
 - **Title**: Import legacy works without a year as unpublished, publish the rest, and feature the newest work
-- **Version**: 0.2.0
+- **Version**: 0.3.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 third run, prompts/09-github-epic.md)
-- **Last Updated**: 2026-10-31
+- **Last Updated**: 2026-11-01
 - **Priority**: Medium
 - **Requirement Type**: Functional
 - **Source / Parent**: REQUIREMENTS.md FR-11.2, FR-11.4, FR-10.3, FR-10.6; parent https://github.com/dalini/nina-website/issues/17
 
 ## Requirement
 
-- **Statement**: The import MUST mark the 12 legacy works without a year as unpublished and the other 41 as published, MUST ignore the legacy featured flag, and MUST make "vom Flüstern und Formen" (2023), the newest migrated work, the featured work.
+- **Statement**: The import MUST mark the 12 legacy works without a year as unpublished and the other 41 as published, MUST ignore the legacy featured flag, and MUST make "vom Flüstern und Formen" (2023), the newest migrated work, the featured work. Where the content model requires a value the legacy data lacks, the import MUST fill in a marked placeholder for Nina to replace: the year 1900 for the 12 unpublished works, and a plain gray placeholder image with the alt text "<title>, placeholder image" for a work without images (`oui`).
 - **Rationale**: Works without a year cannot be published (FR-10.6); one work is featured at launch (FR-11.4).
-- **Assumptions**: None
+- **Assumptions**: Placeholders instead of missing required values, so the imported content passes the rule check and builds (decided by Ives, 2026-11-01; the rule check requires a year and an image for every work, published or not)
 - **Out of Scope**: Adding years later (Nina, in the Editing Interface).
 - **Design Traceability**: N/A
 - **Architecture Traceability**: Content Store
@@ -56,7 +56,7 @@
 
 ## Acceptance Criteria
 
-1. **AC-01 — Expected behavior**: Given the import ran, when the Content Store is checked, then 41 works are published, 12 are unpublished, and only "vom Flüstern und Formen" is featured.
+1. **AC-01 — Expected behavior**: Given the import ran, when the Content Store is checked, then 41 works are published, 12 are unpublished with the placeholder year 1900, `oui` has the placeholder image, the rule check reports nothing, and only "vom Flüstern und Formen" is featured.
 2. **AC-02 — Boundary or failure behavior**: Given the production build of the imported content, when it runs, then it succeeds and none of the 12 unpublished works appears on the public site.
 3. **AC-03 — Prohibited behavior**: Given legacy works with `featured: true`, when they are imported, then that flag has no effect.
 
