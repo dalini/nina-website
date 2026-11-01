@@ -2,11 +2,11 @@
 
 - **ID**: REQ-MIGRATION-010
 - **Title**: Import the 53 legacy works with their German title, year, images and image captions into the Content Store
-- **Version**: 0.3.0
+- **Version**: 0.4.0
 - **Status**: Draft
 - **Owner**: Maintainer Ives (dalini)
 - **Author**: Claude (step 9 fourth run, prompts/09-github-epic.md)
-- **Last Updated**: 2026-10-31
+- **Last Updated**: 2026-11-01
 - **Priority**: Medium
 - **Requirement Type**: Functional
 - **Source / Parent**: REQUIREMENTS.md FR-11.1 (title, year, images, captions), FR-1.7, FR-3.7; ARCHITECTURE.md Content Store (one-time import, DF-3); parent https://github.com/dalini/nina-website/issues/17
@@ -59,7 +59,7 @@
 1. **AC-01 — Expected behavior**: Given the 53 legacy files, when the import runs against a test content repository, then 53 Work items exist, each with its legacy title and, for the 41 that have one, its year.
 2. **AC-02 — Boundary or failure behavior**: Given a legacy file with images in order 1, 2, 3, when it is imported, then the Work's images keep that order with their image files present.
 3. **AC-03 — Boundary or failure behavior**: Given a legacy image file missing from Git LFS, when the import runs, then it stops naming the file and commits nothing.
-4. **AC-04 — Prohibited behavior**: Given any imported Work, when its fields are reviewed, then no English value is filled in and no value is invented.
+4. **AC-04 — Prohibited behavior**: Given any imported Work, when its fields are reviewed, then no English value is filled in and no value is invented, except the marked placeholders of REQ-MIGRATION-020 and the interim alt text of REQ-MIGRATION-030.
 5. **AC-05 — Additional criterion**: Given `faltung` and `aluminiumg-sse`, whose images carry different legacy captions, when they are imported, then each image's German caption is its own legacy caption unchanged, and images without a legacy caption have none.
 
 ## Failure Behavior
